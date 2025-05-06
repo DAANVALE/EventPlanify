@@ -1,0 +1,38 @@
+<p-toolbar class="shadow-2">
+  <ng-template pTemplate="start">
+    <div class="flex align-items-center gap-2">
+      <img ngSrc="../../assets/calendars.png" width="50" height="50" alt="Logo" style="margin-right: 20px; margin-bottom: -10px"/>
+      <span class="text-2xl font-bold text-primary" style="font-size: 40px;">EventPlanify</span>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="center">
+    <div class="hidden md:flex flex-1 justify-content-center px-4">
+      <span class="text-lg font-large text-secondary">
+        Encuentra servicios y organiza tu evento ideal
+      </span>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="end">
+    <div class="flex align-items-center gap-3">
+      <!-- Botones visibles solo en pantallas grandes
+        <button pButton label="Explorar" class="p-button-text hidden md:inline-flex"></button>
+        <button pButton label="Mis eventos" class="p-button-text hidden md:inline-flex"></button>
+        <button pButton label="Ayuda" class="p-button-text hidden md:inline-flex"></button>
+        <button pButton label="Iniciar sesión" class="p-button-outlined p-button-sm hidden md:inline-flex"></button>
+      -->
+
+      <!-- Botón de menú en móviles -->
+      <button
+        pButton
+        type="button"
+        icon="pi pi-bars"
+        class="p-button-text hidden md:inline-flex"
+        (click)="toggleMenu($event)">
+      </button>
+      <p-menu #menuRef [popup]="true" [model]="menuItems"></p-menu>
+    </div>
+  </ng-template>
+
+</p-toolbar>

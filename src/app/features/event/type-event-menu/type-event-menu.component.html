@@ -1,0 +1,30 @@
+<p-carousel
+  [value]="eventTypes"
+  [responsiveOptions]="responsiveOptions"
+  [numVisible]="6"
+  [numScroll]="2"
+  [circular]="true"
+  [showNavigators]="true"
+  [autoplayInterval]="0"
+  styleClass="airbnb-carousel">
+
+  <ng-template let-eventType pTemplate="item">
+    <p-card
+      styleClass="airbnb-card text-center p-3 shadow-none border-none">
+
+      <div class="event-name text-sm font-medium text-gray-800">
+        <p-button severity="secondary" (click)="onSelectEventType(eventType)"
+          [class.selected]="eventTypeSelected() === eventType"
+        >
+          {{ eventType.kind }}
+        </p-button>
+      </div>
+
+    </p-card>
+  </ng-template>
+</p-carousel>
+
+<app-template-card
+  *ngIf="eventTypeSelected()"
+  [eventTypeId]="eventTypeSelected()!.id">
+</app-template-card>
