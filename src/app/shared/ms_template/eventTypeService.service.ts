@@ -1,35 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, map, throwError, of} from 'rxjs';
 import { Injectable } from '@angular/core';
-import { environment } from '../../enviroments/enviroment.local';
+import { environment } from '../../enviroments/enviroment';
 
 import { EventTypeModel } from './../../models/ms_template/event-type';
+
+import { eventTypeTs } from '../../assets/test-data'
 
 @Injectable({
   providedIn: 'root',
 })
 export class EventTypeService{
 
-  private Api = environment.msTemplatesUrl + '/event-types';
+  private API = environment.msTemplatesUrl + '/event-types';
 
   constructor(private http: HttpClient){
 
   }
 
-  private eventTypeModel: EventTypeModel[] = [
-    { id: 1, kind: 'Boda'},
-    { id: 2, kind: 'Cumpleaños'},
-    { id: 3, kind: 'Conferencia'},
-    { id: 4, kind: 'Graduación', },
-    { id: 5, kind: 'Empresarial'},
-    { id: 6, kind: 'XV\'s'},
-    { id: 7, kind: 'Asado'},
-    { id: 8, kind: 'Bautizo'}
-  ]
+  private eventTypeModel = eventTypeTs;
 
   getAll(): Observable<EventTypeModel[]>
   {
-    return this.http.get<EventTypeModel[]>(this.Api).
+    return this.http.get<EventTypeModel[]>(this.API).
     pipe(map((data: EventTypeModel[]) => data ),
       catchError(error => {
         this.handleError(error);

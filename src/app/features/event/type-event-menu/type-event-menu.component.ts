@@ -1,5 +1,5 @@
 import { EventTypeService } from './../../../shared/ms_template/eventTypeService.service';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, SimpleChanges, signal } from '@angular/core';
 
 import { TemplateCardComponent } from '../../templat/template-card/template-card.component';
 
@@ -28,6 +28,12 @@ export class TypeEventMenuComponent implements OnInit{
       this.loadEventTypes();
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['eventTypeId']) {
+
+    }
+  }
+
   loadEventTypes(): void{
     this.eventTypeService.getAll().subscribe({
     next: (data) => this.eventTypes = data,
@@ -42,7 +48,6 @@ export class TypeEventMenuComponent implements OnInit{
       this.eventTypeSelected.set(eventType); // Seleccionar
     }
   }
-
 
   responsiveOptions = [
     {

@@ -1,10 +1,10 @@
-export interface CityTypeModel{
+export interface CityModel{
   id: number;
   kind: string;
   killed?: boolean;
 }
 
-export interface CityTypeModelIcon extends CityTypeModel{
+export interface CityModelIcon extends CityModel{
   icon: string;
 }
 

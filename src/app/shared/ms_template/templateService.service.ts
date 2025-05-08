@@ -1,39 +1,41 @@
-import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, map, throwError, of} from 'rxjs';
-import { Injectable } from '@angular/core';
-import { environment } from '../../enviroments/enviroment.local';
-
-import { EventTypeModel } from '../../models/ms_template/event-type';
+import { Injectable } from "@angular/core";
+import { environment } from "../../enviroments/enviroment";
+import { HttpClient } from "@angular/common/http";
+import { TemplateModel } from "../../models/ms_template/template";
+import { catchError, Observable, map, throwError, of } from "rxjs";
+import { templateModelTs } from "../../assets/test-data";
 
 @Injectable({
   providedIn: 'root',
 })
 export class TemplateService{
 
-  private Api = environment.msTemplatesUrl + '/event-types';
+  private API = environment.msReservesUrl + '/template';
 
   constructor(private http: HttpClient){
 
   }
 
-  private eventTypeModel: EventTypeModel[] = [
-    { id: 1, kind: 'Boda'},
-    { id: 2, kind: 'Cumpleaños'},
-    { id: 3, kind: 'Conferencia'},
-    { id: 4, kind: 'Graduación', },
-    { id: 5, kind: 'Empresarial'},
-    { id: 6, kind: 'XV\'s'},
-    { id: 7, kind: 'Asado'},
-    { id: 8, kind: 'Bautizo'}
-  ]
+  private templateModel = templateModelTs;
 
-  getAll(): Observable<EventTypeModel[]>
+  getAll(): Observable<TemplateModel[]>
   {
-    return this.http.get<EventTypeModel[]>(this.Api).
-    pipe(map((data: EventTypeModel[]) => data ),
+    return this.http.get<TemplateModel[]>(this.API).
+    pipe(map((data: TemplateModel[]) => data ),
       catchError(error => {
         this.handleError(error);
-        return of(this.eventTypeModel);
+        return of(this.templateModel);
+      })
+    );
+  }
+
+  getByEventTypeId(id: number): Observable<TemplateModel[]>
+  {
+    return this.http.get<TemplateModel[]>(this.API + '/EventType/'+id)
+    .pipe(map((data: TemplateModel[]) => data),
+      catchError(error => {
+        this.handleError(error);
+        return of([this.templateModel[id]]);
       })
     );
   }
