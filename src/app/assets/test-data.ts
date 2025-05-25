@@ -194,7 +194,7 @@ export const templateModelTs: TemplateModel[] = [
     eventType: eventTypeTs[0], // Boda
     terraceTypeModel: terraceTypeTs[0], // Alberca
     cityModel: cityModelTs[0], // Guadalajara
-    serviceModel: [serviceTypeTs[0]], // Meseros en GDL
+    serviceTypeModel: [serviceTypeTs[0],serviceTypeTs[1], serviceTypeTs[2]], // Meseros en GDL
     name: 'Boda en Terraza con Alberca',
     description: 'Paquete ideal para bodas con terraza con alberca en Guadalajara, incluye meseros.'
   },
@@ -203,7 +203,7 @@ export const templateModelTs: TemplateModel[] = [
     eventType: eventTypeTs[1], // Cumpleaños
     terraceTypeModel: terraceTypeTs[1], // Tradicional
     cityModel: cityModelTs[1], // Zapopan
-    serviceModel: [serviceTypeTs[1], serviceTypeTs[2]], // Fotógrafos + Comida
+    serviceTypeModel: [serviceTypeTs[1], serviceTypeTs[2]], // Fotógrafos + Comida
     name: 'Cumpleaños Familiar Tradicional',
     description: 'Paquete para cumpleaños en terraza tradicional con comida y fotógrafo.'
   },
@@ -212,7 +212,7 @@ export const templateModelTs: TemplateModel[] = [
     eventType: eventTypeTs[3], // Graduación
     terraceTypeModel: terraceTypeTs[2], // Salón
     cityModel: cityModelTs[2], // Tlaquepaque
-    serviceModel: [serviceTypeTs[3]], // Bartender
+    serviceTypeModel: [serviceTypeTs[0],serviceTypeTs[1], serviceTypeTs[2],serviceTypeTs[3]], // Bartender
     name: 'Graduación en Salón',
     description: 'Incluye salón equipado con pista de baile y servicio de bar profesional.'
   },
@@ -221,7 +221,7 @@ export const templateModelTs: TemplateModel[] = [
     eventType: eventTypeTs[5], // XV's
     terraceTypeModel: terraceTypeTs[4], // Natural
     cityModel: cityModelTs[4], // Zapotlanejo
-    serviceModel: [serviceTypeTs[4], serviceTypeTs[2]], // Música + Comida
+    serviceTypeModel: [serviceTypeTs[4], serviceTypeTs[2]], // Música + Comida
     name: 'XV Años al Aire Libre',
     description: 'Celebración de XV\'s en jardín natural con música en vivo y catering.'
   },
@@ -230,7 +230,7 @@ export const templateModelTs: TemplateModel[] = [
     eventType: eventTypeTs[2], // Conferencia
     terraceTypeModel: terraceTypeTs[3], // Exposición
     cityModel: cityModelTs[3], // Tonalá
-    serviceModel: [serviceTypeTs[1]], // Fotógrafos
+    serviceTypeModel: [serviceTypeTs[0], serviceTypeTs[1], serviceTypeTs[2]], // Fotógrafos
     name: 'Conferencia Profesional',
     description: 'Salón tipo exposición con cobertura fotográfica para eventos corporativos.'
   }

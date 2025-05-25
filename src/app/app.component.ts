@@ -1,4 +1,5 @@
 import { TypeEventMenuComponent } from './features/event/type-event-menu/type-event-menu.component';
+import { TemplateCanvaComponent } from './pages/user/template-canva/template-canva.component';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -19,6 +20,7 @@ import { HeaderComponent } from './components/header/header.component';
     SelectButtonModule,
     TypeEventMenuComponent,
     HeaderComponent,
+    TemplateCanvaComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

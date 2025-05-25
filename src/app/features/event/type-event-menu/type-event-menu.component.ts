@@ -34,6 +34,7 @@ export class TypeEventMenuComponent implements OnInit{
     }
   }
 
+
   loadEventTypes(): void{
     this.eventTypeService.getAll().subscribe({
     next: (data) => this.eventTypes = data,

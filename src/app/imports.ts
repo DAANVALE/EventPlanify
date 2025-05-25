@@ -12,7 +12,11 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CarouselModule } from 'primeng/carousel';
 import { CardModule } from 'primeng/card';
 
+import { TagModule } from 'primeng/tag';
+import { ChipModule } from 'primeng/chip';
+
 import { NgModule } from '@angular/core';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   imports: [
@@ -25,6 +29,9 @@ import { NgModule } from '@angular/core';
     ToolbarModule,
     InputTextModule,
     MenuModule,
+    TagModule,
+    ChipModule,
+    DropdownModule,
   ],
   exports: [
     ButtonModule,
@@ -36,6 +43,9 @@ import { NgModule } from '@angular/core';
     ToolbarModule,
     InputTextModule,
     MenuModule,
+    TagModule,
+    ChipModule,
+    DropdownModule,
   ],
   providers: [],
 })

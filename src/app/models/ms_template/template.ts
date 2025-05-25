@@ -8,7 +8,7 @@ export interface TemplateModel{
   eventType: EventTypeModel;
   terraceTypeModel: TerraceTypeModel
   cityModel: CityModel;
-  serviceModel: ServiceTypeModel[];
+  serviceTypeModel: ServiceTypeModel[];
 
   name: string;
   description?: string;
