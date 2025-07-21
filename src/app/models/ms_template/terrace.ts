@@ -1,5 +1,5 @@
 import { CityModel } from './city-type';
-import { TerraceTypeModel } from './terraceType';
+import { TerraceTypeModel } from './terrace-type';
 
 export interface TerraceModel {
   id: number;
@@ -8,7 +8,7 @@ export interface TerraceModel {
 
   idTerrace_DB: number;
   idAsociate_DB: number;
-  URL_IMG: String;
+  URL_IMG: String[];
 
   name: string;
   description: string;

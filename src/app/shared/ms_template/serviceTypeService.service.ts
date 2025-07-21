@@ -30,6 +30,24 @@ export class ServiceTypeService{
     );
   }
 
+  getById(id: number): Observable<ServiceTypeModel> {
+    return this.http.get<ServiceTypeModel>(`${this.API}/${id}`).pipe(
+      catchError((error) => {
+        console.error(`Error fetching service type with ID ${id}:`, error);
+        return throwError(() => new Error(`Failed to fetch service type with ID ${id}`));
+      })
+    );
+  }
+
+  create(serviceType: ServiceTypeModel): Observable<ServiceTypeModel> {
+    return this.http.post<ServiceTypeModel>(this.API, serviceType).pipe(
+      catchError((error) => {
+        console.error('Error creating service type:', error);
+        return throwError(() => new Error('Failed to create service type'));
+      })
+    );
+  }
+
   private handleError(error: any): Observable<never>{
     return throwError(() => new Error('Something ocurried in eventTypeService.', error));
   }

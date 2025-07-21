@@ -1,7 +1,12 @@
+
+<div>
+
+</div>
+
 <div>
   <p-menubar>
     <ng-template pTemplate="start">
-      <p class="menu-text">Tipo de servicio: {{ template().terraceTypeModel.kind }}</p>
+      <p class="menu-text">Tipo de terraza: {{ template().terraceTypeModel.kind }}</p>
     </ng-template>
     <ng-template pTemplate="end">
       <p-dropdown
@@ -15,42 +20,53 @@
   </p-menubar>
 
   <p-carousel
-  [value]="services()"
+  [value]="terraces()"
     [numVisible]="5"
     [numScroll]="1"
     [responsiveOptions]="responsiveOptions"
   >
 
-  <!-- services to terraces() generate API call -->
-
-    <ng-template pTemplate="item" let-service>
+    <ng-template pTemplate="item" let-terrace>
       <div class="p-2">
-        <p-card [header]="service.name">
+        <p-card [header]="terrace.name">
           <img src="../../../assets/calendars.png" height="100px">
-          <p>{{ service.description }}</p>
+          <p>{{ terrace.description }}</p>
         </p-card>
       </div>
     </ng-template>
   </p-carousel>
 </div>
 
-<p-menubar>
+<p-menubar class="mb-3">
   <ng-template pTemplate="start">
-    <p class="menu-text">Servicios proporcionados</p>
+    <span>Servicios proporcionados</span>
   </ng-template>
   <ng-template pTemplate="end">
     <p-dropdown
       [options]="serviceTypes()"
       [(ngModel)]="selectedServiceType"
       optionLabel="kind"
-      placeholder="Agregar mas servicios"
-      (onChange)="onSelectServiceType()">
-    </p-dropdown>
+      placeholder="Agregar servicio"
+      (onChange)="onSelectServiceType()"
+      class="p-inputtext-sm"
+    ></p-dropdown>
   </ng-template>
 </p-menubar>
 
-<div *ngFor="let type of template().serviceTypeModel">
-  <h2>{{ type.kind }}</h2>
+<!-- Carrusel por tipo de servicio -->
+<div *ngFor="let type of template().serviceTypeModel" class="mb-4">
+
+  <div class="service-type-header">
+    <h3>{{ type.kind }}</h3>
+    <button
+      pButton
+      type="button"
+      icon="pi pi-trash"
+      class="p-button-sm p-button-rounded p-button-danger"
+      (click)="removeServiceType(type)"
+    ></button>
+  </div>
+
   <p-carousel
     [value]="services()"
     [numVisible]="5"

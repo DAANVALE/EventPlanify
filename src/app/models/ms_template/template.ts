@@ -1,7 +1,7 @@
 import { CityModel } from "./city-type";
 import { EventTypeModel } from "./event-type";
 import { ServiceTypeModel } from "./service-type";
-import { TerraceTypeModel } from "./terraceType";
+import { TerraceTypeModel } from "./terrace-type";
 
 export interface TemplateModel{
   id: number;

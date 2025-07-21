@@ -2,9 +2,12 @@ import { ServiceTypeModel } from './../models/ms_template/service-type';
 import { ServiceModel } from './../models/ms_template/service-model';
 import { CityModel } from "../models/ms_template/city-type"
 import { EventTypeModel } from "../models/ms_template/event-type"
-import { TerraceTypeModel } from "../models/ms_template/terraceType"
+import { TerraceTypeModel } from "../models/ms_template/terrace-type"
 import { TerraceModel } from '../models/ms_template/terrace';
 import { TemplateModel } from '../models/ms_template/template';
+
+// sEKJju$2MA19xRww
+// msdatabaseterrace-admin
 
 export const eventTypeTs: EventTypeModel[] = [
   { id: 1, kind: 'Boda'},
@@ -51,7 +54,7 @@ export const serviceModelTs: ServiceModel[] = [
     cityModel: [cityModelTs[0]],     // Guadalajara
     idService_DB: 101,
     idAsociate_DB: 201,
-    URL_IMG: 'https://example.com/images/meseros.jpg',
+    URL_IMG: ['https://example.com/images/meseros.jpg'],
     name: 'Servicio de Meseros Elegantes',
     description: 'Meseros capacitados para eventos de alto nivel.',
     price: 3500,
@@ -62,7 +65,7 @@ export const serviceModelTs: ServiceModel[] = [
     cityModel: [cityModelTs[1]],     // Zapopan
     idService_DB: 102,
     idAsociate_DB: 202,
-    URL_IMG: 'https://example.com/images/comida.jpg',
+    URL_IMG: ['https://example.com/images/comida.jpg'],
     name: 'Banquete Tradicional Mexicano',
     description: 'Comida mexicana gourmet para todo tipo de eventos.',
     price: 8000,
@@ -73,7 +76,7 @@ export const serviceModelTs: ServiceModel[] = [
     cityModel: [cityModelTs[2]],     // Tlaquepaque
     idService_DB: 103,
     idAsociate_DB: 203,
-    URL_IMG: 'https://example.com/images/musica.jpg',
+    URL_IMG: ['https://example.com/images/musica.jpg'],
     name: 'DJ Profesional',
     description: 'DJ con equipo profesional y playlist personalizada.',
     price: 5000,
@@ -84,7 +87,7 @@ export const serviceModelTs: ServiceModel[] = [
     cityModel: [cityModelTs[3]],     // Tonalá
     idService_DB: 104,
     idAsociate_DB: 204,
-    URL_IMG: 'https://example.com/images/fotografia.jpg',
+    URL_IMG: ['https://example.com/images/fotografia.jpg'],
     name: 'Cobertura Fotográfica Premium',
     description: 'Fotografía profesional con entrega en digital e impresión.',
     price: 6000,
@@ -95,7 +98,7 @@ export const serviceModelTs: ServiceModel[] = [
     cityModel: [cityModelTs[4]],     // Zapotlanejo
     idService_DB: 105,
     idAsociate_DB: 205,
-    URL_IMG: 'https://example.com/images/bartender.jpg',
+    URL_IMG: ['https://example.com/images/bartender.jpg'],
     name: 'Barra Libre con Bartender',
     description: 'Cocteles ilimitados con barra temática y mixólogo profesional.',
     price: 7000,
@@ -106,7 +109,7 @@ export const serviceModelTs: ServiceModel[] = [
     cityModel: [cityModelTs[5]],     // Tlajomulco
     idService_DB: 106,
     idAsociate_DB: 206,
-    URL_IMG: 'https://example.com/images/entretenimiento.jpg',
+    URL_IMG:[ 'https://example.com/images/entretenimiento.jpg'],
     name: 'Show de Stand-Up y Magia',
     description: 'Entretenimiento divertido para todas las edades.',
     price: 4500,
@@ -120,7 +123,7 @@ export const terraceModelTs: TerraceModel[] = [
     cityModel: cityModelTs[0],       // Guadalajara
     idTerrace_DB: 301,
     idAsociate_DB: 401,
-    URL_IMG: 'https://example.com/images/terraza-alberca.jpg',
+    URL_IMG: ['https://example.com/images/terraza-alberca.jpg'],
     name: 'Terraza con Alberca Azul',
     description: 'Espacio moderno con alberca, ideal para bodas y graduaciones.',
     price: 12000,
@@ -132,7 +135,7 @@ export const terraceModelTs: TerraceModel[] = [
     cityModel: cityModelTs[1],       // Zapopan
     idTerrace_DB: 302,
     idAsociate_DB: 402,
-    URL_IMG: 'https://example.com/images/terraza-tradicional.jpg',
+    URL_IMG: ['https://example.com/images/terraza-tradicional.jpg'],
     name: 'Terraza El Encino',
     description: 'Ambiente rústico y cálido, perfecto para eventos familiares.',
     price: 9000,
@@ -144,7 +147,7 @@ export const terraceModelTs: TerraceModel[] = [
     cityModel: cityModelTs[2],       // Tlaquepaque
     idTerrace_DB: 303,
     idAsociate_DB: 403,
-    URL_IMG: 'https://example.com/images/terraza-salon.jpg',
+    URL_IMG: ['https://example.com/images/terraza-salon.jpg'],
     name: 'Salón Los Arcos',
     description: 'Salón cerrado con aire acondicionado y pista de baile.',
     price: 10000,
@@ -156,7 +159,7 @@ export const terraceModelTs: TerraceModel[] = [
     cityModel: cityModelTs[3],       // Tonalá
     idTerrace_DB: 304,
     idAsociate_DB: 404,
-    URL_IMG: 'https://example.com/images/terraza-expo.jpg',
+    URL_IMG: ['https://example.com/images/terraza-expo.jpg'],
     name: 'Terraza ExpoTonala',
     description: 'Espacio amplio para exposiciones, ferias y conferencias.',
     price: 8500,
@@ -168,7 +171,7 @@ export const terraceModelTs: TerraceModel[] = [
     cityModel: cityModelTs[4],       // Zapotlanejo
     idTerrace_DB: 305,
     idAsociate_DB: 405,
-    URL_IMG: 'https://example.com/images/terraza-natural.jpg',
+    URL_IMG: ['https://example.com/images/terraza-natural.jpg'],
     name: 'Jardín Natural El Roble',
     description: 'Ubicación rodeada de naturaleza, ideal para eventos al aire libre.',
     price: 9500,
@@ -180,7 +183,7 @@ export const terraceModelTs: TerraceModel[] = [
     cityModel: cityModelTs[5],       // Tlajomulco
     idTerrace_DB: 306,
     idAsociate_DB: 406,
-    URL_IMG: 'https://example.com/images/terraza-experiencia.jpg',
+    URL_IMG: ['https://example.com/images/terraza-experiencia.jpg'],
     name: 'Terraza Experiencia 360',
     description: 'Terraza inmersiva con experiencias interactivas y decoración temática.',
     price: 15000,

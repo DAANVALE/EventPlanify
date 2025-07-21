@@ -8,7 +8,7 @@ export interface ServiceModel {
 
   idService_DB: number;
   idAsociate_DB: number;
-  URL_IMG: String;
+  URL_IMG: String[];
 
   name: string;
   description: string;

@@ -3,7 +3,3 @@ export interface TerraceTypeModel {
   kind: string;
   killed?: boolean;
 }
-
-export interface TerraceTypeIcon extends TerraceTypeModel{
-  icon: string;
-}

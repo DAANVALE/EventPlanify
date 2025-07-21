@@ -31,6 +31,24 @@ export class EventTypeService{
     );
   }
 
+  getById(id: number): Observable<EventTypeModel> {
+    return this.http.get<EventTypeModel>(`${this.API}/${id}`).pipe(
+      catchError((error) => {
+        console.error(`Error fetching event type with ID ${id}:`, error);
+        return throwError(() => new Error(`Failed to fetch event type with ID ${id}`));
+      })
+    );
+  }
+
+  create(eventType: EventTypeModel): Observable<EventTypeModel> {
+    return this.http.post<EventTypeModel>(this.API, eventType).pipe(
+      catchError((error) => {
+        console.error('Error creating event type:', error);
+        return throwError(() => new Error('Failed to create event type'));
+      })
+    );
+  }
+
   private handleError(error: any): Observable<never>{
     return throwError(() => new Error('Something ocurried in eventTypeService.', error));
   }

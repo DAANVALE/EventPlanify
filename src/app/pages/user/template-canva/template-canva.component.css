@@ -28,6 +28,28 @@ p-dropdown{
   margin-right: 20px;
 }
 
-p-menubar > h3{
-  float: left;
+.service-type-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.service-type-header .menu-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.service-type-header button {
+  margin-left: auto;
+}
+
+.menu-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
 }
