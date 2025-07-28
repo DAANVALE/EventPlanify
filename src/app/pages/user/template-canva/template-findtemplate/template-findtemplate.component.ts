@@ -17,7 +17,7 @@ import { TerraceModel as T_TerraceModel } from '../../../../models/ms_template/t
 })
 export class TemplateFindtemplateComponent {
   @Input() terraceTypes: T_TerraceTypeModel[] = [];
-  @Input() terrace: T_TerraceModel[] = [];
+  @Input() terraces: T_TerraceModel[] = [];
 
   @Input() template!: T_TemplateModel;
 

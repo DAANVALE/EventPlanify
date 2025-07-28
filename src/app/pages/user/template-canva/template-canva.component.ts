@@ -33,7 +33,7 @@ import { TerraceService as R_TerraceService } from '../../../shared/ms_reserve/t
 @Component({
   selector: 'app-template-canva',
   standalone: true,
-  imports: [ImportsModule, CommonModule, FormsModule],
+  imports: [ImportsModule, CommonModule, FormsModule, TemplateFindtemplateComponent],
   templateUrl: './template-canva.component.html',
   styleUrl: './template-canva.component.css'
 })

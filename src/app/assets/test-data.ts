@@ -123,7 +123,7 @@ export const terraceModelTs: TerraceModel[] = [
     cityModel: cityModelTs[0],       // Guadalajara
     idTerrace_DB: 301,
     idAsociate_DB: 401,
-    URL_IMG: ['https://example.com/images/terraza-alberca.jpg'],
+    URL_IMG: [],
     name: 'Terraza con Alberca Azul',
     description: 'Espacio moderno con alberca, ideal para bodas y graduaciones.',
     price: 12000,

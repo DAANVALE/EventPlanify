@@ -1,40 +1,12 @@
 
 <div>
-
-</div>
-
-<div>
-  <p-menubar>
-    <ng-template pTemplate="start">
-      <p class="menu-text">Tipo de terraza: {{ template().terraceTypeModel.kind }}</p>
-    </ng-template>
-    <ng-template pTemplate="end">
-      <p-dropdown
-        [options]="terraceTypes()"
-        [(ngModel)]="selectedTerraceType"
-        optionLabel="kind"
-        placeholder="cambiar tipo de terraza"
-        (onChange)="onSelectTerraceType()">
-      </p-dropdown>
-    </ng-template>
-  </p-menubar>
-
-  <p-carousel
-  [value]="terraces()"
-    [numVisible]="5"
-    [numScroll]="1"
-    [responsiveOptions]="responsiveOptions"
+  <app-template-findtemplate
+  [terraces]="terraces()"
+  [terraceTypes]="terraceTypes()"
+  [template]="template()"
   >
 
-    <ng-template pTemplate="item" let-terrace>
-      <div class="p-2">
-        <p-card [header]="terrace.name">
-          <img src="../../../assets/calendars.png" height="100px">
-          <p>{{ terrace.description }}</p>
-        </p-card>
-      </div>
-    </ng-template>
-  </p-carousel>
+  </app-template-findtemplate>
 </div>
 
 <p-menubar class="mb-3">
