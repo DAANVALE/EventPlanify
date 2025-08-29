@@ -1,7 +1,6 @@
-import { TerraceService } from './../../../shared/ms_reserve/terraceService.service';
-import { TemplateFindtemplateComponent } from './template-findtemplate/template-findtemplate.component';
-import { terraceModelTs } from './../../../assets/test-data';
-import { ClientModel } from './../../../models/ms_reserve/ClientModel';
+import { TemplateFindtemplateComponent }      from './template-findtemplate/template-findtemplate.component';
+import { TemplateSelectedTemplateComponent }  from './template-selectedtemplate/template-selectedtemplate.component';
+
 import { Component, OnInit, computed, signal } from '@angular/core';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +22,7 @@ import { ServiceTypeService as T_ServiceTypeService } from '../../../shared/ms_t
 import { TerraceTypeService as T_TerraceTypeService } from '../../../shared/ms_template/terraceTypeService.service';
 
 // *? HACK: MS template test-data
-import { templateModelTs, serviceModelTs } from '../../../assets/test-data';
+import { templateModelTs, serviceModelTs } from '../../../assets/template-test-data';
 
 // * NOTE: MS reserve Model & Services
 import { EventModel as R_EventModel } from './../../../models/ms_reserve/EventModel';
@@ -33,7 +32,7 @@ import { TerraceService as R_TerraceService } from '../../../shared/ms_reserve/t
 @Component({
   selector: 'app-template-canva',
   standalone: true,
-  imports: [ImportsModule, CommonModule, FormsModule, TemplateFindtemplateComponent],
+  imports: [ImportsModule, CommonModule, FormsModule, TemplateFindtemplateComponent, TemplateSelectedTemplateComponent, JsonPipe],
   templateUrl: './template-canva.component.html',
   styleUrl: './template-canva.component.css'
 })
@@ -144,14 +143,24 @@ export class TemplateCanvaComponent implements OnInit {
     localStorage.setItem('event', JSON.stringify(this.eventModel) )
   }
 
-  loadEventFromLocal(): void{
+  savedTerrace(): boolean {
+    this.loadEventFromLocal();
+    return this.eventModel.terraceModel ? true : false;
+  }
 
+  loadEventFromLocal(): void{
     const data = localStorage.getItem('event');
 
     if(data){
       this.eventModel = JSON.parse(data);
     }
+  }
 
+  clearTerrace(): void{
+    this.eventModel.terraceModel = undefined;
+    localStorage.setItem('event', String());
+    this.saveEventModelToLocal();
+    this.ngOnInit();
   }
 
   responsiveOptions = [

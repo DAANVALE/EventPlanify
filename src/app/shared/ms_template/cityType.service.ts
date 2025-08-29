@@ -4,7 +4,7 @@ import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { environment } from '../../enviroments/enviroment';
 
 import { CityModel } from './../../models/ms_template/city-type';
-import { cityModelTs } from '../../assets/test-data';
+import { cityModelTs } from '../../assets/template-test-data';
 
 @Injectable({
   providedIn: 'root',

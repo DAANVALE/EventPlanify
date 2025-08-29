@@ -1,9 +1,13 @@
 import { TerraceModel } from './../../models/ms_reserve/TerraceModel';
 
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, map, throwError, of} from 'rxjs';
+import { catchError, Observable, map, throwError, of, find} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../../enviroments/enviroment';
+
+import { terraceModelTs } from '../../assets/reserve-test-data';
+import { terraceTypeTs } from '../../assets/template-test-data';
+
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +15,13 @@ import { environment } from '../../enviroments/enviroment';
 export class TerraceService{
 
   private API = environment.msReservesUrl + '/terrace';
+  terraceModel: TerraceModel[] = [];
+
+  fallbackTerraceModel = terraceModelTs;
 
   constructor(private http: HttpClient){
 
   }
-
-  terraceModel: TerraceModel[] = [];
 
   getAll(): Observable<TerraceModel[]>
   {
@@ -24,16 +29,26 @@ export class TerraceService{
     pipe(map((data: TerraceModel[]) => data ),
       catchError(error => {
         this.handleError(error);
-        return of( this.terraceModel );
+        return of( this.fallbackTerraceModel );
       })
     );
   }
 
   getById(id: number): Observable<TerraceModel> {
+
+    const fallback = this.fallbackTerraceModel.find(t => t.id === id)
+                    || this.fallbackTerraceModel[0];
+
+        return of(fallback);
+
     return this.http.get<TerraceModel>(`${this.API}/${id}`).pipe(
       catchError(error => {
         console.error(`Error fetching terrace type with ID ${id}:`, error);
-        return throwError(() => new Error(`Failed to fetch terrace type with ID ${id}`));
+
+        const fallback = this.fallbackTerraceModel.find(t => t.id === id)
+                    || this.fallbackTerraceModel[0];
+
+        return of(fallback);
       })
     );
   }

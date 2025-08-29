@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { ImportsModule } from '../../../../imports';
 import { CommonModule } from '@angular/common';
 
@@ -6,12 +6,16 @@ import { TerraceModel as R_TerraceModel} from '../../../../models/ms_reserve/Ter
 
 import { TemplateModel as T_TemplateModel} from '../../../../models/ms_template/template';
 import { TerraceTypeModel as T_TerraceTypeModel} from '../../../../models/ms_template/terrace-type';
-import { TerraceModel as T_TerraceModel } from '../../../../models/ms_template/terrace';
+import { TerraceModel as T_TerraceModel, TerraceModel } from '../../../../models/ms_template/terrace';
+import { FormsModule } from '@angular/forms';
+
+import { TerraceService as R_TerraceService} from '../../../../shared/ms_reserve/terraceService.service';
+import { EventModel } from '../../../../models/ms_reserve/EventModel';
 
 @Component({
   selector: 'app-template-findtemplate',
   standalone: true,
-  imports: [ImportsModule, CommonModule],
+  imports: [ImportsModule, CommonModule, FormsModule],
   templateUrl: './template-findtemplate.component.html',
   styleUrl: './template-findtemplate.component.css'
 })
@@ -26,11 +30,59 @@ export class TemplateFindtemplateComponent {
 
   selectedTerraceType: R_TerraceModel | null = null;
 
+  showDialog: boolean = false;
+
+  selectedTTerrace: any = null;
+  selectedRTerrace: any = null;
+
+  r_terrace = signal<R_TerraceModel | null>(null);
+  eventModel: Partial<EventModel> = {};
+
+  constructor(
+    private r_terraceService: R_TerraceService
+  ) { }
 
   onSelectTerraceType() {
     if (this.selectedTerraceType) {
       this.terraceSelected.emit(this.selectedTerraceType);
     }
+  }
+
+  openDialog(terrace: any): void {
+    this.selectedTTerrace = { ...terrace };
+
+    this.r_terraceService.getById(terrace.idTerrace_DB).subscribe({
+      next: (data) => {
+        this.r_terrace.set(data);
+        console.log('Selected Terrace:', this.r_terrace());
+        this.selectedRTerrace = { ...this.r_terrace() }; // copia para editar
+        this.showDialog = true;
+      },
+      error: (error) => console.error("Error", error),
+    });
+  }
+
+  loadTerraces(id: number): void{
+    this.r_terraceService.getById(id).subscribe({
+      next: (data) => this.r_terrace.set(data),
+      error: (error) => console.error("Error", error),
+    })
+  }
+
+  saveChanges(): void {
+  console.log('Guardar cambios', this.selectedTTerrace);
+  this.eventModel.terraceModel = this.selectedRTerrace;
+  this.saveEventModelToLocal();
+  this.showDialog = false;
+  }
+
+  saveEventModelToLocal(): void{
+    localStorage.setItem('event', JSON.stringify(this.eventModel) )
+  }
+
+  onImageError(event: any) {
+    console.debug('Error:', event);
+    event.target.src = '../../../assets/calendars.png';
   }
 
   responsiveOptions = [

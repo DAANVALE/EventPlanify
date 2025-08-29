@@ -4,7 +4,7 @@ import { catchError, Observable, map, throwError, of} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../../enviroments/enviroment';
 
-import { serviceModelTs, serviceTypeTs } from '../../assets/test-data'
+import { serviceModelTs, serviceTypeTs } from '../../assets/template-test-data'
 
 @Injectable({
   providedIn: 'root',

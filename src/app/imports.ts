@@ -15,6 +15,8 @@ import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
 import { ChipModule } from 'primeng/chip';
 
+import { DialogModule } from 'primeng/dialog';
+
 import { NgModule } from '@angular/core';
 import { DropdownModule } from 'primeng/dropdown';
 
@@ -32,6 +34,7 @@ import { DropdownModule } from 'primeng/dropdown';
     TagModule,
     ChipModule,
     DropdownModule,
+    DialogModule
   ],
   exports: [
     ButtonModule,
@@ -46,6 +49,7 @@ import { DropdownModule } from 'primeng/dropdown';
     TagModule,
     ChipModule,
     DropdownModule,
+    DialogModule
   ],
   providers: [],
 })

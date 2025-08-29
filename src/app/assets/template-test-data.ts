@@ -1,5 +1,5 @@
-import { ServiceTypeModel } from './../models/ms_template/service-type';
-import { ServiceModel } from './../models/ms_template/service-model';
+import { ServiceTypeModel } from '../models/ms_template/service-type';
+import { ServiceModel } from '../models/ms_template/service-model';
 import { CityModel } from "../models/ms_template/city-type"
 import { EventTypeModel } from "../models/ms_template/event-type"
 import { TerraceTypeModel } from "../models/ms_template/terrace-type"
@@ -123,7 +123,7 @@ export const terraceModelTs: TerraceModel[] = [
     cityModel: cityModelTs[0],       // Guadalajara
     idTerrace_DB: 301,
     idAsociate_DB: 401,
-    URL_IMG: [],
+    URL_IMG: ['../assets/testImg/terrace.jpeg'],
     name: 'Terraza con Alberca Azul',
     description: 'Espacio moderno con alberca, ideal para bodas y graduaciones.',
     price: 12000,

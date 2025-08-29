@@ -5,7 +5,7 @@ import { environment } from '../../enviroments/enviroment';
 
 import { EventTypeModel } from './../../models/ms_template/event-type';
 
-import { eventTypeTs } from '../../assets/test-data'
+import { eventTypeTs } from '../../assets/template-test-data'
 
 @Injectable({
   providedIn: 'root',

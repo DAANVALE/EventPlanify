@@ -1,13 +1,26 @@
 
-<div>
+<div *ngIf="!savedTerrace(); else showTerrace">
   <app-template-findtemplate
   [terraces]="terraces()"
   [terraceTypes]="terraceTypes()"
   [template]="template()"
   >
-
   </app-template-findtemplate>
 </div>
+<ng-template #showTerrace>
+
+  <button
+    pButton
+    type="button"
+    icon="pi pi-arrow-left"
+    class="p-button-sm p-button-rounded p-button-info mb-3"
+    (click)="clearTerrace()">
+  Eliminar
+  </button>
+
+  <app-template-selectedtemplate>
+  </app-template-selectedtemplate>
+</ng-template>
 
 <p-menubar class="mb-3">
   <ng-template pTemplate="start">

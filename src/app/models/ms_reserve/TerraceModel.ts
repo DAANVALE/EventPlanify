@@ -4,7 +4,7 @@ export interface TerraceModel{
   id: number;
   name: string;
 
-  asociateTerraceMode: AsociateTerraceModel;
+  asociateTerraceModel: AsociateTerraceModel;
 
   baseSize: number;
   maxSize: number;
