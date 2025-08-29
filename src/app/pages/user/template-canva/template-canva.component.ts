@@ -2,7 +2,7 @@ import { TemplateFindtemplateComponent }      from './template-findtemplate/temp
 import { TemplateSelectedTemplateComponent }  from './template-selectedtemplate/template-selectedtemplate.component';
 
 import { Component, OnInit, computed, signal } from '@angular/core';
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { ImportsModule } from '../../../imports';
@@ -32,7 +32,7 @@ import { TerraceService as R_TerraceService } from '../../../shared/ms_reserve/t
 @Component({
   selector: 'app-template-canva',
   standalone: true,
-  imports: [ImportsModule, CommonModule, FormsModule, TemplateFindtemplateComponent, TemplateSelectedTemplateComponent, JsonPipe],
+  imports: [ImportsModule, CommonModule, FormsModule, TemplateFindtemplateComponent, TemplateSelectedTemplateComponent],
   templateUrl: './template-canva.component.html',
   styleUrl: './template-canva.component.css'
 })
