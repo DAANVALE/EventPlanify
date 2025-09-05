@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { EventModel } from '../../../../models/ms_reserve/EventModel';
 import { TerraceModel as RTerraceModel } from '../../../../models/ms_reserve/TerraceModel';
-import { TerraceModel } from '../../../../models/ms_template/terrace';
+import { TerraceModel as TTerraceModel } from '../../../../models/ms_template/terrace';
 
 @Component({
   selector: 'app-template-selectedtemplate',
@@ -18,9 +18,7 @@ export class TemplateSelectedTemplateComponent implements OnInit {
   eventModel: Partial<EventModel> = {};
   
   terraceModelReserve: RTerraceModel | null = null;
-  terraceModelTemplate: TerraceModel | null = null;
-
-  @Output() terraceSelected = new EventEmitter<RTerraceModel>();
+  terraceModelTemplate: TTerraceModel | null = null;
 
   constructor() { }
 

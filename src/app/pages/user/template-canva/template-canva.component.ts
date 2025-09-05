@@ -136,7 +136,14 @@ export class TemplateCanvaComponent implements OnInit {
 
   onTerraceSelected(r_terraceModel: R_TerraceModel): void{
     this.eventModel.terraceModel = r_terraceModel;
+
     this.saveEventModelToLocal();
+  }
+
+  onTemplateSelected(template: T_TemplateModel): void {
+    console.log('Template recibido del hijo:', template);
+    // Aquí puedes actualizar el template actual
+    this.template.set(template);
   }
 
   saveEventModelToLocal(): void{

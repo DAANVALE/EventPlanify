@@ -20,6 +20,9 @@ import { DialogModule } from 'primeng/dialog';
 import { NgModule } from '@angular/core';
 import { DropdownModule } from 'primeng/dropdown';
 
+import { ImageModule } from 'primeng/image';
+import { DividerModule } from 'primeng/divider';
+
 @NgModule({
   imports: [
     ButtonModule,
@@ -34,7 +37,9 @@ import { DropdownModule } from 'primeng/dropdown';
     TagModule,
     ChipModule,
     DropdownModule,
-    DialogModule
+    DialogModule,
+    ImageModule,
+    DividerModule,
   ],
   exports: [
     ButtonModule,
@@ -49,7 +54,9 @@ import { DropdownModule } from 'primeng/dropdown';
     TagModule,
     ChipModule,
     DropdownModule,
-    DialogModule
+    DialogModule,
+    ImageModule,
+    DividerModule,
   ],
   providers: [],
 })

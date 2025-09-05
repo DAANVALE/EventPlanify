@@ -25,8 +25,8 @@ export class TemplateFindtemplateComponent {
 
   @Input() template!: T_TemplateModel;
 
-  @Output() terraceSelected = new EventEmitter<R_TerraceModel>();
-  @Output() templateSelected = new EventEmitter<T_TemplateModel>();
+  @Output() terraceRSelected = new EventEmitter<R_TerraceModel>();
+  @Output() templateTSelected = new EventEmitter<T_TemplateModel>();
 
   selectedTerraceType: R_TerraceModel | null = null;
 
@@ -44,7 +44,7 @@ export class TemplateFindtemplateComponent {
 
   onSelectTerraceType() {
     if (this.selectedTerraceType) {
-      this.terraceSelected.emit(this.selectedTerraceType);
+      this.terraceRSelected.emit(this.selectedTerraceType);
     }
   }
 
@@ -54,7 +54,6 @@ export class TemplateFindtemplateComponent {
     this.r_terraceService.getById(terrace.idTerrace_DB).subscribe({
       next: (data) => {
         this.r_terrace.set(data);
-        console.log('Selected Terrace:', this.r_terrace());
         this.selectedRTerrace = { ...this.r_terrace() }; // copia para editar
         this.showDialog = true;
       },
@@ -62,26 +61,19 @@ export class TemplateFindtemplateComponent {
     });
   }
 
-  loadTerraces(id: number): void{
-    this.r_terraceService.getById(id).subscribe({
-      next: (data) => this.r_terrace.set(data),
-      error: (error) => console.error("Error", error),
-    })
-  }
-
   saveChanges(): void {
-  console.log('Guardar cambios', this.selectedTTerrace);
-  this.eventModel.terraceModel = this.selectedRTerrace;
-  this.saveEventModelToLocal();
-  this.showDialog = false;
+    this.eventModel.terraceModel = this.selectedRTerrace;
+    this.saveEventModelToLocal();
+    this.terraceRSelected.emit(this.selectedRTerrace);
+    this.showDialog = false;
   }
 
   saveEventModelToLocal(): void{
     localStorage.setItem('event', JSON.stringify(this.eventModel) )
+    localStorage.setItem('terrace', JSON.stringify(this.selectedTTerrace))
   }
 
   onImageError(event: any) {
-    console.debug('Error:', event);
     event.target.src = '../../../assets/calendars.png';
   }
 

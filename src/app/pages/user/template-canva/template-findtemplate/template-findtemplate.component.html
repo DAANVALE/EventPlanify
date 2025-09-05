@@ -35,64 +35,208 @@
     </ng-template>
   </p-carousel>
 
-<p-dialog
-  header="Detalles del servicio / terraza"
+<p-dialog 
+  header="Detalles de la Terraza"
   [(visible)]="showDialog"
   [modal]="true"
-  [style]="{ width: '70vw' }"
-  [breakpoints]="{ '960px': '90vw', '640px': '100vw' }"
+  [style]="{ width: '80vw', maxWidth: '1000px' }"
+  [breakpoints]="{ '960px': '95vw', '640px': '100vw' }"
+  [draggable]="false"
+  [resizable]="false"
 >
-
-  <div *ngIf="selectedTTerrace && selectedRTerrace">
-    <h3>{{ selectedTTerrace.name }}</h3>
-  
-  <p-carousel
-  [value]="selectedTTerrace.URL_IMG"
-  [numVisible]="1"
-  [numScroll]="1"
-  [circular]="true"
-  [autoplayInterval]="5000"
-  *ngIf="selectedTTerrace.URL_IMG.length > 0">
-    <ng-template pTemplate="item" let-imgUrl>
-      <div class="image-wrapper" style="text-align: center;">
-        <img
-          [src]="imgUrl"
-          (error)="onImageError($event)"
-          alt="Imagen terraza"
-          width="10%"
-          style="max-height: 200px; object-fit: cover;"
-        />
-      </div>
-    </ng-template>
-  </p-carousel>
-<!-- Fallback si no hay imágenes -->
-  <div *ngIf="!selectedTTerrace?.URL_IMG?.length" style="text-align: center; margin-top: 20px;">
-    <img src="../../../assets/calendars.png" width="20%"/>
-  </div>
-    <p><strong>Descripción:</strong> {{ selectedTTerrace.description }}</p>
-    <p><strong>Dirección:</strong> {{ selectedRTerrace.direction }}</p>
-    <p><strong>Capacidad Base:</strong> {{ selectedRTerrace.baseSize }}</p>
-    <p><strong>Capacidad Máxima:</strong> {{ selectedRTerrace.maxSize }}</p>
-    <p><strong>Precio adicional por cada 10 personas:</strong> {{ selectedRTerrace.priceAdd10 }}</p>
-    <p><strong>Precio base:</strong> {{ selectedRTerrace.price }}</p>
-    <p><strong>Lugar:</strong> {{ selectedTTerrace.place }}</p>
-    <p><strong>Ciudad:</strong> {{ selectedTTerrace.cityModel?.name }}</p>
-    <p><strong>Tipo de terraza:</strong> {{ selectedTTerrace.terraceType?.[0]?.kind }}</p>
-
-    <!-- Puedes añadir formularios aquí -->
-    <div class="form-group">
-      <label for="descripcion">Editar Descripción</label>
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="selectedTTerrace.description"
-        id="descripcion"
-      />
+  <div *ngIf="selectedTTerrace && selectedRTerrace" class="grid p-fluid">
+    
+    <!-- Sección de Imágenes -->
+    <div class="col-12 md:col-6">
+      <p-card header="Galería" styleClass="h-full">
+        <p-carousel
+          [value]="selectedTTerrace.URL_IMG"
+          [numVisible]="1"
+          [numScroll]="1"
+          [circular]="true"
+          [autoplayInterval]="5000"
+          [showIndicators]="true"
+          [showNavigators]="true"
+          *ngIf="selectedTTerrace.URL_IMG.length > 0">
+          <ng-template pTemplate="item" let-imgUrl>
+            <div class="image-wrapper flex justify-content-center align-items-center" style="height: 250px;">
+              <img 
+                [src]="imgUrl" 
+                (error)="onImageError($event)"
+                [alt]="selectedTTerrace.name"
+                class="border-round max-w-full max-h-full object-cover"
+                style="max-height: 250px;">
+            </div>
+          </ng-template>
+        </p-carousel>
+        
+        <!-- Fallback si no hay imágenes -->
+        <div *ngIf="!selectedTTerrace?.URL_IMG?.length" 
+             class="flex flex-column justify-content-center align-items-center py-6">
+          <i class="pi pi-image text-6xl text-400 mb-3"></i>
+          <span class="text-600">No hay imágenes disponibles</span>
+        </div>
+      </p-card>
     </div>
 
-    <button pButton type="button" label="Guardar" icon="pi pi-save" class="mt-3" (click)="saveChanges()"></button>
+    <!-- Sección de Información Principal -->
+    <div class="col-12 md:col-6">
+      <p-card [header]="selectedTTerrace.name" subHeader="Información general">
+        <div class="grid">
+          <div class="col-12">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Descripción</label>
+              <p class="text-200 surface-100 p-3 border-round text-sm line-height-3">
+                {{ selectedTTerrace.description || 'Sin descripción' }}
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Capacidad Base</label>
+              <p-tag [value]="selectedRTerrace.baseSize + ' personas'" 
+                     icon="pi pi-users" 
+                     severity="info">
+              </p-tag>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Capacidad Máxima</label>
+              <p-tag [value]="selectedRTerrace.maxSize + ' personas'" 
+                     icon="pi pi-users" 
+                     severity="success">
+              </p-tag>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Precio Base</label>
+              <p-tag [value]="'$' + selectedRTerrace.price" 
+                     icon="pi pi-dollar" 
+                     >
+              </p-tag>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Precio +10 personas</label>
+              <p-tag [value]="'$' + selectedRTerrace.priceAdd10" 
+                     icon="pi pi-money-bill" 
+                     >
+              </p-tag>
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+
+    <!-- Sección de Ubicación -->
+    <div class="col-12 md:col-6">
+      <p-card header="Ubicación" styleClass="h-full">
+        <div class="grid">
+          <div class="col-12">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Dirección</label>
+              <div class="flex align-items-center gap-2 text-200 p-3 surface-100 border-round">
+                <i class="pi pi-map-marker text-primary"></i>
+                <span>{{ selectedRTerrace.direction || 'No especificada' }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Lugar</label>
+              <div class="text-200 p-3 surface-100 border-round">
+                {{ selectedTTerrace.place || 'No especificado' }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Ciudad</label>
+              <div class="text-200 p-3 surface-100 border-round">
+                {{ selectedTTerrace.cityModel?.name || 'No especificada' }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Tipo de Terraza</label>
+              <div *ngIf="selectedTTerrace.terraceType?.[0]?.kind">
+                <p-chip 
+                  [label]="selectedTTerrace.terraceType[0].kind"
+                  icon="pi pi-tag"
+                  styleClass="mr-2 mb-2">
+                </p-chip>
+              </div>
+              <div *ngIf="!selectedTTerrace.terraceType?.[0]?.kind" class="text-600 p-3 surface-100 border-round">
+                No especificado
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+
+    <!-- Sección de Resumen y Acción -->
+    <div class="col-12 md:col-6">
+      <p-card header="Resumen" styleClass="h-full">
+        <div class="flex flex-column gap-3">
+          <div class="flex align-items-center gap-2 text-sm">
+            <i class="pi pi-check-circle text-green-500"></i>
+            <span>Terraza disponible para reserva</span>
+          </div>
+          
+          <div class="flex align-items-center gap-2 text-sm">
+            <i class="pi pi-image text-primary"></i>
+            <span>{{ selectedTTerrace.URL_IMG.length }} imagen(es) disponible(s)</span>
+          </div>
+
+          <div class="flex align-items-center gap-2 text-sm">
+            <i class="pi pi-info-circle text-blue-500"></i>
+            <span>Capacidad: {{ selectedRTerrace.baseSize }} - {{ selectedRTerrace.maxSize }} personas</span>
+          </div>
+
+          <div class="surface-100 p-3 border-round">
+            <div class="flex justify-content-between align-items-center mb-2">
+              <span class="font-semibold">Precio base:</span>
+              <span class="text-green-500 font-bold">${{ selectedRTerrace.price }}</span>
+            </div>
+            <div class="flex justify-content-between align-items-center">
+              <span class="font-semibold">+10 personas:</span>
+              <span class="text-blue-500 font-bold">${{ selectedRTerrace.priceAdd10 }}</span>
+            </div>
+          </div>
+
+          <div class="flex gap-2 justify-content-end mt-3">
+            <button 
+              pButton 
+              label="Cerrar" 
+              icon="pi pi-times" 
+              class="p-button-outlined p-button-secondary"
+              (click)="showDialog = false">
+            </button>
+            
+            <button 
+              pButton 
+              label="Seleccionar Terraza" 
+              icon="pi pi-shopping-cart" 
+              class="p-button-success"
+              (click)="saveChanges()">
+            </button>
+          </div>
+        </div>
+      </p-card>
+    </div>
   </div>
 </p-dialog>
-
 
 </div>
