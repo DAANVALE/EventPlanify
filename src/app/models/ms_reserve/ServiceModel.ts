@@ -4,7 +4,7 @@ export interface ServiceModel{
   id: number;
   name: string;
 
-  asociateTerraceMode: AsociateServiceModel;
+  asociateServiceModel: AsociateServiceModel;
 
   baseSize: number;
   maxSize: number;

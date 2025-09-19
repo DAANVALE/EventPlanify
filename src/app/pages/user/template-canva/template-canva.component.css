@@ -1,55 +1,93 @@
-h2 {
-  margin-bottom: 0.5rem;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-li {
-  margin-bottom: 0.3rem;
-}
-
-.header {
-  text-align: center;
-  margin: 20px;
-}
-
-.p-2{
-  margin: 10px;
-}
-
-p-card{
-  text-align: center;
-}
-
-p-dropdown{
-  margin-right: 20px;
-}
-
-.service-type-header {
+/* HEADER SIMPLE */
+.service-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 0;
-  padding: 0 10px;
-  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
 }
 
-.service-type-header .menu-title {
-  margin: 0;
-  font-size: 1.2rem;
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* CONTENEDOR DE CARD */
+.card-container {
+  padding: 0.5rem;
+}
+
+/* CARD NORMAL Y BONITA */
+.service-card {
+  width: 250px;
+  height: 300px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-header {
+  margin: 0.5rem 1rem;   /* arriba/abajo 0.5, laterales 1 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* IMAGEN */
+.card-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+/* TEXTO */
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.card-description {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary);
+  margin: 0.5rem 0;
+  flex-grow: 1;
+}
+
+/* FOOTER DE CARD */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.card-price {
   font-weight: bold;
-  color: #333;
+  color: var(--primary-color);
+  font-size: 1.1rem;
 }
 
-.service-type-header button {
-  margin-left: auto;
+.card-tag {
+  min-width: 2rem;
+  text-align: center;
 }
 
-.menu-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .service-card {
+    width: 200px;
+    height: 280px;
+  }
+  
+  .card-image {
+    height: 100px;
+  }
 }

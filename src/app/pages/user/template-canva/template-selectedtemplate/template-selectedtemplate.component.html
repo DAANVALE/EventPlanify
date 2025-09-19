@@ -1,3 +1,127 @@
-<div>
-    <h3>{{terraceModelReserve?.asociateTerraceModel?.name}}</h3>
+<div class="w-full p-3">
+  <!-- Tarjeta principal -->
+  <p-card [header]="terraceModelReserve?.name" styleClass="shadow-2 border-round-2xl w-full">
+    
+    <!-- Estado Activo/Inactivo -->
+    <div class="mb-3">
+      <p-tag 
+        [value]="terraceModelReserve?.killed ? 'Inactiva' : 'Activa'" 
+        [severity]="terraceModelReserve?.killed ? 'danger' : 'success'"
+        icon="pi pi-circle-fill">
+      </p-tag>
+    </div>
+
+    <p-divider></p-divider>
+
+    <!-- Estadísticas principales -->
+    <div class="grid mb-3">
+      <!-- Capacidad Base -->
+      <div class="col-12 md:col-4">
+        <div class="text-center p-3 border-1 surface-border border-round-2xl">
+          <i class="pi pi-users text-3xl text-primary mb-2 block"></i>
+          <span class="text-sm font-semibold text-600 block mb-1">Capacidad Base</span>
+          <span class="text-xl font-bold text-900">{{ terraceModelReserve?.baseSize || 0 }} personas</span>
+        </div>
+      </div>
+
+      <!-- Capacidad Máxima -->
+      <div class="col-12 md:col-4">
+        <div class="text-center p-3 border-1 surface-border border-round-2xl">
+          <i class="pi pi-building text-3xl text-cyan-500 mb-2 block"></i>
+          <span class="text-sm font-semibold text-600 block mb-1">Capacidad Máx.</span>
+          <span class="text-xl font-bold text-900">{{ terraceModelReserve?.maxSize || 0 }} personas</span>
+        </div>
+      </div>
+
+      <!-- Precio +10 personas -->
+      <div class="col-12 md:col-4">
+        <div class="text-center p-3 border-1 surface-border border-round-2xl">
+          <i class="pi pi-money-bill text-3xl text-green-500 mb-2 block"></i>
+          <span class="text-sm font-semibold text-600 block mb-1">Precio +10</span>
+          <span class="text-xl font-bold text-900">${{ terraceModelReserve?.priceAdd10 || 0 }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dirección -->
+    <div class="mb-3">
+      <div class="flex align-items-center gap-2 p-3 surface-100 border-round-2xl">
+        <i class="pi pi-map-marker text-primary"></i>
+        <span class="text-lg">{{ terraceModelReserve?.direction || 'Dirección no especificada' }}</span>
+      </div>
+    </div>
+
+    <!-- Terraza Asociada -->
+    <div *ngIf="terraceModelReserve?.asociateTerraceModel" class="mb-3">
+      <p-fieldset legend="Terraza Asociada" [toggleable]="true" styleClass="w-full">
+        <div class="grid">
+          <div class="col-12 md:col-6">
+            <div class="mb-2">
+              <span class="font-semibold text-600 block mb-1">Nombre:</span>
+              <div class="p-2 surface-100 border-round">
+                {{ terraceModelReserve?.asociateTerraceModel?.name }}
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-12 md:col-6" *ngIf="terraceModelReserve?.direction">
+            <div class="mb-2">
+              <span class="font-semibold text-600 block mb-1">Ciudad:</span>
+              <div class="p-2 surface-100 border-round">
+                {{ terraceModelReserve?.direction }}
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-12 md:col-6">
+            <div class="mb-2">
+              <span class="font-semibold text-600 block mb-1">ID Asociado:</span>
+              <div class="p-2 surface-100 border-round">
+                {{ terraceModelReserve?.asociateTerraceModel?.id }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+
+    <!-- Información adicional -->
+    <div>
+      <p-fieldset legend="Información Adicional" [toggleable]="true" styleClass="w-full">
+        <div class="grid">
+          <div class="col-12 md:col-6">
+            <div class="mb-2">
+              <span class="font-semibold text-600 block mb-1">ID de Terraza:</span>
+              <div class="p-2 surface-100 border-round">
+                {{ terraceModelReserve?.id }}
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-12 md:col-6">
+            <div class="mb-2">
+              <span class="font-semibold text-600 block mb-1">Estado:</span>
+              <div 
+                class="p-2 border-round" 
+                [ngClass]="terraceModelReserve?.killed ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'">
+                {{ terraceModelReserve?.killed ? 'Inactiva' : 'Activa' }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+
+    <!-- Botón de acción -->
+    <div class="flex justify-content-end mt-3">
+      <button 
+        pButton 
+        label="Eliminar selección" 
+        icon="pi pi-trash" 
+        class="p-button-danger"
+        (click)="clear()">
+      </button>
+    </div>
+
+  </p-card>
 </div>

@@ -1,19 +1,18 @@
-import { TemplateFindtemplateComponent }      from './template-findtemplate/template-findtemplate.component';
-import { TemplateSelectedTemplateComponent }  from './template-selectedtemplate/template-selectedtemplate.component';
-
-import { Component, OnInit, computed, signal } from '@angular/core';
+import { Component, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { ImportsModule } from '../../../imports';
 
+// Components
+import { TemplateFindtemplateComponent } from './template-findtemplate/template-findtemplate.component';
+import { TemplateSelectedTemplateComponent } from './template-selectedtemplate/template-selectedtemplate.component';
 
-// * NOTE: MS template Models & Services
+// Template Models & Services
 import { TemplateModel as T_TemplateModel } from '../../../models/ms_template/template';
-import { ServiceModel as T_ServiceModel } from './../../../models/ms_template/service-model';
+import { ServiceModel as T_ServiceModel } from '../../../models/ms_template/service-model';
 import { ServiceTypeModel as T_ServiceTypeModel } from '../../../models/ms_template/service-type';
 import { TerraceTypeModel as T_TerraceTypeModel } from '../../../models/ms_template/terrace-type';
-import { TerraceModel as T_TerraceModel} from '../../../models/ms_template/terrace';
+import { TerraceModel as T_TerraceModel } from '../../../models/ms_template/terrace';
 
 import { TerraceService as T_TerraceService } from '../../../shared/ms_template/terraceService.service';
 import { TemplateService as T_TemplateService } from '../../../shared/ms_template/templateService.service';
@@ -21,14 +20,16 @@ import { ServiceService as T_ServiceService } from '../../../shared/ms_template/
 import { ServiceTypeService as T_ServiceTypeService } from '../../../shared/ms_template/serviceTypeService.service';
 import { TerraceTypeService as T_TerraceTypeService } from '../../../shared/ms_template/terraceTypeService.service';
 
-// *? HACK: MS template test-data
-import { templateModelTs, serviceModelTs } from '../../../assets/template-test-data';
-
-// * NOTE: MS reserve Model & Services
-import { EventModel as R_EventModel } from './../../../models/ms_reserve/EventModel';
+// Reserve Models & Services
+import { EventModel as R_EventModel } from '../../../models/ms_reserve/EventModel';
 import { TerraceModel as R_TerraceModel } from '../../../models/ms_reserve/TerraceModel';
+import { ServiceModel as R_ServiceModel } from '../../../models/ms_reserve/ServiceModel';
 
 import { TerraceService as R_TerraceService } from '../../../shared/ms_reserve/terraceService.service';
+import { ServiceService as R_ServiceService } from '../../../shared/ms_reserve/serviceService.service';
+// Test Data
+import { templateModelTs } from '../../../assets/template-test-data';
+
 @Component({
   selector: 'app-template-canva',
   standalone: true,
@@ -38,18 +39,26 @@ import { TerraceService as R_TerraceService } from '../../../shared/ms_reserve/t
 })
 export class TemplateCanvaComponent implements OnInit {
 
-  template     = signal<T_TemplateModel>(templateModelTs[3]);
-
+  // Signals
+  template = signal<T_TemplateModel>(templateModelTs[3]);
   serviceTypes = signal<T_ServiceTypeModel[]>([]);
   terraceTypes = signal<T_TerraceTypeModel[]>([]);
-  services     = signal<T_ServiceModel[]>([]);
-
+  services = signal<T_ServiceModel[]>([]);
   terraces = signal<T_TerraceModel[]>([]);
+  r_terrace = signal<R_TerraceModel | null>(null);
+  r_service = signal<R_ServiceModel | null>(null);
 
-  selectedServiceType: T_ServiceTypeModel | null = null;;
-  selectedTerraceType: T_TerraceTypeModel | null = null;;
+  // Selected items
+  selectedServiceType: T_ServiceTypeModel | null = null;
+  selectedTerraceType: T_TerraceTypeModel | null = null;
+  selectedService_R: R_ServiceModel | null = null;
+  selectedService_T: T_ServiceModel | null = null;
+  selectedServices: T_ServiceModel[] = [];
 
+  // State
   eventModel: Partial<R_EventModel> = {};
+  showDialog = false;
+  showServiceDialog = false;
 
   constructor(
     private t_templateService: T_TemplateService,
@@ -57,68 +66,73 @@ export class TemplateCanvaComponent implements OnInit {
     private t_serviceTypeService: T_ServiceTypeService,
     private t_terraceTypeService: T_TerraceTypeService,
     private t_terraceService: T_TerraceService,
-
     private r_terraceService: R_TerraceService,
+    private r_serviceService: R_ServiceService,
   ) {}
 
   ngOnInit(): void {
+    this.initializeData();
+    this.loadReservesFromLocal();
+  }
+
+  // ========== DATA LOADING METHODS ==========
+  private initializeData(): void {
     this.loadServices();
     this.loadTerraces();
-
     this.loadTerraceType();
     this.loadServiceType();
   }
 
-  loadServiceType(): void{
+  loadServiceType(): void {
     this.t_serviceTypeService.getAll().subscribe({
       next: (data) => this.serviceTypes.set(data),
-      error: (error) => console.error("Error", error),
-    })
+      error: (error) => console.error("Error loading service types:", error),
+    });
   }
 
-  loadTerraceType(): void{
+  loadTerraceType(): void {
     this.t_terraceTypeService.getAll().subscribe({
       next: (data) => this.terraceTypes.set(data),
-      error: (error) => console.error("Error", error),
-    })
+      error: (error) => console.error("Error loading terrace types:", error),
+    });
   }
 
-  loadServices(): void{
+  loadServices(): void {
     this.t_serviceService.getAll().subscribe({
       next: (data) => this.services.set(data),
-      error: (error) => console.error("Error", error),
-    })
+      error: (error) => console.error("Error loading services:", error),
+    });
   }
 
-  loadTerraces(): void{
+  loadTerraces(): void {
     this.t_terraceService.getAll().subscribe({
       next: (data) => this.terraces.set(data),
-      error: (error) => console.error("Error", error),
-    })
+      error: (error) => console.error("Error loading terraces:", error),
+    });
   }
 
-  loadServicesByServiceType(typeService: T_ServiceTypeModel): void{
-    this.t_serviceService.getAll().subscribe({
-      next: (data) => this.services.set(data),
-      error: (error) => console.error("Error", error),
-    })
-  }
-
-  onSelectServiceType(){
-    if (this.selectedServiceType == null ) return;
+  // ========== SERVICE TYPE METHODS ==========
+  onSelectServiceType(): void {
+    if (!this.selectedServiceType) return;
 
     this.template.set({
       ...this.template(),
-      serviceTypeModel: [...this.template()!.serviceTypeModel, this.selectedServiceType]
+      serviceTypeModel: [...this.template().serviceTypeModel, this.selectedServiceType]
     });
 
     this.selectedServiceType = null;
   }
 
-  onSelectTerraceType(){
-    if(this.selectedTerraceType == null){
-      return
-    }
+  removeServiceType(typeToRemove: T_ServiceTypeModel): void {
+    const updatedTypes = this.template().serviceTypeModel.filter(
+      type => type.id !== typeToRemove.id
+    );
+    this.template.set({ ...this.template(), serviceTypeModel: updatedTypes });
+  }
+
+  // ========== TERRACE TYPE METHODS ==========
+  onSelectTerraceType(): void {
+    if (!this.selectedTerraceType) return;
 
     this.template.set({
       ...this.template(),
@@ -128,63 +142,113 @@ export class TemplateCanvaComponent implements OnInit {
     this.selectedTerraceType = null;
   }
 
-  removeServiceType(typeToRemove: T_ServiceTypeModel): void {
-    this.template().serviceTypeModel = this.template().serviceTypeModel.filter(
-      type => type.id !== typeToRemove.id
-    );
+    // ========== SERVICE SELECTION METHODS ==========
+getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
+  if (!serviceType || !this.services()) return [];
+  
+  return this.services().filter(service => 
+    service.serviceType?.some(element => element.id === serviceType.id)
+  );
+}
+
+  openServiceDialog(service: T_ServiceModel): void {
+    this.selectedService_T = { ...service };
+
+    this.r_serviceService.getById(service.id).subscribe({
+      next: (data: R_ServiceModel) => {
+        this.selectedService_R = data;
+        this.showServiceDialog = true;
+      },
+      error: () => console.error("Error loading service details:"),
+    });
   }
 
-  onTerraceSelected(r_terraceModel: R_TerraceModel): void{
-    this.eventModel.terraceModel = r_terraceModel;
+  selectService(templateService: T_ServiceModel, reserveService: R_ServiceModel): void {
+    const index = this.selectedServices.findIndex(s => s.id === templateService.id);
+    
+    if (index > -1) {
+      this.selectedServices.splice(index, 1);
+    } else {
+      this.selectedServices.push(templateService);
+    }
 
+    this.updateEventModel();
+    this.showServiceDialog = false;
+  }
+
+  isServiceSelected(service: T_ServiceModel): boolean {
+    return this.selectedServices.some(s => s.id === service.id);
+  }
+
+  // ========== LOCAL STORAGE METHODS ==========
+  updateEventModel(): void {
+    const reservesData = {
+      reserves: this.selectedServices,
+      lastUpdated: new Date().toISOString()
+    };
+    
+    localStorage.setItem('serviceReserves', JSON.stringify(reservesData));
+  }
+
+  loadReservesFromLocal(): void {
+    const stored = localStorage.getItem('serviceReserves');
+    if (stored) {
+      try {
+        const reservesData = JSON.parse(stored);
+        this.selectedServices = reservesData.reserves || [];
+      } catch (error) {
+        console.error('Error loading reserves from localStorage:', error);
+        this.selectedServices = [];
+      }
+    }
+  }
+
+  clearReserves(): void {
+    this.selectedServices = [];
+    localStorage.removeItem('serviceReserves');
+  }
+
+  // ========== TERRACE METHODS ==========
+  onTerraceSelected(terraceModel: R_TerraceModel): void {
+    this.eventModel.terraceModel = terraceModel;
     this.saveEventModelToLocal();
   }
 
   onTemplateSelected(template: T_TemplateModel): void {
-    console.log('Template recibido del hijo:', template);
-    // Aquí puedes actualizar el template actual
     this.template.set(template);
   }
 
-  saveEventModelToLocal(): void{
-    localStorage.setItem('event', JSON.stringify(this.eventModel) )
+  saveEventModelToLocal(): void {
+    localStorage.setItem('event', JSON.stringify(this.eventModel));
   }
 
-  savedTerrace(): boolean {
-    this.loadEventFromLocal();
-    return this.eventModel.terraceModel ? true : false;
-  }
-
-  loadEventFromLocal(): void{
+  loadEventFromLocal(): void {
     const data = localStorage.getItem('event');
-
-    if(data){
+    if (data) {
       this.eventModel = JSON.parse(data);
     }
   }
 
-  clearTerrace(): void{
+  savedTerrace(): boolean {
+    this.loadEventFromLocal();
+    return !!this.eventModel.terraceModel;
+  }
+
+  clearTerrace(): void {
     this.eventModel.terraceModel = undefined;
-    localStorage.setItem('event', String());
+    localStorage.setItem('event', '');
     this.saveEventModelToLocal();
-    this.ngOnInit();
+  }
+
+  // ========== UTILITY METHODS ==========
+  onImageError(event: any): void {
+    event.target.src = '../../../assets/calendars.png';
   }
 
   responsiveOptions = [
-    {
-      breakpoint: '1024px',
-      numVisible: 3,
-      numScroll: 1
-    },
-    {
-      breakpoint: '768px',
-      numVisible: 2,
-      numScroll: 1
-    },
-    {
-      breakpoint: '560px',
-      numVisible: 1,
-      numScroll: 1
-    }
+    { breakpoint: '1400px', numVisible: 4, numScroll: 1 },
+    { breakpoint: '1100px', numVisible: 3, numScroll: 1 },
+    { breakpoint: '768px', numVisible: 2, numScroll: 1 },
+    { breakpoint: '560px',numVisible: 1, numScroll: 1 }
   ];
 }

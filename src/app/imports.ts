@@ -23,6 +23,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ImageModule } from 'primeng/image';
 import { DividerModule } from 'primeng/divider';
 
+import { FieldsetModule } from 'primeng/fieldset';
+import { InputNumberModule } from 'primeng/inputnumber';
+
 @NgModule({
   imports: [
     ButtonModule,
@@ -40,6 +43,8 @@ import { DividerModule } from 'primeng/divider';
     DialogModule,
     ImageModule,
     DividerModule,
+    FieldsetModule,
+    InputNumberModule,
   ],
   exports: [
     ButtonModule,
@@ -57,6 +62,8 @@ import { DividerModule } from 'primeng/divider';
     DialogModule,
     ImageModule,
     DividerModule,
+    FieldsetModule,
+    InputNumberModule,
   ],
   providers: [],
 })

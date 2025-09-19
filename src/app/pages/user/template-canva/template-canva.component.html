@@ -28,6 +28,8 @@
   <app-template-selectedtemplate></app-template-selectedtemplate>
 </ng-template>
 
+<br>
+
 <p-menubar class="mb-3">
   <ng-template pTemplate="start">
     <span>Servicios proporcionados</span>
@@ -44,33 +46,213 @@
   </ng-template>
 </p-menubar>
 
-<!-- Carrusel por tipo de servicio -->
-<div *ngFor="let type of template().serviceTypeModel" class="mb-4">
+<!-- Carruseles por tipo de servicio -->
+<div *ngFor="let type of template().serviceTypeModel" class="mb-5">
 
-  <div class="service-type-header">
-    <h3>{{ type.kind }}</h3>
-    <button
-      pButton
-      type="button"
-      icon="pi pi-trash"
-      class="p-button-sm p-button-rounded p-button-danger"
+  <!-- Header simple y alineado -->
+  <div class="service-header mx-3 my-2">
+    <div class="header-left">
+      <i class="pi pi-tag text-primary mr-2"></i>
+      <span style="margin-right: 10px;"></span>
+      <h3 class="m-0">{{type.kind }}</h3>
+    </div>
+    <p-button 
+      icon="pi pi-times" 
+      styleClass="p-button-danger p-button-text p-button-sm"
       (click)="removeServiceType(type)"
-    ></button>
+      tooltip="Quitar tipo">
+    </p-button>
   </div>
 
+  <!-- Carrusel con cards normales -->
   <p-carousel
-    [value]="services()"
-    [numVisible]="5"
+    [value]="getServicesByType(type)"
+    [numVisible]="4"
     [numScroll]="1"
     [responsiveOptions]="responsiveOptions"
+    class="service-carousel"
   >
     <ng-template pTemplate="item" let-service>
-      <div class="p-2">
-        <p-card [header]="service.name">
-          <img src="../../../assets/calendars.png" height="100px">
-          <p>{{ service.description }}</p>
+      <div class="card-container" (click)="openServiceDialog(service)">
+        <p-card class="service-card">
+          <img 
+            [src]="service.URL_IMG?.[0] || '../../../assets/calendars.png'" 
+            alt="{{service.name}}"
+            class="card-image"
+            (error)="onImageError($event)">
+          
+          <h4 class="card-title">{{ service.name }}</h4>
+          
+          <p class="card-description">
+            {{ (service.description || '').slice(0,60) }}{{ service.description?.length > 60 ? '...' : '' }}
+          </p>
+          
+          <div class="card-footer">
+            <span class="card-price">${{ service.price || 0 }}</span>
+            <p-tag 
+              [value]="isServiceSelected(service) ? '✓' : '+'"
+              [severity]="isServiceSelected(service) ? 'success' : 'info'"
+              class="card-tag">
+            </p-tag>
+          </div>
         </p-card>
       </div>
     </ng-template>
   </p-carousel>
 </div>
+
+<!-- Diálogo de Detalles de Servicio -->
+<p-dialog 
+  header="Detalles del Servicio"
+  [(visible)]="showServiceDialog"
+  [modal]="true"
+  [style]="{ width: '70vw', maxWidth: '800px' }"
+  [breakpoints]="{ '960px': '90vw', '640px': '95vw' }"
+>
+  <div *ngIf="selectedService_T && selectedService_R" class="grid p-fluid">
+    
+    <!-- Sección de Información Principal -->
+    <div class="col-12 md:col-6">
+      <p-card [header]="selectedService_T.name" subHeader="Información del servicio">
+        <div class="grid">
+          <div class="col-12">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Descripción</label>
+              <p class="text-200 surface-100 p-3 border-round text-sm line-height-3">
+                {{ selectedService_T.description || 'Sin descripción' }}
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Capacidad Base</label>
+              <p-tag [value]="(selectedService_R.baseSize || 0) + ' personas'" 
+                    icon="pi pi-users" 
+                    severity="info">
+              </p-tag>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Capacidad Máxima</label>
+              <p-tag [value]="(selectedService_R.maxSize || 0) + ' personas'" 
+                    icon="pi pi-users" 
+                    severity="success">
+              </p-tag>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Precio +10 personas</label>
+              <p-tag [value]="'$' + (selectedService_R.priceAdd10 || 0)" 
+                    icon="pi pi-money-bill">
+              </p-tag>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Precio Base</label>
+              <p-tag [value]="'$' + (selectedService_T.price || 0)" 
+                    icon="pi pi-dollar">
+              </p-tag>
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+
+    <!-- Sección de Información de Contacto -->
+    <div class="col-12 md:col-6">
+      <p-card header="Información de Contacto" styleClass="h-full">
+        <div class="grid">
+          <div class="col-12">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Proveedor</label>
+              <div class="flex align-items-center gap-2 text-200 p-3 surface-100 border-round">
+                <i class="pi pi-building text-primary"></i>
+                <span>{{ selectedService_R.asociateServiceModel.name || 'No especificado' }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Email</label>
+              <div class="text-200 p-3 surface-100 border-round">
+                {{ selectedService_R.asociateServiceModel.mail || 'No especificado' }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Teléfono</label>
+              <div class="text-200 p-3 surface-100 border-round">
+                {{ selectedService_R.asociateServiceModel.phone }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="field">
+              <label class="font-semibold text-900 block mb-2">Dirección</label>
+              <div class="text-200 p-3 surface-100 border-round">
+                {{ selectedService_R.direction || 'No especificada' }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+
+    <!-- Sección de Acción -->
+    <div class="col-12">
+      <p-card header="Resumen" styleClass="h-full">
+        <div class="flex flex-column gap-3">
+          <div class="flex align-items-center gap-2 text-sm">
+            <i class="pi pi-check-circle text-green-500"></i>
+            <span>Servicio disponible para reserva</span>
+          </div>
+          
+          <div class="flex align-items-center gap-2 text-sm">
+            <i class="pi pi-info-circle text-blue-500"></i>
+            <span>Capacidad: {{ selectedService_R.baseSize || 0 }} - {{ selectedService_R.maxSize || 0 }} personas</span>
+          </div>
+
+          <div class="surface-100 p-3 border-round">
+            <div class="flex justify-content-between align-items-center mb-2">
+              <span class="font-semibold">Precio base del servicio:</span>
+              <span class="text-green-500 font-bold">${{ selectedService_T.price || 0 }}</span>
+            </div>
+            <div class="flex justify-content-between align-items-center">
+              <span class="font-semibold">Precio +10 personas:</span>
+              <span class="text-blue-500 font-bold">${{ selectedService_R.priceAdd10 || 0 }}</span>
+            </div>
+          </div>
+
+          <div class="flex gap-2 justify-content-end mt-3">
+            <button 
+              pButton 
+              label="Cerrar" 
+              icon="pi pi-times" 
+              class="p-button-outlined p-button-secondary"
+              (click)="showServiceDialog = false">
+            </button>
+            
+            <button 
+              pButton 
+              label="Seleccionar Servicio" 
+              icon="pi pi-shopping-cart" 
+              class="p-button-success"
+              (click)="selectService(selectedService_T, selectedService_R)">
+            </button>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</p-dialog>
