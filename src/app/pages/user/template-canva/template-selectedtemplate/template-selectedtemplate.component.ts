@@ -36,10 +36,11 @@ export class TemplateSelectedTemplateComponent implements OnInit {
 
   clear(): void{
     localStorage.setItem('event', String());
+    this.eventModel.terraceModel = undefined;
     this.saveEventModelToLocal();
   }
 
   saveEventModelToLocal(): void{
-    localStorage.setItem('event', JSON.stringify(""));
+    localStorage.setItem('event', JSON.stringify(this.eventModel));
   }
 }

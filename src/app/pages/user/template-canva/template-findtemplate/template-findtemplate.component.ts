@@ -70,7 +70,7 @@ export class TemplateFindtemplateComponent {
 
   saveEventModelToLocal(): void{
     localStorage.setItem('event', JSON.stringify(this.eventModel) )
-    localStorage.setItem('terrace', JSON.stringify(this.selectedTTerrace))
+    // localStorage.setItem('terrace', JSON.stringify(this.selectedTTerrace))
   }
 
   onImageError(event: any) {

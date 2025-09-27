@@ -128,6 +128,12 @@ export class TemplateCanvaComponent implements OnInit {
       type => type.id !== typeToRemove.id
     );
     this.template.set({ ...this.template(), serviceTypeModel: updatedTypes });
+
+    this.selectedServices = this.selectedServices.filter(service =>
+      !service.serviceType.some(type => type.id === typeToRemove.id)
+    );
+
+    this.updateEventModel_ServicesSelected();
   }
 
   // ========== TERRACE TYPE METHODS ==========
@@ -147,7 +153,7 @@ getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
   if (!serviceType || !this.services()) return [];
   
   return this.services().filter(service => 
-    service.serviceType?.some(element => element.id === serviceType.id)
+    service.serviceType.some(element => element.id === serviceType.id)
   );
 }
 
@@ -172,7 +178,7 @@ getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
       this.selectedServices.push(templateService);
     }
 
-    this.updateEventModel();
+    this.updateEventModel_ServicesSelected();
     this.showServiceDialog = false;
   }
 
@@ -181,13 +187,8 @@ getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
   }
 
   // ========== LOCAL STORAGE METHODS ==========
-  updateEventModel(): void {
-    const reservesData = {
-      reserves: this.selectedServices,
-      lastUpdated: new Date().toISOString()
-    };
-    
-    localStorage.setItem('serviceReserves', JSON.stringify(reservesData));
+  updateEventModel_ServicesSelected(): void {
+    localStorage.setItem('serviceReserves', JSON.stringify(this.selectedServices));
   }
 
   loadReservesFromLocal(): void {
