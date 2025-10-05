@@ -26,6 +26,8 @@ import { DividerModule } from 'primeng/divider';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
 
+import { BadgeModule } from 'primeng/badge';
+
 @NgModule({
   imports: [
     ButtonModule,
@@ -45,6 +47,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     DividerModule,
     FieldsetModule,
     InputNumberModule,
+    BadgeModule,
   ],
   exports: [
     ButtonModule,
@@ -64,6 +67,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     DividerModule,
     FieldsetModule,
     InputNumberModule,
+    BadgeModule,
   ],
   providers: [],
 })

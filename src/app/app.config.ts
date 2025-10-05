@@ -16,11 +16,11 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideRouter(routes),
     provideAnimationsAsync(),
-        providePrimeNG({
-            theme: {
-              preset: MyPreset,
-            }
-        })
+    providePrimeNG({
+        theme: {
+          preset: MyPreset,
+        }
+    })
   ]
 
 };

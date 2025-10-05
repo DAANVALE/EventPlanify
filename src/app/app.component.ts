@@ -1,7 +1,7 @@
 import { TypeEventMenuComponent } from './features/event/type-event-menu/type-event-menu.component';
 import { TemplateCanvaComponent } from './pages/user/template-canva/template-canva.component';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 import { PrimeNG } from 'primeng/config';
 
@@ -23,16 +23,22 @@ import { HeaderComponent } from './components/header/header.component';
     TemplateCanvaComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent{
   title = 'EventPlanify';
 
-  constructor(private primeng: PrimeNG) {
-
+  constructor(
+    private router: Router,
+    private primeng: PrimeNG) {
   }
 
   ngOnInit() {
       this.primeng.ripple.set(true);
+
+      setTimeout(() => {
+      console.log('🔍 Router config después de init:', this.router.config);
+      console.log('🔍 Número de rutas cargadas:', this.router.config.length);
+    }, 1000);
   }
 }

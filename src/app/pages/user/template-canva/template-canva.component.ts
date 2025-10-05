@@ -1,4 +1,5 @@
 import { Component, OnInit, signal, computed } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ImportsModule } from '../../../imports';
@@ -68,6 +69,7 @@ export class TemplateCanvaComponent implements OnInit {
     private t_terraceService: T_TerraceService,
     private r_terraceService: R_TerraceService,
     private r_serviceService: R_ServiceService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -244,6 +246,70 @@ getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
   // ========== UTILITY METHODS ==========
   onImageError(event: any): void {
     event.target.src = '../../../assets/calendars.png';
+  }
+
+  goToConfirmation(): void {
+    console.log('📍 Intentando navegar a confirmation...');
+    
+    // Guardar datos
+    this.saveCurrentSelections();
+    
+    // Verificar que el router esté inyectado
+    console.log('Router:', this.router);
+    
+    // Probar diferentes métodos de navegación:
+    
+    // Método 1: navigate
+    this.router.navigate(['/confirmation']).then(success => {
+      console.log('Navegación exitosa:', success);
+    }).catch(error => {
+      console.error('Error en navegación:', error);
+    });
+    
+    // Método 2: O prueba con navigateByUrl después de un delay
+    // setTimeout(() => {
+    //   this.router.navigateByUrl('/confirmation');
+    // }, 100);
+  }
+
+  saveCurrentSelections(): void {
+    const reservationData = {
+      terrace: this.eventModel.terraceModel,
+      services: this.selectedServices,
+      total: this.calculateTotal(),
+      savedAt: new Date().toISOString()
+    };
+    
+    localStorage.setItem('pendingReservation', JSON.stringify(reservationData));
+  }
+
+  // Métodos auxiliares (los que ya tenías)
+  hasSelections(): boolean {
+    return !!this.eventModel.terraceModel || 
+           (this.selectedServices && this.selectedServices.length > 0);
+  }
+
+  getTotalItems(): number {
+    let count = 0;
+    if (this.eventModel.terraceModel) count++;
+    if (this.selectedServices) count += this.selectedServices.length;
+    return count;
+  }
+
+  calculateTotal(): number {
+    let total = 0;
+    
+    if (this.eventModel.terraceModel?.priceAdd10) {
+      total += this.eventModel.terraceModel.priceAdd10;
+    }
+    
+    if (this.selectedServices) {
+      this.selectedServices.forEach(service => {
+        total += service?.price || 0;
+      });
+    }
+    
+    return total;
   }
 
   responsiveOptions = [

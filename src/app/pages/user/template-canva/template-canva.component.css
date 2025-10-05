@@ -91,3 +91,23 @@
     height: 100px;
   }
 }
+
+.fixed {
+  position: fixed;
+}
+
+.bottom-4 {
+  bottom: 1rem;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.z-5 {
+  z-index: 1000;
+}
+
+.shadow-5 {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
