@@ -6,9 +6,11 @@ export interface ServiceModel{
 
   asociateServiceModel: AsociateServiceModel;
 
+  basePrice: number;
+  priceAdd10: number;
+
   baseSize: number;
   maxSize: number;
-  priceAdd10: number;
 
   direction: string;
   killed: boolean;

@@ -35,10 +35,5 @@ export class AppComponent{
 
   ngOnInit() {
       this.primeng.ripple.set(true);
-
-      setTimeout(() => {
-      console.log('🔍 Router config después de init:', this.router.config);
-      console.log('🔍 Número de rutas cargadas:', this.router.config.length);
-    }, 1000);
   }
 }

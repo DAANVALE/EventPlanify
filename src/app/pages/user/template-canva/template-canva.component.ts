@@ -17,7 +17,7 @@ import { TerraceModel as T_TerraceModel } from '../../../models/ms_template/terr
 
 import { TerraceService as T_TerraceService } from '../../../shared/ms_template/terraceService.service';
 import { TemplateService as T_TemplateService } from '../../../shared/ms_template/templateService.service';
-import { ServiceService as T_ServiceService } from '../../../shared/ms_template/serviceService.service';
+import { ServiceService, ServiceService as T_ServiceService } from '../../../shared/ms_template/serviceService.service';
 import { ServiceTypeService as T_ServiceTypeService } from '../../../shared/ms_template/serviceTypeService.service';
 import { TerraceTypeService as T_TerraceTypeService } from '../../../shared/ms_template/terraceTypeService.service';
 
@@ -25,6 +25,7 @@ import { TerraceTypeService as T_TerraceTypeService } from '../../../shared/ms_t
 import { EventModel as R_EventModel } from '../../../models/ms_reserve/EventModel';
 import { TerraceModel as R_TerraceModel } from '../../../models/ms_reserve/TerraceModel';
 import { ServiceModel as R_ServiceModel } from '../../../models/ms_reserve/ServiceModel';
+import { ReserveModel as R_ReserveModel } from '../../../models/ms_reserve/ReserveModel';
 
 import { TerraceService as R_TerraceService } from '../../../shared/ms_reserve/terraceService.service';
 import { ServiceService as R_ServiceService } from '../../../shared/ms_reserve/serviceService.service';
@@ -249,38 +250,34 @@ getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
   }
 
   goToConfirmation(): void {
-    console.log('📍 Intentando navegar a confirmation...');
-    
-    // Guardar datos
     this.saveCurrentSelections();
-    
-    // Verificar que el router esté inyectado
-    console.log('Router:', this.router);
-    
-    // Probar diferentes métodos de navegación:
-    
-    // Método 1: navigate
-    this.router.navigate(['/confirmation']).then(success => {
-      console.log('Navegación exitosa:', success);
-    }).catch(error => {
-      console.error('Error en navegación:', error);
-    });
-    
-    // Método 2: O prueba con navigateByUrl después de un delay
-    // setTimeout(() => {
-    //   this.router.navigateByUrl('/confirmation');
-    // }, 100);
+    this.router.navigate(['/confirmation']);
   }
 
   saveCurrentSelections(): void {
-    const reservationData = {
-      terrace: this.eventModel.terraceModel,
-      services: this.selectedServices,
-      total: this.calculateTotal(),
-      savedAt: new Date().toISOString()
+
+    this.loadEventFromLocal();
+
+    const reservationEvent : Partial<R_EventModel> = {
+      terraceModel: this.eventModel.terraceModel
     };
-    
-    localStorage.setItem('pendingReservation', JSON.stringify(reservationData));
+
+    // Agregar los servicios seleccionados al evento de reserva
+
+    const reserveServices: R_ServiceModel[] = [];
+
+    for (let service of this.selectedServices)
+    {
+      this.r_serviceService.getById(service.idService_DB).subscribe({
+        next: (data) => {
+          reserveServices.push(data);
+        }, 
+        error: (error) => console.error("Error", error)
+      });
+    }
+
+    localStorage.setItem('pendingEventReservation', JSON.stringify(reservationEvent));
+    localStorage.setItem('pendingServiceReservations', JSON.stringify(reserveServices));
   }
 
   // Métodos auxiliares (los que ya tenías)

@@ -1,5 +1,5 @@
 import { StateReserveType } from './StateReserveType';
-import { ServiceModel } from './../ms_template/service-model';
+import { ServiceModel } from './../ms_reserve/ServiceModel';
 import { EventModel } from "./EventModel";
 
 export interface ReserveModel{
