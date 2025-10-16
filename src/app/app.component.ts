@@ -10,6 +10,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 
 import { ImportsModule } from './imports';
 import { HeaderComponent } from './components/header/header.component';
+import { ConfirmationComponent } from './pages/user/template-confirmation/confirmation/confirmation.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -19,6 +20,7 @@ import { HeaderComponent } from './components/header/header.component';
     FormsModule,
     SelectButtonModule,
     TypeEventMenuComponent,
+    ConfirmationComponent,
     HeaderComponent,
     TemplateCanvaComponent,
   ],

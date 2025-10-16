@@ -1,0 +1,30 @@
+.confirmation-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sticky-top {
+  position: sticky;
+  top: 1rem;
+}
+
+.reserve-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.border-bottom-1 {
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .sticky-top {
+    position: static;
+  }
+}

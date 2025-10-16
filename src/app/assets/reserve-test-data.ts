@@ -8,7 +8,6 @@ import { ServiceModel } from '../models/ms_reserve/ServiceModel';
 // sEKJju$2MA19xRww
 // msdatabaseterrace-admin
 
-
 export const asociateTerraceModellTs: AsociateTerraceModel[] = [
   {
     id: 401,
@@ -125,497 +124,432 @@ export const terraceModelTs: TerraceModel[] = [
 
 export const asociateServiceModelTs: AsociateServiceModel[] = [
   {
-    id: 501,
+    id: 201,
     idUser: 101,
-    name: 'Servicios Premium GDL',
-    mail: 'premiumgdl@example.com',
-    phone: '33-1234-5678',
+    name: 'Meseros Profesionales GDL',
+    mail: 'meserosgdl@example.com',
+    phone: '33-1111-2222',
     killed: false
   },
   {
-    id: 502,
+    id: 202,
     idUser: 102,
-    name: 'Eventos Zapopan',
-    mail: 'eventoszapopan@example.com',
-    phone: '33-2345-6789',
+    name: 'Banquetes Mexicanos Zapopan',
+    mail: 'banqueteszapopan@example.com',
+    phone: '33-2222-3333',
     killed: false
   },
   {
-    id: 503,
+    id: 203,
     idUser: 103,
-    name: 'Salones Tlaquepaque',
-    mail: 'salonestlaquepaque@example.com',
-    phone: '33-3456-7890',
+    name: 'DJ Profesional Tlaquepaque',
+    mail: 'djtlaquepaque@example.com',
+    phone: '33-3333-4444',
     killed: false
   },
   {
-    id: 504,
+    id: 204,
     idUser: 104,
-    name: 'Expo Servicios Tonalá',
-    mail: 'exposerviciostonala@example.com',
-    phone: '33-4567-8901',
+    name: 'Fotografía Premium Tonalá',
+    mail: 'fototonala@example.com',
+    phone: '33-4444-5555',
     killed: false
   },
   {
-    id: 505,
+    id: 205,
     idUser: 105,
-    name: 'Naturaleza y Eventos',
-    mail: 'naturalezayeventos@example.com',
-    phone: '33-5678-9012',
+    name: 'Mixología Zapotlanejo',
+    mail: 'mixologiazap@example.com',
+    phone: '33-5555-6666',
     killed: false
   },
   {
-    id: 506,
+    id: 206,
     idUser: 106,
-    name: 'Experiencias Únicas',
-    mail: 'experienciasunicas@example.com',
-    phone: '33-6789-0123',
+    name: 'Entretenimiento Tlajomulco',
+    mail: 'showtlajomulco@example.com',
+    phone: '33-6666-7777',
     killed: false
   },
   {
-    id: 507,
+    id: 207,
     idUser: 107,
-    name: 'Catering Elite',
-    mail: 'cateringelite@example.com',
-    phone: '33-7890-1234',
+    name: 'Decoraciones Elegantes GDL',
+    mail: 'decoragdl@example.com',
+    phone: '33-7777-8888',
     killed: false
   },
   {
-    id: 508,
+    id: 208,
     idUser: 108,
-    name: 'Sonido e Iluminación Pro',
-    mail: 'sonidoiluminacion@example.com',
-    phone: '33-8901-2345',
+    name: 'Transporte Ejecutivo Zapopan',
+    mail: 'transportezapopan@example.com',
+    phone: '33-8888-9999',
     killed: false
   },
   {
-    id: 509,
+    id: 209,
     idUser: 109,
-    name: 'Decoraciones Elegantes',
-    mail: 'decoracioneselegantes@example.com',
-    phone: '33-9012-3456',
+    name: 'Seguridad Privada Tlaquepaque',
+    mail: 'seguridadtlaque@example.com',
+    phone: '33-9999-0000',
     killed: false
   },
   {
-    id: 510,
+    id: 210,
     idUser: 110,
-    name: 'Transporte Ejecutivo',
-    mail: 'transporteejecutivo@example.com',
-    phone: '33-0123-4567',
+    name: 'Coordinación de Eventos Tonalá',
+    mail: 'coordinaciontonala@example.com',
+    phone: '33-0000-1111',
     killed: false
   },
   {
-    id: 511,
+    id: 211,
     idUser: 111,
-    name: 'Seguridad Privada',
-    mail: 'seguridadprivada@example.com',
+    name: 'Logística Integral Zapotlanejo',
+    mail: 'logisticazap@example.com',
     phone: '33-1122-3344',
     killed: false
   },
   {
-    id: 512,
+    id: 212,
     idUser: 112,
-    name: 'Fotografía Profesional',
-    mail: 'fotografiaprofesional@example.com',
+    name: 'Streaming Profesional Tlajomulco',
+    mail: 'streamingtlajo@example.com',
     phone: '33-2233-4455',
-    killed: false
-  },
-  {
-    id: 513,
-    idUser: 113,
-    name: 'Audio y Video',
-    mail: 'audiovideo@example.com',
-    phone: '33-3344-5566',
-    killed: false
-  },
-  {
-    id: 514,
-    idUser: 114,
-    name: 'Flores y Arreglos',
-    mail: 'floresyarreglos@example.com',
-    phone: '33-4455-6677',
-    killed: false
-  },
-  {
-    id: 515,
-    idUser: 115,
-    name: 'Mobiliario para Eventos',
-    mail: 'mobiliarioeventos@example.com',
-    phone: '33-5566-7788',
-    killed: false
-  },
-  {
-    id: 516,
-    idUser: 116,
-    name: 'Animación y Entretenimiento',
-    mail: 'animacionentretenimiento@example.com',
-    phone: '33-6677-8899',
-    killed: false
-  },
-  {
-    id: 517,
-    idUser: 117,
-    name: 'Coordinación de Bodas',
-    mail: 'coordinacionbodas@example.com',
-    phone: '33-7788-9900',
-    killed: false
-  },
-  {
-    id: 518,
-    idUser: 118,
-    name: 'Servicios Corporativos',
-    mail: 'servicioscorporativos@example.com',
-    phone: '33-8899-0011',
-    killed: false
-  },
-  {
-    id: 519,
-    idUser: 119,
-    name: 'Logística de Eventos',
-    mail: 'logisticaeventos@example.com',
-    phone: '33-9900-1122',
-    killed: false
-  },
-  {
-    id: 520,
-    idUser: 120,
-    name: 'Servicios Digitales',
-    mail: 'serviciosdigitales@example.com',
-    phone: '33-0011-2233',
     killed: false
   }
 ];
 
-
 export const ServiceModelTs: ServiceModel[] = [
   {
-    id: 1,
-    name: 'Servicio de Alberca Premium',
+    id: 101,
+    name: 'Servicio de Meseros Elegantes',
     asociateServiceModel: asociateServiceModelTs[0],
-    baseSize: 50,
-    maxSize: 100,
-    priceAdd10: 800,
+    baseSize: 10,
+    maxSize: 20,
+    priceAdd10: 500,
     direction: 'Av. Patria 1234, Zona Real, Guadalajara',
-    killed: false,
-    basePrice: 5000
-  },
-  {
-    id: 2,
-    name: 'Servicio Tradicional Completo',
-    asociateServiceModel: asociateServiceModelTs[1],
-    baseSize: 40,
-    maxSize: 80,
-    priceAdd10: 600,
-    direction: 'Calzada Seattle 567, Colonia Seattle, Zapopan',
-    killed: false,
-    basePrice: 3000
-  },
-  {
-    id: 3,
-    name: 'Servicio de Salón Ejecutivo',
-    asociateServiceModel: asociateServiceModelTs[2],
-    baseSize: 60,
-    maxSize: 120,
-    priceAdd10: 900,
-    direction: 'Independencia 890, Centro Histórico, Tlaquepaque',
-    killed: false,
-    basePrice: 4000
-  },
-  {
-    id: 4,
-    name: 'Servicio para Exposiciones',
-    asociateServiceModel: asociateServiceModelTs[3],
-    baseSize: 70,
-    maxSize: 150,
-    priceAdd10: 700,
-    direction: 'Cerámica 234, Zona Artesanal, Tonalá',
     killed: false,
     basePrice: 3500
   },
   {
-    id: 5,
-    name: 'Servicio en Área Natural',
-    asociateServiceModel: asociateServiceModelTs[4],
-    baseSize: 30,
-    maxSize: 60,
-    priceAdd10: 750,
-    direction: 'Carretera a Zapotlanejo Km 12.5, Paraje El Roble, Zapotlanejo',
+    id: 102,
+    name: 'Banquete Tradicional Mexicano',
+    asociateServiceModel: asociateServiceModelTs[1],
+    baseSize: 25,
+    maxSize: 50,
+    priceAdd10: 800,
+    direction: 'Calzada Seattle 567, Colonia Seattle, Zapopan',
     killed: false,
-    basePrice: 2800
+    basePrice: 8000
   },
   {
-    id: 6,
-    name: 'Servicio de Experiencia 360',
-    asociateServiceModel: asociateServiceModelTs[5],
-    baseSize: 45,
-    maxSize: 90,
-    priceAdd10: 1200,
-    direction: 'Bosques de Santa Anita 345, Tlajomulco',
+    id: 103,
+    name: 'DJ Profesional con Equipo Premium',
+    asociateServiceModel: asociateServiceModelTs[2],
+    baseSize: 5,
+    maxSize: 10,
+    priceAdd10: 300,
+    direction: 'Independencia 890, Centro Histórico, Tlaquepaque',
+    killed: false,
+    basePrice: 5000
+  },
+  {
+    id: 104,
+    name: 'Cobertura Fotográfica Premium',
+    asociateServiceModel: asociateServiceModelTs[3],
+    baseSize: 3,
+    maxSize: 6,
+    priceAdd10: 400,
+    direction: 'Cerámica 234, Zona Artesanal, Tonalá',
     killed: false,
     basePrice: 6000
   },
   {
-    id: 7,
-    name: 'Catering Gourmet Premium',
-    asociateServiceModel: asociateServiceModelTs[6],
-    baseSize: 25,
-    maxSize: 50,
-    priceAdd10: 500,
-    direction: 'Av. Vallarta 789, Centro, Guadalajara',
-    killed: false,
-    basePrice: 4000
-  },
-  {
-    id: 8,
-    name: 'Sistema de Sonido Profesional',
-    asociateServiceModel: asociateServiceModelTs[7],
-    baseSize: 10,
-    maxSize: 20,
-    priceAdd10: 300,
-    direction: 'López Mateos 321, Zapopan',
-    killed: false,
-    basePrice: 2500
-  },
-  {
-    id: 9,
-    name: 'Decoración Temática Premium',
-    asociateServiceModel: asociateServiceModelTs[8],
-    baseSize: 15,
-    maxSize: 30,
-    priceAdd10: 400,
-    direction: 'Juárez 654, Tlaquepaque',
-    killed: false,
-    basePrice: 3200
-  },
-  {
-    id: 10,
-    name: 'Transporte Ejecutivo VIP',
-    asociateServiceModel: asociateServiceModelTs[9],
+    id: 105,
+    name: 'Barra Libre Premium con Mixólogo',
+    asociateServiceModel: asociateServiceModelTs[4],
     baseSize: 8,
     maxSize: 16,
-    priceAdd10: 350,
-    direction: 'Federalismo 987, Guadalajara',
-    killed: false,
-    basePrice: 2700
-  },
-  {
-    id: 11,
-    name: 'Servicio de Seguridad Privada',
-    asociateServiceModel: asociateServiceModelTs[10],
-    baseSize: 5,
-    maxSize: 10,
-    priceAdd10: 450,
-    direction: 'Américas 555, Zapopan',
-    killed: false,
-    basePrice: 3000
-  },
-  {
-    id: 12,
-    name: 'Sesión Fotográfica Profesional',
-    asociateServiceModel: asociateServiceModelTs[11],
-    baseSize: 3,
-    maxSize: 6,
     priceAdd10: 600,
-    direction: 'Chapultepec 222, Guadalajara',
+    direction: 'Carretera a Zapotlanejo Km 12.5, Paraje El Roble, Zapotlanejo',
     killed: false,
-    basePrice: 3500
+    basePrice: 7000
   },
   {
-    id: 13,
-    name: 'Grabación y Edición de Video',
-    asociateServiceModel: asociateServiceModelTs[12],
-    baseSize: 4,
-    maxSize: 8,
-    priceAdd10: 550,
-    direction: 'Av. México 333, Guadalajara',
-    killed: false,
-    basePrice: 3800
-  },
-  {
-    id: 14,
-    name: 'Arreglos Florales Premium',
-    asociateServiceModel: asociateServiceModelTs[13],
-    baseSize: 12,
-    maxSize: 24,
+    id: 106,
+    name: 'Show de Stand-Up y Magia Interactiva',
+    asociateServiceModel: asociateServiceModelTs[5],
+    baseSize: 2,
+    maxSize: 4,
     priceAdd10: 350,
-    direction: 'San Felipe 444, Tlaquepaque',
-    killed: false,
-    basePrice: 2900
-  },
-  {
-    id: 15,
-    name: 'Renta de Mobiliario Elegante',
-    asociateServiceModel: asociateServiceModelTs[14],
-    baseSize: 20,
-    maxSize: 40,
-    priceAdd10: 480,
-    direction: 'Av. Revolución 777, Guadalajara',
-    killed: false,
-    basePrice: 3300
-  },
-  {
-    id: 16,
-    name: 'Show de Entretenimiento',
-    asociateServiceModel: asociateServiceModelTs[15],
-    baseSize: 6,
-    maxSize: 12,
-    priceAdd10: 700,
-    direction: 'Av. Acueducto 888, Zapopan',
+    direction: 'Bosques de Santa Anita 345, Tlajomulco',
     killed: false,
     basePrice: 4500
   },
   {
-    id: 17,
-    name: 'Coordinación de Boda Completa',
-    asociateServiceModel: asociateServiceModelTs[16],
-    baseSize: 2,
-    maxSize: 4,
-    priceAdd10: 850,
-    direction: 'Av. López Cotilla 999, Guadalajara',
-    killed: false,
-    basePrice: 5000
-  },
-  {
-    id: 18,
-    name: 'Organización de Eventos Corporativos',
-    asociateServiceModel: asociateServiceModelTs[17],
-    baseSize: 3,
-    maxSize: 6,
-    priceAdd10: 900,
-    direction: 'Av. Patria 1111, Zapopan',
+    id: 107,
+    name: 'Decoración Temática Personalizada',
+    asociateServiceModel: asociateServiceModelTs[6],
+    baseSize: 6,
+    maxSize: 12,
+    priceAdd10: 450,
+    direction: 'Av. Vallarta 789, Centro, Guadalajara',
     killed: false,
     basePrice: 5500
   },
   {
-    id: 19,
-    name: 'Logística Integral de Eventos',
-    asociateServiceModel: asociateServiceModelTs[18],
-    baseSize: 5,
-    maxSize: 10,
-    priceAdd10: 750,
-    direction: 'Av. Guadalupe 2222, Guadalajara',
+    id: 108,
+    name: 'Transporte Ejecutivo para Invitados',
+    asociateServiceModel: asociateServiceModelTs[7],
+    baseSize: 12,
+    maxSize: 24,
+    priceAdd10: 400,
+    direction: 'López Mateos 321, Zapopan',
     killed: false,
     basePrice: 4800
   },
   {
-    id: 20,
-    name: 'Servicios Digitales y Streaming',
-    asociateServiceModel: asociateServiceModelTs[19],
-    baseSize: 8,
-    maxSize: 16,
-    priceAdd10: 650,
-    direction: 'Av. Tepeyac 3333, Zapopan',
-    killed: false,
-    basePrice: 4200
-  },
-  {
-    id: 21,
-    name: 'Barra de Bebidas Premium',
-    asociateServiceModel: asociateServiceModelTs[6],
-    baseSize: 15,
-    maxSize: 30,
-    priceAdd10: 420,
-    direction: 'Av. La Paz 4444, Guadalajara',
-    killed: false,
-    basePrice: 3100
-  },
-  {
-    id: 22,
-    name: 'Iluminación Profesional',
-    asociateServiceModel: asociateServiceModelTs[7],
-    baseSize: 8,
-    maxSize: 16,
-    priceAdd10: 380,
-    direction: 'Av. Hidalgo 5555, Tlaquepaque',
-    killed: false,
-    basePrice: 2600
-  },
-  {
-    id: 23,
-    name: 'Centros de Mesa Personalizados',
+    id: 109,
+    name: 'Servicio de Seguridad Privada',
     asociateServiceModel: asociateServiceModelTs[8],
-    baseSize: 10,
-    maxSize: 20,
-    priceAdd10: 320,
-    direction: 'Av. Cristóbal Colón 6666, Guadalajara',
+    baseSize: 4,
+    maxSize: 8,
+    priceAdd10: 350,
+    direction: 'Juárez 654, Tlaquepaque',
     killed: false,
-    basePrice: 2400
+    basePrice: 5200
   },
   {
-    id: 24,
-    name: 'Transporte para Invitados',
+    id: 110,
+    name: 'Coordinación Integral de Bodas',
     asociateServiceModel: asociateServiceModelTs[9],
-    baseSize: 12,
-    maxSize: 24,
-    priceAdd10: 480,
-    direction: 'Av. Circunvalación 7777, Zapopan',
-    killed: false,
-    basePrice: 2900
-  },
-  {
-    id: 25,
-    name: 'Vigilancia con Personal Uniformado',
-    asociateServiceModel: asociateServiceModelTs[10],
-    baseSize: 6,
-    maxSize: 12,
-    priceAdd10: 520,
-    direction: 'Av. Inglaterra 8888, Guadalajara',
-    killed: false,
-    basePrice: 2700
-  },
-  {
-    id: 26,
-    name: 'Álbum Fotográfico de Lujo',
-    asociateServiceModel: asociateServiceModelTs[11],
     baseSize: 2,
     maxSize: 4,
-    priceAdd10: 680,
-    direction: 'Av. España 9999, Tlaquepaque',
+    priceAdd10: 700,
+    direction: 'Federalismo 987, Guadalajara',
     killed: false,
-    basePrice: 3300
+    basePrice: 8500
   },
   {
-    id: 27,
-    name: 'Video Documental del Evento',
-    asociateServiceModel: asociateServiceModelTs[12],
+    id: 111,
+    name: 'Logística Completa de Eventos',
+    asociateServiceModel: asociateServiceModelTs[10],
     baseSize: 3,
     maxSize: 6,
-    priceAdd10: 720,
+    priceAdd10: 650,
+    direction: 'Américas 555, Zapopan',
+    killed: false,
+    basePrice: 7500
+  },
+  {
+    id: 112,
+    name: 'Transmisión en Vivo y Streaming',
+    asociateServiceModel: asociateServiceModelTs[11],
+    baseSize: 4,
+    maxSize: 8,
+    priceAdd10: 550,
+    direction: 'Chapultepec 222, Guadalajara',
+    killed: false,
+    basePrice: 6500
+  },
+  {
+    id: 113,
+    name: 'Paquete Completo Banquete + Barra',
+    asociateServiceModel: asociateServiceModelTs[1], // Usa el de banquete
+    baseSize: 30,
+    maxSize: 60,
+    priceAdd10: 1200,
+    direction: 'Av. México 333, Guadalajara',
+    killed: false,
+    basePrice: 12000
+  },
+  {
+    id: 114,
+    name: 'Combo Música y Espectáculo',
+    asociateServiceModel: asociateServiceModelTs[2], // Usa el de DJ
+    baseSize: 6,
+    maxSize: 12,
+    priceAdd10: 600,
+    direction: 'San Felipe 444, Tlaquepaque',
+    killed: false,
+    basePrice: 8500
+  },
+  {
+    id: 115,
+    name: 'Fotografía con Escenarios Decorados',
+    asociateServiceModel: asociateServiceModelTs[3], // Usa el de fotografía
+    baseSize: 4,
+    maxSize: 8,
+    priceAdd10: 550,
+    direction: 'Av. Revolución 777, Guadalajara',
+    killed: false,
+    basePrice: 9500
+  },
+  {
+    id: 116,
+    name: 'Transporte con Seguridad Incluida',
+    asociateServiceModel: asociateServiceModelTs[7], // Usa el de transporte
+    baseSize: 15,
+    maxSize: 30,
+    priceAdd10: 600,
+    direction: 'Av. Acueducto 888, Zapopan',
+    killed: false,
+    basePrice: 7800
+  },
+  {
+    id: 117,
+    name: 'Coordinación con Soporte Logístico',
+    asociateServiceModel: asociateServiceModelTs[9], // Usa el de coordinación
+    baseSize: 3,
+    maxSize: 6,
+    priceAdd10: 900,
+    direction: 'Av. López Cotilla 999, Guadalajara',
+    killed: false,
+    basePrice: 13500
+  },
+  {
+    id: 118,
+    name: 'Servicio de Meseros con Barra',
+    asociateServiceModel: asociateServiceModelTs[0], // Usa el de meseros
+    baseSize: 12,
+    maxSize: 24,
+    priceAdd10: 700,
+    direction: 'Av. Patria 1111, Zapopan',
+    killed: false,
+    basePrice: 9000
+  },
+  {
+    id: 119,
+    name: 'DJ con Transmisión en Vivo',
+    asociateServiceModel: asociateServiceModelTs[2], // Usa el de DJ
+    baseSize: 6,
+    maxSize: 12,
+    priceAdd10: 650,
+    direction: 'Av. Guadalupe 2222, Guadalajara',
+    killed: false,
+    basePrice: 9500
+  },
+  {
+    id: 120,
+    name: 'Paquete Premium Fotos + Música + Show',
+    asociateServiceModel: asociateServiceModelTs[3], // Usa el de fotografía
+    baseSize: 8,
+    maxSize: 16,
+    priceAdd10: 1100,
+    direction: 'Av. Tepeyac 3333, Zapopan',
+    killed: false,
+    basePrice: 16500
+  },
+  {
+    id: 121,
+    name: 'Decoración con Transporte Temático',
+    asociateServiceModel: asociateServiceModelTs[6], // Usa el de decoración
+    baseSize: 10,
+    maxSize: 20,
+    priceAdd10: 650,
+    direction: 'Av. La Paz 4444, Guadalajara',
+    killed: false,
+    basePrice: 10300
+  },
+  {
+    id: 122,
+    name: 'Seguridad con Coordinación de Accesos',
+    asociateServiceModel: asociateServiceModelTs[8], // Usa el de seguridad
+    baseSize: 5,
+    maxSize: 10,
+    priceAdd10: 600,
+    direction: 'Av. Hidalgo 5555, Tlaquepaque',
+    killed: false,
+    basePrice: 9800
+  },
+  {
+    id: 123,
+    name: 'Logística con Soporte Digital',
+    asociateServiceModel: asociateServiceModelTs[10], // Usa el de logística
+    baseSize: 4,
+    maxSize: 8,
+    priceAdd10: 750,
+    direction: 'Av. Cristóbal Colón 6666, Guadalajara',
+    killed: false,
+    basePrice: 11200
+  },
+  {
+    id: 124,
+    name: 'Servicio Integral de Alimentos y Bebidas',
+    asociateServiceModel: asociateServiceModelTs[1], // Usa el de banquete
+    baseSize: 35,
+    maxSize: 70,
+    priceAdd10: 1400,
+    direction: 'Av. Circunvalación 7777, Zapopan',
+    killed: false,
+    basePrice: 18500
+  },
+  {
+    id: 125,
+    name: 'Creación de Ambiente Completo',
+    asociateServiceModel: asociateServiceModelTs[2], // Usa el de DJ
+    baseSize: 12,
+    maxSize: 24,
+    priceAdd10: 950,
+    direction: 'Av. Inglaterra 8888, Guadalajara',
+    killed: false,
+    basePrice: 15700
+  },
+  {
+    id: 126,
+    name: 'Evento Seguro con Memoria Fotográfica',
+    asociateServiceModel: asociateServiceModelTs[3], // Usa el de fotografía
+    baseSize: 6,
+    maxSize: 12,
+    priceAdd10: 850,
+    direction: 'Av. España 9999, Tlaquepaque',
+    killed: false,
+    basePrice: 14300
+  },
+  {
+    id: 127,
+    name: 'Fiesta Completa con Logística',
+    asociateServiceModel: asociateServiceModelTs[4], // Usa el de bartender
+    baseSize: 10,
+    maxSize: 20,
+    priceAdd10: 1000,
     direction: 'Av. Francia 1010, Guadalajara',
     killed: false,
-    basePrice: 3600
+    basePrice: 16800
   },
   {
-    id: 28,
-    name: 'Decoración con Flores Frescas',
-    asociateServiceModel: asociateServiceModelTs[13],
-    baseSize: 18,
-    maxSize: 36,
-    priceAdd10: 420,
+    id: 128,
+    name: 'Experiencia Gastronómica con Música Digital',
+    asociateServiceModel: asociateServiceModelTs[1], // Usa el de banquete
+    baseSize: 28,
+    maxSize: 56,
+    priceAdd10: 1100,
     direction: 'Av. Italia 1111, Zapopan',
     killed: false,
-    basePrice: 3000
+    basePrice: 15200
   },
   {
-    id: 29,
-    name: 'Mobiliario para Jardín',
-    asociateServiceModel: asociateServiceModelTs[14],
-    baseSize: 25,
-    maxSize: 50,
-    priceAdd10: 380,
+    id: 129,
+    name: 'Espacio Decorado y Seguro',
+    asociateServiceModel: asociateServiceModelTs[6], // Usa el de decoración
+    baseSize: 8,
+    maxSize: 16,
+    priceAdd10: 700,
     direction: 'Av. Alemania 1212, Guadalajara',
     killed: false,
-    basePrice: 3400
+    basePrice: 12600
   },
   {
-    id: 30,
-    name: 'Espectáculo de Fuegos Artificiales',
-    asociateServiceModel: asociateServiceModelTs[15],
-    baseSize: 1,
-    maxSize: 2,
-    priceAdd10: 950,
+    id: 130,
+    name: 'Paquete Oro - Servicio Completo',
+    asociateServiceModel: asociateServiceModelTs[0], // Usa el de meseros
+    baseSize: 20,
+    maxSize: 40,
+    priceAdd10: 1800,
     direction: 'Av. Japón 1313, Tlaquepaque',
     killed: false,
-    basePrice: 7000
+    basePrice: 25000
   }
 ];

@@ -27,6 +27,11 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
 
 import { BadgeModule } from 'primeng/badge';
+// PrimeNG Modules
+
+import { CalendarModule } from 'primeng/calendar';
+import { TextareaModule } from 'primeng/textarea';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   imports: [
@@ -48,6 +53,11 @@ import { BadgeModule } from 'primeng/badge';
     FieldsetModule,
     InputNumberModule,
     BadgeModule,
+    CalendarModule,
+    DropdownModule,
+    DialogModule,
+    ToastModule,
+    TextareaModule,
   ],
   exports: [
     ButtonModule,
@@ -68,6 +78,11 @@ import { BadgeModule } from 'primeng/badge';
     FieldsetModule,
     InputNumberModule,
     BadgeModule,
+    CalendarModule,
+    DropdownModule,
+    DialogModule,
+    ToastModule,
+    TextareaModule,
   ],
   providers: [],
 })

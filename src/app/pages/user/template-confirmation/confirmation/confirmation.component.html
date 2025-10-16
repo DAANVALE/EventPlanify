@@ -1,1 +1,238 @@
-<p>confirmation works!</p>
+<div class="confirmation-container p-4">
+  <!-- Header -->
+  <div class="text-center mb-5">
+    <h1 class="text-3xl font-bold text-900 mb-2">Configuración de Evento</h1>
+    <p class="text-600">Gestiona tu evento y servicios contratados</p>
+  </div>
+
+  <div class="grid">
+    
+    <!-- Columna izquierda - Evento y Servicios -->
+    <div class="col-12 lg:col-8">
+      
+      <!-- Configuración del Evento -->
+      <p-card header="Configuración del Evento" styleClass="mb-4 shadow-2">
+        <div class="grid p-fluid">
+          
+          <!-- Terraza Info -->
+          <div class="col-12 mb-4" *ngIf="eventModel().terraceModel">
+            <p-fieldset legend="Terraza Seleccionada" [toggleable]="true">
+              <div class="grid">
+                <div class="col-12">
+                  <h4 class="text-900 mb-1">{{ eventModel().terraceModel?.name }}</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <p-tag [value]="getTerraceCapacity()" icon="pi pi-users" severity="info"></p-tag>
+                    <p-tag [value]="'Base: $' + (eventModel().terraceModel?.priceAdd10 || 0)" 
+                           icon="pi pi-money-bill" severity="success"></p-tag>
+                  </div>
+                </div>
+              </div>
+            </p-fieldset>
+          </div>
+
+          <!-- Número de Personas -->
+          <div class="col-12 md:col-6">
+            <label class="font-semibold block mb-2">
+              <i class="pi pi-users mr-2"></i>Número de Personas
+            </label>
+            <p-inputNumber 
+              [(ngModel)]="eventForm.sizePeople"
+              [min]="eventModel().terraceModel?.baseSize || 1"
+              [max]="eventModel().terraceModel?.maxSize || 100"
+              mode="decimal"
+              (onInput)="updateEventPeople()"
+              class="w-full">
+            </p-inputNumber>
+            <small class="text-500" *ngIf="eventModel().terraceModel">
+              Capacidad: {{ getTerraceCapacity() }}
+              <span *ngIf="getExtraPeopleCount() > 0" class="text-orange-500 ml-2">
+                (+{{ getExtraPeopleCount() }} extra)
+              </span>
+            </small>
+          </div>
+
+          <!-- Método de Pago -->
+          <div class="col-12 md:col-6">
+            <label class="font-semibold block mb-2">
+              <i class="pi pi-credit-card mr-2"></i>Método de Pago
+            </label>
+            <p-dropdown 
+              [(ngModel)]="eventForm.payment"
+              [options]="paymentOptions"
+              optionLabel="label"
+              optionValue="value"
+              placeholder="Seleccionar pago"
+              class="w-full">
+            </p-dropdown>
+          </div>
+
+          <!-- Notas Adicionales -->
+          <div class="col-12">
+            <label class="font-semibold block mb-2">
+              <i class="pi pi-comment mr-2"></i>Notas Adicionales
+            </label>
+            <textarea 
+              [(ngModel)]="eventForm.additionalNotes"
+              pInputTextarea
+              rows="3"
+              placeholder="Requerimientos especiales, horarios específicos, etc."
+              class="w-full">
+            </textarea>
+          </div>
+
+        </div>
+      </p-card>
+
+      <!-- Servicios Contratados -->
+      <p-card header="Servicios Contratados" styleClass="shadow-2">
+        <div *ngIf="reserveModels().length > 0; else noServices">
+          <div *ngFor="let reserve of reserveModels()" class="reserve-item border-bottom-1 surface-border pb-4 mb-4">
+            
+            <!-- Header del Servicio -->
+            <div class="flex justify-content-between align-items-start mb-3">
+              <div class="flex align-items-start gap-3" style="flex: 1;">
+                <div style="flex: 1;">
+                  <h4 class="text-900 mb-1">{{ reserve.serviceModel?.name }}</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <p-tag 
+                      [value]="'Capacidad: ' + reserve.serviceModel?.baseSize + '-' + reserve.serviceModel?.maxSize" 
+                      severity="info"
+                      styleClass="text-xs">
+                    </p-tag>
+                    <p-tag 
+                      [value]="'Base: $' + (reserve.serviceModel?.basePrice || 0)" 
+                      severity="success"
+                      styleClass="text-xs">
+                    </p-tag>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button 
+                  pButton 
+                  icon="pi pi-trash" 
+                  class="p-button-outlined p-button-danger p-button-sm"
+                  (click)="removeReserve(reserve)"
+                  tooltip="Eliminar servicio">
+                </button>
+              </div>
+            </div>
+
+            <!-- Configuración Editable del Servicio -->
+            <div class="grid p-fluid">
+              
+              <!-- Personas para este servicio -->
+              <div class="col-12 md:col-6">
+                <label class="font-semibold block mb-2 text-sm">Personas para este servicio</label>
+                <p-inputNumber 
+                  [(ngModel)]="reserve.sizePeople"
+                  [min]="reserve.serviceModel?.baseSize || 0"
+                  [max]="reserve.serviceModel?.maxSize || 100"
+                  mode="decimal"
+                  (onInput)="updateReservePeople(reserve, $event.value)"
+                  class="w-full"
+                  styleClass="p-inputtext-sm">
+                </p-inputNumber>
+                <small class="text-500 text-xs">
+                  Base: {{ reserve.serviceModel?.baseSize }}, Máx: {{ reserve.serviceModel?.maxSize }}
+                </small>
+              </div>
+
+              <!-- Duración -->
+              <div class="col-12 md:col-6">
+                <label class="font-semibold block mb-2 text-sm">Duración del servicio</label>
+                <p-dropdown 
+                  [(ngModel)]="reserve.dayTime"
+                  [options]="timeOptions"
+                  (onChange)="updateReserveTime(reserve, $event.value)"
+                  class="w-full"
+                  styleClass="p-dropdown-sm">
+                </p-dropdown>
+              </div>
+
+              <!-- Precio Calculado -->
+              <div class="col-12">
+                <div class="flex justify-content-between align-items-center pt-2 border-top-1 surface-border">
+                  <span class="font-semibold">Precio final:</span>
+                  <span class="font-bold text-green-500 text-lg">
+                    ${{ reserve.finalPrice || 0 }}
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <ng-template #noServices>
+          <div class="text-center p-4 text-500">
+            <i class="pi pi-inbox text-4xl mb-3"></i>
+            <p>No hay servicios contratados</p>
+          </div>
+        </ng-template>
+      </p-card>
+
+    </div>
+
+    <!-- Columna derecha - Resumen y Acciones -->
+    <div class="col-12 lg:col-4">
+      
+      <!-- Resumen de Costos -->
+      <p-card header="Resumen de Costos" styleClass="mb-4 shadow-2 sticky-top">
+        
+        <!-- Terraza -->
+        <div class="flex justify-content-between align-items-center mb-3">
+          <div>
+            <span class="font-medium block">Terraza</span>
+            <small class="text-500">{{ eventForm.sizePeople }} personas</small>
+          </div>
+          <span class="font-semibold text-green-500">
+            ${{ calculateTerracePrice() }}
+          </span>
+        </div>
+
+        <!-- Servicios -->
+        <div class="mb-3" *ngIf="reserveModels().length > 0">
+          <span class="font-medium block mb-2">Servicios:</span>
+          <div *ngFor="let reserve of reserveModels()" 
+               class="flex justify-content-between align-items-center text-sm mb-1">
+            <span class="text-500">{{ reserve.serviceModel?.name }}</span>
+            <span>${{ reserve.finalPrice || 0 }}</span>
+          </div>
+        </div>
+
+        <p-divider></p-divider>
+
+        <!-- Total -->
+        <div class="flex justify-content-between align-items-center mb-4">
+          <span class="font-bold text-lg">Total del Evento:</span>
+          <span class="font-bold text-green-500 text-xl">
+            ${{ calculateEventTotal() }}
+          </span>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="flex flex-column gap-2 mt-4">
+          <button 
+            pButton 
+            label="Confirmar Evento" 
+            icon="pi pi-check"
+            class="p-button-success"
+            (click)="confirmReservation()"
+            [disabled]="!isFormValid()">
+          </button>
+          
+          <button 
+            pButton 
+            label="Volver a Modificar" 
+            icon="pi pi-arrow-left"
+            class="p-button-outlined p-button-secondary"
+            (click)="goBack()">
+          </button>
+        </div>
+
+      </p-card>
+
+    </div>
+  </div>
+</div>

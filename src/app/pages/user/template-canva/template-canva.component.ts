@@ -17,7 +17,7 @@ import { TerraceModel as T_TerraceModel } from '../../../models/ms_template/terr
 
 import { TerraceService as T_TerraceService } from '../../../shared/ms_template/terraceService.service';
 import { TemplateService as T_TemplateService } from '../../../shared/ms_template/templateService.service';
-import { ServiceService, ServiceService as T_ServiceService } from '../../../shared/ms_template/serviceService.service';
+import { ServiceService as T_ServiceService } from '../../../shared/ms_template/serviceService.service';
 import { ServiceTypeService as T_ServiceTypeService } from '../../../shared/ms_template/serviceTypeService.service';
 import { TerraceTypeService as T_TerraceTypeService } from '../../../shared/ms_template/terraceTypeService.service';
 
@@ -173,6 +173,8 @@ getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
   }
 
   selectService(templateService: T_ServiceModel, reserveService: R_ServiceModel): void {
+
+
     const index = this.selectedServices.findIndex(s => s.id === templateService.id);
     
     if (index > -1) {
@@ -199,7 +201,7 @@ getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
     if (stored) {
       try {
         const reservesData = JSON.parse(stored);
-        this.selectedServices = reservesData.reserves || [];
+        this.selectedServices = reservesData || [];
       } catch (error) {
         console.error('Error loading reserves from localStorage:', error);
         this.selectedServices = [];
@@ -255,14 +257,12 @@ getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
   }
 
   saveCurrentSelections(): void {
-
     this.loadEventFromLocal();
+    this.loadReservesFromLocal();
 
     const reservationEvent : Partial<R_EventModel> = {
       terraceModel: this.eventModel.terraceModel
     };
-
-    // Agregar los servicios seleccionados al evento de reserva
 
     const reserveServices: R_ServiceModel[] = [];
 
@@ -276,37 +276,21 @@ getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
       });
     }
 
+    const reserveReserves: Partial<R_ReserveModel>[] = reserveServices.map(service => ({
+      serviceModel: service,
+    }));
+
+    const tuple = { reserveServices, reserveReserves };
+
     localStorage.setItem('pendingEventReservation', JSON.stringify(reservationEvent));
-    localStorage.setItem('pendingServiceReservations', JSON.stringify(reserveServices));
+    localStorage.setItem('pendingServiceReservations', JSON.stringify(tuple));
+    // localStorage.setItem('pendingServiceReservations', JSON.stringify(reserveServices));
   }
 
   // Métodos auxiliares (los que ya tenías)
   hasSelections(): boolean {
     return !!this.eventModel.terraceModel || 
            (this.selectedServices && this.selectedServices.length > 0);
-  }
-
-  getTotalItems(): number {
-    let count = 0;
-    if (this.eventModel.terraceModel) count++;
-    if (this.selectedServices) count += this.selectedServices.length;
-    return count;
-  }
-
-  calculateTotal(): number {
-    let total = 0;
-    
-    if (this.eventModel.terraceModel?.priceAdd10) {
-      total += this.eventModel.terraceModel.priceAdd10;
-    }
-    
-    if (this.selectedServices) {
-      this.selectedServices.forEach(service => {
-        total += service?.price || 0;
-      });
-    }
-    
-    return total;
   }
 
   responsiveOptions = [
