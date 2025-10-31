@@ -10,6 +10,8 @@ import { ReserveModel as R_ReserveModel } from '../../../../models/ms_reserve/Re
 import { ServiceModel as R_ServiceModel } from '../../../../models/ms_reserve/ServiceModel';
 import { TerraceModel as R_TerraceModel } from '../../../../models/ms_reserve/TerraceModel';
 
+import { EventService as R_EventService } from '../../../../shared/ms_reserve/eventService.service';
+
 @Component({
   selector: 'app-confirmation',
   standalone: true,
@@ -41,7 +43,8 @@ export class ConfirmationComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private eventService: R_EventService
   ) {}
 
   ngOnInit(): void {
@@ -187,20 +190,48 @@ export class ConfirmationComponent implements OnInit {
         reserveReserves: this.reserveModels(),
         reserveServices: this.reserveModels().map(reserve => reserve.serviceModel)
       };
-      
+
       localStorage.setItem('pendingServiceReservations', JSON.stringify(reserveData));
-      
-      // Guardar evento actualizado
+
+      // Construir evento actualizado
       const updatedEvent = {
         ...this.eventModel(),
         sizePeople: this.eventForm.sizePeople,
         dayDate: this.eventForm.dayDate.toISOString(),
         payment: this.eventForm.payment,
-        additionalNotes: this.eventForm.additionalNotes,
-        sumPrice: this.calculateEventTotal()
+        sumPrice: this.calculateEventTotal(),
+        
       };
-      
-      localStorage.setItem('pendingEventReservation', JSON.stringify(updatedEvent));
+
+      // 🔹 Enviar al backend usando el servicio
+      this.eventService.create(updatedEvent as R_EventModel).subscribe({
+        next: (savedEvent) => {
+          console.log('✅ Evento guardado en backend:', savedEvent);
+
+          // Guardar respaldo local si fue exitoso
+          localStorage.setItem('pendingEventReservation', JSON.stringify(savedEvent));
+
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Evento guardado correctamente',
+            detail: `Total: $${this.calculateEventTotal()}`,
+            life: 4000
+          });
+        },
+        error: (err) => {
+          console.error('❌ Error al guardar evento en backend:', err);
+
+          // Guardar respaldo local si el backend falla
+          localStorage.setItem('pendingEventReservation', JSON.stringify(updatedEvent));
+
+          this.messageService.add({
+            severity: 'warn',
+            summary: 'Guardado localmente',
+            detail: 'No se pudo conectar con el servidor, pero se guardó en tu navegador.',
+            life: 4000
+          });
+        }
+      });
     } catch (error) {
       this.handleError('Error guardando datos');
     }
@@ -216,6 +247,8 @@ export class ConfirmationComponent implements OnInit {
       });
       return;
     }
+
+    this.saveReservationData()
 
     const confirmedReservation = {
       event: {
