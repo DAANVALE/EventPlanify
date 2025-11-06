@@ -229,7 +229,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 10,
     maxSize: 20,
     priceAdd10: 500,
-    direction: 'Av. Patria 1234, Zona Real, Guadalajara',
     killed: false,
     basePrice: 3500
   },
@@ -240,7 +239,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 25,
     maxSize: 50,
     priceAdd10: 800,
-    direction: 'Calzada Seattle 567, Colonia Seattle, Zapopan',
     killed: false,
     basePrice: 8000
   },
@@ -251,7 +249,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 5,
     maxSize: 10,
     priceAdd10: 300,
-    direction: 'Independencia 890, Centro Histórico, Tlaquepaque',
     killed: false,
     basePrice: 5000
   },
@@ -262,7 +259,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 3,
     maxSize: 6,
     priceAdd10: 400,
-    direction: 'Cerámica 234, Zona Artesanal, Tonalá',
     killed: false,
     basePrice: 6000
   },
@@ -273,7 +269,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 8,
     maxSize: 16,
     priceAdd10: 600,
-    direction: 'Carretera a Zapotlanejo Km 12.5, Paraje El Roble, Zapotlanejo',
     killed: false,
     basePrice: 7000
   },
@@ -284,7 +279,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 2,
     maxSize: 4,
     priceAdd10: 350,
-    direction: 'Bosques de Santa Anita 345, Tlajomulco',
     killed: false,
     basePrice: 4500
   },
@@ -295,7 +289,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 450,
-    direction: 'Av. Vallarta 789, Centro, Guadalajara',
     killed: false,
     basePrice: 5500
   },
@@ -306,7 +299,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 12,
     maxSize: 24,
     priceAdd10: 400,
-    direction: 'López Mateos 321, Zapopan',
     killed: false,
     basePrice: 4800
   },
@@ -317,7 +309,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 350,
-    direction: 'Juárez 654, Tlaquepaque',
     killed: false,
     basePrice: 5200
   },
@@ -328,7 +319,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 2,
     maxSize: 4,
     priceAdd10: 700,
-    direction: 'Federalismo 987, Guadalajara',
     killed: false,
     basePrice: 8500
   },
@@ -339,7 +329,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 3,
     maxSize: 6,
     priceAdd10: 650,
-    direction: 'Américas 555, Zapopan',
     killed: false,
     basePrice: 7500
   },
@@ -350,7 +339,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 550,
-    direction: 'Chapultepec 222, Guadalajara',
     killed: false,
     basePrice: 6500
   },
@@ -361,7 +349,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 30,
     maxSize: 60,
     priceAdd10: 1200,
-    direction: 'Av. México 333, Guadalajara',
     killed: false,
     basePrice: 12000
   },
@@ -372,7 +359,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 600,
-    direction: 'San Felipe 444, Tlaquepaque',
     killed: false,
     basePrice: 8500
   },
@@ -383,7 +369,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 550,
-    direction: 'Av. Revolución 777, Guadalajara',
     killed: false,
     basePrice: 9500
   },
@@ -394,7 +379,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 15,
     maxSize: 30,
     priceAdd10: 600,
-    direction: 'Av. Acueducto 888, Zapopan',
     killed: false,
     basePrice: 7800
   },
@@ -405,7 +389,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 3,
     maxSize: 6,
     priceAdd10: 900,
-    direction: 'Av. López Cotilla 999, Guadalajara',
     killed: false,
     basePrice: 13500
   },
@@ -416,7 +399,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 12,
     maxSize: 24,
     priceAdd10: 700,
-    direction: 'Av. Patria 1111, Zapopan',
     killed: false,
     basePrice: 9000
   },
@@ -427,7 +409,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 650,
-    direction: 'Av. Guadalupe 2222, Guadalajara',
     killed: false,
     basePrice: 9500
   },
@@ -438,7 +419,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 8,
     maxSize: 16,
     priceAdd10: 1100,
-    direction: 'Av. Tepeyac 3333, Zapopan',
     killed: false,
     basePrice: 16500
   },
@@ -449,7 +429,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 10,
     maxSize: 20,
     priceAdd10: 650,
-    direction: 'Av. La Paz 4444, Guadalajara',
     killed: false,
     basePrice: 10300
   },
@@ -460,7 +439,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 5,
     maxSize: 10,
     priceAdd10: 600,
-    direction: 'Av. Hidalgo 5555, Tlaquepaque',
     killed: false,
     basePrice: 9800
   },
@@ -471,7 +449,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 750,
-    direction: 'Av. Cristóbal Colón 6666, Guadalajara',
     killed: false,
     basePrice: 11200
   },
@@ -482,7 +459,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 35,
     maxSize: 70,
     priceAdd10: 1400,
-    direction: 'Av. Circunvalación 7777, Zapopan',
     killed: false,
     basePrice: 18500
   },
@@ -493,7 +469,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 12,
     maxSize: 24,
     priceAdd10: 950,
-    direction: 'Av. Inglaterra 8888, Guadalajara',
     killed: false,
     basePrice: 15700
   },
@@ -504,7 +479,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 850,
-    direction: 'Av. España 9999, Tlaquepaque',
     killed: false,
     basePrice: 14300
   },
@@ -515,7 +489,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 10,
     maxSize: 20,
     priceAdd10: 1000,
-    direction: 'Av. Francia 1010, Guadalajara',
     killed: false,
     basePrice: 16800
   },
@@ -526,7 +499,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 28,
     maxSize: 56,
     priceAdd10: 1100,
-    direction: 'Av. Italia 1111, Zapopan',
     killed: false,
     basePrice: 15200
   },
@@ -537,7 +509,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 8,
     maxSize: 16,
     priceAdd10: 700,
-    direction: 'Av. Alemania 1212, Guadalajara',
     killed: false,
     basePrice: 12600
   },
@@ -548,7 +519,6 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 20,
     maxSize: 40,
     priceAdd10: 1800,
-    direction: 'Av. Japón 1313, Tlaquepaque',
     killed: false,
     basePrice: 25000
   }
