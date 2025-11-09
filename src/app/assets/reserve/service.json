@@ -1,0 +1,482 @@
+[
+    {
+        "id": 1,
+        "asociateService": {
+            "id": 1,
+            "idUser": 1,
+            "name": "Meseros Profesionales GDL",
+            "mail": "meserosgdl@example.com",
+            "phone": "33-1111-2222",
+            "killed": 0
+        },
+        "name": "Servicio de Meseros Elegantes",
+        "baseSize": 10,
+        "maxSize": 20,
+        "priceAdd10": 500,
+        "killed": 0
+    },
+    {
+        "id": 2,
+        "asociateService": {
+            "id": 2,
+            "idUser": 2,
+            "name": "Banquetes Mexicanos Zapopan",
+            "mail": "banqueteszapopan@example.com",
+            "phone": "33-2222-3333",
+            "killed": 0
+        },
+        "name": "Banquete Tradicional Mexicano",
+        "baseSize": 25,
+        "maxSize": 50,
+        "priceAdd10": 800,
+        "killed": 0
+    },
+    {
+        "id": 3,
+        "asociateService": {
+            "id": 3,
+            "idUser": 3,
+            "name": "DJ Profesional Tlaquepaque",
+            "mail": "djtlaquepaque@example.com",
+            "phone": "33-3333-4444",
+            "killed": 0
+        },
+        "name": "DJ Profesional con Equipo Premium",
+        "baseSize": 5,
+        "maxSize": 10,
+        "priceAdd10": 300,
+        "killed": 0
+    },
+    {
+        "id": 4,
+        "asociateService": {
+            "id": 4,
+            "idUser": 4,
+            "name": "Fotografía Premium Tn",
+            "mail": "fototonala@example.com",
+            "phone": "33-4444-5555",
+            "killed": 0
+        },
+        "name": "Cobertura Fotográfica Premium",
+        "baseSize": 3,
+        "maxSize": 6,
+        "priceAdd10": 400,
+        "killed": 0
+    },
+    {
+        "id": 5,
+        "asociateService": {
+            "id": 5,
+            "idUser": 5,
+            "name": "Mixología Ztj",
+            "mail": "mixologiazap@example.com",
+            "phone": "33-5555-6666",
+            "killed": 0
+        },
+        "name": "Barra Libre Premium con Mixólogo",
+        "baseSize": 8,
+        "maxSize": 16,
+        "priceAdd10": 600,
+        "killed": 0
+    },
+    {
+        "id": 6,
+        "asociateService": {
+            "id": 6,
+            "idUser": 6,
+            "name": "Entretenimiento Tlaj",
+            "mail": "showtlajomulco@example.com",
+            "phone": "33-6666-7777",
+            "killed": 0
+        },
+        "name": "Show de Stand-Up y Magia Interactiva",
+        "baseSize": 2,
+        "maxSize": 4,
+        "priceAdd10": 350,
+        "killed": 0
+    },
+    {
+        "id": 7,
+        "asociateService": {
+            "id": 7,
+            "idUser": 7,
+            "name": "Decoraciones Elegantes GDL",
+            "mail": "decoragdl@example.com",
+            "phone": "33-7777-8888",
+            "killed": 0
+        },
+        "name": "Decoración Temática Personalizada",
+        "baseSize": 6,
+        "maxSize": 12,
+        "priceAdd10": 450,
+        "killed": 0
+    },
+    {
+        "id": 8,
+        "asociateService": {
+            "id": 8,
+            "idUser": 8,
+            "name": "Transporte Ejecutivo Zap",
+            "mail": "transportezapopan@example.com",
+            "phone": "33-8888-9999",
+            "killed": 0
+        },
+        "name": "Transporte Ejecutivo para Invitados",
+        "baseSize": 12,
+        "maxSize": 24,
+        "priceAdd10": 400,
+        "killed": 0
+    },
+    {
+        "id": 9,
+        "asociateService": {
+            "id": 9,
+            "idUser": 9,
+            "name": "Seguridad Privada Tqp",
+            "mail": "seguridadtlaque@example.com",
+            "phone": "33-9999-0000",
+            "killed": 0
+        },
+        "name": "Servicio de Seguridad Privada",
+        "baseSize": 4,
+        "maxSize": 8,
+        "priceAdd10": 350,
+        "killed": 0
+    },
+    {
+        "id": 10,
+        "asociateService": {
+            "id": 10,
+            "idUser": 10,
+            "name": "Coordinación de Eventos Tnl",
+            "mail": "coordinaciontonala@example.com",
+            "phone": "33-0000-1111",
+            "killed": 0
+        },
+        "name": "Coordinación Integral de Bodas",
+        "baseSize": 2,
+        "maxSize": 4,
+        "priceAdd10": 700,
+        "killed": 0
+    },
+    {
+        "id": 11,
+        "asociateService": {
+            "id": 11,
+            "idUser": 11,
+            "name": "Logística Integral Zpt",
+            "mail": "logisticazap@example.com",
+            "phone": "33-1122-3344",
+            "killed": 0
+        },
+        "name": "Logística Completa de Eventos",
+        "baseSize": 3,
+        "maxSize": 6,
+        "priceAdd10": 650,
+        "killed": 0
+    },
+    {
+        "id": 12,
+        "asociateService": {
+            "id": 12,
+            "idUser": 12,
+            "name": "Streaming Profesional Tqp",
+            "mail": "streamingtlajo@example.com",
+            "phone": "33-2233-4455",
+            "killed": 0
+        },
+        "name": "Transmisión en Vivo y Streaming",
+        "baseSize": 4,
+        "maxSize": 8,
+        "priceAdd10": 550,
+        "killed": 0
+    },
+    {
+        "id": 13,
+        "asociateService": {
+            "id": 2,
+            "idUser": 2,
+            "name": "Banquetes Mexicanos Zapopan",
+            "mail": "banqueteszapopan@example.com",
+            "phone": "33-2222-3333",
+            "killed": 0
+        },
+        "name": "Paquete Completo Banquete + Barra",
+        "baseSize": 30,
+        "maxSize": 60,
+        "priceAdd10": 1200,
+        "killed": 0
+    },
+    {
+        "id": 14,
+        "asociateService": {
+            "id": 3,
+            "idUser": 3,
+            "name": "DJ Profesional Tlaquepaque",
+            "mail": "djtlaquepaque@example.com",
+            "phone": "33-3333-4444",
+            "killed": 0
+        },
+        "name": "Combo Música y Espectáculo",
+        "baseSize": 6,
+        "maxSize": 12,
+        "priceAdd10": 600,
+        "killed": 0
+    },
+    {
+        "id": 15,
+        "asociateService": {
+            "id": 4,
+            "idUser": 4,
+            "name": "Fotografía Premium Tn",
+            "mail": "fototonala@example.com",
+            "phone": "33-4444-5555",
+            "killed": 0
+        },
+        "name": "Fotografía con Escenarios Decorados",
+        "baseSize": 4,
+        "maxSize": 8,
+        "priceAdd10": 550,
+        "killed": 0
+    },
+    {
+        "id": 16,
+        "asociateService": {
+            "id": 8,
+            "idUser": 8,
+            "name": "Transporte Ejecutivo Zap",
+            "mail": "transportezapopan@example.com",
+            "phone": "33-8888-9999",
+            "killed": 0
+        },
+        "name": "Transporte con Seguridad Incluida",
+        "baseSize": 15,
+        "maxSize": 30,
+        "priceAdd10": 600,
+        "killed": 0
+    },
+    {
+        "id": 17,
+        "asociateService": {
+            "id": 10,
+            "idUser": 10,
+            "name": "Coordinación de Eventos Tnl",
+            "mail": "coordinaciontonala@example.com",
+            "phone": "33-0000-1111",
+            "killed": 0
+        },
+        "name": "Coordinación con Soporte Logístico",
+        "baseSize": 3,
+        "maxSize": 6,
+        "priceAdd10": 900,
+        "killed": 0
+    },
+    {
+        "id": 18,
+        "asociateService": {
+            "id": 1,
+            "idUser": 1,
+            "name": "Meseros Profesionales GDL",
+            "mail": "meserosgdl@example.com",
+            "phone": "33-1111-2222",
+            "killed": 0
+        },
+        "name": "Servicio de Meseros con Barra",
+        "baseSize": 12,
+        "maxSize": 24,
+        "priceAdd10": 700,
+        "killed": 0
+    },
+    {
+        "id": 19,
+        "asociateService": {
+            "id": 3,
+            "idUser": 3,
+            "name": "DJ Profesional Tlaquepaque",
+            "mail": "djtlaquepaque@example.com",
+            "phone": "33-3333-4444",
+            "killed": 0
+        },
+        "name": "DJ con Transmisión en Vivo",
+        "baseSize": 6,
+        "maxSize": 12,
+        "priceAdd10": 650,
+        "killed": 0
+    },
+    {
+        "id": 20,
+        "asociateService": {
+            "id": 4,
+            "idUser": 4,
+            "name": "Fotografía Premium Tn",
+            "mail": "fototonala@example.com",
+            "phone": "33-4444-5555",
+            "killed": 0
+        },
+        "name": "Paquete Premium Fotos + Música + Show",
+        "baseSize": 8,
+        "maxSize": 16,
+        "priceAdd10": 1100,
+        "killed": 0
+    },
+    {
+        "id": 21,
+        "asociateService": {
+            "id": 7,
+            "idUser": 7,
+            "name": "Decoraciones Elegantes GDL",
+            "mail": "decoragdl@example.com",
+            "phone": "33-7777-8888",
+            "killed": 0
+        },
+        "name": "Decoración con Transporte Temático",
+        "baseSize": 10,
+        "maxSize": 20,
+        "priceAdd10": 650,
+        "killed": 0
+    },
+    {
+        "id": 22,
+        "asociateService": {
+            "id": 9,
+            "idUser": 9,
+            "name": "Seguridad Privada Tqp",
+            "mail": "seguridadtlaque@example.com",
+            "phone": "33-9999-0000",
+            "killed": 0
+        },
+        "name": "Seguridad con Coordinación de Accesos",
+        "baseSize": 5,
+        "maxSize": 10,
+        "priceAdd10": 600,
+        "killed": 0
+    },
+    {
+        "id": 23,
+        "asociateService": {
+            "id": 11,
+            "idUser": 11,
+            "name": "Logística Integral Zpt",
+            "mail": "logisticazap@example.com",
+            "phone": "33-1122-3344",
+            "killed": 0
+        },
+        "name": "Logística con Soporte Digital",
+        "baseSize": 4,
+        "maxSize": 8,
+        "priceAdd10": 750,
+        "killed": 0
+    },
+    {
+        "id": 24,
+        "asociateService": {
+            "id": 2,
+            "idUser": 2,
+            "name": "Banquetes Mexicanos Zapopan",
+            "mail": "banqueteszapopan@example.com",
+            "phone": "33-2222-3333",
+            "killed": 0
+        },
+        "name": "Servicio Integral de Alimentos y Bebidas",
+        "baseSize": 35,
+        "maxSize": 70,
+        "priceAdd10": 1400,
+        "killed": 0
+    },
+    {
+        "id": 25,
+        "asociateService": {
+            "id": 3,
+            "idUser": 3,
+            "name": "DJ Profesional Tlaquepaque",
+            "mail": "djtlaquepaque@example.com",
+            "phone": "33-3333-4444",
+            "killed": 0
+        },
+        "name": "Creación de Ambiente Completo",
+        "baseSize": 12,
+        "maxSize": 24,
+        "priceAdd10": 950,
+        "killed": 0
+    },
+    {
+        "id": 26,
+        "asociateService": {
+            "id": 4,
+            "idUser": 4,
+            "name": "Fotografía Premium Tn",
+            "mail": "fototonala@example.com",
+            "phone": "33-4444-5555",
+            "killed": 0
+        },
+        "name": "Evento Seguro con Memoria Fotográfica",
+        "baseSize": 6,
+        "maxSize": 12,
+        "priceAdd10": 850,
+        "killed": 0
+    },
+    {
+        "id": 27,
+        "asociateService": {
+            "id": 5,
+            "idUser": 5,
+            "name": "Mixología Ztj",
+            "mail": "mixologiazap@example.com",
+            "phone": "33-5555-6666",
+            "killed": 0
+        },
+        "name": "Fiesta Completa con Logística",
+        "baseSize": 10,
+        "maxSize": 20,
+        "priceAdd10": 1000,
+        "killed": 0
+    },
+    {
+        "id": 28,
+        "asociateService": {
+            "id": 2,
+            "idUser": 2,
+            "name": "Banquetes Mexicanos Zapopan",
+            "mail": "banqueteszapopan@example.com",
+            "phone": "33-2222-3333",
+            "killed": 0
+        },
+        "name": "Experiencia Gastronómica con Música Digital",
+        "baseSize": 28,
+        "maxSize": 56,
+        "priceAdd10": 1100,
+        "killed": 0
+    },
+    {
+        "id": 29,
+        "asociateService": {
+            "id": 7,
+            "idUser": 7,
+            "name": "Decoraciones Elegantes GDL",
+            "mail": "decoragdl@example.com",
+            "phone": "33-7777-8888",
+            "killed": 0
+        },
+        "name": "Espacio Decorado y Seguro",
+        "baseSize": 8,
+        "maxSize": 16,
+        "priceAdd10": 700,
+        "killed": 0
+    },
+    {
+        "id": 30,
+        "asociateService": {
+            "id": 1,
+            "idUser": 1,
+            "name": "Meseros Profesionales GDL",
+            "mail": "meserosgdl@example.com",
+            "phone": "33-1111-2222",
+            "killed": 0
+        },
+        "name": "Paquete Oro - Servicio Completo",
+        "baseSize": 20,
+        "maxSize": 40,
+        "priceAdd10": 1800,
+        "killed": 0
+    }
+    ]

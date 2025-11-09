@@ -1,0 +1,14 @@
+[
+  { "kind": "Alimentos y Bebidas", "killed": false },
+  { "kind": "Música y Sonido", "killed": false },
+  { "kind": "Animación y Espectáculos", "killed": false },
+  { "kind": "Fotografía y Video", "killed": false },
+  { "kind": "Material Interactivo", "killed": false },
+  { "kind": "Decoración y Ambientación", "killed": false },
+  { "kind": "Eventos Infantiles", "killed": false },
+  { "kind": "Planeación y Coordinación", "killed": false },
+  { "kind": "Personal y Seguridad", "killed": false },
+  { "kind": "Transporte y Movilidad", "killed": false },
+  { "kind": "Diseño y Papelería", "killed": false },
+  { "kind": "Tecnología y Experiencias", "killed": false }
+]

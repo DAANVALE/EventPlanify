@@ -1,0 +1,7 @@
+[
+  { "id": 1, "kind": "Planificado", "killed": false },
+  { "id": 2, "kind": "En curso", "killed": false },
+  { "id": 3, "kind": "Finalizado", "killed": false },
+  { "id": 4, "kind": "Cancelado", "killed": true },
+  { "id": 5, "kind": "Pospuesto", "killed": false }
+]

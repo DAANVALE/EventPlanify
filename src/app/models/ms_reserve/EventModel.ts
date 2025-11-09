@@ -6,8 +6,11 @@ export interface EventModel{
   id: number;
 
   clientModel: ClientModel
-  terraceModel: TerraceModel;
+  terraceModel?: TerraceModel;
   stateEventType: StateEventType;
+
+  // Address
+  address: string;
 
   //Add (number people)
   sizePeople: number;
