@@ -1,7 +1,7 @@
 export interface CityModel{
   id: number;
   kind: string;
-  killed?: boolean;
+  killed?: number;
 }
 
 export interface CityModelIcon extends CityModel{

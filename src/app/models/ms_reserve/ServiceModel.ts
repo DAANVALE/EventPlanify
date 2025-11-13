@@ -12,5 +12,5 @@ export interface ServiceModel{
   baseSize: number;
   maxSize: number;
 
-  killed: boolean;
+  killed: number;
 }

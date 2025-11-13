@@ -11,5 +11,5 @@ export interface TerraceModel{
   priceAdd10: number;
 
   direction: string;
-  killed: boolean;
+  killed: number;
 }

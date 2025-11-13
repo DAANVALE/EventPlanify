@@ -1,7 +1,7 @@
 [
-  { "kind": "Terraza", "killed": false },
-  { "kind": "Jardín", "killed": false },
-  { "kind": "Salón", "killed": false },
-  { "kind": "Auditorio", "killed": false },
-  { "kind": "Roof Garden", "killed": false }
+  { "kind": "Terraza", "killed": 0 },
+  { "kind": "Jardín", "killed": 0 },
+  { "kind": "Salón", "killed": 0 },
+  { "kind": "Auditorio", "killed": 0 },
+  { "kind": "Roof Garden", "killed": 0 }
 ]
