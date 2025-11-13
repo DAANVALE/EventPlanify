@@ -1,0 +1,40 @@
+<div class="flex justify-content-center align-items-center min-h-screen bg-gray-100 p-4">
+  <p-card header="Iniciar Sesión" styleClass="w-full max-w-md shadow-3">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="p-fluid">
+
+      <div class="field mb-4">
+        <label for="username" class="font-semibold mb-2 block">Email</label>
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-at"></i></span>
+          <input id="username" type="email" pInputText formControlName="username" placeholder="ejemplo@correo.com"
+                 [ngClass]="{'ng-dirty ng-invalid': username.invalid && (username.dirty || username.touched)}">
+        </div>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="mt-1">
+          <small class="p-error block" *ngIf="username.errors?.['required']">El Email es requerido.</small>
+          <small class="p-error block" *ngIf="username.errors?.['email']">El Email debe tener un formato válido.</small>
+        </div>
+      </div>
+
+      <div class="field mb-4">
+        <label for="password" class="font-semibold mb-2 block">Contraseña</label>
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+          <input id="password" type="password" pInputText formControlName="password" placeholder="Contraseña"
+                 [ngClass]="{'ng-dirty ng-invalid': password.invalid && (password.dirty || password.touched)}">
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="mt-1">
+          <small class="p-error block" *ngIf="password.errors?.['required']">La Contraseña es requerida.</small>
+        </div>
+      </div>
+
+      <p-button label="Iniciar Sesión" icon="pi pi-sign-in" type="submit" [disabled]="loginForm.invalid" class="w-full mt-3"></p-button>
+    
+      <p class="text-center mt-4 text-sm text-600">
+        ¿No tienes cuenta? 
+        <a [routerLink]="['/register']" class="text-primary font-bold cursor-pointer">Regístrate aquí</a>
+      </p>
+    </form>
+  </p-card>
+</div>
+
+<p-toast></p-toast>

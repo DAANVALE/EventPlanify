@@ -16,19 +16,34 @@
 
   <ng-template pTemplate="end">
     <div class="flex align-items-center gap-3">
-      <!-- Botones visibles solo en pantallas grandes
-        <button pButton label="Explorar" class="p-button-text hidden md:inline-flex"></button>
-        <button pButton label="Mis eventos" class="p-button-text hidden md:inline-flex"></button>
-        <button pButton label="Ayuda" class="p-button-text hidden md:inline-flex"></button>
-        <button pButton label="Iniciar sesión" class="p-button-outlined p-button-sm hidden md:inline-flex"></button>
-      -->
+      
+      <div *ngIf="loginService.currentUserLoginOn() && loginService.userProfile()" class="hidden md:inline-flex align-items-center cursor-pointer"
+           (click)="goToProfile()">
+        <span class="text-lg font-medium text-800 mr-2">{{ loginService.userProfile()?.firstname }}</span>
+        <i class="pi pi-user-edit text-xl text-primary"></i>
+      </div>
+      
+      <button 
+        *ngIf="!loginService.currentUserLoginOn()" 
+        pButton 
+        label="Iniciar sesión" 
+        class="p-button-outlined p-button-sm hidden md:inline-flex"
+        (click)="goToLogin()">
+      </button>
 
-      <!-- Botón de menú en móviles -->
+      <button 
+        *ngIf="loginService.currentUserLoginOn()" 
+        pButton 
+        label="Cerrar sesión" 
+        class="p-button-danger p-button-sm p-button-outlined hidden md:inline-flex"
+        (click)="logout()">
+      </button>
+
       <button
         pButton
         type="button"
         icon="pi pi-bars"
-        class="p-button-text hidden md:inline-flex"
+        class="p-button-text p-button-info"
         (click)="toggleMenu($event)">
       </button>
       <p-menu #menuRef [popup]="true" [model]="menuItems"></p-menu>
