@@ -1,0 +1,7 @@
+[
+  { "id": 1, "kind": "Pendiente de pago", "killed": 0 },
+  { "id": 2, "kind": "Confirmada", "killed": 0 },
+  { "id": 3, "kind": "Rechazada", "killed": 0 },
+  { "id": 4, "kind": "Cancelada por usuario", "killed": 0 },
+  { "id": 5, "kind": "Completada", "killed": 0 }
+]

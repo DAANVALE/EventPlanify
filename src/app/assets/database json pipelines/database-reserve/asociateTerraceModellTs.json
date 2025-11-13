@@ -1,0 +1,44 @@
+[
+  {
+    "idUser": 101,
+    "name": "Asociado Alberca Azul",
+    "mail": "alberca.azul@eventos.com",
+    "phone": "3312345678",
+    "killed": 0
+  },
+  {
+    "idUser": 102,
+    "name": "Asociado El Encino",
+    "mail": "el.encino@eventos.com",
+    "phone": "3323456789",
+    "killed": 0
+  },
+  {
+    "idUser": 103,
+    "name": "Asociado Los Arcos",
+    "mail": "salon.arcos@eventos.com",
+    "phone": "3334567890",
+    "killed": 0
+  },
+  {
+    "idUser": 104,
+    "name": "Asociado ExpoTonala",
+    "mail": "expo.tonala@eventos.com",
+    "phone": "3345678901",
+    "killed": 0
+  },
+  {
+    "idUser": 105,
+    "name": "Asociado El Roble",
+    "mail": "natural.roble@eventos.com",
+    "phone": "3356789012",
+    "killed": 0
+  },
+  {
+    "idUser": 106,
+    "name": "Asociado Experiencia 360",
+    "mail": "experiencia360@eventos.com",
+    "phone": "3367890123",
+    "killed": 0
+  }
+]

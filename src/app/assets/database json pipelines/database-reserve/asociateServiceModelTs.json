@@ -1,0 +1,86 @@
+[
+  {
+    "idUser": 1,
+    "name": "Meseros Profesionales GDL",
+    "mail": "meserosgdl@example.com",
+    "phone": "33-1111-2222",
+    "killed": 0
+  },
+  {
+    "idUser": 2,
+    "name": "Banquetes Mexicanos Zapopan",
+    "mail": "banqueteszapopan@example.com",
+    "phone": "33-2222-3333",
+    "killed": 0
+  },
+  {
+    "idUser": 3,
+    "name": "DJ Profesional Tlaquepaque",
+    "mail": "djtlaquepaque@example.com",
+    "phone": "33-3333-4444",
+    "killed": 0
+  },
+  {
+    "idUser": 4,
+    "name": "Fotografía Premium Tn",
+    "mail": "fototonala@example.com",
+    "phone": "33-4444-5555",
+    "killed": 0
+  },
+  {
+    "idUser": 5,
+    "name": "Mixología Ztj",
+    "mail": "mixologiazap@example.com",
+    "phone": "33-5555-6666",
+    "killed": 0
+  },
+  {
+    "idUser": 6,
+    "name": "Entretenimiento Tlaj",
+    "mail": "showtlajomulco@example.com",
+    "phone": "33-6666-7777",
+    "killed": 0
+  },
+  {
+    "idUser": 7,
+    "name": "Decoraciones Elegantes GDL",
+    "mail": "decoragdl@example.com",
+    "phone": "33-7777-8888",
+    "killed": 0
+  },
+  {
+    "idUser": 8,
+    "name": "Transporte Ejecutivo Zap",
+    "mail": "transportezapopan@example.com",
+    "phone": "33-8888-9999",
+    "killed": 0
+  },
+  {
+    "idUser": 9,
+    "name": "Seguridad Privada Tqp",
+    "mail": "seguridadtlaque@example.com",
+    "phone": "33-9999-0000",
+    "killed": 0
+  },
+  {
+    "idUser": 10,
+    "name": "Coordinación de Eventos Tnl",
+    "mail": "coordinaciontonala@example.com",
+    "phone": "33-0000-1111",
+    "killed": 0
+  },
+  {
+    "idUser": 11,
+    "name": "Logística Integral Zpt",
+    "mail": "logisticazap@example.com",
+    "phone": "33-1122-3344",
+    "killed": 0
+  },
+  {
+    "idUser": 12,
+    "name": "Streaming Profesional Tqp",
+    "mail": "streamingtlajo@example.com",
+    "phone": "33-2233-4455",
+    "killed": 0
+  }
+]
