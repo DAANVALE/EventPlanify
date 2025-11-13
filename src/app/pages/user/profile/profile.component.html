@@ -1,0 +1,95 @@
+<div class="p-5">
+  <p-toast></p-toast>
+  
+  <p-card [header]="loginService.userProfile()?.firstname + ' ' + loginService.userProfile()?.lastname + ' - Perfil'" styleClass="shadow-3 mb-5">
+    
+    <div class="flex flex-column md:flex-row justify-content-between align-items-start md:align-items-center mb-4">
+      <div class="mb-3 md:mb-0">
+        <h2 class="text-2xl font-bold text-900 mb-1">Detalles Personales</h2>
+        <div class="flex flex-wrap gap-2">
+          <p-tag [value]="loginService.userProfile()?.role" [severity]="loginService.userProfile()?.role === 'HOST' ? 'success' : 'info'" icon="pi pi-briefcase"></p-tag>
+          <p-tag [value]="loginService.userProfile()?.country" icon="pi pi-globe" severity="secondary"></p-tag>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <p-button *ngIf="!editMode()" label="Editar Datos" icon="pi pi-pencil" (onClick)="editMode.set(true)" severity="secondary"></p-button>
+        
+        <p-button 
+          *ngIf="loginService.userProfile()?.role === 'USER'" 
+          label="Ascender a Host" 
+          icon="pi pi-arrow-up" 
+          (onClick)="upgradeToHost()" 
+          severity="warn"> </p-button>
+        
+        <p-button *ngIf="editMode()" label="Cancelar" icon="pi pi-times" (onClick)="editMode.set(false)" severity="danger" class="p-button-outlined"></p-button>
+      </div>
+    </div>
+
+    <div *ngIf="!editMode()">
+      <div class="p-field grid mb-3">
+        <label class="col-12 md:col-3 font-semibold text-600">Nombre:</label>
+        <div class="col-12 md:col-9 p-inputtext p-component border-round-md bg-gray-100 p-2">
+          {{ loginService.userProfile()?.firstname }}
+        </div>
+      </div>
+      <div class="p-field grid mb-3">
+        <label class="col-12 md:col-3 font-semibold text-600">Apellido:</label>
+        <div class="col-12 md:col-9 p-inputtext p-component border-round-md bg-gray-100 p-2">
+          {{ loginService.userProfile()?.lastname }}
+        </div>
+      </div>
+      <div class="p-field grid mb-3">
+        <label class="col-12 md:col-3 font-semibold text-600">Email:</label>
+        <div class="col-12 md:col-9 p-inputtext p-component border-round-md bg-gray-100 p-2">
+          {{ loginService.userProfile()?.username }}
+        </div>
+      </div>
+      <div class="p-field grid mb-3">
+        <label class="col-12 md:col-3 font-semibold text-600">País:</label>
+        <div class="col-12 md:col-9 p-inputtext p-component border-round-md bg-gray-100 p-2">
+          {{ loginService.userProfile()?.country }}
+        </div>
+      </div>
+      <p-divider></p-divider>
+      <div class="p-field grid">
+        <label class="col-12 md:col-3 font-semibold text-600">Rol Actual:</label>
+        <div class="col-12 md:col-9">
+          <p-tag [value]="loginService.userProfile()?.role" [severity]="loginService.userProfile()?.role === 'HOST' ? 'success' : (loginService.userProfile()?.role === 'ADMIN' ? 'danger' : 'info')"></p-tag>
+        </div>
+      </div>
+    </div>
+
+    <form *ngIf="editMode()" [formGroup]="profileForm" (ngSubmit)="savePersonalDetailsData()" class="p-fluid">
+      <input type="hidden" formControlName="id">
+      
+      <div class="p-field grid mb-4">
+        <label for="firstname" class="col-12 md:col-3 font-semibold text-600">Nombre</label>
+        <div class="col-12 md:col-9">
+          <input id="firstname" type="text" pInputText formControlName="firstname">
+          <small class="p-error" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">El Nombre es requerido.</small>
+        </div>
+      </div>
+      
+      <div class="p-field grid mb-4">
+        <label for="lastname" class="col-12 md:col-3 font-semibold text-600">Apellido</label>
+        <div class="col-12 md:col-9">
+          <input id="lastname" type="text" pInputText formControlName="lastname">
+          <small class="p-error" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">El Apellido es requerido.</small>
+        </div>
+      </div>
+
+      <div class="p-field grid mb-4">
+        <label for="country" class="col-12 md:col-3 font-semibold text-600">País</label>
+        <div class="col-12 md:col-9">
+          <input id="country" type="text" pInputText formControlName="country">
+          <small class="p-error" *ngIf="country.invalid && (country.dirty || country.touched)">El País es requerido.</small>
+        </div>
+      </div>
+
+      <div class="flex justify-content-end gap-3 mt-4">
+        <p-button label="Guardar Cambios" icon="pi pi-save" type="submit" [disabled]="profileForm.invalid" severity="success"></p-button>
+      </div>
+    </form>
+  </p-card>
+</div>
