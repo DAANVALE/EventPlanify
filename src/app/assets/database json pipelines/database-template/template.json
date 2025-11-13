@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "eventType": 1,
+    "terraceTypeModel": 2,
+    "cityModel": 2,
+    "serviceTypeModel": [
+      1,
+      4,
+      8,
+      9,
+      6
+    ],
+    "name": "Boda Clásica en Jardín (Estilo Campestre)",
+    "description": "Template para una boda elegante al aire libre en Zapopan. Incluye banquete, fotografía, coordinación completa, personal de servicio y decoración floral."
+  },
+  {
+    "id": 2,
+    "eventType": 2,
+    "terraceTypeModel": 3,
+    "cityModel": 5,
+    "serviceTypeModel": [
+      1,
+      2,
+      3,
+      6,
+      12
+    ],
+    "name": "XV Años Temático (Casino Royale)",
+    "description": "Celebración juvenil en Salón con enfoque temático, música de DJ, show de animación y tecnología (pantallas LED)."
+  },
+  {
+    "id": 3,
+    "eventType": 11,
+    "terraceTypeModel": 4,
+    "cityModel": 1,
+    "serviceTypeModel": [
+      12,
+      8,
+      11,
+      1
+    ],
+    "name": "Conferencia Ejecutiva & Networking",
+    "description": "Template para eventos corporativos en Auditorio. Servicios enfocados en tecnología audiovisual, coordinación logística, papelería (kits) y coffee break."
+  },
+  {
+    "id": 4,
+    "eventType": 3,
+    "terraceTypeModel": 5,
+    "cityModel": 2,
+    "serviceTypeModel": [
+      1,
+      2,
+      6
+    ],
+    "name": "Cumpleaños Chill en Roof Garden",
+    "description": "Fiesta casual de cumpleaños en la terraza con vistas. Incluye barra de coctelería, música de ambiente suave y decoración minimalista."
+  },
+  {
+    "id": 5,
+    "eventType": 14,
+    "terraceTypeModel": 1,
+    "cityModel": 3,
+    "serviceTypeModel": [
+      7,
+      1,
+      3,
+      6
+    ],
+    "name": "Fiesta Infantil con Juegos y Terraza",
+    "description": "Ideal para celebraciones de niños. Incluye catering sencillo, animación, juegos interactivos y decoración de globos."
+  },
+  {
+    "id": 6,
+    "eventType": 8,
+    "terraceTypeModel": 3,
+    "cityModel": 4,
+    "serviceTypeModel": [
+      1,
+      2,
+      4,
+      9
+    ],
+    "name": "Cena de Gala de Graduación",
+    "description": "Template formal para fin de cursos. Incluye banquete completo, DJ para baile, cobertura de foto y video y personal de seguridad."
+  },
+  {
+    "id": 7,
+    "eventType": 25,
+    "terraceTypeModel": 1,
+    "cityModel": 5,
+    "serviceTypeModel": [
+      1,
+      2,
+      6,
+      3
+    ],
+    "name": "Fiesta Temática Retro (Años 80)",
+    "description": "Evento divertido en Terraza. Servicios clave: coctelería retro, iluminación temática, música de época y show/animación ochentera."
+  },
+  {
+    "id": 8,
+    "eventType": 17,
+    "terraceTypeModel": 2,
+    "cityModel": 1,
+    "serviceTypeModel": [
+      10,
+      1,
+      9
+    ],
+    "name": "Picnic Gourmet en Jardín",
+    "description": "Evento relajado al aire libre. Incluye canastas de comida gourmet, servicio de montaje en jardín y transporte de invitados."
+  },
+  {
+    "id": 9,
+    "eventType": 21,
+    "terraceTypeModel": 5,
+    "cityModel": 2,
+    "serviceTypeModel": [
+      1,
+      6,
+      11
+    ],
+    "name": "Cena Romántica de Aniversario",
+    "description": "Cena íntima en Roof Garden con ambiente exclusivo. Incluye menú especial, decoración premium y papelería personalizada (tarjetas/menú)."
+  },
+  {
+    "id": 10,
+    "eventType": 19,
+    "terraceTypeModel": 3,
+    "cityModel": 3,
+    "serviceTypeModel": [
+      1,
+      6,
+      11
+    ],
+    "name": "Baby Shower Elegante",
+    "description": "Celebración diurna en Salón. Servicios: catering ligero, decoración temática suave y diseño de invitaciones/recuerdos."
+  }
+]
