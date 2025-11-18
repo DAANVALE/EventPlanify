@@ -62,10 +62,10 @@
     "terraceTypeModel": 1,
     "cityModel": 3,
     "serviceTypeModel": [
-      7,
-      1,
-      3,
-      6
+      {"id" : 7},
+      {"id" : 1},
+      {"id" : 3},
+      {"id" : 6}
     ],
     "name": "Fiesta Infantil con Juegos y Terraza",
     "description": "Ideal para celebraciones de niños. Incluye catering sencillo, animación, juegos interactivos y decoración de globos."

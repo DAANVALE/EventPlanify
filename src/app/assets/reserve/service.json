@@ -12,6 +12,7 @@
         "name": "Servicio de Meseros Elegantes",
         "baseSize": 10,
         "maxSize": 20,
+        "basePrice": 3500,
         "priceAdd10": 500,
         "killed": 0
     },
@@ -28,6 +29,7 @@
         "name": "Banquete Tradicional Mexicano",
         "baseSize": 25,
         "maxSize": 50,
+        "basePrice": 8000,
         "priceAdd10": 800,
         "killed": 0
     },
@@ -44,6 +46,7 @@
         "name": "DJ Profesional con Equipo Premium",
         "baseSize": 5,
         "maxSize": 10,
+        "basePrice": 5000,
         "priceAdd10": 300,
         "killed": 0
     },
@@ -60,6 +63,7 @@
         "name": "Cobertura Fotográfica Premium",
         "baseSize": 3,
         "maxSize": 6,
+        "basePrice": 6000,
         "priceAdd10": 400,
         "killed": 0
     },
@@ -76,6 +80,7 @@
         "name": "Barra Libre Premium con Mixólogo",
         "baseSize": 8,
         "maxSize": 16,
+        "basePrice": 7000,
         "priceAdd10": 600,
         "killed": 0
     },
@@ -92,6 +97,7 @@
         "name": "Show de Stand-Up y Magia Interactiva",
         "baseSize": 2,
         "maxSize": 4,
+        "basePrice": 4500,
         "priceAdd10": 350,
         "killed": 0
     },
@@ -108,6 +114,7 @@
         "name": "Decoración Temática Personalizada",
         "baseSize": 6,
         "maxSize": 12,
+        "basePrice": 5500,
         "priceAdd10": 450,
         "killed": 0
     },
@@ -124,6 +131,7 @@
         "name": "Transporte Ejecutivo para Invitados",
         "baseSize": 12,
         "maxSize": 24,
+        "basePrice": 4800,
         "priceAdd10": 400,
         "killed": 0
     },
@@ -140,6 +148,7 @@
         "name": "Servicio de Seguridad Privada",
         "baseSize": 4,
         "maxSize": 8,
+        "basePrice": 5200,
         "priceAdd10": 350,
         "killed": 0
     },
@@ -156,6 +165,7 @@
         "name": "Coordinación Integral de Bodas",
         "baseSize": 2,
         "maxSize": 4,
+        "basePrice": 8500,
         "priceAdd10": 700,
         "killed": 0
     },
@@ -172,6 +182,7 @@
         "name": "Logística Completa de Eventos",
         "baseSize": 3,
         "maxSize": 6,
+        "basePrice": 7500,
         "priceAdd10": 650,
         "killed": 0
     },
@@ -188,6 +199,7 @@
         "name": "Transmisión en Vivo y Streaming",
         "baseSize": 4,
         "maxSize": 8,
+        "basePrice": 6500,
         "priceAdd10": 550,
         "killed": 0
     },
@@ -204,6 +216,7 @@
         "name": "Paquete Completo Banquete + Barra",
         "baseSize": 30,
         "maxSize": 60,
+        "basePrice": 12000,
         "priceAdd10": 1200,
         "killed": 0
     },
@@ -220,6 +233,7 @@
         "name": "Combo Música y Espectáculo",
         "baseSize": 6,
         "maxSize": 12,
+        "basePrice": 8500,
         "priceAdd10": 600,
         "killed": 0
     },
@@ -236,6 +250,7 @@
         "name": "Fotografía con Escenarios Decorados",
         "baseSize": 4,
         "maxSize": 8,
+        "basePrice": 9500,
         "priceAdd10": 550,
         "killed": 0
     },
@@ -252,6 +267,7 @@
         "name": "Transporte con Seguridad Incluida",
         "baseSize": 15,
         "maxSize": 30,
+        "basePrice": 7800,
         "priceAdd10": 600,
         "killed": 0
     },
@@ -268,6 +284,7 @@
         "name": "Coordinación con Soporte Logístico",
         "baseSize": 3,
         "maxSize": 6,
+        "basePrice": 13500,
         "priceAdd10": 900,
         "killed": 0
     },
@@ -284,6 +301,7 @@
         "name": "Servicio de Meseros con Barra",
         "baseSize": 12,
         "maxSize": 24,
+        "basePrice": 9000,
         "priceAdd10": 700,
         "killed": 0
     },
@@ -300,6 +318,7 @@
         "name": "DJ con Transmisión en Vivo",
         "baseSize": 6,
         "maxSize": 12,
+        "basePrice": 9500,
         "priceAdd10": 650,
         "killed": 0
     },
@@ -316,6 +335,7 @@
         "name": "Paquete Premium Fotos + Música + Show",
         "baseSize": 8,
         "maxSize": 16,
+        "basePrice": 16500,
         "priceAdd10": 1100,
         "killed": 0
     },
@@ -332,6 +352,7 @@
         "name": "Decoración con Transporte Temático",
         "baseSize": 10,
         "maxSize": 20,
+        "basePrice": 10300,
         "priceAdd10": 650,
         "killed": 0
     },
@@ -348,6 +369,7 @@
         "name": "Seguridad con Coordinación de Accesos",
         "baseSize": 5,
         "maxSize": 10,
+        "basePrice": 9800,
         "priceAdd10": 600,
         "killed": 0
     },
@@ -364,6 +386,7 @@
         "name": "Logística con Soporte Digital",
         "baseSize": 4,
         "maxSize": 8,
+        "basePrice": 11200,
         "priceAdd10": 750,
         "killed": 0
     },
@@ -380,6 +403,7 @@
         "name": "Servicio Integral de Alimentos y Bebidas",
         "baseSize": 35,
         "maxSize": 70,
+        "basePrice": 18500,
         "priceAdd10": 1400,
         "killed": 0
     },
@@ -396,6 +420,7 @@
         "name": "Creación de Ambiente Completo",
         "baseSize": 12,
         "maxSize": 24,
+        "basePrice": 15700,
         "priceAdd10": 950,
         "killed": 0
     },
@@ -412,6 +437,7 @@
         "name": "Evento Seguro con Memoria Fotográfica",
         "baseSize": 6,
         "maxSize": 12,
+        "basePrice": 14300,
         "priceAdd10": 850,
         "killed": 0
     },
@@ -428,6 +454,7 @@
         "name": "Fiesta Completa con Logística",
         "baseSize": 10,
         "maxSize": 20,
+        "basePrice": 16800,
         "priceAdd10": 1000,
         "killed": 0
     },
@@ -444,6 +471,7 @@
         "name": "Experiencia Gastronómica con Música Digital",
         "baseSize": 28,
         "maxSize": 56,
+        "basePrice": 15200,
         "priceAdd10": 1100,
         "killed": 0
     },
@@ -460,6 +488,7 @@
         "name": "Espacio Decorado y Seguro",
         "baseSize": 8,
         "maxSize": 16,
+        "basePrice": 12600,
         "priceAdd10": 700,
         "killed": 0
     },
@@ -476,6 +505,7 @@
         "name": "Paquete Oro - Servicio Completo",
         "baseSize": 20,
         "maxSize": 40,
+        "basePrice": 25000,
         "priceAdd10": 1800,
         "killed": 0
     }

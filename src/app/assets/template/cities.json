@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "kind": "Guadalajara",
+    "killed": 0
+  },
+  {
+    "id": 2,
+    "kind": "Zapopan",
+    "killed": 0
+  },
+  {
+    "id": 3,
+    "kind": "Tonalá",
+    "killed": 0
+  },
+  {
+    "id": 4,
+    "kind": "Tlajomulco de Zúñiga",
+    "killed": 0
+  },
+  {
+    "id": 5,
+    "kind": "San Pedro Tlaquepaque",
+    "killed": 0
+  }
+]
