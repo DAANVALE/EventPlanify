@@ -1,7 +1,7 @@
 export interface EventTypeModel{
   id: number;
   kind: string;
-  killed?: boolean;
+  killed?: number;
 }
 
 export interface EventTypeIcon extends EventTypeModel{

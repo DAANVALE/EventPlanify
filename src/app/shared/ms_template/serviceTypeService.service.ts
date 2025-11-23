@@ -1,10 +1,10 @@
 import { ServiceTypeModel } from './../../models/ms_template/service-type';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, map, throwError, of} from 'rxjs';
+import { catchError, Observable, map, throwError, of, tap} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../../enviroments/enviroment';
 
-import { serviceTypeTs } from '../../assets/template-test-data'
+import { serviceTypeTs } from "../../assets/template-test-data";
 
 @Injectable({
   providedIn: 'root',
@@ -17,15 +17,46 @@ export class ServiceTypeService{
 
   }
 
-  private serviceTypeModel = serviceTypeTs;
+  private serviceTypeModel: ServiceTypeModel[] = [];
+
+  // Método para cargar los datos del JSON
+  loadServiceTypes(): Observable<any[]> {
+    return this.http.get<any[]>('assets/template/servicesType.json');
+  }
+
+  // Método que usas en tu componente
+  getLocalRealData(): void {
+    this.loadServiceTypes().subscribe({
+      next: (data) => {
+        this.serviceTypeModel = data;
+      },
+      error: (error) => {
+        this.serviceTypeModel = [];
+      }
+    });
+  }
 
   getAll(): Observable<ServiceTypeModel[]>
   {
-    return this.http.get<ServiceTypeModel[]>(this.API).
-    pipe(map((data: ServiceTypeModel[]) => data ),
+    return this.http.get<ServiceTypeModel[]>(this.API).pipe(
+      map((data: ServiceTypeModel[]) => {
+        // Actualizar el modelo global cuando la API funciona
+        this.serviceTypeModel = data;
+        return data;
+      }),
       catchError(error => {
+        console.warn('Error cargando JSON serviceType nube:');
         this.handleError(error);
-        return of(this.serviceTypeModel);
+        // Retornar el Observable del JSON y actualizar el modelo global
+        return this.loadServiceTypes().pipe(
+          tap(data => {
+            this.serviceTypeModel = data; // Actualizar aquí también
+          }),
+          catchError(localError => {
+            console.error('Error cargando JSON local:', localError);
+            return of(this.serviceTypeModel); // Retornar lo que haya en el modelo
+          })
+        );
       })
     );
   }

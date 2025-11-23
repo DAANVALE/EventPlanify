@@ -27,6 +27,7 @@
           [src]="terrace.URL_IMG[0]"
           alt="Imagen terraza"
           height="100px"
+          object-fit="cover"
           (error)="onImageError($event)"
         />
         <p>{{ terrace.description }}</p>

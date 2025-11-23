@@ -6,7 +6,7 @@ export interface AsociateTerraceModel{
   mail: string;
   phone: string;
 
-  killed?: boolean;
+  killed?: number;
 }
 
 

@@ -1,7 +1,0 @@
-[
-  { "kind": "Terraza", "killed": false },
-  { "kind": "Jardín", "killed": false },
-  { "kind": "Salón", "killed": false },
-  { "kind": "Auditorio", "killed": false },
-  { "kind": "Roof Garden", "killed": false }
-]

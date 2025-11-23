@@ -1,6 +1,6 @@
 import { TerraceTypeModel } from './../../models/ms_template/terrace-type';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, map, throwError, of} from 'rxjs';
+import { catchError, Observable, map, throwError, of, tap} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../../enviroments/enviroment';
 
@@ -17,15 +17,31 @@ export class TerraceTypeService{
 
   }
 
-  private terraceTypeModel = terraceTypeTs;
+  private terraceTypeModel : TerraceTypeModel[] = [];
+
+  loadLocalTerraceTypes(): Observable<TerraceTypeModel[]> {
+    return this.http.get<TerraceTypeModel[]>('assets/template/terracesType.json'); // Ajusta la ruta
+  }
 
   getAll(): Observable<TerraceTypeModel[]>
   {
-    return this.http.get<TerraceTypeModel[]>(this.API).
-    pipe(map((data: TerraceTypeModel[]) => data ),
+    return this.http.get<TerraceTypeModel[]>(this.API).pipe(
+      map((data: TerraceTypeModel[]) => {
+        this.terraceTypeModel = data;
+        return data;
+      }),
       catchError(error => {
         this.handleError(error);
-        return of(this.terraceTypeModel);
+        return this.loadLocalTerraceTypes().pipe(
+          tap(data => {
+            this.terraceTypeModel = data; 
+            console.warn('Terrace types locales cargados:', this.terraceTypeModel);
+          }),
+          catchError(localError => {
+            console.error('Error cargando terrace types locales:', localError);
+            return of(this.terraceTypeModel.length > 0 ? this.terraceTypeModel : []);
+          })
+        );
       })
     );
   }

@@ -68,6 +68,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Servicio de Meseros Elegantes',
     description: 'Meseros capacitados para eventos de alto nivel con uniforme formal.',
     price: 3500,
+    tags: []
   },
   {
     id: 2,
@@ -79,6 +80,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Banquete Tradicional Mexicano',
     description: 'Comida mexicana gourmet para todo tipo de eventos con sabores auténticos.',
     price: 8000,
+    tags: []
   },
   {
     id: 3,
@@ -90,6 +92,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'DJ Profesional con Equipo Premium',
     description: 'DJ con equipo profesional, playlist personalizada y efectos de luz.',
     price: 5000,
+    tags: []
   },
   {
     id: 4,
@@ -101,6 +104,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Cobertura Fotográfica Premium',
     description: 'Fotografía profesional con entrega en digital, álbum físico y sesión de retratos.',
     price: 6000,
+    tags: []
   },
   {
     id: 5,
@@ -112,6 +116,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Barra Libre Premium con Mixólogo',
     description: 'Cocteles ilimitados con barra temática, mixólogo profesional y ingredientes premium.',
     price: 7000,
+    tags: []
   },
   {
     id: 6,
@@ -123,6 +128,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Show de Stand-Up y Magia Interactiva',
     description: 'Entretenimiento divertido para todas las edades con participación del público.',
     price: 4500,
+    tags: []
   },
   {
     id: 7,
@@ -134,6 +140,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Decoración Temática Personalizada',
     description: 'Decoración completa según tema del evento con diseño exclusivo.',
     price: 5500,
+    tags: []
   },
   {
     id: 8,
@@ -145,6 +152,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Transporte Ejecutivo para Invitados',
     description: 'Flotilla de vehículos ejecutivos con chofer profesional para traslado de invitados.',
     price: 4800,
+    tags: []
   },
   {
     id: 9,
@@ -156,6 +164,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Servicio de Seguridad Privada',
     description: 'Personal de seguridad uniformado con equipo de comunicación y protocolos de seguridad.',
     price: 5200,
+    tags: []
   },
   {
     id: 10,
@@ -167,6 +176,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Coordinación Integral de Bodas',
     description: 'Coordinación completa de ceremonia y recepción con planificación detallada.',
     price: 8500,
+    tags: []
   },
   {
     id: 11,
@@ -178,6 +188,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Logística Completa de Eventos',
     description: 'Planificación y ejecución logística para eventos de cualquier magnitud.',
     price: 7500,
+    tags: []
   },
   {
     id: 12,
@@ -189,6 +200,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Transmisión en Vivo y Streaming',
     description: 'Transmisión profesional en HD con múltiples cámaras y equipo de audio.',
     price: 6500,
+    tags: []
   },
   {
     id: 13,
@@ -200,6 +212,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Paquete Completo Banquete + Barra',
     description: 'Servicio integral de alimentación y bebidas con menú personalizado.',
     price: 12000,
+    tags: []
   },
   {
     id: 14,
@@ -211,6 +224,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Combo Música y Espectáculo',
     description: 'DJ profesional con show de entretenimiento incluido para toda la noche.',
     price: 8500,
+    tags: []
   },
   {
     id: 15,
@@ -222,6 +236,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Fotografía con Escenarios Decorados',
     description: 'Sesión fotográfica en escenarios especialmente decorados para el evento.',
     price: 9500,
+    tags: []
   },
   {
     id: 16,
@@ -233,6 +248,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Transporte con Seguridad Incluida',
     description: 'Servicio de transporte con medidas de seguridad y escolta profesional.',
     price: 7800,
+    tags: []
   },
   {
     id: 17,
@@ -244,6 +260,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Coordinación con Soporte Logístico',
     description: 'Coordinación de evento con gestión logística completa y personal dedicado.',
     price: 13500,
+    tags: []
   },
   {
     id: 18,
@@ -255,6 +272,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Servicio de Meseros con Barra',
     description: 'Personal de servicio completo incluyendo meseros y personal de barra.',
     price: 9000,
+    tags: []
   },
   {
     id: 19,
@@ -266,6 +284,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'DJ con Transmisión en Vivo',
     description: 'Servicio de DJ profesional con transmisión en vivo incluida para invitados remotos.',
     price: 9500,
+    tags: []
   },
   {
     id: 20,
@@ -277,6 +296,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Paquete Premium Fotos + Música + Show',
     description: 'Combo completo de entretenimiento con fotografía profesional, música y espectáculo.',
     price: 16500,
+    tags: []
   },
   {
     id: 21,
@@ -288,6 +308,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Decoración con Transporte Temático',
     description: 'Decoración completa incluyendo transporte decorado según tema del evento.',
     price: 10300,
+    tags: []
   },
   {
     id: 22,
@@ -299,6 +320,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Seguridad con Coordinación de Accesos',
     description: 'Servicio de seguridad con coordinación de accesos y control de invitados.',
     price: 9800,
+    tags: []
   },
   {
     id: 23,
@@ -310,6 +332,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Logística con Soporte Digital',
     description: 'Gestión logística completa con plataforma digital para seguimiento del evento.',
     price: 11200,
+    tags: []
   },
   {
     id: 24,
@@ -321,6 +344,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Servicio Integral de Alimentos y Bebidas',
     description: 'Servicio completo de alimentación incluyendo personal, comida y bebidas.',
     price: 18500,
+    tags: []
   },
   {
     id: 25,
@@ -332,6 +356,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Creación de Ambiente Completo',
     description: 'Servicio para crear ambiente perfecto con música, decoración y transporte temático.',
     price: 15700,
+    tags: []
   },
   {
     id: 26,
@@ -343,6 +368,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Evento Seguro con Memoria Fotográfica',
     description: 'Coordinación segura del evento con cobertura fotográfica profesional.',
     price: 14300,
+    tags: []
   },
   {
     id: 27,
@@ -354,6 +380,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Fiesta Completa con Logística',
     description: 'Organización completa de fiesta con barra, entretenimiento y gestión logística.',
     price: 16800,
+    tags: []
   },
   {
     id: 28,
@@ -365,6 +392,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Experiencia Gastronómica con Música Digital',
     description: 'Banquete gourmet con experiencia musical digital y transmisión en vivo.',
     price: 15200,
+    tags: []
   },
   {
     id: 29,
@@ -376,6 +404,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Espacio Decorado y Seguro',
     description: 'Decoración temática con medidas de seguridad y gestión logística integrada.',
     price: 12600,
+    tags: []
   },
   {
     id: 30,
@@ -387,6 +416,7 @@ export const serviceModelTs: ServiceModel[] = [
     name: 'Paquete Oro - Servicio Completo',
     description: 'Servicio integral premium incluyendo todos los servicios principales para evento de lujo.',
     price: 25000,
+    tags: []
   }
 ];
 
@@ -401,7 +431,8 @@ export const terraceModelTs: TerraceModel[] = [
     name: 'Terraza con Alberca Azul',
     description: 'Espacio moderno con alberca, ideal para bodas y graduaciones.',
     price: 12000,
-    place: 'Zona Real'
+    place: 'Zona Real',
+    tags: []
   },
   {
     id: 2,
@@ -413,7 +444,8 @@ export const terraceModelTs: TerraceModel[] = [
     name: 'Terraza El Encino',
     description: 'Ambiente rústico y cálido, perfecto para eventos familiares.',
     price: 9000,
-    place: 'Colonia Seattle'
+    place: 'Colonia Seattle',
+    tags: []
   },
   {
     id: 3,
@@ -425,7 +457,8 @@ export const terraceModelTs: TerraceModel[] = [
     name: 'Salón Los Arcos',
     description: 'Salón cerrado con aire acondicionado y pista de baile.',
     price: 10000,
-    place: 'Centro Histórico'
+    place: 'Centro Histórico',
+    tags: []
   },
   {
     id: 4,
@@ -437,7 +470,8 @@ export const terraceModelTs: TerraceModel[] = [
     name: 'Terraza ExpoTonala',
     description: 'Espacio amplio para exposiciones, ferias y conferencias.',
     price: 8500,
-    place: 'Zona Artesanal'
+    place: 'Zona Artesanal',
+    tags: []
   },
   {
     id: 5,
@@ -449,7 +483,8 @@ export const terraceModelTs: TerraceModel[] = [
     name: 'Jardín Natural El Roble',
     description: 'Ubicación rodeada de naturaleza, ideal para eventos al aire libre.',
     price: 9500,
-    place: 'Paraje El Roble'
+    place: 'Paraje El Roble',
+    tags: []
   },
   {
     id: 6,
@@ -461,7 +496,8 @@ export const terraceModelTs: TerraceModel[] = [
     name: 'Terraza Experiencia 360',
     description: 'Terraza inmersiva con experiencias interactivas y decoración temática.',
     price: 15000,
-    place: 'Bosques de Santa Anita'
+    place: 'Bosques de Santa Anita',
+    tags: []
   }
 ];
 

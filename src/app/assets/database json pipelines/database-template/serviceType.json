@@ -1,14 +1,14 @@
 [
-  { "kind": "Alimentos y Bebidas", "killed": false },
-  { "kind": "Música y Sonido", "killed": false },
-  { "kind": "Animación y Espectáculos", "killed": false },
-  { "kind": "Fotografía y Video", "killed": false },
-  { "kind": "Material Interactivo", "killed": false },
-  { "kind": "Decoración y Ambientación", "killed": false },
-  { "kind": "Eventos Infantiles", "killed": false },
-  { "kind": "Planeación y Coordinación", "killed": false },
-  { "kind": "Personal y Seguridad", "killed": false },
-  { "kind": "Transporte y Movilidad", "killed": false },
-  { "kind": "Diseño y Papelería", "killed": false },
-  { "kind": "Tecnología y Experiencias", "killed": false }
+  { "kind": "Alimentos y Bebidas", "killed": 0 },
+  { "kind": "Música y Sonido", "killed": 0 },
+  { "kind": "Animación y Espectáculos", "killed": 0 },
+  { "kind": "Fotografía y Video", "killed": 0 },
+  { "kind": "Material Interactivo", "killed": 0 },
+  { "kind": "Decoración y Ambientación", "killed": 0 },
+  { "kind": "Eventos Infantiles", "killed": 0 },
+  { "kind": "Planeación y Coordinación", "killed": 0 },
+  { "kind": "Personal y Seguridad", "killed": 0 },
+  { "kind": "Transporte y Movilidad", "killed": 0 },
+  { "kind": "Diseño y Papelería", "killed": 0 },
+  { "kind": "Tecnología y Experiencias", "killed": 0 }
 ]

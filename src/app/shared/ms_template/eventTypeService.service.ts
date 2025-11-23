@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, map, throwError, of} from 'rxjs';
+import { catchError, Observable, map, throwError, of, tap} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../../enviroments/enviroment';
 
@@ -13,12 +13,17 @@ import { eventTypeTs } from '../../assets/template-test-data'
 export class EventTypeService{
 
   private API = environment.msTemplatesUrl + '/event-types';
+  private eventTypeModel = eventTypeTs;
 
   constructor(private http: HttpClient){
 
   }
 
-  private eventTypeModel = eventTypeTs;
+
+  loadLocalCities(): Observable<EventTypeModel[]> {
+    return this.http.get<EventTypeModel[]>('assets/template/eventType.json'); // Ajusta la ruta
+  }
+
 
   getAll(): Observable<EventTypeModel[]>
   {
@@ -26,7 +31,16 @@ export class EventTypeService{
     pipe(map((data: EventTypeModel[]) => data ),
       catchError(error => {
         this.handleError(error);
-        return of(this.eventTypeModel);
+        return this.loadLocalCities().pipe(
+            tap(data => {
+              this.eventTypeModel = data; // Actualizar aquí también
+              console.log('EventType locales cargadas:', this.eventTypeModel);
+            }),
+            catchError(localError => {
+              console.error('Error cargando EventTypes locales:', localError);
+              return of(this.eventTypeModel.length > 0 ? this.eventTypeModel : eventTypeTs);
+            })
+          );  
       })
     );
   }

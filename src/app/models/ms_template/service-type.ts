@@ -1,7 +1,7 @@
 export interface ServiceTypeModel {
   id: number;
   kind: string;
-  killed?: boolean;
+  killed?: number;
 }
 
 export interface IconServiceType extends ServiceTypeModel{

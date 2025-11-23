@@ -15,7 +15,7 @@ export const asociateTerraceModellTs: AsociateTerraceModel[] = [
     name: 'Asociado Alberca Azul',
     mail: 'alberca.azul@eventos.com',
     phone: '3312345678',
-    killed: false
+    killed: 0
   },
   {
     id: 402,
@@ -23,7 +23,7 @@ export const asociateTerraceModellTs: AsociateTerraceModel[] = [
     name: 'Asociado El Encino',
     mail: 'el.encino@eventos.com',
     phone: '3323456789',
-    killed: false
+    killed: 0
   },
   {
     id: 403,
@@ -31,7 +31,7 @@ export const asociateTerraceModellTs: AsociateTerraceModel[] = [
     name: 'Asociado Los Arcos',
     mail: 'salon.arcos@eventos.com',
     phone: '3334567890',
-    killed: false
+    killed: 0
   },
   {
     id: 404,
@@ -39,7 +39,7 @@ export const asociateTerraceModellTs: AsociateTerraceModel[] = [
     name: 'Asociado ExpoTonala',
     mail: 'expo.tonala@eventos.com',
     phone: '3345678901',
-    killed: false
+    killed: 0
   },
   {
     id: 405,
@@ -47,7 +47,7 @@ export const asociateTerraceModellTs: AsociateTerraceModel[] = [
     name: 'Asociado El Roble',
     mail: 'natural.roble@eventos.com',
     phone: '3356789012',
-    killed: false
+    killed: 0
   },
   {
     id: 406,
@@ -55,7 +55,7 @@ export const asociateTerraceModellTs: AsociateTerraceModel[] = [
     name: 'Asociado Experiencia 360',
     mail: 'experiencia360@eventos.com',
     phone: '3367890123',
-    killed: false
+    killed: 0
   }
 ];
 
@@ -68,7 +68,7 @@ export const terraceModelTs: TerraceModel[] = [
     maxSize: 150,
     priceAdd10: 1500,
     direction: 'Av. Acueducto 123, Zona Real, Zapopan',
-    killed: false
+    killed: 0
   },
   {
     id: 302,
@@ -78,7 +78,7 @@ export const terraceModelTs: TerraceModel[] = [
     maxSize: 100,
     priceAdd10: 1200,
     direction: 'Calle Encino 456, Col. Seattle, Zapopan',
-    killed: false
+    killed: 0
   },
   {
     id: 303,
@@ -88,7 +88,7 @@ export const terraceModelTs: TerraceModel[] = [
     maxSize: 180,
     priceAdd10: 1800,
     direction: 'Av. Revolución 789, Centro, Tlaquepaque',
-    killed: false
+    killed: 0
   },
   {
     id: 304,
@@ -98,7 +98,7 @@ export const terraceModelTs: TerraceModel[] = [
     maxSize: 160,
     priceAdd10: 1300,
     direction: 'Zona Artesanal, Tonalá',
-    killed: false
+    killed: 0
   },
   {
     id: 305,
@@ -108,7 +108,7 @@ export const terraceModelTs: TerraceModel[] = [
     maxSize: 200,
     priceAdd10: 1600,
     direction: 'Paraje El Roble, Zapotlanejo',
-    killed: false
+    killed: 0
   },
   {
     id: 306,
@@ -118,7 +118,7 @@ export const terraceModelTs: TerraceModel[] = [
     maxSize: 250,
     priceAdd10: 2000,
     direction: 'Bosques de Santa Anita, Tlajomulco',
-    killed: false
+    killed: 0
   }
 ];
 
@@ -129,7 +129,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'Meseros Profesionales GDL',
     mail: 'meserosgdl@example.com',
     phone: '33-1111-2222',
-    killed: false
+    killed: 0
   },
   {
     id: 202,
@@ -137,7 +137,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'Banquetes Mexicanos Zapopan',
     mail: 'banqueteszapopan@example.com',
     phone: '33-2222-3333',
-    killed: false
+    killed: 0
   },
   {
     id: 203,
@@ -145,7 +145,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'DJ Profesional Tlaquepaque',
     mail: 'djtlaquepaque@example.com',
     phone: '33-3333-4444',
-    killed: false
+    killed: 0
   },
   {
     id: 204,
@@ -153,7 +153,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'Fotografía Premium Tonalá',
     mail: 'fototonala@example.com',
     phone: '33-4444-5555',
-    killed: false
+    killed: 0
   },
   {
     id: 205,
@@ -161,7 +161,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'Mixología Zapotlanejo',
     mail: 'mixologiazap@example.com',
     phone: '33-5555-6666',
-    killed: false
+    killed: 0
   },
   {
     id: 206,
@@ -169,7 +169,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'Entretenimiento Tlajomulco',
     mail: 'showtlajomulco@example.com',
     phone: '33-6666-7777',
-    killed: false
+    killed: 0
   },
   {
     id: 207,
@@ -177,7 +177,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'Decoraciones Elegantes GDL',
     mail: 'decoragdl@example.com',
     phone: '33-7777-8888',
-    killed: false
+    killed: 0
   },
   {
     id: 208,
@@ -185,7 +185,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'Transporte Ejecutivo Zapopan',
     mail: 'transportezapopan@example.com',
     phone: '33-8888-9999',
-    killed: false
+    killed: 0
   },
   {
     id: 209,
@@ -193,7 +193,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'Seguridad Privada Tlaquepaque',
     mail: 'seguridadtlaque@example.com',
     phone: '33-9999-0000',
-    killed: false
+    killed: 0
   },
   {
     id: 210,
@@ -201,7 +201,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'Coordinación de Eventos Tonalá',
     mail: 'coordinaciontonala@example.com',
     phone: '33-0000-1111',
-    killed: false
+    killed: 0
   },
   {
     id: 211,
@@ -209,7 +209,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'Logística Integral Zapotlanejo',
     mail: 'logisticazap@example.com',
     phone: '33-1122-3344',
-    killed: false
+    killed: 0
   },
   {
     id: 212,
@@ -217,7 +217,7 @@ export const asociateServiceModelTs: AsociateServiceModel[] = [
     name: 'Streaming Profesional Tlajomulco',
     mail: 'streamingtlajo@example.com',
     phone: '33-2233-4455',
-    killed: false
+    killed: 0
   }
 ];
 
@@ -229,7 +229,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 10,
     maxSize: 20,
     priceAdd10: 500,
-    killed: false,
+    killed: 0,
     basePrice: 3500
   },
   {
@@ -239,7 +239,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 25,
     maxSize: 50,
     priceAdd10: 800,
-    killed: false,
+    killed: 0,
     basePrice: 8000
   },
   {
@@ -249,7 +249,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 5,
     maxSize: 10,
     priceAdd10: 300,
-    killed: false,
+    killed: 0,
     basePrice: 5000
   },
   {
@@ -259,7 +259,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 3,
     maxSize: 6,
     priceAdd10: 400,
-    killed: false,
+    killed: 0,
     basePrice: 6000
   },
   {
@@ -269,7 +269,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 8,
     maxSize: 16,
     priceAdd10: 600,
-    killed: false,
+    killed: 0,
     basePrice: 7000
   },
   {
@@ -279,7 +279,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 2,
     maxSize: 4,
     priceAdd10: 350,
-    killed: false,
+    killed: 0,
     basePrice: 4500
   },
   {
@@ -289,7 +289,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 450,
-    killed: false,
+    killed: 0,
     basePrice: 5500
   },
   {
@@ -299,7 +299,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 12,
     maxSize: 24,
     priceAdd10: 400,
-    killed: false,
+    killed: 0,
     basePrice: 4800
   },
   {
@@ -309,7 +309,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 350,
-    killed: false,
+    killed: 0,
     basePrice: 5200
   },
   {
@@ -319,7 +319,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 2,
     maxSize: 4,
     priceAdd10: 700,
-    killed: false,
+    killed: 0,
     basePrice: 8500
   },
   {
@@ -329,7 +329,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 3,
     maxSize: 6,
     priceAdd10: 650,
-    killed: false,
+    killed: 0,
     basePrice: 7500
   },
   {
@@ -339,7 +339,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 550,
-    killed: false,
+    killed: 0,
     basePrice: 6500
   },
   {
@@ -349,7 +349,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 30,
     maxSize: 60,
     priceAdd10: 1200,
-    killed: false,
+    killed: 0,
     basePrice: 12000
   },
   {
@@ -359,7 +359,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 600,
-    killed: false,
+    killed: 0,
     basePrice: 8500
   },
   {
@@ -369,7 +369,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 550,
-    killed: false,
+    killed: 0,
     basePrice: 9500
   },
   {
@@ -379,7 +379,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 15,
     maxSize: 30,
     priceAdd10: 600,
-    killed: false,
+    killed: 0,
     basePrice: 7800
   },
   {
@@ -389,7 +389,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 3,
     maxSize: 6,
     priceAdd10: 900,
-    killed: false,
+    killed: 0,
     basePrice: 13500
   },
   {
@@ -399,7 +399,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 12,
     maxSize: 24,
     priceAdd10: 700,
-    killed: false,
+    killed: 0,
     basePrice: 9000
   },
   {
@@ -409,7 +409,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 650,
-    killed: false,
+    killed: 0,
     basePrice: 9500
   },
   {
@@ -419,7 +419,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 8,
     maxSize: 16,
     priceAdd10: 1100,
-    killed: false,
+    killed: 0,
     basePrice: 16500
   },
   {
@@ -429,7 +429,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 10,
     maxSize: 20,
     priceAdd10: 650,
-    killed: false,
+    killed: 0,
     basePrice: 10300
   },
   {
@@ -439,7 +439,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 5,
     maxSize: 10,
     priceAdd10: 600,
-    killed: false,
+    killed: 0,
     basePrice: 9800
   },
   {
@@ -449,7 +449,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 750,
-    killed: false,
+    killed: 0,
     basePrice: 11200
   },
   {
@@ -459,7 +459,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 35,
     maxSize: 70,
     priceAdd10: 1400,
-    killed: false,
+    killed: 0,
     basePrice: 18500
   },
   {
@@ -469,7 +469,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 12,
     maxSize: 24,
     priceAdd10: 950,
-    killed: false,
+    killed: 0,
     basePrice: 15700
   },
   {
@@ -479,7 +479,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 850,
-    killed: false,
+    killed: 0,
     basePrice: 14300
   },
   {
@@ -489,7 +489,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 10,
     maxSize: 20,
     priceAdd10: 1000,
-    killed: false,
+    killed: 0,
     basePrice: 16800
   },
   {
@@ -499,7 +499,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 28,
     maxSize: 56,
     priceAdd10: 1100,
-    killed: false,
+    killed: 0,
     basePrice: 15200
   },
   {
@@ -509,7 +509,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 8,
     maxSize: 16,
     priceAdd10: 700,
-    killed: false,
+    killed: 0,
     basePrice: 12600
   },
   {
@@ -519,7 +519,7 @@ export const ServiceModelTs: ServiceModel[] = [
     baseSize: 20,
     maxSize: 40,
     priceAdd10: 1800,
-    killed: false,
+    killed: 0,
     basePrice: 25000
   }
 ];

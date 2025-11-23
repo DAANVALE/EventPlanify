@@ -182,10 +182,8 @@ export class ConfirmationComponent implements OnInit {
     this.saveReservationData();
   }
 
-  // GUARDAR DATOS
   saveReservationData(): void {
     try {
-      // Guardar reservas completas
       const reserveData = {
         reserveReserves: this.reserveModels(),
         reserveServices: this.reserveModels().map(reserve => reserve.serviceModel)
@@ -202,36 +200,6 @@ export class ConfirmationComponent implements OnInit {
         sumPrice: this.calculateEventTotal(),
         
       };
-
-      // 🔹 Enviar al backend usando el servicio
-      this.eventService.create(updatedEvent as R_EventModel).subscribe({
-        next: (savedEvent) => {
-          console.log('✅ Evento guardado en backend:', savedEvent);
-
-          // Guardar respaldo local si fue exitoso
-          localStorage.setItem('pendingEventReservation', JSON.stringify(savedEvent));
-
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Evento guardado correctamente',
-            detail: `Total: $${this.calculateEventTotal()}`,
-            life: 4000
-          });
-        },
-        error: (err) => {
-          console.error('❌ Error al guardar evento en backend:', err);
-
-          // Guardar respaldo local si el backend falla
-          localStorage.setItem('pendingEventReservation', JSON.stringify(updatedEvent));
-
-          this.messageService.add({
-            severity: 'warn',
-            summary: 'Guardado localmente',
-            detail: 'No se pudo conectar con el servidor, pero se guardó en tu navegador.',
-            life: 4000
-          });
-        }
-      });
     } catch (error) {
       this.handleError('Error guardando datos');
     }
@@ -271,6 +239,38 @@ export class ConfirmationComponent implements OnInit {
       summary: '¡Reserva Confirmada!',
       detail: `Total: $${this.calculateEventTotal()}`,
       life: 5000
+    });
+
+    const updatedEvent: R_EventModel = {} as R_EventModel;
+    Object.assign(updatedEvent, this.eventModel(), {
+      sizePeople: this.eventForm.sizePeople,
+      dayDate: this.eventForm.dayDate.toISOString(),
+      payment: this.eventForm.payment,
+      sumPrice: this.calculateEventTotal()
+    });
+
+    this.eventService.create(updatedEvent as R_EventModel).subscribe({
+      next: (savedEvent) => {
+        console.log('✅ Evento guardado en backend:', savedEvent);
+        localStorage.setItem('pendingEventReservation', JSON.stringify(savedEvent));
+
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Evento guardado correctamente',
+          detail: `Total: $${this.calculateEventTotal()}`,
+          life: 4000
+        });
+      },
+      error: (err) => {
+        localStorage.setItem('pendingEventReservation', JSON.stringify(updatedEvent));
+
+        this.messageService.add({
+          severity: 'warn',
+          summary: 'Guardado localmente',
+          detail: 'No se pudo conectar con el servidor, pero se guardó en tu navegador.',
+          life: 4000
+        });
+      }
     });
 
     setTimeout(() => this.router.navigate(['/']), 3000);
