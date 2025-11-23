@@ -3,5 +3,5 @@ export interface RegisterRequest {
   password: string;
   firstname: string;
   lastname: string;
-  country: string;
+  phone: string;
 }

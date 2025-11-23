@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
         username: [{ value: '', disabled: true }],
         lastname: ['', Validators.required],
         firstname: ['', Validators.required],
-        country: ['', Validators.required]
+        phone: ['', Validators.required]
     });
   }
 
@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
           username: user.username,
           firstname: user.firstname,
           lastname: user.lastname,
-          country: user.country
+          phone: user.phone
         });
       }
     }, { injector: this.injector });
@@ -59,7 +59,7 @@ export class ProfileComponent implements OnInit {
 
   get firstname() { return this.profileForm.get('firstname')!; }
   get lastname() { return this.profileForm.get('lastname')!; }
-  get country() { return this.profileForm.get('country')!; }
+  get phone() { return this.profileForm.get('phone')!; }
 
  
   savePersonalDetailsData(): void {
@@ -70,7 +70,7 @@ export class ProfileComponent implements OnInit {
         id: Number(formValue.id),
         firstname: formValue.firstname!,
         lastname: formValue.lastname!,
-        country: formValue.country!
+        phone: formValue.phone!
       };
 
       this.userService.updateUser(userToUpdate).subscribe({

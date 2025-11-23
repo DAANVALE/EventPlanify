@@ -8,7 +8,7 @@
         <h2 class="text-2xl font-bold text-900 mb-1">Detalles Personales</h2>
         <div class="flex flex-wrap gap-2">
           <p-tag [value]="loginService.userProfile()?.role" [severity]="loginService.userProfile()?.role === 'HOST' ? 'success' : 'info'" icon="pi pi-briefcase"></p-tag>
-          <p-tag [value]="loginService.userProfile()?.country" icon="pi pi-globe" severity="secondary"></p-tag>
+          <p-tag [value]="loginService.userProfile()?.phone" icon="pi pi-globe" severity="secondary"></p-tag>
         </div>
       </div>
 
@@ -46,9 +46,9 @@
         </div>
       </div>
       <div class="p-field grid mb-3">
-        <label class="col-12 md:col-3 font-semibold text-600">País:</label>
+        <label class="col-12 md:col-3 font-semibold text-600">Telefono:</label>
         <div class="col-12 md:col-9 p-inputtext p-component border-round-md bg-gray-100 p-2">
-          {{ loginService.userProfile()?.country }}
+          {{ loginService.userProfile()?.phone }}
         </div>
       </div>
       <p-divider></p-divider>
@@ -80,10 +80,10 @@
       </div>
 
       <div class="p-field grid mb-4">
-        <label for="country" class="col-12 md:col-3 font-semibold text-600">País</label>
+        <label for="phone" class="col-12 md:col-3 font-semibold text-600">Telefono</label>
         <div class="col-12 md:col-9">
-          <input id="country" type="text" pInputText formControlName="country">
-          <small class="p-error" *ngIf="country.invalid && (country.dirty || country.touched)">El País es requerido.</small>
+          <input id="phone" type="text" pInputText formControlName="phone">
+          <small class="p-error" *ngIf="phone.invalid && (phone.dirty || phone.touched)">El Telefono es requerido.</small>
         </div>
       </div>
 

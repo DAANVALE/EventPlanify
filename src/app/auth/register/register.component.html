@@ -42,10 +42,10 @@
         </div>
 
         <div class="field col-12 mb-4">
-          <label for="country" class="font-semibold mb-2 block">País</label>
-          <input id="country" type="text" pInputText formControlName="country"
-                 [ngClass]="{'ng-dirty ng-invalid': country.invalid && (country.dirty || country.touched)}">
-          <small class="p-error block" *ngIf="country.errors?.['required'] && (country.dirty || country.touched)">El País es requerido.</small>
+          <label for="phone" class="font-semibold mb-2 block">Telefono</label>
+          <input id="phone" type="text" pInputText formControlName="phone"
+                 [ngClass]="{'ng-dirty ng-invalid': phone.invalid && (phone.dirty || phone.touched)}">
+          <small class="p-error block" *ngIf="phone.errors?.['required'] && (phone.dirty || phone.touched)">El Telefono es requerido.</small>
         </div>
 
       </div>

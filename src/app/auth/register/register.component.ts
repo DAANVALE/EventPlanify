@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
         password: ['', Validators.required],
         firstname: ['', Validators.required],
         lastname: ['', Validators.required],
-        country: ['', Validators.required]
+        phone: ['', Validators.required]
     });
   }
 
@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
   get password() { return this.registerForm.get('password')!; }
   get firstname() { return this.registerForm.get('firstname')!; }
   get lastname() { return this.registerForm.get('lastname')!; }
-  get country() { return this.registerForm.get('country')!; }
+  get phone() { return this.registerForm.get('phone')!; }
 
   register(): void {
     if (this.registerForm.valid) {
