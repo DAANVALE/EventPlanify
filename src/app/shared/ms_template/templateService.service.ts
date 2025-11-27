@@ -17,7 +17,11 @@ export class TemplateService{
 
   }
 
-  private templateModel = [templateModelTs[0], templateModelTs[0], templateModelTs[0]];
+  private templateModel = [
+    templateModelTs[0], templateModelTs[0], 
+    templateModelTs[0], templateModelTs[0], 
+    templateModelTs[0], templateModelTs[0]
+];
 
   getAll(): Observable<TemplateModel[]>
   {
