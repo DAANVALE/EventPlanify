@@ -18,13 +18,7 @@ export class ServiceService{
 
   }
 
-  private ServiceModel = serviceModelTs;
-
-  loadLocalTerrace(): Observable<ServiceModel[]> {
-      return this.http.get<ServiceModel[]>('assets/template/terrace.jsonsss'); // Ajusta la ruta
-  }
-
-private fallbackServices: ServiceModel[] = [];
+  private fallbackServices: ServiceModel[] = [];
 
 getAll(): Observable<ServiceModel[]> {
   return this.http.get<ResponsePage<ServiceModel[]>>(this.API).pipe(
@@ -72,7 +66,7 @@ private loadLocalServicesWithFallback(): Observable<ServiceModel[]> {
   }
 
   loadLocalServices(): Observable<ServiceModel[]> {
-    return this.http.get<ServiceModel[]>('assets/template/services.json');
+    return this.http.get<ServiceModel[]>('assets/template/service.json');
   }
 
   private handleError(error: any): Observable<never>{

@@ -21,7 +21,7 @@ export class TerraceTypeService{
   private terraceTypeModel : TerraceTypeModel[] = [];
 
   loadLocalTerraceTypes(): Observable<TerraceTypeModel[]> {
-    return this.http.get<TerraceTypeModel[]>('assets/template/terraceType.json'); // Ajusta la ruta
+    return this.http.get<TerraceTypeModel[]>('assets/template/terracesType.json'); // Ajusta la ruta
   }
 
   getAll(): Observable<TerraceTypeModel[]>

@@ -22,7 +22,7 @@ export class ServiceTypeService{
 
   // Método para cargar los datos del JSON
   loadServiceTypes(): Observable<any[]> {
-    return this.http.get<any[]>('assets/template/serviceType.json');
+    return this.http.get<any[]>('assets/template/servicesType.json');
   }
 
   // Método que usas en tu componente
