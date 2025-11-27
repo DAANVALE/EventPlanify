@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { TemplateModel } from "../../models/ms_template/template";
 import { catchError, Observable, map, throwError, of } from "rxjs";
 import { templateModelTs } from "../../assets/template-test-data";
+import { ResponsePage } from "../../models/ResponsePage";
 
 @Injectable({
   providedIn: 'root',
@@ -16,12 +17,14 @@ export class TemplateService{
 
   }
 
-  private templateModel = templateModelTs;
+  private templateModel = [templateModelTs[0]];
 
   getAll(): Observable<TemplateModel[]>
   {
-    return this.http.get<TemplateModel[]>(this.API).
-    pipe(map((data: TemplateModel[]) => data ),
+    return this.http.get<ResponsePage<TemplateModel[]>>(this.API).pipe
+    (map( response => {
+      return response.content;
+    }),
       catchError(error => {
         this.handleError(error);
         return of(this.templateModel);

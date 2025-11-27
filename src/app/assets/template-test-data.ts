@@ -504,12 +504,33 @@ export const terraceModelTs: TerraceModel[] = [
 export const templateModelTs: TemplateModel[] = [
   {
     id: 1,
-    eventType: eventTypeTs[0], // Boda
-    terraceTypeModel: terraceTypeTs[0], // Alberca
-    cityModel: cityModelTs[0], // Guadalajara
-    serviceTypeModel: [serviceTypeTs[0],serviceTypeTs[1], serviceTypeTs[2]], // Meseros en GDL
-    name: 'Boda en Terraza con Alberca',
-    description: 'Paquete ideal para bodas con terraza con alberca en Guadalajara, incluye meseros.'
+
+    eventType: {
+      id: 1,
+      kind: "Boda",
+      killed: 0
+    },
+
+    terraceTypeModel: {
+      id: 1,
+      kind: "Terraza",
+      killed: 0
+    },
+
+    cityModel: {
+      id: 1,
+      kind: "Guadalajara",
+      killed: 0
+    },
+
+    serviceTypeModel: [
+      { id: 1, kind: "Alimentos y Bebidas", killed: 0 },
+      { id: 2, kind: "Música y Sonido", killed: 0 },
+      { id: 3, kind: "Animación y Espectáculos", killed: 0 }
+    ],
+
+    name: "Boda en Terraza",
+    description: "Paquete ideal para bodas en terraza en Guadalajara, incluye alimentos, música y animación."
   },
   {
     id: 2,

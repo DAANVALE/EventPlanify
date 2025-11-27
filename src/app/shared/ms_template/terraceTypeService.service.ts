@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../enviroments/enviroment';
 
 import { terraceTypeTs } from '../../assets/template-test-data'
+import { ResponsePage } from '../../models/ResponsePage';
 
 @Injectable({
   providedIn: 'root',
@@ -20,15 +21,15 @@ export class TerraceTypeService{
   private terraceTypeModel : TerraceTypeModel[] = [];
 
   loadLocalTerraceTypes(): Observable<TerraceTypeModel[]> {
-    return this.http.get<TerraceTypeModel[]>('assets/template/terracesType.json'); // Ajusta la ruta
+    return this.http.get<TerraceTypeModel[]>('assets/template/terraceType.json'); // Ajusta la ruta
   }
 
   getAll(): Observable<TerraceTypeModel[]>
   {
     return this.http.get<TerraceTypeModel[]>(this.API).pipe(
-      map((data: TerraceTypeModel[]) => {
-        this.terraceTypeModel = data;
-        return data;
+      map(response => {
+        this.terraceTypeModel = response;
+        return response;
       }),
       catchError(error => {
         this.handleError(error);

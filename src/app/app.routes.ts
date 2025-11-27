@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';
 import { ConfirmationComponent } from './pages/user/template-confirmation/confirmation/confirmation.component';
 import { TemplateCanvaComponent } from './pages/user/template-canva/template-canva.component';
+import { TemplateCardComponent } from './features/templat/template-card/template-card.component';
+import { TypeEventMenuComponent } from './features/event/type-event-menu/type-event-menu.component';
 
 export const routes: Routes = [
     { 
         path: '', 
-        loadComponent: () => import('./pages/user/template-canva/template-canva.component')
-            .then(c => c.TemplateCanvaComponent)
+        loadComponent: () => import('./features/event/type-event-menu/type-event-menu.component')
+            .then(c => c.TypeEventMenuComponent)
     },
     { 
         path: 'confirmation', 
@@ -28,5 +30,9 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/user/profile/profile.component')
             .then(c => c.ProfileComponent)
     },
-    { path: '**', redirectTo: '' }
+    { path: 'template', 
+        loadComponent: () => import('./pages/user/template-canva/template-canva.component')
+            .then(c => c.TemplateCanvaComponent) 
+    },
+    { path: '**', redirectTo: '' },
 ]

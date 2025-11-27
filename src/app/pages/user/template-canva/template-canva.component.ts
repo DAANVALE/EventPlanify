@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, computed } from '@angular/core';
+import { Component, OnInit, signal, computed, WritableSignal, Signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -31,6 +31,7 @@ import { TerraceService as R_TerraceService } from '../../../shared/ms_reserve/t
 import { ServiceService as R_ServiceService } from '../../../shared/ms_reserve/serviceService.service';
 // Test Data
 import { templateModelTs } from '../../../assets/template-test-data';
+import { DeferBlockBehavior } from '@angular/core/testing';
 
 @Component({
   selector: 'app-template-canva',
@@ -42,7 +43,7 @@ import { templateModelTs } from '../../../assets/template-test-data';
 export class TemplateCanvaComponent implements OnInit {
 
   // Signals
-  template = signal<T_TemplateModel>(templateModelTs[3]);
+  template = signal<T_TemplateModel>({} as T_TemplateModel);
   serviceTypes = signal<T_ServiceTypeModel[]>([]);
   terraceTypes = signal<T_TerraceTypeModel[]>([]);
   services = signal<T_ServiceModel[]>([]);
@@ -71,7 +72,12 @@ export class TemplateCanvaComponent implements OnInit {
     private r_terraceService: R_TerraceService,
     private r_serviceService: R_ServiceService,
     private router: Router
-  ) {}
+  ) {
+
+    if(this.template === null || this.template().id === undefined){
+      this.template.set(templateModelTs[0]);
+    }
+  }
 
   ngOnInit(): void {
     this.initializeData();
@@ -80,7 +86,7 @@ export class TemplateCanvaComponent implements OnInit {
 
   // ========== DATA LOADING METHODS ==========
   private initializeData(): void {
-    this.loadServices();
+    // this.loadServices();
     this.loadTerraces();
     this.loadTerraceType();
     this.loadServiceType();
@@ -88,21 +94,42 @@ export class TemplateCanvaComponent implements OnInit {
 
   loadServiceType(): void {
     this.t_serviceTypeService.getAll().subscribe({
-      next: (data) => this.serviceTypes.set(data),
+      next: (data) => {
+        this.serviceTypes.set(data)
+        this.template().serviceTypeModel.forEach(element => {
+          this.loadServicesByType(element.id);
+        });
+      },
       error: (error) => console.error("Error loading service types:", error),
     });
   }
 
   loadTerraceType(): void {
     this.t_terraceTypeService.getAll().subscribe({
-      next: (data) => this.terraceTypes.set(data),
+      next: (data) => {
+        this.terraceTypes.set(data);
+      },
       error: (error) => console.error("Error loading terrace types:", error),
+    });
+  }
+
+  grouped: { [key: number]: T_ServiceModel[] } = {};
+
+  loadServicesByType(serviceTypeId: number): void {
+    this.t_serviceService.getByServiceType(serviceTypeId).subscribe({
+      next: (data) => this.grouped[serviceTypeId] = data,
+      error: (error) => console.error("Error loading services by type:", error),
     });
   }
 
   loadServices(): void {
     this.t_serviceService.getAll().subscribe({
-      next: (data) => this.services.set(data),
+      next: (data) => {
+        this.services.set(data);
+        this.template().serviceTypeModel.forEach(element => {
+          this.loadServicesByType(element.id);
+        });
+      },
       error: (error) => console.error("Error loading services:", error),
     });
   }
@@ -122,7 +149,9 @@ export class TemplateCanvaComponent implements OnInit {
       ...this.template(),
       serviceTypeModel: [...this.template().serviceTypeModel, this.selectedServiceType]
     });
+    console.warn("🙅🙅🙅 serviceType selected");
 
+    this.loadServicesByType(this.selectedServiceType.id);
     this.selectedServiceType = null;
   }
 
@@ -152,13 +181,10 @@ export class TemplateCanvaComponent implements OnInit {
   }
 
     // ========== SERVICE SELECTION METHODS ==========
-getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
-  if (!serviceType || !this.services()) return [];
-  
-  return this.services().filter(service => 
-    service.serviceType.some(element => element.id === serviceType.id)
-  );
-}
+  getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
+    if (!serviceType || !this.services()) return [];
+    return this.grouped[serviceType.id] || [];
+  }
 
   openServiceDialog(service: T_ServiceModel): void {
     this.selectedService_T = { ...service };
@@ -173,8 +199,6 @@ getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
   }
 
   selectService(templateService: T_ServiceModel, reserveService: R_ServiceModel): void {
-
-
     const index = this.selectedServices.findIndex(s => s.id === templateService.id);
     
     if (index > -1) {

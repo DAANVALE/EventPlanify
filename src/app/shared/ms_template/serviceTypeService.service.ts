@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../enviroments/enviroment';
 
 import { serviceTypeTs } from "../../assets/template-test-data";
+import { ResponsePage } from '../../models/ResponsePage';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,7 @@ export class ServiceTypeService{
 
   // Método para cargar los datos del JSON
   loadServiceTypes(): Observable<any[]> {
-    return this.http.get<any[]>('assets/template/servicesType.json');
+    return this.http.get<any[]>('assets/template/serviceType.json');
   }
 
   // Método que usas en tu componente
@@ -39,10 +40,10 @@ export class ServiceTypeService{
   getAll(): Observable<ServiceTypeModel[]>
   {
     return this.http.get<ServiceTypeModel[]>(this.API).pipe(
-      map((data: ServiceTypeModel[]) => {
+      map(response => {
         // Actualizar el modelo global cuando la API funciona
-        this.serviceTypeModel = data;
-        return data;
+        this.serviceTypeModel = response;
+        return response;
       }),
       catchError(error => {
         console.warn('Error cargando JSON serviceType nube:');

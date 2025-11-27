@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, signal, OnInit, effect, SimpleChanges } from '@angular/core';
 import { TemplateModel } from '../../../models/ms_template/template';
 import { ImportsModule } from '../../../imports';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-template-card',
@@ -16,7 +17,7 @@ export class TemplateCardComponent implements OnInit  {
 
   templates = signal<TemplateModel[]>([]);
 
-  constructor(private templateService: TemplateService){
+  constructor(private templateService: TemplateService, private router: Router){
   }
 
   ngOnInit(): void{
@@ -38,7 +39,9 @@ export class TemplateCardComponent implements OnInit  {
 
   onSelectTemplate(template: TemplateModel): void {
     console.log('Seleccionado:', template);
-    // Aquí puedes emitir un evento o cambiar un signal
+    this.router.navigate(['/template'], {
+      state: { template: template }
+    });
   }
 
   responsiveOptions = [

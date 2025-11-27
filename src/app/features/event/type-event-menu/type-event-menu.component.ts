@@ -30,7 +30,7 @@ export class TypeEventMenuComponent implements OnInit{
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['eventTypeId']) {
-
+      this.loadEventTypes();
     }
   }
 

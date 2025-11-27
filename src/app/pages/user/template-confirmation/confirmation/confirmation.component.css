@@ -1,13 +1,54 @@
+/* Contenedor principal centrado */
 .confirmation-container {
   max-width: 1400px;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
+.confirmation-container .centered-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.confirmation-container .grid-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Centrado para móviles */
+.confirmation-container .mobile-center {
+  text-align: center;
+}
+
+.confirmation-container .mobile-center .p-inputnumber,
+.confirmation-container .mobile-center .p-dropdown,
+.confirmation-container .mobile-center .p-inputtextarea {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.confirmation-container .input-container {
+  max-width: 250px;
+  width: 100%;
+}
+
+.confirmation-container .service-input-container {
+  max-width: 200px;
+  width: 100%;
+}
+
+/* Sticky sidebar */
 .sticky-top {
   position: sticky;
   top: 1rem;
 }
 
+/* Reservas items */
 .reserve-item:last-child {
   border-bottom: none;
   margin-bottom: 0;
@@ -22,9 +63,73 @@
   margin-top: 0.5rem;
 }
 
+/* Mejoras visuales */
+.confirmation-container .card-enhanced {
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.confirmation-container .fieldset-enhanced {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Utilidades de texto */
+.text-center-mobile {
+  text-align: center;
+}
+
+.text-left-desktop {
+  text-align: left;
+}
+
+/* Controles centrados */
+.centered-control {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 /* Responsive */
 @media (max-width: 991px) {
   .sticky-top {
     position: static;
   }
+  
+  .confirmation-container .mobile-center .p-inputnumber,
+  .confirmation-container .mobile-center .p-dropdown,
+  .confirmation-container .mobile-center .p-inputtextarea {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .text-center-mobile {
+    text-align: center;
+  }
+  
+  .centered-control-mobile {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .text-left-desktop {
+    text-align: left;
+  }
+  
+  .confirmation-container .mobile-center .p-inputnumber,
+  .confirmation-container .mobile-center .p-dropdown,
+  .confirmation-container .mobile-center .p-inputtextarea {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Espaciado mejorado */
+.confirmation-container .spacing-enhanced {
+  margin-bottom: 1.5rem;
+}
+
+.confirmation-container .spacing-large {
+  margin-bottom: 2rem;
 }

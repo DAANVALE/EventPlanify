@@ -1,10 +1,11 @@
 import { ServiceModel } from './../../models/ms_template/service-model';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, map, throwError, of} from 'rxjs';
+import { catchError, Observable, map, throwError, of, tap} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../../enviroments/enviroment';
 
 import { serviceModelTs, serviceTypeTs } from '../../assets/template-test-data'
+import { ResponsePage } from '../../models/ResponsePage';
 
 @Injectable({
   providedIn: 'root',
@@ -19,15 +20,59 @@ export class ServiceService{
 
   private ServiceModel = serviceModelTs;
 
-  getAll(): Observable<ServiceModel[]>
-  {
-    return this.http.get<ServiceModel[]>(this.API).
-    pipe(map((data: ServiceModel[]) => data ),
-      catchError(error => {
-        this.handleError(error);
-        return of(this.ServiceModel);
+  loadLocalTerrace(): Observable<ServiceModel[]> {
+      return this.http.get<ServiceModel[]>('assets/template/terrace.jsonsss'); // Ajusta la ruta
+  }
+
+private fallbackServices: ServiceModel[] = [];
+
+getAll(): Observable<ServiceModel[]> {
+  return this.http.get<ResponsePage<ServiceModel[]>>(this.API).pipe(
+    map( response => {
+      // Si la API responde, actualizar el fallback
+      this.fallbackServices = response.content;
+      return response.content;
+    }),
+    catchError(error => {
+      this.handleError(error);
+      return this.loadLocalServicesWithFallback();
+    })
+  );
+}
+
+getByServiceType(serviceTypeId: number): Observable<ServiceModel[]> {
+  return this.http.get<ResponsePage<ServiceModel[]>>(`${this.API}/ServiceType/${serviceTypeId}`).pipe(
+    map( response => {
+      return response.content;
+    }),
+    catchError(error => {
+      this.handleError(error);
+      return this.loadLocalServicesWithFallback().pipe(
+        map(services => services.filter
+          (s => s.serviceType && (Array.isArray(s.serviceType) ? 
+          s.serviceType.some(t => t.id === serviceTypeId) : 
+          (s.serviceType as any).id === serviceTypeId)))
+      );
+    })
+  );
+}
+
+private loadLocalServicesWithFallback(): Observable<ServiceModel[]> {
+    return this.loadLocalServices().pipe(
+      tap(data => {
+        this.fallbackServices = data;
+        console.warn('✅ Services locales cargados como fallback');
+      }),
+      catchError(localError => {
+        console.error('❌ Error cargando services locales:', localError);
+        console.warn('📋 Usando fallback existente:', this.fallbackServices);
+        return of(this.fallbackServices);
       })
     );
+  }
+
+  loadLocalServices(): Observable<ServiceModel[]> {
+    return this.http.get<ServiceModel[]>('assets/template/services.json');
   }
 
   private handleError(error: any): Observable<never>{

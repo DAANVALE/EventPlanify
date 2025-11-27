@@ -24,7 +24,7 @@
       <div class="p-2" (click)="openDialog(terrace)">
       <p-card [header]="terrace.name">
         <img
-          [src]="terrace.URL_IMG[0]"
+          [src]=" terrace.URL_IMG?.[0] || 'assets/demo/images/placeholder.png'"
           alt="Imagen terraza"
           height="100px"
           object-fit="cover"
@@ -51,7 +51,7 @@
     <div class="col-12 md:col-6">
       <p-card header="Galería" styleClass="h-full">
         <p-carousel
-          [value]="selectedTTerrace.URL_IMG"
+          [value]="selectedTTerrace.URL_IMG || 'assets/demo/images/placeholder.png'"
           [numVisible]="1"
           [numScroll]="1"
           [circular]="true"

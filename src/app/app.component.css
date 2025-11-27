@@ -1,3 +1,24 @@
 app-type-event-menu{
   margin: 50px;
- }
+}
+
+/* Reducir blanco brillante en elementos clave */
+.confirmation-container .p-card {
+  background: #fcfcfc !important; /* Blanco roto en lugar de blanco puro */
+}
+
+.confirmation-container .p-inputtext,
+.confirmation-container .p-inputnumber,
+.confirmation-container .p-dropdown,
+.confirmation-container .p-inputtextarea {
+  background: #fafafa !important; /* Fondo ligeramente grisáceo */
+}
+
+/* Colores principales más suaves pero reconocibles */
+.confirmation-container .p-button {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
+}
+
+.confirmation-container .p-card .p-card-header {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
+}

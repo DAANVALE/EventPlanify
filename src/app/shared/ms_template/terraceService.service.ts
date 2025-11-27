@@ -5,6 +5,7 @@ import { environment } from '../../enviroments/enviroment';
 
 import { TerraceModel } from './../../models/ms_template/terrace';
 import { terraceModelTs } from '../../assets/template-test-data';
+import { ResponsePage } from '../../models/ResponsePage';
 
 @Injectable({
   providedIn: 'root',
@@ -16,26 +17,31 @@ export class TerraceService {
   constructor(private http: HttpClient) {}
 
   loadLocalTerrace(): Observable<TerraceModel[]> {
-      return this.http.get<TerraceModel[]>('assets/template/terrace.json'); // Ajusta la ruta
+      return this.http.get<TerraceModel[]>('../assets/template/terrace.json'); // Ajusta la ruta
   }
 
   getAll(): Observable<TerraceModel[]> {
-    return this.http.get<TerraceModel[]>(this.API).pipe(
-      map(data => data),
-      catchError(error => {
-          return this.loadLocalTerrace().pipe(
-          tap(data => {
-            this.fallbackTerrace = data;
-            console.warn('Terrace locales cargados:', this.fallbackTerrace);
-          }),
-          catchError(localError => {
-            console.error('Error cargando terrace types locales:', localError);
-            return of(this.fallbackTerrace.length > 0 ? this.fallbackTerrace : terraceModelTs);
-          })
-        );
-      })
-    );
-  }
+  return this.http.get<ResponsePage<TerraceModel[]>>(this.API).pipe(
+    map(response => {
+      this.fallbackTerrace = response.content;
+      return response.content;
+    }),
+    catchError(error => {
+      console.error('Error fetching terraces from API:', error);
+      return this.loadLocalTerrace().pipe(
+        tap(data => {
+          this.fallbackTerrace = data; // Actualizar el fallback
+          console.warn('✅ Terraces locales cargados:', this.fallbackTerrace);
+        }),
+        catchError(localError => {
+          console.error('❌ Error cargando terraces locales:', localError);
+          // Usar el fallback si existe, sino array vacío
+          return of(this.fallbackTerrace && this.fallbackTerrace.length > 0 ? this.fallbackTerrace : []);
+        })
+      );
+    })
+  );
+}
 
   getById(id: number): Observable<TerraceModel> {
     return this.http.get<TerraceModel>(`${this.API}/${id}`).pipe(
