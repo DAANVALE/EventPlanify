@@ -1,95 +1,204 @@
-<div class="p-5">
+<div class="profile-container bg-gray-50">
   <p-toast></p-toast>
   
-  <p-card [header]="loginService.userProfile()?.firstname + ' ' + loginService.userProfile()?.lastname + ' - Perfil'" styleClass="shadow-3 mb-5">
-    
-    <div class="flex flex-column md:flex-row justify-content-between align-items-start md:align-items-center mb-4">
-      <div class="mb-3 md:mb-0">
-        <h2 class="text-2xl font-bold text-900 mb-1">Detalles Personales</h2>
-        <div class="flex flex-wrap gap-2">
-          <p-tag [value]="loginService.userProfile()?.role" [severity]="loginService.userProfile()?.role === 'HOST' ? 'success' : 'info'" icon="pi pi-briefcase"></p-tag>
-          <p-tag [value]="loginService.userProfile()?.country" icon="pi pi-globe" severity="secondary"></p-tag>
-        </div>
-      </div>
-
-      <div class="flex gap-3">
-        <p-button *ngIf="!editMode()" label="Editar Datos" icon="pi pi-pencil" (onClick)="editMode.set(true)" severity="secondary"></p-button>
-        
-        <p-button 
-          *ngIf="loginService.userProfile()?.role === 'USER'" 
-          label="Ascender a Host" 
-          icon="pi pi-arrow-up" 
-          (onClick)="upgradeToHost()" 
-          severity="warn"> </p-button>
-        
-        <p-button *ngIf="editMode()" label="Cancelar" icon="pi pi-times" (onClick)="editMode.set(false)" severity="danger" class="p-button-outlined"></p-button>
-      </div>
-    </div>
-
-    <div *ngIf="!editMode()">
-      <div class="p-field grid mb-3">
-        <label class="col-12 md:col-3 font-semibold text-600">Nombre:</label>
-        <div class="col-12 md:col-9 p-inputtext p-component border-round-md bg-gray-100 p-2">
-          {{ loginService.userProfile()?.firstname }}
-        </div>
-      </div>
-      <div class="p-field grid mb-3">
-        <label class="col-12 md:col-3 font-semibold text-600">Apellido:</label>
-        <div class="col-12 md:col-9 p-inputtext p-component border-round-md bg-gray-100 p-2">
-          {{ loginService.userProfile()?.lastname }}
-        </div>
-      </div>
-      <div class="p-field grid mb-3">
-        <label class="col-12 md:col-3 font-semibold text-600">Email:</label>
-        <div class="col-12 md:col-9 p-inputtext p-component border-round-md bg-gray-100 p-2">
-          {{ loginService.userProfile()?.username }}
-        </div>
-      </div>
-      <div class="p-field grid mb-3">
-        <label class="col-12 md:col-3 font-semibold text-600">País:</label>
-        <div class="col-12 md:col-9 p-inputtext p-component border-round-md bg-gray-100 p-2">
-          {{ loginService.userProfile()?.country }}
-        </div>
-      </div>
-      <p-divider></p-divider>
-      <div class="p-field grid">
-        <label class="col-12 md:col-3 font-semibold text-600">Rol Actual:</label>
-        <div class="col-12 md:col-9">
-          <p-tag [value]="loginService.userProfile()?.role" [severity]="loginService.userProfile()?.role === 'HOST' ? 'success' : (loginService.userProfile()?.role === 'ADMIN' ? 'danger' : 'info')"></p-tag>
-        </div>
-      </div>
-    </div>
-
-    <form *ngIf="editMode()" [formGroup]="profileForm" (ngSubmit)="savePersonalDetailsData()" class="p-fluid">
-      <input type="hidden" formControlName="id">
+  <p-card styleClass="shadow-6 border-round-2xl" [style]="{'box-shadow': '0 8px 32px rgba(0, 0, 0, 0.12)', 'width': '56rem', 'max-width': '95%'}">
       
-      <div class="p-field grid mb-4">
-        <label for="firstname" class="col-12 md:col-3 font-semibold text-600">Nombre</label>
-        <div class="col-12 md:col-9">
-          <input id="firstname" type="text" pInputText formControlName="firstname">
-          <small class="p-error" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">El Nombre es requerido.</small>
-        </div>
-      </div>
-      
-      <div class="p-field grid mb-4">
-        <label for="lastname" class="col-12 md:col-3 font-semibold text-600">Apellido</label>
-        <div class="col-12 md:col-9">
-          <input id="lastname" type="text" pInputText formControlName="lastname">
-          <small class="p-error" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">El Apellido es requerido.</small>
-        </div>
-      </div>
+      <!-- Header del perfil -->
+      <ng-template pTemplate="header">
+        <div class="w-full px-6 pt-6 pb-3">
+          <div class="flex flex-column md:flex-row justify-content-between align-items-start md:align-items-center gap-3">
+            
+            <!-- Info del usuario -->
+            <div class="flex align-items-center gap-3">
+              <div class="flex align-items-center justify-content-center bg-primary border-circle" 
+                   style="width: 64px; height: 64px;">
+                <i class="pi pi-user text-4xl text-white"></i>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-900 m-0 mb-2">
+                  {{ loginService.userProfile()?.firstname }} {{ loginService.userProfile()?.lastname }}
+                </h2>
+                <div class="flex flex-wrap gap-2">
+                  <p-tag 
+                    [value]="loginService.userProfile()?.role" 
+                    [severity]="loginService.userProfile()?.role === 'HOST' ? 'success' : 'info'" 
+                    icon="pi pi-briefcase">
+                  </p-tag>
+                  <p-tag 
+                    [value]="loginService.userProfile()?.phone" 
+                    icon="pi pi-phone" 
+                    severity="secondary">
+                  </p-tag>
+                </div>
+              </div>
+            </div>
 
-      <div class="p-field grid mb-4">
-        <label for="country" class="col-12 md:col-3 font-semibold text-600">País</label>
-        <div class="col-12 md:col-9">
-          <input id="country" type="text" pInputText formControlName="country">
-          <small class="p-error" *ngIf="country.invalid && (country.dirty || country.touched)">El País es requerido.</small>
+            <!-- Botones de acción -->
+            <div class="flex gap-2">
+              <p-button 
+                *ngIf="!editMode()" 
+                label="Editar" 
+                icon="pi pi-pencil" 
+                (onClick)="editMode.set(true)" 
+                severity="secondary"
+                styleClass="p-button-outlined">
+              </p-button>
+              
+              <p-button 
+                *ngIf="loginService.userProfile()?.role === 'USER'" 
+                label="Ascender a Host" 
+                icon="pi pi-arrow-up" 
+                (onClick)="upgradeToHost()" 
+                severity="warn"
+                [outlined]="true">
+              </p-button>
+              
+              <p-button 
+                *ngIf="editMode()" 
+                label="Cancelar" 
+                icon="pi pi-times" 
+                (onClick)="editMode.set(false)" 
+                severity="danger" 
+                styleClass="p-button-outlined">
+              </p-button>
+            </div>
+          </div>
         </div>
-      </div>
+      </ng-template>
 
-      <div class="flex justify-content-end gap-3 mt-4">
-        <p-button label="Guardar Cambios" icon="pi pi-save" type="submit" [disabled]="profileForm.invalid" severity="success"></p-button>
+      <!-- Contenido -->
+      <div class="w-full px-6 pb-6 pt-3">
+        <p-divider></p-divider>
+
+        <!-- Modo Visualización -->
+        <div *ngIf="!editMode()" class="mt-5">
+          <h3 class="text-xl font-bold text-900 mb-5">Información Personal</h3>
+          
+          <div class="grid">
+            <div class="col-12 md:col-6 mb-4">
+              <label class="font-semibold text-600 block mb-2">
+                <i class="pi pi-user mr-2"></i>Nombre
+              </label>
+              <div class="p-3 surface-100 border-round">
+                {{ loginService.userProfile()?.firstname }}
+              </div>
+            </div>
+
+            <br>
+            <div class="col-12 md:col-6 mb-4">
+              <label class="font-semibold text-600 block mb-2">
+                <i class="pi pi-user mr-2"></i>Apellido
+              </label>
+              <div class="p-3 surface-100 border-round">
+                {{ loginService.userProfile()?.lastname }}
+              </div>
+            </div>
+
+            <br>
+            <div class="col-12 md:col-6 mb-4">
+              <label class="font-semibold text-600 block mb-2">
+                <i class="pi pi-at mr-2"></i>Email
+              </label>
+              <div class="p-3 surface-100 border-round">
+                {{ loginService.userProfile()?.username }}
+              </div>
+            </div>
+
+            <br>
+            <div class="col-12 md:col-6 mb-4">
+              <label class="font-semibold text-600 block mb-2">
+                <i class="pi pi-phone mr-2"></i>Teléfono
+              </label>
+              <div class="p-3 surface-100 border-round">
+                {{ loginService.userProfile()?.phone }}
+              </div>
+            </div>
+
+            <br>
+            <div class="col-12 mb-4">
+              <label class="font-semibold text-600 block mb-2">
+                <i class="pi pi-id-card mr-2"></i>Rol en la Plataforma
+              </label>
+              <div class="p-3 surface-100 border-round">
+                <p-tag 
+                  [value]="loginService.userProfile()?.role" 
+                  [severity]="loginService.userProfile()?.role === 'HOST' ? 'success' : (loginService.userProfile()?.role === 'ADMIN' ? 'danger' : 'info')">
+                </p-tag>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modo Edición -->
+        <form *ngIf="editMode()" [formGroup]="profileForm" (ngSubmit)="savePersonalDetailsData()" class="p-fluid mt-5">
+          <input type="hidden" formControlName="id">
+          
+          <h3 class="text-xl font-bold text-900 mb-5">Editar Información</h3>
+          
+          <div class="grid">
+            <!-- Nombre -->
+            <div class="col-12 md:col-6 mb-5">
+              <label for="firstname" class="font-semibold block mb-2 text-900">
+                <i class="pi pi-user mr-2"></i>Nombre
+              </label>
+              <input 
+                id="firstname" 
+                type="text" 
+                pInputText 
+                formControlName="firstname"
+                class="w-full">
+              <small class="p-error block mt-2" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">
+                <i class="pi pi-exclamation-circle mr-1"></i>El Nombre es requerido
+              </small>
+            </div>
+            <br>
+
+            <!-- Apellido -->
+            <div class="col-12 md:col-6 mb-5">
+              <label for="lastname" class="font-semibold block mb-2 text-900">
+                <i class="pi pi-user mr-2"></i>Apellido
+              </label>
+              <input 
+                id="lastname" 
+                type="text" 
+                pInputText 
+                formControlName="lastname"
+                class="w-full">
+              <small class="p-error block mt-2" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+                <i class="pi pi-exclamation-circle mr-1"></i>El Apellido es requerido
+              </small>
+            </div>
+            <br>
+
+            <!-- Teléfono -->
+            <div class="col-12 mb-5">
+              <label for="phone" class="font-semibold block mb-2 text-900">
+                <i class="pi pi-phone mr-2"></i>Teléfono
+              </label>
+              <input 
+                id="phone" 
+                type="text" 
+                pInputText 
+                formControlName="phone"
+                class="w-full">
+              <small class="p-error block mt-2" *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                <i class="pi pi-exclamation-circle mr-1"></i>El Teléfono es requerido
+              </small>
+            </div>
+          </div>
+          <br>
+
+          <!-- Botón de guardar -->
+          <div class="flex justify-content-end gap-2 mt-4">
+            <p-button 
+              label="Guardar Cambios" 
+              icon="pi pi-save" 
+              type="submit" 
+              [disabled]="profileForm.invalid" 
+              severity="success">
+            </p-button>
+          </div>
+        </form>
       </div>
-    </form>
-  </p-card>
+    </p-card>
 </div>

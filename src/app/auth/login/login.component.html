@@ -1,38 +1,83 @@
-<div class="flex justify-content-center align-items-center min-h-screen bg-gray-100 p-4">
-  <p-card header="Iniciar Sesión" styleClass="w-full max-w-md shadow-3">
-    <form [formGroup]="loginForm" (ngSubmit)="login()" class="p-fluid">
-
-      <div class="field mb-4">
-        <label for="username" class="font-semibold mb-2 block">Email</label>
-        <div class="p-inputgroup">
-          <span class="p-inputgroup-addon"><i class="pi pi-at"></i></span>
-          <input id="username" type="email" pInputText formControlName="username" placeholder="ejemplo@correo.com"
-                 [ngClass]="{'ng-dirty ng-invalid': username.invalid && (username.dirty || username.touched)}">
-        </div>
-        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="mt-1">
-          <small class="p-error block" *ngIf="username.errors?.['required']">El Email es requerido.</small>
-          <small class="p-error block" *ngIf="username.errors?.['email']">El Email debe tener un formato válido.</small>
-        </div>
-      </div>
-
-      <div class="field mb-4">
-        <label for="password" class="font-semibold mb-2 block">Contraseña</label>
-        <div class="p-inputgroup">
-          <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-          <input id="password" type="password" pInputText formControlName="password" placeholder="Contraseña"
-                 [ngClass]="{'ng-dirty ng-invalid': password.invalid && (password.dirty || password.touched)}">
-        </div>
-        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="mt-1">
-          <small class="p-error block" *ngIf="password.errors?.['required']">La Contraseña es requerida.</small>
-        </div>
-      </div>
-
-      <p-button label="Iniciar Sesión" icon="pi pi-sign-in" type="submit" [disabled]="loginForm.invalid" class="w-full mt-3"></p-button>
+<div class="login-container bg-gray-50">
+  <p-card styleClass="shadow-6 border-round-2xl" [style]="{'box-shadow': '0 8px 32px rgba(0, 0, 0, 0.12)', 'width': '28rem', 'max-width': '90%'}">
     
-      <p class="text-center mt-4 text-sm text-600">
-        ¿No tienes cuenta? 
-        <a [routerLink]="['/register']" class="text-primary font-bold cursor-pointer">Regístrate aquí</a>
-      </p>
+    <!-- Header del Card -->
+    <ng-template pTemplate="header">
+      <div class="text-center pt-5 pb-3">
+        <div class="flex justify-content-center mb-3">
+          <i class="pi pi-sign-in text-6xl text-primary"></i>
+        </div>
+        <h2 class="text-3xl font-bold text-900 m-0">Iniciar Sesión</h2>
+        <p class="text-600 mt-2">Bienvenido de nuevo</p>
+      </div>
+    </ng-template>
+
+    <!-- Contenido del formulario -->
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="p-fluid px-5 py-3">
+
+      <!-- Campo Email -->
+      <div class="field mb-5">
+        <label for="username" class="font-semibold mb-2 block text-900">
+          <i class="pi pi-at mr-2"></i>Email
+        </label>
+        <input 
+          id="username" 
+          type="email" 
+          pInputText 
+          formControlName="username" 
+          placeholder="ejemplo@correo.com"
+          class="w-full"
+          [ngClass]="{'ng-dirty ng-invalid': username.invalid && (username.dirty || username.touched)}">
+        
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="mt-2">
+          <small class="p-error block" *ngIf="username.errors?.['required']">
+            <i class="pi pi-exclamation-circle mr-1"></i>El Email es requerido
+          </small>
+          <small class="p-error block" *ngIf="username.errors?.['email']">
+            <i class="pi pi-exclamation-circle mr-1"></i>El Email debe tener un formato válido
+          </small>
+        </div>
+      </div>
+
+      <br>
+      <!-- Campo Contraseña -->
+      <div class="field mb-5">
+        <label for="password" class="font-semibold mb-2 block text-900">
+          <i class="pi pi-lock mr-2"></i>Contraseña
+        </label>
+        <input 
+          id="password" 
+          type="password" 
+          pInputText 
+          formControlName="password" 
+          placeholder="••••••••"
+          class="w-full"
+          [ngClass]="{'ng-dirty ng-invalid': password.invalid && (password.dirty || password.touched)}">
+        
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="mt-2">
+          <small class="p-error block" *ngIf="password.errors?.['required']">
+            <i class="pi pi-exclamation-circle mr-1"></i>La Contraseña es requerida
+          </small>
+        </div>
+      </div>
+
+      <!-- Botón de Submit -->
+      <br>
+      <p-button 
+        label="Iniciar Sesión" 
+        icon="pi pi-sign-in" 
+        type="submit" 
+        [disabled]="loginForm.invalid" 
+        styleClass="w-full mt-4 p-button-lg">
+      </p-button>
+    
+      <!-- Link a Registro -->
+      <div class="text-center mt-4 pb-4">
+        <span class="text-600">¿No tienes cuenta?</span>
+        <a [routerLink]="['/register']" class="text-primary font-bold cursor-pointer ml-1 no-underline hover:underline">
+          Regístrate aquí
+        </a>
+      </div>
     </form>
   </p-card>
 </div>
