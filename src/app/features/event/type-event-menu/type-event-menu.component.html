@@ -29,3 +29,12 @@
   *ngIf="eventTypeSelected()"
   [eventTypeId]="eventTypeSelected()!.id">
 </app-template-card>
+
+<div
+  *ngIf="!eventTypeSelected()"
+  class="no-selection-message text-center mt-8">
+  <i class="pi pi-info-circle text-4xl text-gray-400 mb-4"></i>
+  <p class="text-lg text-gray-600">
+    Por favor, selecciona un tipo de evento para ver las plantillas disponibles.
+  </p>
+</div>

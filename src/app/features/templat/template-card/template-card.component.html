@@ -1,21 +1,56 @@
-<p>template-card works! on {{ eventTypeId }}</p>
+<div class="templates-section">
+  <!-- Header mejorado -->
+  <div class="text-center mb-8">
+    <h2 class="section-title">Plantillas disponibles</h2>
+    <p class="section-subtitle">Elige la plantilla perfecta para tu evento</p>
+  </div>
 
-<p class="text-lg font-medium text-gray-800 mb-4">Plantillas disponibles</p>
+  <!-- Grid de templates con diseño mejorado -->
+  <div class="templates-grid">
+    <div class="template-item" *ngFor="let template of templates(); let i = index">
+      <p-card 
+        [styleClass]="'template-card card-hover'"
+        [style]="{'animation-delay': (i * 0.1) + 's'}"
+      >
+        <!-- Header con icono -->
+        <ng-template pTemplate="header">
+          <div class="card-header">
+            <div class="template-icon">
+              <i class="pi" [ngClass]="getTemplateIcon(template.eventType.kind)"></i>
+            </div>
+            <h3 class="template-name">{{ template.name }}</h3>
+          </div>
+        </ng-template>
 
-<div class="grid-container">
-  <div class="grid-item" *ngFor="let template of templates()">
-    <p-card [header]="template.name" styleClass="shadow-md border-round-xl">
-      <ng-template pTemplate="content">
-        <p class="text-sm text-gray-700 mb-3">
-          {{ template.description }}
-        </p>
-        <p-button
-          label="Seleccionar"
-          icon="pi pi-check"
-          class="p-button-sm p-button-outlined"
-          (click)="onSelectTemplate(template)"
-        ></p-button>
-      </ng-template>
-    </p-card>
+        <!-- Contenido principal -->
+        <ng-template pTemplate="content">
+          <div class="card-content">
+            <p class="template-description">
+              {{ template.description }}
+            </p>
+            
+            <!-- Características -->
+            <div class="template-features" *ngIf="template.description">
+              <div class="feature-tag" *ngFor="let feature of template.description">
+                <i class="pi pi-check"></i>
+                <span>{{ feature }}</span>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+        <!-- Footer con botón -->
+        <ng-template pTemplate="footer">
+          <div class="card-footer">
+            <p-button
+              label="Seleccionar Plantilla"
+              icon="pi pi-star"
+              styleClass="p-button-primary select-button"
+              (click)="onSelectTemplate(template)"
+            ></p-button>
+          </div>
+        </ng-template>
+      </p-card>
+    </div>
   </div>
 </div>

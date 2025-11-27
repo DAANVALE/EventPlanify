@@ -29,3 +29,15 @@
 :host ::ng-deep .p-card-content {
   padding: 0 !important;
 }
+
+
+.no-selection-message {
+  font-size: 1.125rem; /* text-lg */
+  color: #4b5563; /* text-gray-600 */
+  text-align: center;
+}
+.no-selection-message i {
+  font-size: 2.5rem; /* text-4xl */
+  color: #9ca3af; /* text-gray-400 */
+  margin-bottom: 1rem;
+}

@@ -18,3 +18,338 @@
   justify-content: space-between;
   height: 100%;
 }
+
+/* Contenedor del header */
+.templates-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* O si prefieres mantener las clases de PrimeFlex, agrega esto: */
+.w-full.flex.flex-column.align-items-center.text-center {
+  text-align: center !important;
+}
+
+.w-full.flex.flex-column.align-items-center.text-center h2,
+.w-full.flex.flex-column.align-items-center.text-center p {
+  text-align: center !important;
+  width: 100%;
+}
+
+/* Asegurar que el título y subtítulo estén centrados */
+.section-title {
+  text-align: center !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-subtitle {
+  text-align: center !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sección de templates */
+.templates-section {
+  padding: 2rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f97316, #d946ef); /* primary-500 a accent-500 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #475569; /* text-secondary */
+  font-weight: 400;
+}
+
+/* Grid de templates */
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.template-item {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cards con diseño premium - FONDO CREMA */
+.template-card {
+  background: linear-gradient(145deg, #fefaf3, #fdf6ee) !important; /* Fondo crema */
+  color: #1e293b !important; /* Texto oscuro */
+  border: 1px solid #e9d8c8 !important; /* Borde café claro */
+  border-radius: 20px !important;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.template-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f97316, #d946ef, #f59e0b); /* primary, accent, warning */
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: -200% 0; }
+  50% { background-position: 200% 0; }
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(59, 130, 246, 0.15),
+    0 8px 20px rgba(59, 130, 246, 0.1) !important;
+  border-color: #93c5fd !important; /* secondary-300 */
+}
+
+/* Header de la card */
+.card-header {
+  text-align: center;
+  padding: 1.5rem 1rem 1rem;
+}
+
+.template-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, #3b82f6, #2563eb); /* secondary-500 a secondary-600 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* ICONOS - Esto es crítico */
+.template-icon i.pi {
+  font-size: 1.5rem;
+  color: white;
+  display: block;
+}
+
+.template-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e293b; /* text-primary */
+  margin: 0;
+  background: linear-gradient(135deg, #1e293b, #374151);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Contenido de la card */
+.card-content {
+  padding: 0 1.5rem;
+}
+
+.template-description {
+  color: #475569; /* text-secondary */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Características */
+.template-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe); /* info-50 a info-100 */
+  border: 1px solid #7dd3fc; /* info-300 */
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #0369a1; /* info-700 */
+}
+
+.feature-tag .pi {
+  color: #0ea5e9; /* info-500 */
+  font-size: 0.8rem;
+}
+
+/* Precio */
+.template-price {
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7); /* success-50 a success-100 */
+  border: 1px solid #86efac; /* success-300 */
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+.price-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #16a34a; /* success-600 */
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.price-amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #15803d; /* success-700 */
+  background: linear-gradient(135deg, #22c55e, #4ade80); /* success-500 a success-400 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Footer de la card */
+.card-footer {
+  padding: 1rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.select-button {
+  background: linear-gradient(135deg, #3b82f6, #2563eb) !important; /* secondary-500 a secondary-600 */
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.select-button:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8) !important; /* secondary-600 a secondary-700 */
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* ========== MODO OSCURO ========== */
+.p-dark .templates-section,
+.dark-theme .templates-section {
+  background: transparent !important;
+}
+
+.p-dark .section-title,
+.dark-theme .section-title {
+  background: linear-gradient(135deg, #fb923c, #e879f9) !important; /* Colores más claros para dark */
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.p-dark .section-subtitle,
+.dark-theme .section-subtitle {
+  color: #cbd5e0 !important; /* text-secondary dark */
+}
+
+.p-dark .template-card,
+.dark-theme .template-card {
+  background: linear-gradient(145deg, #252239, #2a2542) !important; /* Fondo oscuro */
+  color: #e2e8f0 !important; /* Texto claro */
+  border: 1px solid #3f3a56 !important; /* Borde oscuro */
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.p-dark .template-card:hover,
+.dark-theme .template-card:hover {
+  box-shadow: 
+    0 20px 40px rgba(59, 130, 246, 0.25),
+    0 8px 20px rgba(59, 130, 246, 0.15) !important;
+}
+
+.p-dark .template-name,
+.dark-theme .template-name {
+  color: #f1f5f9 !important;
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.p-dark .template-description,
+.dark-theme .template-description {
+  color: #cbd5e0 !important; /* text-secondary dark */
+}
+
+.p-dark .feature-tag,
+.dark-theme .feature-tag {
+  background: linear-gradient(135deg, #1e293b, #334155) !important;
+  border: 1px solid #475569 !important;
+  color: #7dd3fc !important; /* info-300 dark */
+}
+
+.p-dark .feature-tag .pi,
+.dark-theme .feature-tag .pi {
+  color: #38bdf8 !important; /* info-400 dark */
+}
+
+.p-dark .template-price,
+.dark-theme .template-price {
+  background: linear-gradient(135deg, #1e293b, #334155) !important;
+  border: 1px solid #16a34a !important; /* success-600 */
+}
+
+.p-dark .price-label,
+.dark-theme .price-label {
+  color: #34d399 !important; /* success-400 dark */
+}
+
+.p-dark .price-amount,
+.dark-theme .price-amount {
+  background: linear-gradient(135deg, #34d399, #4ade80) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .templates-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .template-card {
+    margin: 0 0.5rem;
+  }
+}
