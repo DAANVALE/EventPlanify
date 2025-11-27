@@ -1,61 +1,155 @@
-<div class="flex justify-content-center align-items-center min-h-screen bg-gray-100 p-4">
-  <p-card header="Crear Cuenta" styleClass="w-full max-w-lg shadow-3">
-    <form [formGroup]="registerForm" (ngSubmit)="register()" class="p-fluid">
+<div class="register-container bg-gray-50">
+  <p-card styleClass="shadow-6 border-round-2xl" [style]="{'box-shadow': '0 8px 32px rgba(0, 0, 0, 0.12)', 'width': '48rem', 'max-width': '90%'}">
+    
+    <!-- Header del Card -->
+    <ng-template pTemplate="header">
+      <div class="text-center pt-5 pb-3">
+        <div class="flex justify-content-center mb-3">
+          <i class="pi pi-user-plus text-6xl text-primary"></i>
+        </div>
+        <h2 class="text-3xl font-bold text-900 m-0">Crear Cuenta</h2>
+        <p class="text-600 mt-2">Completa tus datos para registrarte</p>
+      </div>
+    </ng-template>
+
+    <!-- Contenido del formulario -->
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="p-fluid px-5 py-3">
       
-      <div class="p-grid p-formgrid grid">
+      <div class="grid">
         
-        <div class="field col-12 md:col-6 mb-4">
-          <label for="firstname" class="font-semibold mb-2 block">Nombre</label>
-          <input id="firstname" type="text" pInputText formControlName="firstname"
-                 [ngClass]="{'ng-dirty ng-invalid': firstname.invalid && (firstname.dirty || firstname.touched)}">
-          <small class="p-error block" *ngIf="firstname.errors?.['required'] && (firstname.dirty || firstname.touched)">El Nombre es requerido.</small>
-        </div>
-
-        <div class="field col-12 md:col-6 mb-4">
-          <label for="lastname" class="font-semibold mb-2 block">Apellido</label>
-          <input id="lastname" type="text" pInputText formControlName="lastname"
-                 [ngClass]="{'ng-dirty ng-invalid': lastname.invalid && (lastname.dirty || lastname.touched)}">
-          <small class="p-error block" *ngIf="lastname.errors?.['required'] && (lastname.dirty || lastname.touched)">El Apellido es requerido.</small>
-        </div>
-
-        <div class="field col-12 mb-4">
-          <label for="username" class="font-semibold mb-2 block">Email</label>
-          <div class="p-inputgroup">
-            <span class="p-inputgroup-addon"><i class="pi pi-at"></i></span>
-            <input id="username" type="email" pInputText formControlName="username"
-                   [ngClass]="{'ng-dirty ng-invalid': username.invalid && (username.dirty || username.touched)}">
-          </div>
-          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="mt-1">
-            <small class="p-error block" *ngIf="username.errors?.['required']">El Email es requerido.</small>
-            <small class="p-error block" *ngIf="username.errors?.['email']">El Email debe tener un formato válido.</small>
+        <!-- Nombre -->
+        <div class="col-12 md:col-6">
+          <div class="field mb-5">
+            <label for="firstname" class="font-semibold mb-2 block text-900">
+              <i class="pi pi-user mr-2"></i>Nombre
+            </label>
+            <input 
+              id="firstname" 
+              type="text" 
+              pInputText 
+              formControlName="firstname"
+              placeholder="Tu nombre"
+              class="w-full"
+              [ngClass]="{'ng-dirty ng-invalid': firstname.invalid && (firstname.dirty || firstname.touched)}">
+            
+            <small class="p-error block mt-2" *ngIf="firstname.errors?.['required'] && (firstname.dirty || firstname.touched)">
+              <i class="pi pi-exclamation-circle mr-1"></i>El Nombre es requerido
+            </small>
           </div>
         </div>
 
-        <div class="field col-12 mb-4">
-          <label for="password" class="font-semibold mb-2 block">Contraseña</label>
-          <div class="p-inputgroup">
-            <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-            <input id="password" type="password" pInputText formControlName="password"
-                   [ngClass]="{'ng-dirty ng-invalid': password.invalid && (password.dirty || password.touched)}">
+        <br>
+        <!-- Apellido -->
+        <div class="col-12 md:col-6">
+          <div class="field mb-5">
+            <label for="lastname" class="font-semibold mb-2 block text-900">
+              <i class="pi pi-user mr-2"></i>Apellido
+            </label>
+            <input 
+              id="lastname" 
+              type="text" 
+              pInputText 
+              formControlName="lastname"
+              placeholder="Tu apellido"
+              class="w-full"
+              [ngClass]="{'ng-dirty ng-invalid': lastname.invalid && (lastname.dirty || lastname.touched)}">
+            
+            <small class="p-error block mt-2" *ngIf="lastname.errors?.['required'] && (lastname.dirty || lastname.touched)">
+              <i class="pi pi-exclamation-circle mr-1"></i>El Apellido es requerido
+            </small>
           </div>
-          <small class="p-error block" *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">La Contraseña es requerida.</small>
         </div>
 
-        <div class="field col-12 mb-4">
-          <label for="phone" class="font-semibold mb-2 block">Telefono</label>
-          <input id="phone" type="text" pInputText formControlName="phone"
-                 [ngClass]="{'ng-dirty ng-invalid': phone.invalid && (phone.dirty || phone.touched)}">
-          <small class="p-error block" *ngIf="phone.errors?.['required'] && (phone.dirty || phone.touched)">El Telefono es requerido.</small>
+        <br>
+        <!-- Email -->
+        <div class="col-12">
+          <div class="field mb-5">
+            <label for="username" class="font-semibold mb-2 block text-900">
+              <i class="pi pi-at mr-2"></i>Email
+            </label>
+            <input 
+              id="username" 
+              type="email" 
+              pInputText 
+              formControlName="username"
+              placeholder="ejemplo@correo.com"
+              class="w-full"
+              [ngClass]="{'ng-dirty ng-invalid': username.invalid && (username.dirty || username.touched)}">
+            
+            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="mt-2">
+              <small class="p-error block" *ngIf="username.errors?.['required']">
+                <i class="pi pi-exclamation-circle mr-1"></i>El Email es requerido
+              </small>
+              <small class="p-error block" *ngIf="username.errors?.['email']">
+                <i class="pi pi-exclamation-circle mr-1"></i>El Email debe tener un formato válido
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <!-- Contraseña -->
+        <div class="col-12 md:col-6">
+          <div class="field mb-5">
+            <label for="password" class="font-semibold mb-2 block text-900">
+              <i class="pi pi-lock mr-2"></i>Contraseña
+            </label>
+            <input 
+              id="password" 
+              type="password" 
+              pInputText 
+              formControlName="password"
+              placeholder="••••••••"
+              class="w-full"
+              [ngClass]="{'ng-dirty ng-invalid': password.invalid && (password.dirty || password.touched)}">
+            
+            <small class="p-error block mt-2" *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">
+              <i class="pi pi-exclamation-circle mr-1"></i>La Contraseña es requerida
+            </small>
+          </div>
+        </div>
+
+        <br>
+        <!-- Teléfono -->
+        <div class="col-12 md:col-6">
+          <div class="field mb-5">
+            <label for="phone" class="font-semibold mb-2 block text-900">
+              <i class="pi pi-phone mr-2"></i>Teléfono
+            </label>
+            <input 
+              id="phone" 
+              type="text" 
+              pInputText 
+              formControlName="phone"
+              placeholder="33-1234-5678"
+              class="w-full"
+              [ngClass]="{'ng-dirty ng-invalid': phone.invalid && (phone.dirty || phone.touched)}">
+            
+            <small class="p-error block mt-2" *ngIf="phone.errors?.['required'] && (phone.dirty || phone.touched)">
+              <i class="pi pi-exclamation-circle mr-1"></i>El Teléfono es requerido
+            </small>
+          </div>
         </div>
 
       </div>
 
-      <p-button label="Registrarse" icon="pi pi-user-plus" type="submit" [disabled]="registerForm.invalid" class="w-full mt-3"></p-button>
+      <br>
+      <!-- Botón de Submit -->
+      <p-button 
+        label="Registrarse" 
+        icon="pi pi-user-plus" 
+        type="submit" 
+        [disabled]="registerForm.invalid" 
+        styleClass="w-full mt-3 p-button-lg">
+      </p-button>
       
-      <p class="text-center mt-4 text-sm text-600">
-        ¿Ya tienes cuenta? 
-        <a [routerLink]="['/login']" class="text-primary font-bold cursor-pointer">Inicia sesión</a>
-      </p>
+      <!-- Link a Login -->
+      <div class="text-center mt-4 pb-4">
+        <span class="text-600">¿Ya tienes cuenta?</span>
+        <a [routerLink]="['/login']" class="text-primary font-bold cursor-pointer ml-1 no-underline hover:underline">
+          Inicia sesión
+        </a>
+      </div>
     </form>
   </p-card>
 </div>

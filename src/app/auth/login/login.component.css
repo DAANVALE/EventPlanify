@@ -1,0 +1,51 @@
+/* Contenedor principal - centrado absoluto */
+:host {
+  display: block;
+  width: 100%;
+  height: 100vh;
+}
+
+.login-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 100vh;
+  width: 100% !important;
+  padding: 1rem;
+}
+
+/* Asegurar que el card esté centrado */
+:host ::ng-deep .p-card {
+  margin: 0 auto !important;
+}
+
+/* Centrar contenido del formulario */
+:host ::ng-deep form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Centrar botón de PrimeNG */
+:host ::ng-deep p-button {
+  width: 100% !important;
+  max-width: 400px;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Centrar el contenedor interno de PrimeNG del botón */
+:host ::ng-deep p-button > button {
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+/* Centrar el texto y el link de abajo */
+:host ::ng-deep .text-center {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto !important;
+  text-align: center !important;
+  display: block;
+}
