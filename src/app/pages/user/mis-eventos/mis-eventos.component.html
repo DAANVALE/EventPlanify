@@ -1,0 +1,145 @@
+<div class="mis-eventos-container">
+  <div class="header">
+    <h1>Mis Eventos</h1>
+    <p class="subtitle">Gestiona y revisa todos tus eventos reservados</p>
+  </div>
+
+  <div class="eventos-grid" *ngIf="eventos.length > 0">
+    <div class="evento-card" 
+         *ngFor="let evento of eventos" 
+         (click)="verDetalles(evento)"
+         [class.confirmado]="evento.estado === 'Confirmado'"
+         [class.proximo]="evento.estado === 'Próximo'"
+         [class.completado]="evento.estado === 'Completado'">
+      
+      <div class="card-image">
+        <img [src]="evento.terraza.imagen" [alt]="evento.terraza.nombre" />
+        <div class="estado-badge" [style.background-color]="obtenerColorEstado(evento.estado)">
+          {{ evento.estado }}
+        </div>
+      </div>
+
+      <div class="card-content">
+        <h3 class="evento-nombre">{{ evento.nombre }}</h3>
+        
+        <div class="info-row">
+          <i class="icon-calendar"></i>
+          <span>{{ evento.fecha }}</span>
+        </div>
+
+        <div class="info-row">
+          <i class="icon-location"></i>
+          <span>{{ evento.terraza.nombre }}</span>
+        </div>
+
+        <div class="info-row">
+          <i class="icon-marker"></i>
+          <span>{{ evento.terraza.ubicacion }}</span>
+        </div>
+
+        <div class="servicios-count">
+          <i class="icon-services"></i>
+          <span>{{ evento.servicios.length }} servicios contratados</span>
+        </div>
+
+        <div class="precio-total">
+          <span class="precio-label">Total:</span>
+          <span class="precio-valor">${{ evento.precioTotal.toLocaleString('es-MX') }}</span>
+        </div>
+
+        <button class="btn-ver-detalles">
+          Ver Detalles
+          <i class="icon-arrow"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="eventos.length === 0">
+    <div class="empty-icon">📅</div>
+    <h2>No tienes eventos reservados</h2>
+    <p>Explora nuestras plantillas y crea tu primer evento</p>
+    <a routerLink="/template" class="btn-explorar">
+      Explorar Plantillas
+    </a>
+  </div>
+</div>
+
+<!-- Modal de Detalles del Evento -->
+<div class="modal-overlay" *ngIf="mostrarModal" (click)="cerrarModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()" *ngIf="eventoSeleccionado">
+    <button class="btn-cerrar" (click)="cerrarModal()">
+      <span>&times;</span>
+    </button>
+
+    <div class="modal-header">
+      <h2>{{ eventoSeleccionado.nombre }}</h2>
+      <div class="estado-badge-large" [style.background-color]="obtenerColorEstado(eventoSeleccionado.estado)">
+        {{ eventoSeleccionado.estado }}
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <!-- Información de la Terraza -->
+      <div class="seccion">
+        <h3>🏛️ Terraza</h3>
+        <div class="terraza-info">
+          <img [src]="eventoSeleccionado.terraza.imagen" [alt]="eventoSeleccionado.terraza.nombre" class="terraza-imagen" />
+          <div class="terraza-detalles">
+            <h4>{{ eventoSeleccionado.terraza.nombre }}</h4>
+            <p>
+              <i class="icon-marker"></i>
+              {{ eventoSeleccionado.terraza.ubicacion }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Información del Evento -->
+      <div class="seccion">
+        <h3>📋 Información del Evento</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Fecha:</span>
+            <span class="info-value">{{ eventoSeleccionado.fecha }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">ID de Reserva:</span>
+            <span class="info-value">#{{ eventoSeleccionado.id }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicios Contratados -->
+      <div class="seccion">
+        <h3>🎉 Servicios Contratados</h3>
+        <div class="servicios-lista">
+          <div class="servicio-item" *ngFor="let servicio of eventoSeleccionado.servicios">
+            <div class="servicio-icon">✓</div>
+            <div class="servicio-info">
+              <h4>{{ servicio.nombre }}</h4>
+              <p>{{ servicio.tipo }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total -->
+      <div class="seccion total-seccion">
+        <h3>💰 Resumen de Pago</h3>
+        <div class="total-container">
+          <span class="total-label">Total del Evento:</span>
+          <span class="total-valor">${{ eventoSeleccionado.precioTotal.toLocaleString('es-MX') }}</span>
+        </div>
+      </div>
+
+      <!-- Acciones -->
+      <div class="modal-acciones">
+        <button class="btn-secundario" (click)="cerrarModal()">Cerrar</button>
+        <button class="btn-primario" *ngIf="eventoSeleccionado.estado === 'Confirmado' || eventoSeleccionado.estado === 'Próximo'">
+          Contactar Soporte
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

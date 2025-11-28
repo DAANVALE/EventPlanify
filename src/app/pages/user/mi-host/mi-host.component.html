@@ -1,0 +1,248 @@
+<div class="mi-host-container">
+  <div class="header">
+    <h1>Mi Host</h1>
+    <p class="subtitle">Gestiona tus servicios y terrazas registradas</p>
+  </div>
+
+  <div class="acciones-header">
+    <button class="btn-registrar" (click)="abrirModal()">
+      <span class="btn-icon">+</span>
+      Registrar Servicio o Terraza
+    </button>
+  </div>
+
+  <div class="registros-grid" *ngIf="serviciosYTerrazas.length > 0">
+    <div class="registro-card" *ngFor="let item of serviciosYTerrazas">
+      <div class="card-badge" [class.badge-terraza]="item.tipo === 'terraza'" 
+           [class.badge-servicio]="item.tipo === 'servicio'">
+        {{ item.tipo === 'terraza' ? '🏛️ Terraza' : '🎉 Servicio' }}
+      </div>
+
+      <div class="card-image">
+        <img [src]="item.imagen" [alt]="item.nombre" />
+      </div>
+
+      <div class="card-content">
+        <h3 class="item-nombre">{{ item.nombre }}</h3>
+        <p class="item-descripcion">{{ item.descripcion }}</p>
+
+        <div class="item-info" *ngIf="item.capacidadBase && item.capacidadMaxima">
+          <div class="info-item">
+            <span class="info-label">Capacidad:</span>
+            <span class="info-value">{{ item.capacidadBase }} - {{ item.capacidadMaxima }} personas</span>
+          </div>
+        </div>
+
+        <div class="item-info" *ngIf="item.tipo === 'terraza'">
+          <div class="info-item">
+            <span class="info-label">📍 Ubicación:</span>
+            <span class="info-value">{{ item.ciudad }}, {{ item.ubicacion }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">🏷️ Tipo:</span>
+            <span class="info-value">{{ item.tipoTerraza }}</span>
+          </div>
+        </div>
+
+        <div class="precio-container">
+          <span class="precio-label">Precio Base:</span>
+          <span class="precio-valor">${{ item.precioBase.toLocaleString('es-MX') }}</span>
+        </div>
+
+        <div class="card-acciones">
+          <button class="btn-editar" (click)="editarRegistro(item)">
+            <span class="btn-icon-small">✏️</span>
+            Editar
+          </button>
+          <button class="btn-eliminar" (click)="eliminarRegistro(item.id)">
+            <span class="btn-icon-small">🗑️</span>
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="serviciosYTerrazas.length === 0">
+    <div class="empty-icon">📋</div>
+    <h2>No tienes servicios o terrazas registradas</h2>
+    <p>Comienza agregando tu primer servicio o terraza</p>
+  </div>
+</div>
+
+<!-- Modal de Registro -->
+<div class="modal-overlay" *ngIf="mostrarModal" (click)="cerrarModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="btn-cerrar" (click)="cerrarModal()">
+      <span>&times;</span>
+    </button>
+
+    <div class="modal-header">
+      <h2>{{ formulario.id ? 'Editar' : 'Registrar' }} {{ tipoSeleccionado ? (tipoSeleccionado === 'terraza' ? 'Terraza' : 'Servicio') : 'Nuevo Registro' }}</h2>
+    </div>
+
+    <div class="modal-body">
+      <!-- Selección de Tipo (solo al crear nuevo) -->
+      <div class="tipo-selector" *ngIf="!tipoSeleccionado">
+        <h3>¿Qué deseas registrar?</h3>
+        <div class="tipo-opciones">
+          <button class="tipo-opcion" (click)="seleccionarTipo('servicio')">
+            <div class="tipo-icon">🎉</div>
+            <h4>Servicio</h4>
+            <p>Catering, fotografía, música, etc.</p>
+          </button>
+          <button class="tipo-opcion" (click)="seleccionarTipo('terraza')">
+            <div class="tipo-icon">🏛️</div>
+            <h4>Terraza</h4>
+            <p>Salones, jardines, espacios al aire libre</p>
+          </button>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <form class="formulario" *ngIf="tipoSeleccionado" (ngSubmit)="guardarRegistro()">
+        <!-- Imagen -->
+        <div class="form-group">
+          <label class="form-label">Imagen *</label>
+          <div class="imagen-upload">
+            <input type="file" 
+                   id="imagen" 
+                   accept="image/*" 
+                   (change)="onImagenSeleccionada($event)"
+                   #fileInput
+                   style="display: none;">
+            <button type="button" class="btn-upload" (click)="fileInput.click()">
+              📷 Seleccionar Imagen
+            </button>
+            <div class="imagen-preview" *ngIf="imagenPreview">
+              <img [src]="imagenPreview" alt="Preview">
+            </div>
+          </div>
+        </div>
+
+        <!-- Nombre -->
+        <div class="form-group">
+          <label class="form-label">Nombre {{ tipoSeleccionado === 'terraza' ? 'de la Terraza' : 'del Servicio' }} *</label>
+          <input type="text" 
+                 class="form-control" 
+                 [(ngModel)]="formulario.nombre" 
+                 name="nombre"
+                 placeholder="Ingresa el nombre"
+                 required>
+        </div>
+
+        <!-- Descripción -->
+        <div class="form-group">
+          <label class="form-label">Descripción *</label>
+          <textarea class="form-control" 
+                    [(ngModel)]="formulario.descripcion" 
+                    name="descripcion"
+                    rows="3"
+                    placeholder="Describe las características principales"
+                    required></textarea>
+        </div>
+
+        <!-- Capacidades (opcional) -->
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Capacidad Base</label>
+            <input type="number" 
+                   class="form-control" 
+                   [(ngModel)]="formulario.capacidadBase" 
+                   name="capacidadBase"
+                   placeholder="Ej: 50">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Capacidad Máxima</label>
+            <input type="number" 
+                   class="form-control" 
+                   [(ngModel)]="formulario.capacidadMaxima" 
+                   name="capacidadMaxima"
+                   placeholder="Ej: 100">
+          </div>
+        </div>
+
+        <!-- Precio Base -->
+        <div class="form-group">
+          <label class="form-label">Precio Base *</label>
+          <input type="number" 
+                 class="form-control" 
+                 [(ngModel)]="formulario.precioBase" 
+                 name="precioBase"
+                 placeholder="Ingresa el precio en MXN"
+                 required>
+        </div>
+
+        <!-- Campos específicos para Terraza -->
+        <div *ngIf="tipoSeleccionado === 'terraza'">
+          <div class="form-group">
+            <label class="form-label">Ubicación *</label>
+            <input type="text" 
+                   class="form-control" 
+                   [(ngModel)]="formulario.ubicacion" 
+                   name="ubicacion"
+                   placeholder="Ej: Zona Centro"
+                   required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Dirección *</label>
+            <input type="text" 
+                   class="form-control" 
+                   [(ngModel)]="formulario.direccion" 
+                   name="direccion"
+                   placeholder="Ej: Av. Juárez 123"
+                   required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Lugar *</label>
+              <input type="text" 
+                     class="form-control" 
+                     [(ngModel)]="formulario.lugar" 
+                     name="lugar"
+                     placeholder="Ej: Centro Histórico"
+                     required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Ciudad *</label>
+              <input type="text" 
+                     class="form-control" 
+                     [(ngModel)]="formulario.ciudad" 
+                     name="ciudad"
+                     placeholder="Ej: Guadalajara"
+                     required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tipo de Terraza *</label>
+            <select class="form-control" 
+                    [(ngModel)]="formulario.tipoTerraza" 
+                    name="tipoTerraza"
+                    required>
+              <option value="">Selecciona un tipo</option>
+              <option value="Jardín">Jardín</option>
+              <option value="Salón">Salón</option>
+              <option value="Terraza al aire libre">Terraza al aire libre</option>
+              <option value="Hacienda">Hacienda</option>
+              <option value="Salón de eventos">Salón de eventos</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="form-acciones">
+          <button type="button" class="btn-cancelar" (click)="cerrarModal()">
+            Cancelar
+          </button>
+          <button type="submit" class="btn-guardar">
+            {{ formulario.id ? 'Actualizar' : 'Guardar' }} {{ tipoSeleccionado === 'terraza' ? 'Terraza' : 'Servicio' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

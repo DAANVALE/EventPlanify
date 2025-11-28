@@ -32,11 +32,48 @@ export class HeaderComponent implements OnInit {
     }, { injector: this.injector });
   }
 
+  /**
+   * Determina si el usuario actual es HOST o ADMIN
+   */
+  esHost(): boolean {
+    const userProfile = this.loginService.userProfile();
+    if (!userProfile || !userProfile.role) return false;
+    
+    // Verifica el rol del usuario
+    const role = userProfile.role;
+    
+    return role === 'HOST' || role === 'ADMIN';
+  }
+
+  /**
+   * Obtiene el label y ruta del menú de eventos según el rol
+   */
+  getEventosMenuItem(): MenuItem {
+    if (this.esHost()) {
+      return {
+        label: 'Mi Host',
+        icon: 'pi pi-building',
+        routerLink: '/mi-host'
+      };
+    } else {
+      return {
+        label: 'Mis Eventos',
+        icon: 'pi pi-calendar',
+        routerLink: '/mis-eventos'
+      };
+    }
+  }
+
   updateMenuItems(): void {
+    const eventosItem = this.loginService.currentUserLoginOn() 
+      ? this.getEventosMenuItem() 
+      : { label: 'Mis eventos', icon: 'pi pi-calendar', routerLink: '/login' };
+
     const commonItems: MenuItem[] = [
       { label: 'Explorar', icon: 'pi pi-search', routerLink: '/' },
-      { label: 'Mis eventos', icon: 'pi pi-calendar', command: () => console.log('Mis eventos') },
-      { label: 'Ayuda', icon: 'pi pi-question-circle', command: () => console.log('Ayuda') },
+      { label: 'Plantillas', icon: 'pi pi-th-large', routerLink: '/template' },
+      eventosItem,
+      { label: 'Ayuda', icon: 'pi pi-question-circle', command: () => this.mostrarAyuda() },
       { separator: true }
     ];
 
@@ -54,6 +91,11 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  mostrarAyuda(): void {
+    // Implementa la lógica de ayuda aquí
+    console.log('Mostrando ayuda...');
+  }
+
   logout(): void {
     this.loginService.logout();
     this.router.navigate(['/']); 
@@ -69,5 +111,30 @@ export class HeaderComponent implements OnInit {
 
   goToProfile(): void {
     this.router.navigate(['/profile']);
+  }
+
+  /**
+   * Navega a la sección de eventos según el rol del usuario
+   */
+  goToEventos(): void {
+    if (this.esHost()) {
+      this.router.navigate(['/mi-host']);
+    } else {
+      this.router.navigate(['/mis-eventos']);
+    }
+  }
+
+  /**
+   * Obtiene el label del botón de eventos para el toolbar
+   */
+  getEventosLabel(): string {
+    return this.esHost() ? 'Mi Host' : 'Mis Eventos';
+  }
+
+  /**
+   * Obtiene el icono del botón de eventos para el toolbar
+   */
+  getEventosIcon(): string {
+    return this.esHost() ? 'pi pi-building' : 'pi pi-calendar';
   }
 }

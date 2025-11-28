@@ -17,12 +17,25 @@
   <ng-template pTemplate="end">
     <div class="flex align-items-center gap-3">
       
-      <div *ngIf="loginService.currentUserLoginOn() && loginService.userProfile()" class="hidden md:inline-flex align-items-center cursor-pointer"
+      <!-- Botón de Eventos Dinámico (visible solo cuando está logueado) -->
+      <button 
+        *ngIf="loginService.currentUserLoginOn()" 
+        pButton 
+        [label]="getEventosLabel()" 
+        [icon]="getEventosIcon()"
+        class="p-button-outlined p-button-sm hidden md:inline-flex"
+        (click)="goToEventos()">
+      </button>
+
+      <!-- Perfil del usuario -->
+      <div *ngIf="loginService.currentUserLoginOn() && loginService.userProfile()" 
+           class="hidden md:inline-flex align-items-center cursor-pointer"
            (click)="goToProfile()">
         <span class="text-lg font-medium text-800 mr-2">{{ loginService.userProfile()?.firstname }}</span>
         <i class="pi pi-user-edit text-xl text-primary"></i>
       </div>
       
+      <!-- Botón Iniciar Sesión -->
       <button 
         *ngIf="!loginService.currentUserLoginOn()" 
         pButton 
@@ -31,6 +44,7 @@
         (click)="goToLogin()">
       </button>
 
+      <!-- Botón Cerrar Sesión -->
       <button 
         *ngIf="loginService.currentUserLoginOn()" 
         pButton 
@@ -39,6 +53,7 @@
         (click)="logout()">
       </button>
 
+      <!-- Menú hamburguesa (mobile) -->
       <button
         pButton
         type="button"

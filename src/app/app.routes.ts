@@ -3,6 +3,8 @@ import { ConfirmationComponent } from './pages/user/template-confirmation/confir
 import { TemplateCanvaComponent } from './pages/user/template-canva/template-canva.component';
 import { TemplateCardComponent } from './features/templat/template-card/template-card.component';
 import { TypeEventMenuComponent } from './features/event/type-event-menu/type-event-menu.component';
+import { MisEventosComponent } from './pages/user/mis-eventos/mis-eventos.component';
+import { MiHostComponent } from './pages/user/mi-host/mi-host.component';
 
 export const routes: Routes = [
     { 
@@ -33,6 +35,14 @@ export const routes: Routes = [
     { path: 'template', 
         loadComponent: () => import('./pages/user/template-canva/template-canva.component')
             .then(c => c.TemplateCanvaComponent) 
+    },
+    {
+        path: 'mis-eventos',
+        component: MisEventosComponent
+    },
+    {
+        path: 'mi-host',
+        component: MiHostComponent
     },
     { path: '**', redirectTo: '' },
 ]
