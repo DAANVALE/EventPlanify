@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "idUser": 101,
+    "name": "Ana García López",
+    "mail": "ana.garcia@email.com",
+    "phone": "3312345678",
+    "killed": 0
+  },
+  {
+    "id": 2,
+    "idUser": 102,
+    "name": "Carlos Martínez Ruiz",
+    "mail": "carlos.martinez@empresa.com",
+    "phone": "3323456789",
+    "killed": 0
+  },
+  {
+    "id": 3,
+    "idUser": 103,
+    "name": "María Fernández Díaz",
+    "mail": "maria.fdz@correo.com",
+    "phone": "3334567890",
+    "killed": 0
+  }
+]

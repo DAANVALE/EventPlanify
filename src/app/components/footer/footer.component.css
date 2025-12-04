@@ -46,6 +46,41 @@
   font-size: 2rem;
 }
 
+/* ESTILOS FORZADOS PARA EL FOOTER */
+.eventplanify-footer .footer-logo .logo-text {
+  color: #f97316 !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  background: none !important;
+  -webkit-text-fill-color: #f97316 !important;
+}
+
+.eventplanify-footer .slogan {
+  color: #ea580c !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+
+.eventplanify-footer .tagline {
+  color: #475569 !important;
+  font-size: 0.9rem !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+/* Fondo del footer */
+.eventplanify-footer {
+  background: #f8fafc !important;
+  color: #1e293b !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+/* Si aún no se ve, prueba con colores más oscuros */
+.eventplanify-footer .footer-logo .logo-text {
+  color: #c2410c !important; /* Más oscuro */
+}
+
 .logo-text {
   font-size: 1.5rem;
   font-weight: 700;
@@ -387,4 +422,53 @@
 .p-dark .provider-btn:hover,
 .dark-theme .provider-btn:hover {
   background: linear-gradient(135deg, #c2410c, #9a3412) !important;
+}
+
+/* Logo Section - Corregido */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.logo-icon {
+  font-size: 2rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f97316 !important; /* primary-500 - Color sólido en lugar de gradiente */
+  /* Eliminamos el gradiente que causaba problemas */
+}
+
+.slogan {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ea580c !important; /* primary-600 */
+  margin: 0;
+}
+
+.tagline {
+  color: #475569 !important; /* text-secondary */
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Para modo oscuro */
+.p-dark .logo-text,
+.dark-theme .logo-text {
+  color: #fb923c !important; /* primary-400 para modo oscuro */
+}
+
+.p-dark .slogan,
+.dark-theme .slogan {
+  color: #fdba74 !important; /* primary-300 para modo oscuro */
+}
+
+.p-dark .tagline,
+.dark-theme .tagline {
+  color: #cbd5e0 !important; /* text-secondary dark */
 }

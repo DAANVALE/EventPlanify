@@ -1,0 +1,200 @@
+[
+  {
+    "id": 1,
+    "eventModel": { "id": 1 },
+    "serviceModel": { "id": 2 },
+    "stateReserveType": { "id": 2, "kind": "Confirmada", "killed": 0 },
+    "sizePeople": 95,
+    "finalPrice": 12400,
+    "dayTime": "2024-03-15T19:00:00"
+  },
+  {
+    "id": 2,
+    "eventModel": { "id": 1 },
+    "serviceModel": { "id": 3 },
+    "stateReserveType": { "id": 2, "kind": "Confirmada", "killed": 0 },
+    "sizePeople": 5,
+    "finalPrice": 5000,
+    "dayTime": "2024-03-15T18:00:00"
+  },
+  {
+    "id": 3,
+    "eventModel": { "id": 1 },
+    "serviceModel": { "id": 8 },
+    "stateReserveType": { "id": 1, "kind": "Pendiente de pago", "killed": 0 },
+    "sizePeople": 12,
+    "finalPrice": 4800,
+    "dayTime": "2024-03-15T17:30:00"
+  },
+  {
+    "id": 4,
+    "eventModel": { "id": 2 },
+    "serviceModel": { "id": 1 },
+    "stateReserveType": { "id": 5, "kind": "Completada", "killed": 0 },
+    "sizePeople": 12,
+    "finalPrice": 4100,
+    "dayTime": "2024-02-10T19:00:00"
+  },
+  {
+    "id": 5,
+    "eventModel": { "id": 2 },
+    "serviceModel": { "id": 6 },
+    "stateReserveType": { "id": 5, "kind": "Completada", "killed": 0 },
+    "sizePeople": 2,
+    "finalPrice": 4500,
+    "dayTime": "2024-02-10T20:30:00"
+  },
+  {
+    "id": 6,
+    "eventModel": { "id": 3 },
+    "serviceModel": { "id": 20 },
+    "stateReserveType": { "id": 1, "kind": "Pendiente de pago", "killed": 0 },
+    "sizePeople": 8,
+    "finalPrice": 16500,
+    "dayTime": "2024-06-20T17:00:00"
+  },
+  {
+    "id": 7,
+    "eventModel": { "id": 3 },
+    "serviceModel": { "id": 24 },
+    "stateReserveType": { "id": 1, "kind": "Pendiente de pago", "killed": 0 },
+    "sizePeople": 35,
+    "finalPrice": 18500,
+    "dayTime": "2024-06-20T16:30:00"
+  },
+  {
+    "id": 8,
+    "eventModel": { "id": 4 },
+    "serviceModel": { "id": 13 },
+    "stateReserveType": { "id": 2, "kind": "Confirmada", "killed": 0 },
+    "sizePeople": 120,
+    "finalPrice": 14400,
+    "dayTime": "2024-04-10T20:00:00"
+  },
+  {
+    "id": 9,
+    "eventModel": { "id": 4 },
+    "serviceModel": { "id": 7 },
+    "stateReserveType": { "id": 2, "kind": "Confirmada", "killed": 0 },
+    "sizePeople": 6,
+    "finalPrice": 5500,
+    "dayTime": "2024-04-10T14:00:00"
+  },
+  {
+    "id": 10,
+    "eventModel": { "id": 4 },
+    "serviceModel": { "id": 9 },
+    "stateReserveType": { "id": 1, "kind": "Pendiente de pago", "killed": 0 },
+    "sizePeople": 4,
+    "finalPrice": 5200,
+    "dayTime": "2024-04-10T19:00:00"
+  },
+  {
+    "id": 11,
+    "eventModel": { "id": 5 },
+    "serviceModel": { "id": 25 },
+    "stateReserveType": { "id": 1, "kind": "Pendiente de pago", "killed": 0 },
+    "sizePeople": 12,
+    "finalPrice": 15700,
+    "dayTime": "2024-08-15T22:00:00"
+  },
+  {
+    "id": 12,
+    "eventModel": { "id": 5 },
+    "serviceModel": { "id": 16 },
+    "stateReserveType": { "id": 1, "kind": "Pendiente de pago", "killed": 0 },
+    "sizePeople": 15,
+    "finalPrice": 7800,
+    "dayTime": "2024-08-15T20:30:00"
+  },
+  {
+    "id": 13,
+    "eventModel": { "id": 6 },
+    "serviceModel": { "id": 4 },
+    "stateReserveType": { "id": 5, "kind": "Completada", "killed": 0 },
+    "sizePeople": 3,
+    "finalPrice": 6000,
+    "dayTime": "2023-12-20T16:30:00"
+  },
+  {
+    "id": 14,
+    "eventModel": { "id": 6 },
+    "serviceModel": { "id": 5 },
+    "stateReserveType": { "id": 5, "kind": "Completada", "killed": 0 },
+    "sizePeople": 8,
+    "finalPrice": 7000,
+    "dayTime": "2023-12-20T17:00:00"
+  },
+  {
+    "id": 15,
+    "eventModel": { "id": 6 },
+    "serviceModel": { "id": 28 },
+    "stateReserveType": { "id": 5, "kind": "Completada", "killed": 0 },
+    "sizePeople": 28,
+    "finalPrice": 15200,
+    "dayTime": "2023-12-20T18:00:00"
+  },
+  {
+    "id": 16,
+    "eventModel": { "id": 7 },
+    "serviceModel": { "id": 10 },
+    "stateReserveType": { "id": 3, "kind": "Rechazada", "killed": 0 },
+    "sizePeople": 2,
+    "finalPrice": 8500,
+    "dayTime": "2023-11-05T18:00:00"
+  },
+  {
+    "id": 17,
+    "eventModel": { "id": 7 },
+    "serviceModel": { "id": 29 },
+    "stateReserveType": { "id": 3, "kind": "Rechazada", "killed": 0 },
+    "sizePeople": 8,
+    "finalPrice": 12600,
+    "dayTime": "2023-11-05T17:00:00"
+  },
+  {
+    "id": 18,
+    "eventModel": { "id": 8 },
+    "serviceModel": { "id": 11 },
+    "stateReserveType": { "id": 5, "kind": "Completada", "killed": 0 },
+    "sizePeople": 3,
+    "finalPrice": 7500,
+    "dayTime": "2024-01-28T18:30:00"
+  },
+  {
+    "id": 19,
+    "eventModel": { "id": 8 },
+    "serviceModel": { "id": 17 },
+    "stateReserveType": { "id": 5, "kind": "Completada", "killed": 0 },
+    "sizePeople": 3,
+    "finalPrice": 13500,
+    "dayTime": "2024-01-28T16:00:00"
+  },
+  {
+    "id": 20,
+    "eventModel": { "id": 9 },
+    "serviceModel": { "id": 30 },
+    "stateReserveType": { "id": 5, "kind": "Pendiente de pago", "killed": 0 },
+    "sizePeople": 20,
+    "finalPrice": 25000,
+    "dayTime": "2024-07-10T17:00:00"
+  },
+  {
+    "id": 21,
+    "eventModel": { "id": 9 },
+    "serviceModel": { "id": 21 },
+    "stateReserveType": { "id": 5, "kind": "Pendiente de pago", "killed": 0 },
+    "sizePeople": 10,
+    "finalPrice": 10300,
+    "dayTime": "2024-07-10T15:00:00"
+  },
+  {
+    "id": 22,
+    "eventModel": { "id": 9 },
+    "serviceModel": { "id": 26 },
+    "stateReserveType": { "id": 5, "kind": "Pendiente de pago", "killed": 0 },
+    "sizePeople": 6,
+    "finalPrice": 14300,
+    "dayTime": "2024-07-10T18:30:00"
+  }
+]
