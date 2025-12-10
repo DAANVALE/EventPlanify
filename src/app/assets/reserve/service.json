@@ -1,837 +1,512 @@
 [
     {
-        "url_Img": [],
         "id": 1,
-        "serviceType": [
-            {
-                "id": 9,
-                "kind": "Personal y Seguridad",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 1,
-                "kind": "Guadalajara",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 1,
-        "idAsociate_DB": 1,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 1,
+            "idUser": 1,
+            "name": "Meseros Profesionales GDL",
+            "mail": "meserosgdl@example.com",
+            "phone": "33-1111-2222",
+            "killed": 0
+        },
         "name": "Servicio de Meseros Elegantes",
-        "description": "Servicio profesional de meseros para eventos elegantes",
-        "price": 3500.00,
-        "tags": []
+        "baseSize": 10,
+        "maxSize": 20,
+        "basePrice": 3500,
+        "priceAdd10": 500,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 2,
-        "serviceType": [
-            {
-                "id": 1,
-                "kind": "Alimentos y Bebidas",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 2,
-                "kind": "Zapopan",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 2,
-        "idAsociate_DB": 2,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 2,
+            "idUser": 2,
+            "name": "Banquetes Mexicanos Zapopan",
+            "mail": "banqueteszapopan@example.com",
+            "phone": "33-2222-3333",
+            "killed": 0
+        },
         "name": "Banquete Tradicional Mexicano",
-        "description": "Banquete con comida tradicional mexicana para eventos",
-        "price": 8000.00,
-        "tags": []
+        "baseSize": 25,
+        "maxSize": 50,
+        "basePrice": 8000,
+        "priceAdd10": 800,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 3,
-        "serviceType": [
-            {
-                "id": 2,
-                "kind": "Música y Sonido",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 3,
-                "kind": "Tonalá",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 3,
-        "idAsociate_DB": 3,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 3,
+            "idUser": 3,
+            "name": "DJ Profesional Tlaquepaque",
+            "mail": "djtlaquepaque@example.com",
+            "phone": "33-3333-4444",
+            "killed": 0
+        },
         "name": "DJ Profesional con Equipo Premium",
-        "description": "Servicio de DJ profesional con equipo de sonido premium",
-        "price": 5000.00,
-        "tags": []
+        "baseSize": 5,
+        "maxSize": 10,
+        "basePrice": 5000,
+        "priceAdd10": 300,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 4,
-        "serviceType": [
-            {
-                "id": 4,
-                "kind": "Fotografía y Video",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 4,
-                "kind": "Tlajomulco de Zúñiga",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 4,
-        "idAsociate_DB": 4,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 4,
+            "idUser": 4,
+            "name": "Fotografía Premium Tn",
+            "mail": "fototonala@example.com",
+            "phone": "33-4444-5555",
+            "killed": 0
+        },
         "name": "Cobertura Fotográfica Premium",
-        "description": "Servicio de fotografía profesional para eventos",
-        "price": 6000.00,
-        "tags": []
+        "baseSize": 3,
+        "maxSize": 6,
+        "basePrice": 6000,
+        "priceAdd10": 400,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 5,
-        "serviceType": [
-            {
-                "id": 1,
-                "kind": "Alimentos y Bebidas",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 5,
-                "kind": "San Pedro Tlaquepaque",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 5,
-        "idAsociate_DB": 5,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 5,
+            "idUser": 5,
+            "name": "Mixología Ztj",
+            "mail": "mixologiazap@example.com",
+            "phone": "33-5555-6666",
+            "killed": 0
+        },
         "name": "Barra Libre Premium con Mixólogo",
-        "description": "Servicio de barra libre con mixólogo profesional",
-        "price": 7000.00,
-        "tags": []
+        "baseSize": 8,
+        "maxSize": 16,
+        "basePrice": 7000,
+        "priceAdd10": 600,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 6,
-        "serviceType": [
-            {
-                "id": 3,
-                "kind": "Animación y Espectáculos",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 1,
-                "kind": "Guadalajara",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 6,
-        "idAsociate_DB": 6,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 6,
+            "idUser": 6,
+            "name": "Entretenimiento Tlaj",
+            "mail": "showtlajomulco@example.com",
+            "phone": "33-6666-7777",
+            "killed": 0
+        },
         "name": "Show de Stand-Up y Magia Interactiva",
-        "description": "Espectáculo de comedia y magia para eventos",
-        "price": 4500.00,
-        "tags": []
+        "baseSize": 2,
+        "maxSize": 4,
+        "basePrice": 4500,
+        "priceAdd10": 350,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 7,
-        "serviceType": [
-            {
-                "id": 6,
-                "kind": "Decoración y Ambientación",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 2,
-                "kind": "Zapopan",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 7,
-        "idAsociate_DB": 7,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 7,
+            "idUser": 7,
+            "name": "Decoraciones Elegantes GDL",
+            "mail": "decoragdl@example.com",
+            "phone": "33-7777-8888",
+            "killed": 0
+        },
         "name": "Decoración Temática Personalizada",
-        "description": "Servicio de decoración temática personalizada para eventos",
-        "price": 5500.00,
-        "tags": []
+        "baseSize": 6,
+        "maxSize": 12,
+        "basePrice": 5500,
+        "priceAdd10": 450,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 8,
-        "serviceType": [
-            {
-                "id": 10,
-                "kind": "Transporte y Movilidad",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 3,
-                "kind": "Tonalá",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 8,
-        "idAsociate_DB": 8,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 8,
+            "idUser": 8,
+            "name": "Transporte Ejecutivo Zap",
+            "mail": "transportezapopan@example.com",
+            "phone": "33-8888-9999",
+            "killed": 0
+        },
         "name": "Transporte Ejecutivo para Invitados",
-        "description": "Servicio de transporte ejecutivo para invitados del evento",
-        "price": 4800.00,
-        "tags": []
+        "baseSize": 12,
+        "maxSize": 24,
+        "basePrice": 4800,
+        "priceAdd10": 400,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 9,
-        "serviceType": [
-            {
-                "id": 9,
-                "kind": "Personal y Seguridad",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 4,
-                "kind": "Tlajomulco de Zúñiga",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 9,
-        "idAsociate_DB": 9,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 9,
+            "idUser": 9,
+            "name": "Seguridad Privada Tqp",
+            "mail": "seguridadtlaque@example.com",
+            "phone": "33-9999-0000",
+            "killed": 0
+        },
         "name": "Servicio de Seguridad Privada",
-        "description": "Servicio de seguridad privada para eventos",
-        "price": 5200.00,
-        "tags": []
+        "baseSize": 4,
+        "maxSize": 8,
+        "basePrice": 5200,
+        "priceAdd10": 350,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 10,
-        "serviceType": [
-            {
-                "id": 8,
-                "kind": "Planeación y Coordinación",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 5,
-                "kind": "San Pedro Tlaquepaque",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 10,
-        "idAsociate_DB": 10,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 10,
+            "idUser": 10,
+            "name": "Coordinación de Eventos Tnl",
+            "mail": "coordinaciontonala@example.com",
+            "phone": "33-0000-1111",
+            "killed": 0
+        },
         "name": "Coordinación Integral de Bodas",
-        "description": "Servicio de coordinación integral para bodas",
-        "price": 8500.00,
-        "tags": []
+        "baseSize": 2,
+        "maxSize": 4,
+        "basePrice": 8500,
+        "priceAdd10": 700,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 11,
-        "serviceType": [
-            {
-                "id": 8,
-                "kind": "Planeación y Coordinación",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 1,
-                "kind": "Guadalajara",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 11,
-        "idAsociate_DB": 11,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 11,
+            "idUser": 11,
+            "name": "Logística Integral Zpt",
+            "mail": "logisticazap@example.com",
+            "phone": "33-1122-3344",
+            "killed": 0
+        },
         "name": "Logística Completa de Eventos",
-        "description": "Servicio de logística completa para eventos",
-        "price": 7500.00,
-        "tags": []
+        "baseSize": 3,
+        "maxSize": 6,
+        "basePrice": 7500,
+        "priceAdd10": 650,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 12,
-        "serviceType": [
-            {
-                "id": 12,
-                "kind": "Tecnología y Experiencias",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 2,
-                "kind": "Zapopan",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 12,
-        "idAsociate_DB": 12,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 12,
+            "idUser": 12,
+            "name": "Streaming Profesional Tqp",
+            "mail": "streamingtlajo@example.com",
+            "phone": "33-2233-4455",
+            "killed": 0
+        },
         "name": "Transmisión en Vivo y Streaming",
-        "description": "Servicio de transmisión en vivo y streaming para eventos",
-        "price": 6500.00,
-        "tags": []
+        "baseSize": 4,
+        "maxSize": 8,
+        "basePrice": 6500,
+        "priceAdd10": 550,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 13,
-        "serviceType": [
-            {
-                "id": 1,
-                "kind": "Alimentos y Bebidas",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 3,
-                "kind": "Tonalá",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 13,
-        "idAsociate_DB": 2,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 2,
+            "idUser": 2,
+            "name": "Banquetes Mexicanos Zapopan",
+            "mail": "banqueteszapopan@example.com",
+            "phone": "33-2222-3333",
+            "killed": 0
+        },
         "name": "Paquete Completo Banquete + Barra",
-        "description": "Paquete completo que incluye banquete y barra libre",
-        "price": 12000.00,
-        "tags": []
+        "baseSize": 30,
+        "maxSize": 60,
+        "basePrice": 12000,
+        "priceAdd10": 1200,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 14,
-        "serviceType": [
-            {
-                "id": 2,
-                "kind": "Música y Sonido",
-                "killed": 0
-            },
-            {
-                "id": 3,
-                "kind": "Animación y Espectáculos",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 4,
-                "kind": "Tlajomulco de Zúñiga",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 14,
-        "idAsociate_DB": 3,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 3,
+            "idUser": 3,
+            "name": "DJ Profesional Tlaquepaque",
+            "mail": "djtlaquepaque@example.com",
+            "phone": "33-3333-4444",
+            "killed": 0
+        },
         "name": "Combo Música y Espectáculo",
-        "description": "Combo que incluye música y espectáculo",
-        "price": 8500.00,
-        "tags": []
+        "baseSize": 6,
+        "maxSize": 12,
+        "basePrice": 8500,
+        "priceAdd10": 600,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 15,
-        "serviceType": [
-            {
-                "id": 4,
-                "kind": "Fotografía y Video",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 5,
-                "kind": "San Pedro Tlaquepaque",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 15,
-        "idAsociate_DB": 4,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 4,
+            "idUser": 4,
+            "name": "Fotografía Premium Tn",
+            "mail": "fototonala@example.com",
+            "phone": "33-4444-5555",
+            "killed": 0
+        },
         "name": "Fotografía con Escenarios Decorados",
-        "description": "Servicio de fotografía con escenarios decorados",
-        "price": 9500.00,
-        "tags": []
+        "baseSize": 4,
+        "maxSize": 8,
+        "basePrice": 9500,
+        "priceAdd10": 550,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 16,
-        "serviceType": [
-            {
-                "id": 10,
-                "kind": "Transporte y Movilidad",
-                "killed": 0
-            },
-            {
-                "id": 9,
-                "kind": "Personal y Seguridad",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 1,
-                "kind": "Guadalajara",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 16,
-        "idAsociate_DB": 8,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 8,
+            "idUser": 8,
+            "name": "Transporte Ejecutivo Zap",
+            "mail": "transportezapopan@example.com",
+            "phone": "33-8888-9999",
+            "killed": 0
+        },
         "name": "Transporte con Seguridad Incluida",
-        "description": "Servicio de transporte que incluye seguridad",
-        "price": 7800.00,
-        "tags": []
+        "baseSize": 15,
+        "maxSize": 30,
+        "basePrice": 7800,
+        "priceAdd10": 600,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 17,
-        "serviceType": [
-            {
-                "id": 8,
-                "kind": "Planeación y Coordinación",
-                "killed": 0
-            },
-            {
-                "id": 11,
-                "kind": "Diseño y Papelería",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 2,
-                "kind": "Zapopan",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 17,
-        "idAsociate_DB": 10,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 10,
+            "idUser": 10,
+            "name": "Coordinación de Eventos Tnl",
+            "mail": "coordinaciontonala@example.com",
+            "phone": "33-0000-1111",
+            "killed": 0
+        },
         "name": "Coordinación con Soporte Logístico",
-        "description": "Servicio de coordinación con soporte logístico",
-        "price": 13500.00,
-        "tags": []
+        "baseSize": 3,
+        "maxSize": 6,
+        "basePrice": 13500,
+        "priceAdd10": 900,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 18,
-        "serviceType": [
-            {
-                "id": 1,
-                "kind": "Alimentos y Bebidas",
-                "killed": 0
-            },
-            {
-                "id": 9,
-                "kind": "Personal y Seguridad",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 3,
-                "kind": "Tonalá",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 18,
-        "idAsociate_DB": 1,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 1,
+            "idUser": 1,
+            "name": "Meseros Profesionales GDL",
+            "mail": "meserosgdl@example.com",
+            "phone": "33-1111-2222",
+            "killed": 0
+        },
         "name": "Servicio de Meseros con Barra",
-        "description": "Servicio de meseros que incluye barra",
-        "price": 9000.00,
-        "tags": []
+        "baseSize": 12,
+        "maxSize": 24,
+        "basePrice": 9000,
+        "priceAdd10": 700,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 19,
-        "serviceType": [
-            {
-                "id": 2,
-                "kind": "Música y Sonido",
-                "killed": 0
-            },
-            {
-                "id": 12,
-                "kind": "Tecnología y Experiencias",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 4,
-                "kind": "Tlajomulco de Zúñiga",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 19,
-        "idAsociate_DB": 3,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 3,
+            "idUser": 3,
+            "name": "DJ Profesional Tlaquepaque",
+            "mail": "djtlaquepaque@example.com",
+            "phone": "33-3333-4444",
+            "killed": 0
+        },
         "name": "DJ con Transmisión en Vivo",
-        "description": "Servicio de DJ que incluye transmisión en vivo",
-        "price": 9500.00,
-        "tags": []
+        "baseSize": 6,
+        "maxSize": 12,
+        "basePrice": 9500,
+        "priceAdd10": 650,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 20,
-        "serviceType": [
-            {
-                "id": 2,
-                "kind": "Música y Sonido",
-                "killed": 0
-            },
-            {
-                "id": 4,
-                "kind": "Fotografía y Video",
-                "killed": 0
-            },
-            {
-                "id": 3,
-                "kind": "Animación y Espectáculos",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 5,
-                "kind": "San Pedro Tlaquepaque",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 20,
-        "idAsociate_DB": 4,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 4,
+            "idUser": 4,
+            "name": "Fotografía Premium Tn",
+            "mail": "fototonala@example.com",
+            "phone": "33-4444-5555",
+            "killed": 0
+        },
         "name": "Paquete Premium Fotos + Música + Show",
-        "description": "Paquete premium que incluye fotos, música y show",
-        "price": 16500.00,
-        "tags": []
+        "baseSize": 8,
+        "maxSize": 16,
+        "basePrice": 16500,
+        "priceAdd10": 1100,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 21,
-        "serviceType": [
-            {
-                "id": 10,
-                "kind": "Transporte y Movilidad",
-                "killed": 0
-            },
-            {
-                "id": 6,
-                "kind": "Decoración y Ambientación",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 1,
-                "kind": "Guadalajara",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 21,
-        "idAsociate_DB": 7,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 7,
+            "idUser": 7,
+            "name": "Decoraciones Elegantes GDL",
+            "mail": "decoragdl@example.com",
+            "phone": "33-7777-8888",
+            "killed": 0
+        },
         "name": "Decoración con Transporte Temático",
-        "description": "Servicio de decoración con transporte temático",
-        "price": 10300.00,
-        "tags": []
+        "baseSize": 10,
+        "maxSize": 20,
+        "basePrice": 10300,
+        "priceAdd10": 650,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 22,
-        "serviceType": [
-            {
-                "id": 8,
-                "kind": "Planeación y Coordinación",
-                "killed": 0
-            },
-            {
-                "id": 9,
-                "kind": "Personal y Seguridad",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 2,
-                "kind": "Zapopan",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 22,
-        "idAsociate_DB": 9,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 9,
+            "idUser": 9,
+            "name": "Seguridad Privada Tqp",
+            "mail": "seguridadtlaque@example.com",
+            "phone": "33-9999-0000",
+            "killed": 0
+        },
         "name": "Seguridad con Coordinación de Accesos",
-        "description": "Servicio de seguridad con coordinación de accesos",
-        "price": 9800.00,
-        "tags": []
+        "baseSize": 5,
+        "maxSize": 10,
+        "basePrice": 9800,
+        "priceAdd10": 600,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 23,
-        "serviceType": [
-            {
-                "id": 8,
-                "kind": "Planeación y Coordinación",
-                "killed": 0
-            },
-            {
-                "id": 12,
-                "kind": "Tecnología y Experiencias",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 3,
-                "kind": "Tonalá",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 23,
-        "idAsociate_DB": 11,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 11,
+            "idUser": 11,
+            "name": "Logística Integral Zpt",
+            "mail": "logisticazap@example.com",
+            "phone": "33-1122-3344",
+            "killed": 0
+        },
         "name": "Logística con Soporte Digital",
-        "description": "Servicio de logística con soporte digital",
-        "price": 11200.00,
-        "tags": []
+        "baseSize": 4,
+        "maxSize": 8,
+        "basePrice": 11200,
+        "priceAdd10": 750,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 24,
-        "serviceType": [
-            {
-                "id": 1,
-                "kind": "Alimentos y Bebidas",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 4,
-                "kind": "Tlajomulco de Zúñiga",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 24,
-        "idAsociate_DB": 2,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 2,
+            "idUser": 2,
+            "name": "Banquetes Mexicanos Zapopan",
+            "mail": "banqueteszapopan@example.com",
+            "phone": "33-2222-3333",
+            "killed": 0
+        },
         "name": "Servicio Integral de Alimentos y Bebidas",
-        "description": "Servicio integral de alimentos y bebidas",
-        "price": 18500.00,
-        "tags": []
+        "baseSize": 35,
+        "maxSize": 70,
+        "basePrice": 18500,
+        "priceAdd10": 1400,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 25,
-        "serviceType": [
-            {
-                "id": 2,
-                "kind": "Música y Sonido",
-                "killed": 0
-            },
-            {
-                "id": 6,
-                "kind": "Decoración y Ambientación",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 5,
-                "kind": "San Pedro Tlaquepaque",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 25,
-        "idAsociate_DB": 3,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 3,
+            "idUser": 3,
+            "name": "DJ Profesional Tlaquepaque",
+            "mail": "djtlaquepaque@example.com",
+            "phone": "33-3333-4444",
+            "killed": 0
+        },
         "name": "Creación de Ambiente Completo",
-        "description": "Servicio de creación de ambiente completo para eventos",
-        "price": 15700.00,
-        "tags": []
+        "baseSize": 12,
+        "maxSize": 24,
+        "basePrice": 15700,
+        "priceAdd10": 950,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 26,
-        "serviceType": [
-            {
-                "id": 4,
-                "kind": "Fotografía y Video",
-                "killed": 0
-            },
-            {
-                "id": 9,
-                "kind": "Personal y Seguridad",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 1,
-                "kind": "Guadalajara",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 26,
-        "idAsociate_DB": 4,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 4,
+            "idUser": 4,
+            "name": "Fotografía Premium Tn",
+            "mail": "fototonala@example.com",
+            "phone": "33-4444-5555",
+            "killed": 0
+        },
         "name": "Evento Seguro con Memoria Fotográfica",
-        "description": "Servicio que garantiza evento seguro con memoria fotográfica",
-        "price": 14300.00,
-        "tags": []
+        "baseSize": 6,
+        "maxSize": 12,
+        "basePrice": 14300,
+        "priceAdd10": 850,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 27,
-        "serviceType": [
-            {
-                "id": 8,
-                "kind": "Planeación y Coordinación",
-                "killed": 0
-            },
-            {
-                "id": 1,
-                "kind": "Alimentos y Bebidas",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 2,
-                "kind": "Zapopan",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 27,
-        "idAsociate_DB": 5,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 5,
+            "idUser": 5,
+            "name": "Mixología Ztj",
+            "mail": "mixologiazap@example.com",
+            "phone": "33-5555-6666",
+            "killed": 0
+        },
         "name": "Fiesta Completa con Logística",
-        "description": "Servicio de fiesta completa con logística incluida",
-        "price": 16800.00,
-        "tags": []
+        "baseSize": 10,
+        "maxSize": 20,
+        "basePrice": 16800,
+        "priceAdd10": 1000,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 28,
-        "serviceType": [
-            {
-                "id": 2,
-                "kind": "Música y Sonido",
-                "killed": 0
-            },
-            {
-                "id": 1,
-                "kind": "Alimentos y Bebidas",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 3,
-                "kind": "Tonalá",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 28,
-        "idAsociate_DB": 2,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 2,
+            "idUser": 2,
+            "name": "Banquetes Mexicanos Zapopan",
+            "mail": "banqueteszapopan@example.com",
+            "phone": "33-2222-3333",
+            "killed": 0
+        },
         "name": "Experiencia Gastronómica con Música Digital",
-        "description": "Experiencia gastronómica con música digital",
-        "price": 15200.00,
-        "tags": []
+        "baseSize": 28,
+        "maxSize": 56,
+        "basePrice": 15200,
+        "priceAdd10": 1100,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 29,
-        "serviceType": [
-            {
-                "id": 6,
-                "kind": "Decoración y Ambientación",
-                "killed": 0
-            },
-            {
-                "id": 9,
-                "kind": "Personal y Seguridad",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 4,
-                "kind": "Tlajomulco de Zúñiga",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 29,
-        "idAsociate_DB": 7,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 7,
+            "idUser": 7,
+            "name": "Decoraciones Elegantes GDL",
+            "mail": "decoragdl@example.com",
+            "phone": "33-7777-8888",
+            "killed": 0
+        },
         "name": "Espacio Decorado y Seguro",
-        "description": "Servicio de espacio decorado y seguro",
-        "price": 12600.00,
-        "tags": []
+        "baseSize": 8,
+        "maxSize": 16,
+        "basePrice": 12600,
+        "priceAdd10": 700,
+        "killed": 0
     },
     {
-        "url_Img": [],
         "id": 30,
-        "serviceType": [
-            {
-                "id": 8,
-                "kind": "Planeación y Coordinación",
-                "killed": 0
-            },
-            {
-                "id": 1,
-                "kind": "Alimentos y Bebidas",
-                "killed": 0
-            },
-            {
-                "id": 9,
-                "kind": "Personal y Seguridad",
-                "killed": 0
-            }
-        ],
-        "cityModel": [
-            {
-                "id": 5,
-                "kind": "San Pedro Tlaquepaque",
-                "killed": 0
-            }
-        ],
-        "idService_DB": 30,
-        "idAsociate_DB": 1,
-        "URL_Img": [],
+        "asociateService": {
+            "id": 1,
+            "idUser": 1,
+            "name": "Meseros Profesionales GDL",
+            "mail": "meserosgdl@example.com",
+            "phone": "33-1111-2222",
+            "killed": 0
+        },
         "name": "Paquete Oro - Servicio Completo",
-        "description": "Paquete oro con servicio completo para eventos",
-        "price": 25000.00,
-        "tags": []
+        "baseSize": 20,
+        "maxSize": 40,
+        "basePrice": 25000,
+        "priceAdd10": 1800,
+        "killed": 0
     }
 ]

@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "kind": "Planificado",
+        "killed": 0
+    },
+    {
+        "id": 2,
+        "kind": "En curso",
+        "killed": 0
+    },
+    {
+        "id": 3,
+        "kind": "Finalizado",
+        "killed": 0
+    },
+    {
+        "id": 4,
+        "kind": "Cancelado",
+        "killed": 0
+    },
+    {
+        "id": 5,
+        "kind": "Pospuesto",
+        "killed": 0
+    }
+]
