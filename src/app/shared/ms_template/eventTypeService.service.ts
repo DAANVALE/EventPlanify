@@ -34,7 +34,7 @@ export class EventTypeService{
         return this.loadLocalCities().pipe(
             tap(data => {
               this.eventTypeModel = data; // Actualizar aquí también
-              console.log('EventType locales cargadas:', this.eventTypeModel);
+              console.warn('EventTypes locales cargados:', this.eventTypeModel);
             }),
             catchError(localError => {
               console.error('Error cargando EventTypes locales:', localError);

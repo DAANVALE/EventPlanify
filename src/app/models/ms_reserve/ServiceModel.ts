@@ -1,10 +1,10 @@
-import { AsociateServiceModel } from './AsociateServiceModel';
+import { AsociateService } from './AsociateServiceModel';
 
 export interface ServiceModel{
   id: number;
   name: string;
 
-  asociateServiceModel: AsociateServiceModel;
+  asociateService: AsociateService;
 
   basePrice: number;
   priceAdd10: number;

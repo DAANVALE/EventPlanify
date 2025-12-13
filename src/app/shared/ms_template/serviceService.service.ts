@@ -20,36 +20,45 @@ export class ServiceService{
 
   private fallbackServices: ServiceModel[] = [];
 
-getAll(): Observable<ServiceModel[]> {
-  return this.http.get<ResponsePage<ServiceModel[]>>(this.API).pipe(
-    map( response => {
-      // Si la API responde, actualizar el fallback
-      this.fallbackServices = response.content;
-      return response.content;
-    }),
-    catchError(error => {
-      this.handleError(error);
-      return this.loadLocalServicesWithFallback();
-    })
-  );
-}
+  getAll(): Observable<ServiceModel[]> {
+    return this.http.get<ResponsePage<ServiceModel[]>>(this.API).pipe(
+      map( response => {
+        this.fallbackServices = response.content;
+        return response.content;
+      }),
+      catchError(error => {
+        this.handleError(error);
+        return this.loadLocalServicesWithFallback();
+      })
+    );
+  }
 
-getByServiceType(serviceTypeId: number): Observable<ServiceModel[]> {
-  return this.http.get<ResponsePage<ServiceModel[]>>(`${this.API}/ServiceType/${serviceTypeId}`).pipe(
-    map( response => {
-      return response.content;
-    }),
-    catchError(error => {
-      this.handleError(error);
-      return this.loadLocalServicesWithFallback().pipe(
-        map(services => services.filter
-          (s => s.serviceType && (Array.isArray(s.serviceType) ? 
-          s.serviceType.some(t => t.id === serviceTypeId) : 
-          (s.serviceType as any).id === serviceTypeId)))
+  getByServiceType(serviceTypeId: number): Observable<ServiceModel[]> {
+    return this.http.get<ResponsePage<ServiceModel[]>>(`${this.API}/ServiceType/${serviceTypeId}`).pipe(
+      map( response => {
+        return response.content;
+      }),
+      catchError(error => {
+        this.handleError(error);
+        return this.loadLocalServicesWithFallback().pipe(
+          map(services => services.filter
+            (s => s.serviceType && (Array.isArray(s.serviceType) ? 
+            s.serviceType.some(t => t.id === serviceTypeId) : 
+            (s.serviceType as any).id === serviceTypeId)))
+        );
+      })
+    );
+  }
+
+  getById(id: number): Observable<ServiceModel> {
+      return this.http.get<ServiceModel>(`${this.API}/${id}`).pipe(
+        catchError(error => {
+          console.error(`Error fetching Service with ID ${id}:`, error);
+          const fallback = this.fallbackServices.find(s => s.id === id) || this.fallbackServices[0];
+          return of(fallback);
+        })
       );
-    })
-  );
-}
+    }
 
 private loadLocalServicesWithFallback(): Observable<ServiceModel[]> {
     return this.loadLocalServices().pipe(

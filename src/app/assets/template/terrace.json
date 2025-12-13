@@ -1,80 +1,146 @@
 [
-  {
-    "id": 1,
-    "terraceType": [1], 
-    "cityModel": 2, 
-    "idTerrace_DB": 1,
-    "idAsociate_DB": 1,
-    "URL_IMG": ["https://drive.google.com/file/d/1Lsxd-gluRn4g-QYIU-bjFuDA9fLfjAyc/view?usp=drive_link"],
-    "tags": [],
-    "name": "Terraza con Alberca Azul",
-    "description": "",
-    "price": 1500,
-    "place": "Av. Acueducto 123, Zona Real, Zapopan"
-  },
-  {
-    "id": 2,
-    "terraceType": [1], 
-    "cityModel": 2, 
-    "idTerrace_DB": 2,
-    "idAsociate_DB": 2,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Terraza El Encino",
-    "description": "",
-    "price": 1200,
-    "place": "Calle Encino 456, Col. Seattle, Zapopan"
-  },
-  {
-    "id": 3,
-    "terraceType": [3], 
-    "cityModel": 5, 
-    "idTerrace_DB": 3,
-    "idAsociate_DB": 3,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Salón Los Arcos",
-    "description": "",
-    "price": 1800,
-    "place": "Av. Revolución 789, Centro, Tlaquepaque"
-  },
-  {
-    "id": 4,
-    "terraceType": [1], 
-    "cityModel": 3, 
-    "idTerrace_DB": 4,
-    "idAsociate_DB": 4,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Terraza ExpoTonala",
-    "description": "",
-    "price": 1300,
-    "place": "Zona Artesanal, Tonalá"
-  },
-  {
-    "id": 5,
-    "terraceType": [2], 
-    "cityModel": 1, 
-    "idTerrace_DB": 5,
-    "idAsociate_DB": 5,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Jardín Natural El Roble",
-    "description": "",
-    "price": 1600,
-    "place": "Paraje El Roble, Zapotlanejo"
-  },
-  {
-    "id": 6,
-    "terraceType": [1], 
-    "cityModel": 4, 
-    "idTerrace_DB": 6,
-    "idAsociate_DB": 6,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Terraza Experiencia 360",
-    "description": "",
-    "price": 2000,  
-    "place": "Bosques de Santa Anita, Tlajomulco"
-  }
+    {
+        "url_Img": [],
+        "id": 1,
+        "terraceType": [
+            {
+                "id": 1,
+                "kind": "Terraza",
+                "killed": 0
+            }
+        ],
+        "cityModel": {
+            "id": 2,
+            "kind": "Zapopan",
+            "killed": 0
+        },
+        "idTerrace_DB": 1,
+        "idAsociate_DB": 1,
+        "URL_Img": [],
+        "name": "Terraza con Alberca Azul",
+        "description": "Terraza exterior con alberca y área de lounge",
+        "price": 1500.00,
+        "place": "Av. Acueducto 123, Zona Real, Zapopan",
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 2,
+        "terraceType": [
+            {
+                "id": 1,
+                "kind": "Terraza",
+                "killed": 0
+            }
+        ],
+        "cityModel": {
+            "id": 2,
+            "kind": "Zapopan",
+            "killed": 0
+        },
+        "idTerrace_DB": 2,
+        "idAsociate_DB": 2,
+        "URL_Img": [],
+        "name": "Terraza El Encino",
+        "description": "Terraza rústica con jardín y área de fogata",
+        "price": 1200.00,
+        "place": "Calle Encino 456, Col. Seattle, Zapopan",
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 3,
+        "terraceType": [
+            {
+                "id": 3,
+                "kind": "Salón",
+                "killed": 0
+            }
+        ],
+        "cityModel": {
+            "id": 5,
+            "kind": "San Pedro Tlaquepaque",
+            "killed": 0
+        },
+        "idTerrace_DB": 3,
+        "idAsociate_DB": 3,
+        "URL_Img": [],
+        "name": "Salón Los Arcos",
+        "description": "Salón elegante con arcos y techos altos",
+        "price": 1800.00,
+        "place": "Av. Revolución 789, Centro, Tlaquepaque",
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 4,
+        "terraceType": [
+            {
+                "id": 1,
+                "kind": "Terraza",
+                "killed": 0
+            }
+        ],
+        "cityModel": {
+            "id": 3,
+            "kind": "Tonalá",
+            "killed": 0
+        },
+        "idTerrace_DB": 4,
+        "idAsociate_DB": 4,
+        "URL_Img": [],
+        "name": "Terraza ExpoTonala",
+        "description": "Terraza moderna en zona artesanal con vista panorámica",
+        "price": 1300.00,
+        "place": "Zona Artesanal, Tonalá",
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 5,
+        "terraceType": [
+            {
+                "id": 2,
+                "kind": "Jardín",
+                "killed": 0
+            }
+        ],
+        "cityModel": {
+            "id": 1,
+            "kind": "Guadalajara",
+            "killed": 0
+        },
+        "idTerrace_DB": 5,
+        "idAsociate_DB": 5,
+        "URL_Img": [],
+        "name": "Jardín Natural El Roble",
+        "description": "Jardín extenso con árboles centenarios y áreas verdes",
+        "price": 1600.00,
+        "place": "Paraje El Roble, Zapotlanejo",
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 6,
+        "terraceType": [
+            {
+                "id": 1,
+                "kind": "Terraza",
+                "killed": 0
+            }
+        ],
+        "cityModel": {
+            "id": 4,
+            "kind": "Tlajomulco de Zúñiga",
+            "killed": 0
+        },
+        "idTerrace_DB": 6,
+        "idAsociate_DB": 6,
+        "URL_Img": [],
+        "name": "Terraza Experiencia 360",
+        "description": "Terraza premium con vista de 360° y tecnología avanzada",
+        "price": 2000.00,
+        "place": "Bosques de Santa Anita, Tlajomulco",
+        "tags": []
+    }
 ]

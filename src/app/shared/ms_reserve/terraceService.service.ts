@@ -1,13 +1,10 @@
 import { TerraceModel } from './../../models/ms_reserve/TerraceModel';
 
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, map, throwError, of, find} from 'rxjs';
+import { catchError, Observable, map, throwError, of, find, tap, first} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../../enviroments/enviroment';
-
-import { terraceModelTs } from '../../assets/reserve-test-data';
-import { terraceTypeTs } from '../../assets/template-test-data';
-
+import { ResponsePage } from '../../models/ResponsePage';
 
 @Injectable({
   providedIn: 'root',
@@ -15,9 +12,7 @@ import { terraceTypeTs } from '../../assets/template-test-data';
 export class TerraceService{
 
   private API = environment.msReservesUrl + '/terrace';
-  terraceModel: TerraceModel[] = [];
-
-  fallbackTerraceModel = terraceModelTs;
+  fallbackTerraceModel : TerraceModel[] = [];
 
   constructor(private http: HttpClient){
 
@@ -25,30 +20,36 @@ export class TerraceService{
 
   getAll(): Observable<TerraceModel[]>
   {
-    return this.http.get<TerraceModel[]>(this.API).
-    pipe(map((data: TerraceModel[]) => data ),
+    return this.http.get<ResponsePage<TerraceModel[]>>(this.API).
+    pipe(
+      map( data => {
+        this.fallbackTerraceModel = data.content;
+        return data.content;
+      }),
       catchError(error => {
         this.handleError(error);
-        return of( this.fallbackTerraceModel );
+        return this.loadLocalTerracesWithFallback();
       })
     );
   }
 
   getById(id: number): Observable<TerraceModel> {
 
-    const fallback = this.fallbackTerraceModel.find(t => t.id === id)
-                    || this.fallbackTerraceModel[0];
-
+    const fallback = this.fallbackTerraceModel.find(t => t.id === id);
+    if (fallback != null) {
         return of(fallback);
+    }
 
     return this.http.get<TerraceModel>(`${this.API}/${id}`).pipe(
       catchError(error => {
         console.error(`Error fetching terrace type with ID ${id}:`, error);
 
+        this.loadLocalTerracesWithFallback().pipe().subscribe();
+
         const fallback = this.fallbackTerraceModel.find(t => t.id === id)
                     || this.fallbackTerraceModel[0];
 
-        return of(fallback);
+        return fallback ? of(fallback) : throwError(() => new Error(`Failed to fetch terrace type with ID ${id}`));
       })
     );
   }
@@ -62,8 +63,26 @@ export class TerraceService{
     );
   }
 
+  loadLocalTerraces(): Observable<TerraceModel[]> {
+    return this.http.get<TerraceModel[]>('assets/reserve/terrace.json');
+  }
+
+  private loadLocalTerracesWithFallback(): Observable<TerraceModel[]> {
+    return this.loadLocalTerraces().pipe(
+      tap(data => {
+        this.fallbackTerraceModel = data;
+        console.warn('✅ Terraces locales cargados como fallback');
+      }),
+      catchError(localError => {
+        this.handleError(localError);
+        console.error('❌ Error cargando terraces locales:', localError);
+        return of(this.fallbackTerraceModel);
+      })
+    );
+  }
+
   private handleError(error: any): Observable<never>{
-    return throwError(() => new Error('Something ocurried in eventTypeService.', error));
+    return throwError(() => new Error('Something ocurried in TerraceService.', error));
   }
 
 }

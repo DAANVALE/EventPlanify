@@ -1,4 +1,4 @@
-export interface AsociateServiceModel{
+export interface AsociateService{
   id: number;
   idUser: number;
 

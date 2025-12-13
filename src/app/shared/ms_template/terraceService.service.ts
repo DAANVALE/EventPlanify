@@ -17,7 +17,7 @@ export class TerraceService {
   constructor(private http: HttpClient) {}
 
   loadLocalTerrace(): Observable<TerraceModel[]> {
-      return this.http.get<TerraceModel[]>('../assets/template/terrace.json'); // Ajusta la ruta
+      return this.http.get<TerraceModel[]>('assets/template/terrace.json'); // Ajusta la ruta
   }
 
   getAll(): Observable<TerraceModel[]> {

@@ -1,4 +1,4 @@
-export interface AsociateTerraceModel{
+export interface AsociateTerrace{
   id: number;
   idUser: number;
 

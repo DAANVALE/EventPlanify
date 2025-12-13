@@ -52,14 +52,14 @@
     </div>
 
     <!-- Terraza Asociada -->
-    <div *ngIf="terraceModelReserve?.asociateTerraceModel" class="mb-3">
+    <div *ngIf="terraceModelReserve?.asociateTerrace" class="mb-3">
       <p-fieldset legend="Terraza Asociada" [toggleable]="true" styleClass="w-full">
         <div class="grid">
           <div class="col-12 md:col-6">
             <div class="mb-2">
               <span class="font-semibold text-600 block mb-1">Nombre:</span>
               <div class="p-2 surface-100 border-round">
-                {{ terraceModelReserve?.asociateTerraceModel?.name }}
+                {{ terraceModelReserve?.asociateTerrace?.name }}
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@
             <div class="mb-2">
               <span class="font-semibold text-600 block mb-1">ID Asociado:</span>
               <div class="p-2 surface-100 border-round">
-                {{ terraceModelReserve?.asociateTerraceModel?.id }}
+                {{ terraceModelReserve?.asociateTerrace?.id }}
               </div>
             </div>
           </div>

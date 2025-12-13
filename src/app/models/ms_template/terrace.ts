@@ -8,7 +8,7 @@ export interface TerraceModel {
 
   idTerrace_DB: number;
   idAsociate_DB: number;
-  URL_IMG: String[];
+  url_Img: String[];
 
   tags: string[];
 

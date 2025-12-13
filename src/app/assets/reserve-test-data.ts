@@ -1,14 +1,14 @@
 
-import { AsociateTerraceModel } from '../models/ms_reserve/AsociateTerraceModel';
+import { AsociateTerrace } from '../models/ms_reserve/AsociateTerraceModel';
 import { TerraceModel } from '../models/ms_reserve/TerraceModel';
 
-import { AsociateServiceModel } from '../models/ms_reserve/AsociateServiceModel';
+import { AsociateService } from '../models/ms_reserve/AsociateServiceModel';
 import { ServiceModel } from '../models/ms_reserve/ServiceModel';
 
 // sEKJju$2MA19xRww
 // msdatabaseterrace-admin
 
-export const asociateTerraceModellTs: AsociateTerraceModel[] = [
+export const asociateTerracelTs: AsociateTerrace[] = [
   {
     id: 401,
     idUser: 101,
@@ -63,73 +63,79 @@ export const terraceModelTs: TerraceModel[] = [
   {
     id: 301,
     name: 'Terraza con Alberca Azul',
-    asociateTerraceModel: asociateTerraceModellTs[0],
+    asociateTerrace: asociateTerracelTs[0],
     baseSize: 80,
     maxSize: 150,
     priceAdd10: 1500,
     direction: 'Av. Acueducto 123, Zona Real, Zapopan',
-    killed: 0
+    killed: 0,
+    basePrice: 10000
   },
   {
     id: 302,
     name: 'Terraza El Encino',
-    asociateTerraceModel: asociateTerraceModellTs[1],
+    asociateTerrace: asociateTerracelTs[1],
     baseSize: 60,
     maxSize: 100,
     priceAdd10: 1200,
     direction: 'Calle Encino 456, Col. Seattle, Zapopan',
-    killed: 0
+    killed: 0,
+    basePrice: 8000
   },
   {
     id: 303,
     name: 'Salón Los Arcos',
-    asociateTerraceModel: asociateTerraceModellTs[2],
+    asociateTerrace: asociateTerracelTs[2],
     baseSize: 90,
     maxSize: 180,
     priceAdd10: 1800,
     direction: 'Av. Revolución 789, Centro, Tlaquepaque',
-    killed: 0
+    killed: 0,
+    basePrice: 12000
   },
   {
     id: 304,
     name: 'Terraza ExpoTonala',
-    asociateTerraceModel: asociateTerraceModellTs[3],
+    asociateTerrace: asociateTerracelTs[3],
     baseSize: 70,
     maxSize: 160,
     priceAdd10: 1300,
     direction: 'Zona Artesanal, Tonalá',
-    killed: 0
+    killed: 0,
+    basePrice: 9000
   },
   {
     id: 305,
     name: 'Jardín Natural El Roble',
-    asociateTerraceModel: asociateTerraceModellTs[4],
+    asociateTerrace: asociateTerracelTs[4],
     baseSize: 100,
     maxSize: 200,
     priceAdd10: 1600,
     direction: 'Paraje El Roble, Zapotlanejo',
-    killed: 0
+    killed: 0,
+    basePrice: 11000
   },
   {
     id: 306,
     name: 'Terraza Experiencia 360',
-    asociateTerraceModel: asociateTerraceModellTs[5],
+    asociateTerrace: asociateTerracelTs[5],
     baseSize: 120,
     maxSize: 250,
     priceAdd10: 2000,
     direction: 'Bosques de Santa Anita, Tlajomulco',
-    killed: 0
-  }
+    killed: 0,
+    basePrice: 13000
+  },
 ];
 
-export const asociateServiceModelTs: AsociateServiceModel[] = [
+export const asociateServiceTs: AsociateService[] = [
   {
     id: 201,
     idUser: 101,
     name: 'Meseros Profesionales GDL',
     mail: 'meserosgdl@example.com',
     phone: '33-1111-2222',
-    killed: 0
+    killed: 0,
   },
   {
     id: 202,
@@ -225,7 +231,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 101,
     name: 'Servicio de Meseros Elegantes',
-    asociateServiceModel: asociateServiceModelTs[0],
+    asociateService: asociateServiceTs[0],
     baseSize: 10,
     maxSize: 20,
     priceAdd10: 500,
@@ -235,7 +241,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 102,
     name: 'Banquete Tradicional Mexicano',
-    asociateServiceModel: asociateServiceModelTs[1],
+    asociateService: asociateServiceTs[1],
     baseSize: 25,
     maxSize: 50,
     priceAdd10: 800,
@@ -245,7 +251,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 103,
     name: 'DJ Profesional con Equipo Premium',
-    asociateServiceModel: asociateServiceModelTs[2],
+    asociateService: asociateServiceTs[2],
     baseSize: 5,
     maxSize: 10,
     priceAdd10: 300,
@@ -255,7 +261,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 104,
     name: 'Cobertura Fotográfica Premium',
-    asociateServiceModel: asociateServiceModelTs[3],
+    asociateService: asociateServiceTs[3],
     baseSize: 3,
     maxSize: 6,
     priceAdd10: 400,
@@ -265,7 +271,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 105,
     name: 'Barra Libre Premium con Mixólogo',
-    asociateServiceModel: asociateServiceModelTs[4],
+    asociateService: asociateServiceTs[4],
     baseSize: 8,
     maxSize: 16,
     priceAdd10: 600,
@@ -275,7 +281,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 106,
     name: 'Show de Stand-Up y Magia Interactiva',
-    asociateServiceModel: asociateServiceModelTs[5],
+    asociateService: asociateServiceTs[5],
     baseSize: 2,
     maxSize: 4,
     priceAdd10: 350,
@@ -285,7 +291,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 107,
     name: 'Decoración Temática Personalizada',
-    asociateServiceModel: asociateServiceModelTs[6],
+    asociateService: asociateServiceTs[6],
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 450,
@@ -295,7 +301,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 108,
     name: 'Transporte Ejecutivo para Invitados',
-    asociateServiceModel: asociateServiceModelTs[7],
+    asociateService: asociateServiceTs[7],
     baseSize: 12,
     maxSize: 24,
     priceAdd10: 400,
@@ -305,7 +311,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 109,
     name: 'Servicio de Seguridad Privada',
-    asociateServiceModel: asociateServiceModelTs[8],
+    asociateService: asociateServiceTs[8],
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 350,
@@ -315,7 +321,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 110,
     name: 'Coordinación Integral de Bodas',
-    asociateServiceModel: asociateServiceModelTs[9],
+    asociateService: asociateServiceTs[9],
     baseSize: 2,
     maxSize: 4,
     priceAdd10: 700,
@@ -325,7 +331,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 111,
     name: 'Logística Completa de Eventos',
-    asociateServiceModel: asociateServiceModelTs[10],
+    asociateService: asociateServiceTs[10],
     baseSize: 3,
     maxSize: 6,
     priceAdd10: 650,
@@ -335,7 +341,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 112,
     name: 'Transmisión en Vivo y Streaming',
-    asociateServiceModel: asociateServiceModelTs[11],
+    asociateService: asociateServiceTs[11],
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 550,
@@ -345,7 +351,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 113,
     name: 'Paquete Completo Banquete + Barra',
-    asociateServiceModel: asociateServiceModelTs[1], // Usa el de banquete
+    asociateService: asociateServiceTs[1], // Usa el de banquete
     baseSize: 30,
     maxSize: 60,
     priceAdd10: 1200,
@@ -355,7 +361,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 114,
     name: 'Combo Música y Espectáculo',
-    asociateServiceModel: asociateServiceModelTs[2], // Usa el de DJ
+    asociateService: asociateServiceTs[2], // Usa el de DJ
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 600,
@@ -365,7 +371,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 115,
     name: 'Fotografía con Escenarios Decorados',
-    asociateServiceModel: asociateServiceModelTs[3], // Usa el de fotografía
+    asociateService: asociateServiceTs[3], // Usa el de fotografía
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 550,
@@ -375,7 +381,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 116,
     name: 'Transporte con Seguridad Incluida',
-    asociateServiceModel: asociateServiceModelTs[7], // Usa el de transporte
+    asociateService: asociateServiceTs[7], // Usa el de transporte
     baseSize: 15,
     maxSize: 30,
     priceAdd10: 600,
@@ -385,7 +391,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 117,
     name: 'Coordinación con Soporte Logístico',
-    asociateServiceModel: asociateServiceModelTs[9], // Usa el de coordinación
+    asociateService: asociateServiceTs[9], // Usa el de coordinación
     baseSize: 3,
     maxSize: 6,
     priceAdd10: 900,
@@ -395,7 +401,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 118,
     name: 'Servicio de Meseros con Barra',
-    asociateServiceModel: asociateServiceModelTs[0], // Usa el de meseros
+    asociateService: asociateServiceTs[0], // Usa el de meseros
     baseSize: 12,
     maxSize: 24,
     priceAdd10: 700,
@@ -405,7 +411,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 119,
     name: 'DJ con Transmisión en Vivo',
-    asociateServiceModel: asociateServiceModelTs[2], // Usa el de DJ
+    asociateService: asociateServiceTs[2], // Usa el de DJ
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 650,
@@ -415,7 +421,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 120,
     name: 'Paquete Premium Fotos + Música + Show',
-    asociateServiceModel: asociateServiceModelTs[3], // Usa el de fotografía
+    asociateService: asociateServiceTs[3], // Usa el de fotografía
     baseSize: 8,
     maxSize: 16,
     priceAdd10: 1100,
@@ -425,7 +431,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 121,
     name: 'Decoración con Transporte Temático',
-    asociateServiceModel: asociateServiceModelTs[6], // Usa el de decoración
+    asociateService: asociateServiceTs[6], // Usa el de decoración
     baseSize: 10,
     maxSize: 20,
     priceAdd10: 650,
@@ -435,7 +441,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 122,
     name: 'Seguridad con Coordinación de Accesos',
-    asociateServiceModel: asociateServiceModelTs[8], // Usa el de seguridad
+    asociateService: asociateServiceTs[8], // Usa el de seguridad
     baseSize: 5,
     maxSize: 10,
     priceAdd10: 600,
@@ -445,7 +451,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 123,
     name: 'Logística con Soporte Digital',
-    asociateServiceModel: asociateServiceModelTs[10], // Usa el de logística
+    asociateService: asociateServiceTs[10], // Usa el de logística
     baseSize: 4,
     maxSize: 8,
     priceAdd10: 750,
@@ -455,7 +461,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 124,
     name: 'Servicio Integral de Alimentos y Bebidas',
-    asociateServiceModel: asociateServiceModelTs[1], // Usa el de banquete
+    asociateService: asociateServiceTs[1], // Usa el de banquete
     baseSize: 35,
     maxSize: 70,
     priceAdd10: 1400,
@@ -465,7 +471,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 125,
     name: 'Creación de Ambiente Completo',
-    asociateServiceModel: asociateServiceModelTs[2], // Usa el de DJ
+    asociateService: asociateServiceTs[2], // Usa el de DJ
     baseSize: 12,
     maxSize: 24,
     priceAdd10: 950,
@@ -475,7 +481,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 126,
     name: 'Evento Seguro con Memoria Fotográfica',
-    asociateServiceModel: asociateServiceModelTs[3], // Usa el de fotografía
+    asociateService: asociateServiceTs[3], // Usa el de fotografía
     baseSize: 6,
     maxSize: 12,
     priceAdd10: 850,
@@ -485,7 +491,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 127,
     name: 'Fiesta Completa con Logística',
-    asociateServiceModel: asociateServiceModelTs[4], // Usa el de bartender
+    asociateService: asociateServiceTs[4], // Usa el de bartender
     baseSize: 10,
     maxSize: 20,
     priceAdd10: 1000,
@@ -495,7 +501,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 128,
     name: 'Experiencia Gastronómica con Música Digital',
-    asociateServiceModel: asociateServiceModelTs[1], // Usa el de banquete
+    asociateService: asociateServiceTs[1], // Usa el de banquete
     baseSize: 28,
     maxSize: 56,
     priceAdd10: 1100,
@@ -505,7 +511,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 129,
     name: 'Espacio Decorado y Seguro',
-    asociateServiceModel: asociateServiceModelTs[6], // Usa el de decoración
+    asociateService: asociateServiceTs[6], // Usa el de decoración
     baseSize: 8,
     maxSize: 16,
     priceAdd10: 700,
@@ -515,7 +521,7 @@ export const ServiceModelTs: ServiceModel[] = [
   {
     id: 130,
     name: 'Paquete Oro - Servicio Completo',
-    asociateServiceModel: asociateServiceModelTs[0], // Usa el de meseros
+    asociateService: asociateServiceTs[0], // Usa el de meseros
     baseSize: 20,
     maxSize: 40,
     priceAdd10: 1800,

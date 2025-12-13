@@ -1,362 +1,837 @@
 [
-  {
-    "id": 1,
-    "serviceType": [{"id": 9}],
-    "cityModel": [{"id": 1}],
-    "idService_DB": 1,
-    "idAsociate_DB": 1,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Servicio de Meseros Elegantes",
-    "description": "Servicio profesional de meseros para eventos elegantes",
-    "price": 3500
-  },
-  {
-    "id": 2,
-    "serviceType": [{"id": 1}],
-    "cityModel": [{"id": 2}],
-    "idService_DB": 2,
-    "idAsociate_DB": 2,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Banquete Tradicional Mexicano",
-    "description": "Banquete con comida tradicional mexicana para eventos",
-    "price": 8000
-  },
-  {
-    "id": 3,
-    "serviceType": [{"id": 2}],
-    "cityModel": [{"id": 3}],
-    "idService_DB": 3,
-    "idAsociate_DB": 3,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "DJ Profesional con Equipo Premium",
-    "description": "Servicio de DJ profesional con equipo de sonido premium",
-    "price": 5000
-  },
-  {
-    "id": 4,
-    "serviceType": [{"id": 4}],
-    "cityModel": [{"id": 4}],
-    "idService_DB": 4,
-    "idAsociate_DB": 4,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Cobertura Fotográfica Premium",
-    "description": "Servicio de fotografía profesional para eventos",
-    "price": 6000
-  },
-  {
-    "id": 5,
-    "serviceType": [{"id": 1}],
-    "cityModel": [{"id": 5}],
-    "idService_DB": 5,
-    "idAsociate_DB": 5,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Barra Libre Premium con Mixólogo",
-    "description": "Servicio de barra libre con mixólogo profesional",
-    "price": 7000
-  },
-  {
-    "id": 6,
-    "serviceType": [{"id": 3}],
-    "cityModel": [{"id": 1}],
-    "idService_DB": 6,
-    "idAsociate_DB": 6,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Show de Stand-Up y Magia Interactiva",
-    "description": "Espectáculo de comedia y magia para eventos",
-    "price": 4500
-  },
-  {
-    "id": 7,
-    "serviceType": [{"id": 6}],
-    "cityModel": [{"id": 2}],
-    "idService_DB": 7,
-    "idAsociate_DB": 7,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Decoración Temática Personalizada",
-    "description": "Servicio de decoración temática personalizada para eventos",
-    "price": 5500
-  },
-  {
-    "id": 8,
-    "serviceType": [{"id": 10}],
-    "cityModel": [{"id": 3}],
-    "idService_DB": 8,
-    "idAsociate_DB": 8,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Transporte Ejecutivo para Invitados",
-    "description": "Servicio de transporte ejecutivo para invitados del evento",
-    "price": 4800
-  },
-  {
-    "id": 9,
-    "serviceType": [{"id": 9}],
-    "cityModel": [{"id": 4}],
-    "idService_DB": 9,
-    "idAsociate_DB": 9,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Servicio de Seguridad Privada",
-    "description": "Servicio de seguridad privada para eventos",
-    "price": 5200
-  },
-  {
-    "id": 10,
-    "serviceType": [{"id": 8}],
-    "cityModel": [{"id": 5}],
-    "idService_DB": 10,
-    "idAsociate_DB": 10,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Coordinación Integral de Bodas",
-    "description": "Servicio de coordinación integral para bodas",
-    "price": 8500
-  },
-  {
-    "id": 11,
-    "serviceType": [{"id": 8}],
-    "cityModel": [{"id": 1}],
-    "idService_DB": 11,
-    "idAsociate_DB": 11,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Logística Completa de Eventos",
-    "description": "Servicio de logística completa para eventos",
-    "price": 7500
-  },
-  {
-    "id": 12,
-    "serviceType": [{"id": 12}],
-    "cityModel": [{"id": 2}],
-    "idService_DB": 12,
-    "idAsociate_DB": 12,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Transmisión en Vivo y Streaming",
-    "description": "Servicio de transmisión en vivo y streaming para eventos",
-    "price": 6500
-  },
-  {
-    "id": 13,
-    "serviceType": [{"id": 1}],
-    "cityModel": [{"id": 3}],
-    "idService_DB": 13,
-    "idAsociate_DB": 2,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Paquete Completo Banquete + Barra",
-    "description": "Paquete completo que incluye banquete y barra libre",
-    "price": 12000
-  },
-  {
-    "id": 14,
-    "serviceType": [{"id": 2}, {"id": 3}],
-    "cityModel": [{"id": 4}],
-    "idService_DB": 14,
-    "idAsociate_DB": 3,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Combo Música y Espectáculo",
-    "description": "Combo que incluye música y espectáculo",
-    "price": 8500
-  },
-  {
-    "id": 15,
-    "serviceType": [{"id": 4}],
-    "cityModel": [{"id": 5}],
-    "idService_DB": 15,
-    "idAsociate_DB": 4,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Fotografía con Escenarios Decorados",
-    "description": "Servicio de fotografía con escenarios decorados",
-    "price": 9500
-  },
-  {
-    "id": 16,
-    "serviceType": [{"id": 10}, {"id": 9}],
-    "cityModel": [{"id": 1}],
-    "idService_DB": 16,
-    "idAsociate_DB": 8,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Transporte con Seguridad Incluida",
-    "description": "Servicio de transporte que incluye seguridad",
-    "price": 7800
-  },
-  {
-    "id": 17,
-    "serviceType": [{"id": 8}, {"id": 11}],
-    "cityModel": [{"id": 2}],
-    "idService_DB": 17,
-    "idAsociate_DB": 10,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Coordinación con Soporte Logístico",
-    "description": "Servicio de coordinación con soporte logístico",
-    "price": 13500
-  },
-  {
-    "id": 18,
-    "serviceType": [{"id": 9}, {"id": 1}],
-    "cityModel": [{"id": 3}],
-    "idService_DB": 18,
-    "idAsociate_DB": 1,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Servicio de Meseros con Barra",
-    "description": "Servicio de meseros que incluye barra",
-    "price": 9000
-  },
-  {
-    "id": 19,
-    "serviceType": [{"id": 2}, {"id": 12}],
-    "cityModel": [{"id": 4}],
-    "idService_DB": 19,
-    "idAsociate_DB": 3,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "DJ con Transmisión en Vivo",
-    "description": "Servicio de DJ que incluye transmisión en vivo",
-    "price": 9500
-  },
-  {
-    "id": 20,
-    "serviceType": [{"id": 4}, {"id": 2}, {"id": 3}],
-    "cityModel": [{"id": 5}],
-    "idService_DB": 20,
-    "idAsociate_DB": 4,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Paquete Premium Fotos + Música + Show",
-    "description": "Paquete premium que incluye fotos, música y show",
-    "price": 16500
-  },
-  {
-    "id": 21,
-    "serviceType": [{"id": 6}, {"id": 10}],
-    "cityModel": [{"id": 1}],
-    "idService_DB": 21,
-    "idAsociate_DB": 7,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Decoración con Transporte Temático",
-    "description": "Servicio de decoración con transporte temático",
-    "price": 10300
-  },
-  {
-    "id": 22,
-    "serviceType": [{"id": 9}, {"id": 8}],
-    "cityModel": [{"id": 2}],
-    "idService_DB": 22,
-    "idAsociate_DB": 9,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Seguridad con Coordinación de Accesos",
-    "description": "Servicio de seguridad con coordinación de accesos",
-    "price": 9800
-  },
-  {
-    "id": 23,
-    "serviceType": [{"id": 8}, {"id": 12}],
-    "cityModel": [{"id": 3}],
-    "idService_DB": 23,
-    "idAsociate_DB": 11,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Logística con Soporte Digital",
-    "description": "Servicio de logística con soporte digital",
-    "price": 11200
-  },
-  {
-    "id": 24,
-    "serviceType": [{"id": 1}],
-    "cityModel": [{"id": 4}],
-    "idService_DB": 24,
-    "idAsociate_DB": 2,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Servicio Integral de Alimentos y Bebidas",
-    "description": "Servicio integral de alimentos y bebidas",
-    "price": 18500
-  },
-  {
-    "id": 25,
-    "serviceType": [{"id": 2}, {"id": 6}],
-    "cityModel": [{"id": 5}],
-    "idService_DB": 25,
-    "idAsociate_DB": 3,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Creación de Ambiente Completo",
-    "description": "Servicio de creación de ambiente completo para eventos",
-    "price": 15700
-  },
-  {
-    "id": 26,
-    "serviceType": [{"id": 4}, {"id": 9}],
-    "cityModel": [{"id": 1}],
-    "idService_DB": 26,
-    "idAsociate_DB": 4,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Evento Seguro con Memoria Fotográfica",
-    "description": "Servicio que garantiza evento seguro con memoria fotográfica",
-    "price": 14300
-  },
-  {
-    "id": 27,
-    "serviceType": [{"id": 1}, {"id": 8}],
-    "cityModel": [{"id": 2}],
-    "idService_DB": 27,
-    "idAsociate_DB": 5,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Fiesta Completa con Logística",
-    "description": "Servicio de fiesta completa con logística incluida",
-    "price": 16800
-  },
-  {
-    "id": 28,
-    "serviceType": [{"id": 1}, {"id": 2}],
-    "cityModel": [{"id": 3}],
-    "idService_DB": 28,
-    "idAsociate_DB": 2,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Experiencia Gastronómica con Música Digital",
-    "description": "Experiencia gastronómica con música digital",
-    "price": 15200
-  },
-  {
-    "id": 29,
-    "serviceType": [{"id": 6}, {"id": 9}],
-    "cityModel": [{"id": 4}],
-    "idService_DB": 29,
-    "idAsociate_DB": 7,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Espacio Decorado y Seguro",
-    "description": "Servicio de espacio decorado y seguro",
-    "price": 12600
-  },
-  {
-    "id": 30,
-    "serviceType": [{"id": 9}, {"id": 1}, {"id": 8}],
-    "cityModel": [{"id": 5}],
-    "idService_DB": 30,
-    "idAsociate_DB": 1,
-    "URL_IMG": [],
-    "tags": [],
-    "name": "Paquete Oro - Servicio Completo",
-    "description": "Paquete oro con servicio completo para eventos",
-    "price": 25000
-  }
+    {
+        "url_Img": [],
+        "id": 1,
+        "serviceType": [
+            {
+                "id": 9,
+                "kind": "Personal y Seguridad",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 1,
+                "kind": "Guadalajara",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 1,
+        "idAsociate_DB": 1,
+        "URL_Img": [],
+        "name": "Servicio de Meseros Elegantes",
+        "description": "Servicio profesional de meseros para eventos elegantes",
+        "price": 3500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 2,
+        "serviceType": [
+            {
+                "id": 1,
+                "kind": "Alimentos y Bebidas",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 2,
+                "kind": "Zapopan",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 2,
+        "idAsociate_DB": 2,
+        "URL_Img": [],
+        "name": "Banquete Tradicional Mexicano",
+        "description": "Banquete con comida tradicional mexicana para eventos",
+        "price": 8000.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 3,
+        "serviceType": [
+            {
+                "id": 2,
+                "kind": "Música y Sonido",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 3,
+                "kind": "Tonalá",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 3,
+        "idAsociate_DB": 3,
+        "URL_Img": [],
+        "name": "DJ Profesional con Equipo Premium",
+        "description": "Servicio de DJ profesional con equipo de sonido premium",
+        "price": 5000.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 4,
+        "serviceType": [
+            {
+                "id": 4,
+                "kind": "Fotografía y Video",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 4,
+                "kind": "Tlajomulco de Zúñiga",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 4,
+        "idAsociate_DB": 4,
+        "URL_Img": [],
+        "name": "Cobertura Fotográfica Premium",
+        "description": "Servicio de fotografía profesional para eventos",
+        "price": 6000.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 5,
+        "serviceType": [
+            {
+                "id": 1,
+                "kind": "Alimentos y Bebidas",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 5,
+                "kind": "San Pedro Tlaquepaque",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 5,
+        "idAsociate_DB": 5,
+        "URL_Img": [],
+        "name": "Barra Libre Premium con Mixólogo",
+        "description": "Servicio de barra libre con mixólogo profesional",
+        "price": 7000.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 6,
+        "serviceType": [
+            {
+                "id": 3,
+                "kind": "Animación y Espectáculos",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 1,
+                "kind": "Guadalajara",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 6,
+        "idAsociate_DB": 6,
+        "URL_Img": [],
+        "name": "Show de Stand-Up y Magia Interactiva",
+        "description": "Espectáculo de comedia y magia para eventos",
+        "price": 4500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 7,
+        "serviceType": [
+            {
+                "id": 6,
+                "kind": "Decoración y Ambientación",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 2,
+                "kind": "Zapopan",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 7,
+        "idAsociate_DB": 7,
+        "URL_Img": [],
+        "name": "Decoración Temática Personalizada",
+        "description": "Servicio de decoración temática personalizada para eventos",
+        "price": 5500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 8,
+        "serviceType": [
+            {
+                "id": 10,
+                "kind": "Transporte y Movilidad",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 3,
+                "kind": "Tonalá",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 8,
+        "idAsociate_DB": 8,
+        "URL_Img": [],
+        "name": "Transporte Ejecutivo para Invitados",
+        "description": "Servicio de transporte ejecutivo para invitados del evento",
+        "price": 4800.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 9,
+        "serviceType": [
+            {
+                "id": 9,
+                "kind": "Personal y Seguridad",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 4,
+                "kind": "Tlajomulco de Zúñiga",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 9,
+        "idAsociate_DB": 9,
+        "URL_Img": [],
+        "name": "Servicio de Seguridad Privada",
+        "description": "Servicio de seguridad privada para eventos",
+        "price": 5200.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 10,
+        "serviceType": [
+            {
+                "id": 8,
+                "kind": "Planeación y Coordinación",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 5,
+                "kind": "San Pedro Tlaquepaque",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 10,
+        "idAsociate_DB": 10,
+        "URL_Img": [],
+        "name": "Coordinación Integral de Bodas",
+        "description": "Servicio de coordinación integral para bodas",
+        "price": 8500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 11,
+        "serviceType": [
+            {
+                "id": 8,
+                "kind": "Planeación y Coordinación",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 1,
+                "kind": "Guadalajara",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 11,
+        "idAsociate_DB": 11,
+        "URL_Img": [],
+        "name": "Logística Completa de Eventos",
+        "description": "Servicio de logística completa para eventos",
+        "price": 7500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 12,
+        "serviceType": [
+            {
+                "id": 12,
+                "kind": "Tecnología y Experiencias",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 2,
+                "kind": "Zapopan",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 12,
+        "idAsociate_DB": 12,
+        "URL_Img": [],
+        "name": "Transmisión en Vivo y Streaming",
+        "description": "Servicio de transmisión en vivo y streaming para eventos",
+        "price": 6500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 13,
+        "serviceType": [
+            {
+                "id": 1,
+                "kind": "Alimentos y Bebidas",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 3,
+                "kind": "Tonalá",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 13,
+        "idAsociate_DB": 2,
+        "URL_Img": [],
+        "name": "Paquete Completo Banquete + Barra",
+        "description": "Paquete completo que incluye banquete y barra libre",
+        "price": 12000.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 14,
+        "serviceType": [
+            {
+                "id": 3,
+                "kind": "Animación y Espectáculos",
+                "killed": 0
+            },
+            {
+                "id": 2,
+                "kind": "Música y Sonido",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 4,
+                "kind": "Tlajomulco de Zúñiga",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 14,
+        "idAsociate_DB": 3,
+        "URL_Img": [],
+        "name": "Combo Música y Espectáculo",
+        "description": "Combo que incluye música y espectáculo",
+        "price": 8500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 15,
+        "serviceType": [
+            {
+                "id": 4,
+                "kind": "Fotografía y Video",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 5,
+                "kind": "San Pedro Tlaquepaque",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 15,
+        "idAsociate_DB": 4,
+        "URL_Img": [],
+        "name": "Fotografía con Escenarios Decorados",
+        "description": "Servicio de fotografía con escenarios decorados",
+        "price": 9500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 16,
+        "serviceType": [
+            {
+                "id": 10,
+                "kind": "Transporte y Movilidad",
+                "killed": 0
+            },
+            {
+                "id": 9,
+                "kind": "Personal y Seguridad",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 1,
+                "kind": "Guadalajara",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 16,
+        "idAsociate_DB": 8,
+        "URL_Img": [],
+        "name": "Transporte con Seguridad Incluida",
+        "description": "Servicio de transporte que incluye seguridad",
+        "price": 7800.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 17,
+        "serviceType": [
+            {
+                "id": 11,
+                "kind": "Diseño y Papelería",
+                "killed": 0
+            },
+            {
+                "id": 8,
+                "kind": "Planeación y Coordinación",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 2,
+                "kind": "Zapopan",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 17,
+        "idAsociate_DB": 10,
+        "URL_Img": [],
+        "name": "Coordinación con Soporte Logístico",
+        "description": "Servicio de coordinación con soporte logístico",
+        "price": 13500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 18,
+        "serviceType": [
+            {
+                "id": 1,
+                "kind": "Alimentos y Bebidas",
+                "killed": 0
+            },
+            {
+                "id": 9,
+                "kind": "Personal y Seguridad",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 3,
+                "kind": "Tonalá",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 18,
+        "idAsociate_DB": 1,
+        "URL_Img": [],
+        "name": "Servicio de Meseros con Barra",
+        "description": "Servicio de meseros que incluye barra",
+        "price": 9000.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 19,
+        "serviceType": [
+            {
+                "id": 12,
+                "kind": "Tecnología y Experiencias",
+                "killed": 0
+            },
+            {
+                "id": 2,
+                "kind": "Música y Sonido",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 4,
+                "kind": "Tlajomulco de Zúñiga",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 19,
+        "idAsociate_DB": 3,
+        "URL_Img": [],
+        "name": "DJ con Transmisión en Vivo",
+        "description": "Servicio de DJ que incluye transmisión en vivo",
+        "price": 9500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 20,
+        "serviceType": [
+            {
+                "id": 3,
+                "kind": "Animación y Espectáculos",
+                "killed": 0
+            },
+            {
+                "id": 2,
+                "kind": "Música y Sonido",
+                "killed": 0
+            },
+            {
+                "id": 4,
+                "kind": "Fotografía y Video",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 5,
+                "kind": "San Pedro Tlaquepaque",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 20,
+        "idAsociate_DB": 4,
+        "URL_Img": [],
+        "name": "Paquete Premium Fotos + Música + Show",
+        "description": "Paquete premium que incluye fotos, música y show",
+        "price": 16500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 21,
+        "serviceType": [
+            {
+                "id": 10,
+                "kind": "Transporte y Movilidad",
+                "killed": 0
+            },
+            {
+                "id": 6,
+                "kind": "Decoración y Ambientación",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 1,
+                "kind": "Guadalajara",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 21,
+        "idAsociate_DB": 7,
+        "URL_Img": [],
+        "name": "Decoración con Transporte Temático",
+        "description": "Servicio de decoración con transporte temático",
+        "price": 10300.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 22,
+        "serviceType": [
+            {
+                "id": 8,
+                "kind": "Planeación y Coordinación",
+                "killed": 0
+            },
+            {
+                "id": 9,
+                "kind": "Personal y Seguridad",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 2,
+                "kind": "Zapopan",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 22,
+        "idAsociate_DB": 9,
+        "URL_Img": [],
+        "name": "Seguridad con Coordinación de Accesos",
+        "description": "Servicio de seguridad con coordinación de accesos",
+        "price": 9800.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 23,
+        "serviceType": [
+            {
+                "id": 12,
+                "kind": "Tecnología y Experiencias",
+                "killed": 0
+            },
+            {
+                "id": 8,
+                "kind": "Planeación y Coordinación",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 3,
+                "kind": "Tonalá",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 23,
+        "idAsociate_DB": 11,
+        "URL_Img": [],
+        "name": "Logística con Soporte Digital",
+        "description": "Servicio de logística con soporte digital",
+        "price": 11200.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 24,
+        "serviceType": [
+            {
+                "id": 1,
+                "kind": "Alimentos y Bebidas",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 4,
+                "kind": "Tlajomulco de Zúñiga",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 24,
+        "idAsociate_DB": 2,
+        "URL_Img": [],
+        "name": "Servicio Integral de Alimentos y Bebidas",
+        "description": "Servicio integral de alimentos y bebidas",
+        "price": 18500.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 25,
+        "serviceType": [
+            {
+                "id": 6,
+                "kind": "Decoración y Ambientación",
+                "killed": 0
+            },
+            {
+                "id": 2,
+                "kind": "Música y Sonido",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 5,
+                "kind": "San Pedro Tlaquepaque",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 25,
+        "idAsociate_DB": 3,
+        "URL_Img": [],
+        "name": "Creación de Ambiente Completo",
+        "description": "Servicio de creación de ambiente completo para eventos",
+        "price": 15700.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 26,
+        "serviceType": [
+            {
+                "id": 9,
+                "kind": "Personal y Seguridad",
+                "killed": 0
+            },
+            {
+                "id": 4,
+                "kind": "Fotografía y Video",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 1,
+                "kind": "Guadalajara",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 26,
+        "idAsociate_DB": 4,
+        "URL_Img": [],
+        "name": "Evento Seguro con Memoria Fotográfica",
+        "description": "Servicio que garantiza evento seguro con memoria fotográfica",
+        "price": 14300.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 27,
+        "serviceType": [
+            {
+                "id": 8,
+                "kind": "Planeación y Coordinación",
+                "killed": 0
+            },
+            {
+                "id": 1,
+                "kind": "Alimentos y Bebidas",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 2,
+                "kind": "Zapopan",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 27,
+        "idAsociate_DB": 5,
+        "URL_Img": [],
+        "name": "Fiesta Completa con Logística",
+        "description": "Servicio de fiesta completa con logística incluida",
+        "price": 16800.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 28,
+        "serviceType": [
+            {
+                "id": 1,
+                "kind": "Alimentos y Bebidas",
+                "killed": 0
+            },
+            {
+                "id": 2,
+                "kind": "Música y Sonido",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 3,
+                "kind": "Tonalá",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 28,
+        "idAsociate_DB": 2,
+        "URL_Img": [],
+        "name": "Experiencia Gastronómica con Música Digital",
+        "description": "Experiencia gastronómica con música digital",
+        "price": 15200.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 29,
+        "serviceType": [
+            {
+                "id": 6,
+                "kind": "Decoración y Ambientación",
+                "killed": 0
+            },
+            {
+                "id": 9,
+                "kind": "Personal y Seguridad",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 4,
+                "kind": "Tlajomulco de Zúñiga",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 29,
+        "idAsociate_DB": 7,
+        "URL_Img": [],
+        "name": "Espacio Decorado y Seguro",
+        "description": "Servicio de espacio decorado y seguro",
+        "price": 12600.00,
+        "tags": []
+    },
+    {
+        "url_Img": [],
+        "id": 30,
+        "serviceType": [
+            {
+                "id": 8,
+                "kind": "Planeación y Coordinación",
+                "killed": 0
+            },
+            {
+                "id": 1,
+                "kind": "Alimentos y Bebidas",
+                "killed": 0
+            },
+            {
+                "id": 9,
+                "kind": "Personal y Seguridad",
+                "killed": 0
+            }
+        ],
+        "cityModel": [
+            {
+                "id": 5,
+                "kind": "San Pedro Tlaquepaque",
+                "killed": 0
+            }
+        ],
+        "idService_DB": 30,
+        "idAsociate_DB": 1,
+        "URL_Img": [],
+        "name": "Paquete Oro - Servicio Completo",
+        "description": "Paquete oro con servicio completo para eventos",
+        "price": 25000.00,
+        "tags": []
+    }
 ]

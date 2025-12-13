@@ -1,13 +1,14 @@
-import { AsociateTerraceModel } from "./AsociateTerraceModel";
+import { AsociateTerrace } from "./AsociateTerraceModel";
 
 export interface TerraceModel{
   id: number;
   name: string;
 
-  asociateTerraceModel: AsociateTerraceModel;
+  asociateTerrace: AsociateTerrace;
 
   baseSize: number;
   maxSize: number;
+  basePrice: number;
   priceAdd10: number;
 
   direction: string;
