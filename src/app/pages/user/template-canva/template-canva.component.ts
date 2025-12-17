@@ -135,6 +135,17 @@ export class TemplateCanvaComponent implements OnInit {
   }
 
   loadTerraces(): void {
+
+    const id = this.template().terraceTypeModel.id;
+
+    this.t_terraceService.getByTerraceTypeId(id).subscribe({
+      next: (data) => this.terraces.set(data),
+      error: (error) => console.error("Error loading terraces by type:", error),
+    });
+
+    return;
+
+
     this.t_terraceService.getAll().subscribe({
       next: (data) => this.terraces.set(data),
       error: (error) => console.error("Error loading terraces:", error),
@@ -189,7 +200,7 @@ export class TemplateCanvaComponent implements OnInit {
   openServiceDialog(service: T_ServiceModel): void {
     this.selectedService_T = { ...service };
 
-    this.r_serviceService.getById(service.id).subscribe({
+    this.r_serviceService.getById(service.idService_DB).subscribe({
       next: (data: R_ServiceModel) => {
         this.selectedService_R = data;
         this.showServiceDialog = true;

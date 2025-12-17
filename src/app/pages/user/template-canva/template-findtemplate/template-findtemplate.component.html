@@ -8,6 +8,8 @@
       [options]="terraceTypes"
       optionLabel="kind"
       placeholder="cambiar tipo de terraza"
+      [(ngModel)]="selectedTerraceType"
+      (onChange)="loadTerraces($event.value.id)" 
       >
       </p-dropdown>
     </ng-template>

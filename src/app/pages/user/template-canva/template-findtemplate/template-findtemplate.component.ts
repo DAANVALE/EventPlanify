@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal, OnInit } from '@angular/core';
 import { ImportsModule } from '../../../../imports';
 import { CommonModule } from '@angular/common';
 
@@ -10,6 +10,8 @@ import { TerraceModel as T_TerraceModel, TerraceModel } from '../../../../models
 import { FormsModule } from '@angular/forms';
 
 import { TerraceService as R_TerraceService} from '../../../../shared/ms_reserve/terraceService.service';
+import { TerraceService as T_TerraceService} from '../../../../shared/ms_template/terraceService.service';
+
 import { EventModel } from '../../../../models/ms_reserve/EventModel';
 
 @Component({
@@ -19,7 +21,7 @@ import { EventModel } from '../../../../models/ms_reserve/EventModel';
   templateUrl: './template-findtemplate.component.html',
   styleUrl: './template-findtemplate.component.css'
 })
-export class TemplateFindtemplateComponent {
+export class TemplateFindtemplateComponent implements OnInit{
   @Input() terraceTypes: T_TerraceTypeModel[] = [];
   @Input() terraces: T_TerraceModel[] = [];
 
@@ -39,8 +41,13 @@ export class TemplateFindtemplateComponent {
   eventModel: Partial<EventModel> = {};
 
   constructor(
-    private r_terraceService: R_TerraceService
+    private r_terraceService: R_TerraceService,
+    private t_terraceService: T_TerraceService
   ) { }
+
+  ngOnInit(): void {
+
+  }
 
   onSelectTerraceType() {
     if (this.selectedTerraceType) {
@@ -66,6 +73,16 @@ export class TemplateFindtemplateComponent {
     this.saveEventModelToLocal();
     this.terraceRSelected.emit(this.selectedRTerrace);
     this.showDialog = false;
+  }
+
+  loadTerraces(id: number): void {
+
+    this.t_terraceService.getByTerraceTypeId(id).subscribe({
+      next: (data) => {
+        this.terraces = data;
+      },
+      error: (error) => console.error("Error", error),
+    });
   }
 
   saveEventModelToLocal(): void{

@@ -52,6 +52,29 @@ export class TerraceService {
     );
   }
 
+  getByTerraceTypeId(terraceTypeId: number): Observable<TerraceModel[]> {
+    return this.http.get<TerraceModel[]>(`${this.API}/TerraceType/${terraceTypeId}`).pipe(
+      catchError(error => {
+        return this.loadLocalTerrace().pipe(
+            map((data) => {
+              this.fallbackTerrace = data; // Actualizar el fallback
+              const filtered = this.fallbackTerrace.filter(t => t.terraceType.some(x => x.id === terraceTypeId));
+              this.fallbackTerrace = filtered;
+              console.warn('✅ Terraces locales cargados para Terrace Type ID:', terraceTypeId, filtered);
+              return filtered;
+            }),
+          catchError(localError => {
+            console.error('❌ Error cargando terraces locales para Terrace Type ID:', terraceTypeId, localError);
+            const filtered = this.fallbackTerrace && this.fallbackTerrace.length > 0
+              ? this.fallbackTerrace.filter(t => t.terraceType && t.terraceType.some(x => x.id === terraceTypeId))
+              : [];
+            return of(filtered);
+          })
+        );
+      })
+    );
+  }
+
   create(terrace: TerraceModel): Observable<TerraceModel> {
     return this.http.post<TerraceModel>(this.API, terrace).pipe(
       catchError(error => {
