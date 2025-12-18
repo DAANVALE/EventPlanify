@@ -38,7 +38,6 @@ export class ServiceService{
 
   getById(id: number): Observable<ServiceModel> {
 
-    debugger;
     const fallback = this.fallbackServiceModel.find(t => t.id === id);
 
     if (fallback != null) {

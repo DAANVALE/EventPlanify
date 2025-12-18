@@ -1,64 +1,74 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, map, throwError, of } from 'rxjs';
-import { AsociateServiceModel } from '../../models/ms_reserve/AsociateServiceModel';
-import { asociateServiceModelTs } from '../../assets/reserve-test-data'; // opcional para fallback
+import { catchError, Observable, map, throwError, of, tap } from 'rxjs';
+import { AsociateService } from '../../models/ms_reserve/AsociateServiceModel';
 import { environment } from '../../enviroments/enviroment';
+import { ResponsePage } from '../../models/ResponsePage';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AsociateServiceServiceService {
+export class AsociateServiceService {
 
   private API = environment.msReservesUrl + '/asociate-service';
-  asociateServices: AsociateServiceModel[] = [];
+  asociateServices: AsociateService[] = [];
 
   // Datos de prueba si el backend falla
-  fallbackAsociateServiceModel = asociateServiceModelTs;
+  fallbackAsociateService: AsociateService[] = [];
 
   constructor(private http: HttpClient) {}
 
   /** 🔹 Obtener todos los asociados activos (con paginación) */
-  getAllActive(page = 0, size = 10): Observable<AsociateServiceModel[]> {
+  getAllActive(page = 0, size = 10): Observable<AsociateService[]> {
     return this.http
       .get<any>(`${this.API}?page=${page}&size=${size}`)
       .pipe(
         map(response => response.content || []),
-        catchError(error => {
-          console.error('Error fetching active asociates:', error);
-          return of(this.fallbackAsociateServiceModel);
+        catchError(() => {
+          return this.loadLocalAsociatesWithFallback().pipe(
+            tap((data) =>
+            { console.warn('✅ Cargando asociados locales como fallback')
+              this.fallbackAsociateService = data.filter(a => a.killed == 0);
+            },
+            catchError(localError => {
+              this.handleError(localError);
+              console.error('❌ Error cargando asociados locales:', localError);
+              return of(this.fallbackAsociateService);
+            })
+          ));
         })
       );
   }
 
   /** 🔹 Obtener todos los asociados (sin filtro de activos) */
-  getAll(page = 0, size = 10): Observable<AsociateServiceModel[]> {
-    return this.http
-      .get<any>(`${this.API}/all?page=${page}&size=${size}`)
+  getAll(page = 0, size = 10): Observable<AsociateService[]> {
+    return this.http.get<ResponsePage<AsociateService[]>>(`${this.API}/all?page=${page}&size=${size}`)
       .pipe(
-        map(response => response.content || []),
+        map(response => {
+          this.fallbackAsociateService = response.content || [];
+          return response.content || [];
+        }),
         catchError(error => {
-          console.error('Error fetching asociates:', error);
-          return of(this.fallbackAsociateServiceModel);
+          return this.loadLocalAsociatesWithFallback();
         })
       );
   }
 
   /** 🔹 Buscar por ID */
-  getById(id: number): Observable<AsociateServiceModel> {
-    return this.http.get<AsociateServiceModel>(`${this.API}/${id}`).pipe(
+  getById(id: number): Observable<AsociateService> {
+    return this.http.get<AsociateService>(`${this.API}/${id}`).pipe(
       catchError(error => {
         console.error(`Error fetching asociate with ID ${id}:`, error);
-        const fallback = this.fallbackAsociateServiceModel.find(t => t.id === id)
-                        || this.fallbackAsociateServiceModel[0];
+        const fallback = this.fallbackAsociateService.find(t => t.id === id)
+                        || this.fallbackAsociateService[0];
         return of(fallback);
       })
     );
   }
 
   /** 🔹 Crear o guardar un asociado */
-  create(model: AsociateServiceModel): Observable<AsociateServiceModel> {
-    return this.http.post<AsociateServiceModel>(this.API, model).pipe(
+  create(model: AsociateService): Observable<AsociateService> {
+    return this.http.post<AsociateService>(this.API, model).pipe(
       catchError(error => {
         console.error('Error creating AsociateService:', error);
         return throwError(() => new Error('Failed to create AsociateService'));
@@ -67,8 +77,8 @@ export class AsociateServiceServiceService {
   }
 
   /** 🔹 Eliminar por modelo (usa POST /delete) */
-  delete(model: AsociateServiceModel): Observable<AsociateServiceModel> {
-    return this.http.post<AsociateServiceModel>(`${this.API}/delete`, model).pipe(
+  delete(model: AsociateService): Observable<AsociateService> {
+    return this.http.post<AsociateService>(`${this.API}/delete`, model).pipe(
       catchError(error => {
         console.error('Error deleting AsociateService:', error);
         return throwError(() => new Error('Failed to delete AsociateService'));
@@ -77,8 +87,8 @@ export class AsociateServiceServiceService {
   }
 
   /** 🔹 Eliminar por ID (usa POST /delete/{id}) */
-  deleteById(id: number): Observable<AsociateServiceModel> {
-    return this.http.post<AsociateServiceModel>(`${this.API}/delete/${id}`, {}).pipe(
+  deleteById(id: number): Observable<AsociateService> {
+    return this.http.post<AsociateService>(`${this.API}/delete/${id}`, {}).pipe(
       catchError(error => {
         console.error(`Error deleting AsociateService with ID ${id}:`, error);
         return throwError(() => new Error('Failed to delete AsociateService'));
@@ -91,4 +101,23 @@ export class AsociateServiceServiceService {
     console.error('Something went wrong in AsociateServiceService:', error);
     return throwError(() => new Error('Service error'));
   }
+
+  loadLocalServices(): Observable<AsociateService[]> {
+    return this.http.get<AsociateService[]>('assets/reserve/asociateService.json');
+  }
+    
+    private loadLocalAsociatesWithFallback(): Observable<AsociateService[]> {
+      return this.loadLocalServices().pipe(
+        tap(data => {
+          this.fallbackAsociateService = data;
+          console.warn('✅ Asociates serv. locales cargados como fallback');
+          console.log(this.fallbackAsociateService);
+        }),
+        catchError(localError => {
+          this.handleError(localError);
+          console.error('❌ Error cargando asociates serv. locales:', localError);
+          return of(this.fallbackAsociateService);
+        })
+      );
+    }
 }

@@ -5,6 +5,7 @@ import { TemplateCardComponent } from './features/templat/template-card/template
 import { TypeEventMenuComponent } from './features/event/type-event-menu/type-event-menu.component';
 import { MisEventosComponent } from './pages/user/mis-eventos/mis-eventos.component';
 import { MiHostComponent } from './pages/user/mi-host/mi-host.component';
+import { TestingComponent } from './pages/testing/testing.component';
 
 export const routes: Routes = [
     { 
@@ -43,6 +44,10 @@ export const routes: Routes = [
     {
         path: 'mi-host',
         component: MiHostComponent
+    },
+    {
+        path: 'test',
+        component: TestingComponent
     },
     { path: '**', redirectTo: '' },
 ]
