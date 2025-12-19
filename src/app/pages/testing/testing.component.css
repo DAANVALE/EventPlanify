@@ -30,3 +30,9 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.divider {
+  height: 1px;
+  background: #eee;
+  margin: 15px 0;
+}

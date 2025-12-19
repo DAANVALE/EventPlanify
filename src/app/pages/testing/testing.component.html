@@ -23,3 +23,63 @@
     </div>
   </div>
 </div>
+
+
+<div class="divider">
+</div>
+
+
+<div class="card-container">
+  <div *ngFor="let asociate of asociateTerraceModels; let i = index" class="asociate-card">
+    <div class="card-header">
+      <span class="badge">{{ i + 1 }}</span>
+      <h3>{{ asociate.name || 'Sin nombre' }}</h3>
+    </div>
+    
+    <div class="card-body">
+      <div class="contact-info">
+        <p>
+          <i class="pi pi-envelope"></i>
+          <strong>Email:</strong> {{ asociate.mail || 'No especificado' }}
+        </p>
+        <p>
+          <i class="pi pi-phone"></i>
+          <strong>Teléfono:</strong> {{ asociate.phone || 'No especificado' }}
+        </p>
+      </div>
+      
+      <div class="user-info">
+        <small>ID Usuario: {{ asociate.idUser }}</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider">
+</div>
+
+<div class="card-container">
+  <div *ngFor="let asociate of clientModels; let i = index" class="asociate-card">
+    <div class="card-header">
+      <span class="badge">{{ i + 1 }}</span>
+      <h3>{{ asociate.name || 'Sin nombre' }}</h3>
+    </div>
+    
+    <div class="card-body">
+      <div class="contact-info">
+        <p>
+          <i class="pi pi-envelope"></i>
+          <strong>Email:</strong> {{ asociate.mail || 'No especificado' }}
+        </p>
+        <p>
+          <i class="pi pi-phone"></i>
+          <strong>Teléfono:</strong> {{ asociate.phone || 'No especificado' }}
+        </p>
+      </div>
+      
+      <div class="user-info">
+        <small>ID Usuario: {{ asociate.idUser }}</small>
+      </div>
+    </div>
+  </div>
+</div>
