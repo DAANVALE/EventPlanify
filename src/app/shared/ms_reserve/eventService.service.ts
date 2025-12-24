@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, map, throwError, of } from 'rxjs';
+import { catchError, Observable, map, throwError, of, tap } from 'rxjs';
 import { environment } from '../../enviroments/enviroment';
 import { EventModel } from '../../models/ms_reserve/EventModel';
 // import { EventModelTs } from '../../assets/reserve-test-data';
@@ -11,7 +11,6 @@ import { EventModel } from '../../models/ms_reserve/EventModel';
 export class EventService {
 
   private API = environment.msReservesUrl + '/event';
-  events: EventModel[] = [];
 
   // Datos locales de fallback si el backend no responde
   fallbackEvents : EventModel[] = []; // EventModelTs;
@@ -25,8 +24,18 @@ export class EventService {
       .pipe(
         map(response => response.content || []),
         catchError(error => {
-          console.error('Error fetching events:', error);
-          return of(this.fallbackEvents);
+          return this.loadLocalClientsWithFallback().pipe(
+            tap((data) =>
+            { 
+              console.warn('✅ Cargando events locales como fallback')
+              this.fallbackEvents = data;
+            },
+            catchError(localError => {
+              this.handleError(localError);
+              console.error('❌ Error cargando events locales:', localError);
+              return of(this.fallbackEvents);
+            })
+          ));
         })
       );
   }
@@ -49,8 +58,18 @@ export class EventService {
       .pipe(
         map(response => response.content || []),
         catchError(error => {
-          console.error(`Error fetching events for client ${clientId}:`, error);
-          return of(this.fallbackEvents);
+          return this.loadLocalClientsWithFallback().pipe(
+            tap((data) =>
+            {
+              console.warn('✅ Cargando events locales como fallback')
+              return data.filter(a => a.clientModel.id === clientId);
+            },
+            catchError(localError => {
+              this.handleError(localError);
+              console.error('❌ Error cargando events locales:', localError);
+              return of(this.fallbackEvents);
+            })
+          ));
         })
       );
   }
@@ -92,5 +111,23 @@ export class EventService {
   private handleError(error: any): Observable<never> {
     console.error('Something went wrong in EventService:', error);
     return throwError(() => new Error('Event service error'));
+  }
+
+  loadLocalClients(): Observable<EventModel[]> {
+    return this.http.get<EventModel[]>('assets/reserve/event.json');
+  }
+      
+  private loadLocalClientsWithFallback(): Observable<EventModel[]> {
+    return this.loadLocalClients().pipe(
+      tap(data => {
+        this.fallbackEvents = data;
+        console.warn('✅ Clients locales cargados como fallback');
+      }),
+      catchError(localError => {
+        this.handleError(localError);
+        console.error('❌ Error cargando clients locales:', localError);
+        return of(this.fallbackEvents);
+      })
+    );
   }
 }

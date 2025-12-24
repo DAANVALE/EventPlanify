@@ -8,48 +8,55 @@
     <div class="evento-card" 
          *ngFor="let evento of eventos" 
          (click)="verDetalles(evento)"
-         [class.confirmado]="evento.estado === 'Confirmado'"
-         [class.proximo]="evento.estado === 'Próximo'"
-         [class.completado]="evento.estado === 'Completado'">
+         [class.confirmado]="evento?.stateEventType?.kind === 'Confirmado'"
+         [class.proximo]="evento?.stateEventType?.kind === 'En curso'"
+         [class.completado]="evento?.stateEventType?.kind === 'Completado'">
       
       <div class="card-image">
-        <img [src]="evento.terraza.imagen" [alt]="evento.terraza.nombre" />
-        <div class="estado-badge" [style.background-color]="obtenerColorEstado(evento.estado)">
-          {{ evento.estado }}
+        <div class="terraza-placeholder">
+          <span class="terraza-iniciales">{{ obtenerIniciales(evento.terraceModel?.name || "N?A" ) }}</span>
+        </div>
+        <div class="estado-badge" [style.background-color]="obtenerColorEstado(evento.stateEventType.kind)">
+          {{ evento?.stateEventType?.kind || 'Sin estado' }}
         </div>
       </div>
 
       <div class="card-content">
-        <h3 class="evento-nombre">{{ evento.nombre }}</h3>
+        <h3 class="evento-nombre">{{ evento.terraceModel?.name || 'Terraza sin nombre' }}</h3>
         
         <div class="info-row">
-          <i class="icon-calendar"></i>
-          <span>{{ evento.fecha }}</span>
+          <i class="icon-calendar">📅</i>
+          <span>{{ formatearFecha(evento.dayDate) }}</span>
         </div>
 
         <div class="info-row">
-          <i class="icon-location"></i>
-          <span>{{ evento.terraza.nombre }}</span>
+          <i class="icon-user">👤</i>
+          <span>{{ evento?.clientModel?.name || 'Cliente no especificado' }}</span>
         </div>
 
         <div class="info-row">
-          <i class="icon-marker"></i>
-          <span>{{ evento.terraza.ubicacion }}</span>
+          <i class="icon-location">📍</i>
+          <span>{{ evento.address || evento.terraceModel?.direction || 'Dirección no disponible' }}</span>
         </div>
 
-        <div class="servicios-count">
-          <i class="icon-services"></i>
-          <span>{{ evento.servicios.length }} servicios contratados</span>
+        <div class="info-row">
+          <i class="icon-group">👥</i>
+          <span>{{ evento.sizePeople }} personas</span>
+        </div>
+
+        <div class="info-row">
+          <i class="icon-payment">💳</i>
+          <span>{{ evento.payment || 'Método no especificado' }}</span>
         </div>
 
         <div class="precio-total">
           <span class="precio-label">Total:</span>
-          <span class="precio-valor">${{ evento.precioTotal.toLocaleString('es-MX') }}</span>
+          <span class="precio-valor">${{ evento.sumPrice || '0' }}</span>
         </div>
 
         <button class="btn-ver-detalles">
           Ver Detalles
-          <i class="icon-arrow"></i>
+          <i class="icon-arrow">➡️</i>
         </button>
       </div>
     </div>
@@ -73,9 +80,9 @@
     </button>
 
     <div class="modal-header">
-      <h2>{{ eventoSeleccionado.nombre }}</h2>
-      <div class="estado-badge-large" [style.background-color]="obtenerColorEstado(eventoSeleccionado.estado)">
-        {{ eventoSeleccionado.estado }}
+      <h2>{{ eventoSeleccionado.terraceModel?.name || 'Detalles del Evento' }}</h2>
+      <div class="estado-badge-large" [style.background-color]="obtenerColorEstado(eventoSeleccionado.stateEventType?.kind)">
+        {{ eventoSeleccionado.stateEventType?.kind || 'Sin estado' }}
       </div>
     </div>
 
@@ -84,13 +91,44 @@
       <div class="seccion">
         <h3>🏛️ Terraza</h3>
         <div class="terraza-info">
-          <img [src]="eventoSeleccionado.terraza.imagen" [alt]="eventoSeleccionado.terraza.nombre" class="terraza-imagen" />
+          <div class="terraza-placeholder-large">
+            <span class="terraza-iniciales-large">{{ obtenerIniciales(eventoSeleccionado.terraceModel?.name) }}</span>
+          </div>
           <div class="terraza-detalles">
-            <h4>{{ eventoSeleccionado.terraza.nombre }}</h4>
+            <h4>{{ eventoSeleccionado.terraceModel?.name || 'Terraza sin nombre' }}</h4>
             <p>
-              <i class="icon-marker"></i>
-              {{ eventoSeleccionado.terraza.ubicacion }}
+              <i class="icon-marker">📍</i>
+              {{ eventoSeleccionado.address || eventoSeleccionado.terraceModel?.direction || 'Dirección no disponible' }}
             </p>
+            <div class="terraza-estadisticas">
+              <div class="estadistica">
+                <span class="estadistica-label">Tamaño base:</span>
+                <span class="estadistica-valor">{{ eventoSeleccionado.terraceModel?.baseSize }} m²</span>
+              </div>
+              <div class="estadistica">
+                <span class="estadistica-label">Tamaño máximo:</span>
+                <span class="estadistica-valor">{{ eventoSeleccionado.terraceModel?.maxSize }} m²</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Información del Cliente -->
+      <div class="seccion">
+        <h3>👤 Información del Cliente</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Nombre:</span>
+            <span class="info-value">{{ eventoSeleccionado.clientModel?.name || 'No especificado' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Email:</span>
+            <span class="info-value">{{ eventoSeleccionado.clientModel?.email || 'No especificado' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Teléfono:</span>
+            <span class="info-value">{{ eventoSeleccionado.clientModel?.phone || 'No especificado' }}</span>
           </div>
         </div>
       </div>
@@ -100,43 +138,52 @@
         <h3>📋 Información del Evento</h3>
         <div class="info-grid">
           <div class="info-item">
-            <span class="info-label">Fecha:</span>
-            <span class="info-value">{{ eventoSeleccionado.fecha }}</span>
+            <span class="info-label">ID de Reserva:</span>
+            <span class="info-value">#{{ eventoSeleccionado.id || 'N/A' }}</span>
           </div>
           <div class="info-item">
-            <span class="info-label">ID de Reserva:</span>
-            <span class="info-value">#{{ eventoSeleccionado.id }}</span>
+            <span class="info-label">Fecha y Hora:</span>
+            <span class="info-value">{{ formatearFechaCompleta(eventoSeleccionado.dayDate) }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Número de Personas:</span>
+            <span class="info-value">{{ eventoSeleccionado.sizePeople }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Método de Pago:</span>
+            <span class="info-value">{{ eventoSeleccionado.payment || 'No especificado' }}</span>
           </div>
         </div>
       </div>
 
-      <!-- Servicios Contratados -->
+      <!-- Información de Precios -->
       <div class="seccion">
-        <h3>🎉 Servicios Contratados</h3>
-        <div class="servicios-lista">
-          <div class="servicio-item" *ngFor="let servicio of eventoSeleccionado.servicios">
-            <div class="servicio-icon">✓</div>
-            <div class="servicio-info">
-              <h4>{{ servicio.nombre }}</h4>
-              <p>{{ servicio.tipo }}</p>
-            </div>
+        <h3>💰 Detalles de Precios</h3>
+        <div class="precios-detalle">
+          <div class="precio-item">
+            <span class="precio-label">Precio base terraza:</span>
+            <span class="precio-valor">${{ eventoSeleccionado.terraceModel?.price?.toLocaleString('es-MX') || '0' }}</span>
+          </div>
+          <div class="precio-item" *ngIf="eventoSeleccionado.sizePeople > eventoSeleccionado.terraceModel?.baseSize">
+            <span class="precio-label">Extensión (+{{ eventoSeleccionado.sizePeople - eventoSeleccionado.terraceModel?.baseSize }} personas):</span>
+            <span class="precio-valor">+${{ eventoSeleccionado.terraceModel?.priceAdd10?.toLocaleString('es-MX') || '0' }}</span>
           </div>
         </div>
       </div>
 
       <!-- Total -->
       <div class="seccion total-seccion">
-        <h3>💰 Resumen de Pago</h3>
+        <h3>💳 Resumen de Pago</h3>
         <div class="total-container">
           <span class="total-label">Total del Evento:</span>
-          <span class="total-valor">${{ eventoSeleccionado.precioTotal.toLocaleString('es-MX') }}</span>
+          <span class="total-valor">${{ eventoSeleccionado.sumPrice?.toLocaleString('es-MX') || '0' }}</span>
         </div>
       </div>
 
       <!-- Acciones -->
       <div class="modal-acciones">
         <button class="btn-secundario" (click)="cerrarModal()">Cerrar</button>
-        <button class="btn-primario" *ngIf="eventoSeleccionado.estado === 'Confirmado' || eventoSeleccionado.estado === 'Próximo'">
+        <button class="btn-primario" *ngIf="eventoSeleccionado.stateEventType?.kind === 'Confirmado' || eventoSeleccionado.stateEventType?.kind === 'En curso'">
           Contactar Soporte
         </button>
       </div>

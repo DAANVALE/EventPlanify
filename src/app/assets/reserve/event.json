@@ -1,0 +1,236 @@
+[
+  {
+    "id": 1,
+    "clientModel": {
+      "id": 1,
+      "name": "Ana García López",
+      "email": "ana.garcia@email.com",
+      "phone": "3312345678"
+    },
+    "terraceModel": {
+      "id": 1,
+      "name": "Terraza con Alberca Azul",
+      "associateTerraceModel": 1,
+      "baseSize": 80,
+      "maxSize": 150,
+      "priceAdd10": 1500,
+      "direction": "Av. Acueducto 123, Zona Real, Zapopan",
+      "killed": 0,
+      "price": 3500
+    },
+    "stateEventType": { "id": 2, "kind": "En curso", "killed": 0 },
+    "address": "Av. Acueducto 123, Zona Real, Zapopan",
+    "sizePeople": 95,
+    "dayDate": "2024-03-15T18:00:00",
+    "payment": "Tarjeta de Crédito",
+    "sumPrice": 4750
+  },
+  {
+    "id": 2,
+    "clientModel": {
+      "id": 1,
+      "name": "Ana García López",
+      "email": "ana.garcia@email.com",
+      "phone": "3312345678"
+    },
+    "terraceModel": {
+      "id": 2,
+      "name": "Terraza El Encino",
+      "associateTerraceModel": 2,
+      "baseSize": 60,
+      "maxSize": 100,
+      "priceAdd10": 1200,
+      "direction": "Calle Encino 456, Col. Seattle, Zapopan",
+      "killed": 0,
+      "price": 3000
+    },
+    "stateEventType": { "id": 3, "kind": "Finalizado", "killed": 0 },
+    "address": "Calle Encino 456, Col. Seattle, Zapopan",
+    "sizePeople": 85,
+    "dayDate": "2024-02-10T19:30:00",
+    "payment": "Efectivo",
+    "sumPrice": 4500
+  },
+  {
+    "id": 3,
+    "clientModel": {
+      "id": 1,
+      "name": "Ana García López",
+      "email": "ana.garcia@email.com",
+      "phone": "3312345678"
+    },
+    "terraceModel": {
+      "id": 5,
+      "name": "Jardín Natural El Roble",
+      "associateTerraceModel": 5,
+      "baseSize": 100,
+      "maxSize": 200,
+      "priceAdd10": 1600,
+      "direction": "Paraje El Roble, Zapotlanejo",
+      "killed": 0,
+      "price": 5000
+    },
+    "stateEventType": { "id": 1, "kind": "Planificado", "killed": 0 },
+    "address": "Paraje El Roble, Zapotlanejo",
+    "sizePeople": 150,
+    "dayDate": "2024-06-20T16:00:00",
+    "payment": "Pendiente",
+    "sumPrice": 7800
+  },
+  {
+    "id": 4,
+    "clientModel": {
+      "id": 2,
+      "name": "Carlos Martínez Ruiz",
+      "email": "carlos.martinez@empresa.com",
+      "phone": "3323456789"
+    },
+    "terraceModel": {
+      "id": 3,
+      "name": "Salón Los Arcos",
+      "associateTerraceModel": 3,
+      "baseSize": 90,
+      "maxSize": 180,
+      "priceAdd10": 1800,
+      "direction": "Av. Revolución 789, Centro, Tlaquepaque",
+      "killed": 0,
+      "price": 4500
+    },
+    "stateEventType": { "id": 2, "kind": "En curso", "killed": 0 },
+    "address": "Av. Revolución 789, Centro, Tlaquepaque",
+    "sizePeople": 120,
+    "dayDate": "2024-04-10T20:00:00",
+    "payment": "Transferencia Bancaria",
+    "sumPrice": 5940
+  },
+  {
+    "id": 5,
+    "clientModel": {
+      "id": 2,
+      "name": "Carlos Martínez Ruiz",
+      "email": "carlos.martinez@empresa.com",
+      "phone": "3323456789"
+    },
+    "terraceModel": {
+      "id": 6,
+      "name": "Terraza Experiencia 360",
+      "associateTerraceModel": 6,
+      "baseSize": 120,
+      "maxSize": 250,
+      "priceAdd10": 2000,
+      "direction": "Bosques de Santa Anita, Tlajomulco",
+      "killed": 0,
+      "price": 7000
+    },
+    "stateEventType": { "id": 1, "kind": "Planificado", "killed": 0 },
+    "address": "Bosques de Santa Anita, Tlajomulco",
+    "sizePeople": 180,
+    "dayDate": "2024-08-15T21:00:00",
+    "payment": "Tarjeta de Crédito",
+    "sumPrice": 10200
+  },
+  {
+    "id": 6,
+    "clientModel": {
+      "id": 2,
+      "name": "Carlos Martínez Ruiz",
+      "email": "carlos.martinez@empresa.com",
+      "phone": "3323456789"
+    },
+    "terraceModel": {
+      "id": 4,
+      "name": "Terraza ExpoTonala",
+      "associateTerraceModel": 4,
+      "baseSize": 70,
+      "maxSize": 160,
+      "priceAdd10": 1300,
+      "direction": "Zona Artesanal, Tonalá",
+      "killed": 0,
+      "price": 4000
+    },
+    "stateEventType": { "id": 3, "kind": "Finalizado", "killed": 0 },
+    "address": "Zona Artesanal, Tonalá",
+    "sizePeople": 110,
+    "dayDate": "2023-12-20T17:00:00",
+    "payment": "Efectivo",
+    "sumPrice": 4520
+  },
+  {
+    "id": 7,
+    "clientModel": {
+      "id": 2,
+      "name": "Carlos Martínez Ruiz",
+      "email": "carlos.martinez@empresa.com",
+      "phone": "3323456789"
+    },
+    "terraceModel": {
+      "id": 1,
+      "name": "Terraza con Alberca Azul",
+      "associateTerraceModel": 1,
+      "baseSize": 80,
+      "maxSize": 150,
+      "priceAdd10": 1500,
+      "direction": "Av. Acueducto 123, Zona Real, Zapopan",
+      "killed": 0,
+      "price": 3500
+    },
+    "stateEventType": { "id": 4, "kind": "Cancelado", "killed": 0 },
+    "address": "Av. Acueducto 123, Zona Real, Zapopan",
+    "sizePeople": 100,
+    "dayDate": "2023-11-05T19:00:00",
+    "payment": "Pendiente",
+    "sumPrice": 5000
+  },
+  {
+    "id": 8,
+    "clientModel": {
+      "id": 3,
+      "name": "María Fernández Díaz",
+      "email": "maria.fdz@correo.com",
+      "phone": "3334567890"
+    },
+    "terraceModel": {
+      "id": 2,
+      "name": "Terraza El Encino",
+      "associateTerraceModel": 2,
+      "baseSize": 60,
+      "maxSize": 100,
+      "priceAdd10": 1200,
+      "direction": "Calle Encino 456, Col. Seattle, Zapopan",
+      "killed": 0,
+      "price": 3000
+    },
+    "stateEventType": { "id": 3, "kind": "Finalizado", "killed": 0 },
+    "address": "Calle Encino 456, Col. Seattle, Zapopan",
+    "sizePeople": 85,
+    "dayDate": "2024-01-28T19:30:00",
+    "payment": "Efectivo",
+    "sumPrice": 4500
+  },
+  {
+    "id": 9,
+    "clientModel": {
+      "id": 3,
+      "name": "María Fernández Díaz",
+      "email": "maria.fdz@correo.com",
+      "phone": "3334567890"
+    },
+    "terraceModel": {
+      "id": 5,
+      "name": "Jardín Natural El Roble",
+      "associateTerraceModel": 5,
+      "baseSize": 100,
+      "maxSize": 200,
+      "priceAdd10": 1600,
+      "direction": "Paraje El Roble, Zapotlanejo",
+      "killed": 0,
+      "price": 5000
+    },
+    "stateEventType": { "id": 5, "kind": "Pospuesto", "killed": 0 },
+    "address": "Paraje El Roble, Zapotlanejo",
+    "sizePeople": 150,
+    "dayDate": "2024-07-10T16:00:00",
+    "payment": "Tarjeta de Débito",
+    "sumPrice": 7800
+  }
+]
