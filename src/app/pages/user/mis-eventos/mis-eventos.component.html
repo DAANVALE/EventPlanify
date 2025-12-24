@@ -13,12 +13,12 @@
          [class.completado]="evento?.stateEventType?.kind === 'Completado'">
       
       <div class="card-image">
-        <div class="terraza-placeholder">
-          <span class="terraza-iniciales">{{ obtenerIniciales(evento.terraceModel?.name || "N?A" ) }}</span>
-        </div>
         <div class="estado-badge" [style.background-color]="obtenerColorEstado(evento.stateEventType.kind)">
           {{ evento?.stateEventType?.kind || 'Sin estado' }}
         </div>
+        <img 
+          src="assets\testImg\terrace.jpeg" 
+          alt="Imagen de la terraza">
       </div>
 
       <div class="card-content">
@@ -91,9 +91,6 @@
       <div class="seccion">
         <h3>🏛️ Terraza</h3>
         <div class="terraza-info">
-          <div class="terraza-placeholder-large">
-            <span class="terraza-iniciales-large">{{ obtenerIniciales(eventoSeleccionado.terraceModel?.name) }}</span>
-          </div>
           <div class="terraza-detalles">
             <h4>{{ eventoSeleccionado.terraceModel?.name || 'Terraza sin nombre' }}</h4>
             <p>

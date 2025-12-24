@@ -52,17 +52,6 @@ export class MisEventosComponent implements OnInit {
     });
   }
 
-  // Función para obtener iniciales del nombre de la terraza
-  obtenerIniciales(nombre: string): string {
-    if (!nombre) return '??';
-    return nombre
-      .split(' ')
-      .map(word => word[0])
-      .join('')
-      .toUpperCase()
-      .substring(0, 2);
-  }
-
   // Función para obtener color según estado
   obtenerColorEstado(estado: string): string {
     const colores: { [key: string]: string } = {
