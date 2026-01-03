@@ -60,19 +60,39 @@ export class ServiceService{
       );
     }
 
-private loadLocalServicesWithFallback(): Observable<ServiceModel[]> {
-    return this.loadLocalServices().pipe(
-      tap(data => {
-        this.fallbackServices = data;
-        console.warn('✅ Services locales cargados como fallback');
-      }),
-      catchError(localError => {
-        console.error('❌ Error cargando services locales:', localError);
-        console.warn('📋 Usando fallback existente:', this.fallbackServices);
-        return of(this.fallbackServices);
+  getByIdServiceDB(idService_DB: number): Observable<ServiceModel> {
+      return this.http.get<ServiceModel>(`${this.API}/service-db/${idService_DB}`).pipe(
+        catchError(error => {
+          console.error(`Error fetching Service with idService_DB ${idService_DB}:`, error);
+          const fallback = this.fallbackServices.find(s => s.idService_DB === idService_DB) || this.fallbackServices[0];
+          return of(fallback);
+        })
+      );
+    }
+
+  getByIdAsociateServiceDB(idService_DB: number): Observable<ServiceModel> {
+    return this.http.get<ServiceModel>(`${this.API}/asociate-service-db/${idService_DB}`).pipe(
+      catchError(error => {
+        console.error(`Error fetching Service with idService_DB ${idService_DB}:`, error);
+        const fallback = this.fallbackServices.find(s => s.idService_DB === idService_DB) || this.fallbackServices[0];
+        return of(fallback);
       })
     );
   }
+
+  private loadLocalServicesWithFallback(): Observable<ServiceModel[]> {
+      return this.loadLocalServices().pipe(
+        tap(data => {
+          this.fallbackServices = data;
+          console.warn('✅ Services locales cargados como fallback');
+        }),
+        catchError(localError => {
+          console.error('❌ Error cargando services locales:', localError);
+          console.warn('📋 Usando fallback existente:', this.fallbackServices);
+          return of(this.fallbackServices);
+        })
+      );
+    }
 
   loadLocalServices(): Observable<ServiceModel[]> {
     return this.http.get<ServiceModel[]>('assets/template/service.json');

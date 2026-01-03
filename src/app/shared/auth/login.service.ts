@@ -79,6 +79,7 @@ export class LoginService {
     this.userService.getUserByUsername(username).subscribe({
       next: (user) => {
         this.userProfile.set(user);
+        sessionStorage.setItem("id", user.id.toString());
       },
       error: (err) => console.error('Error al cargar perfil de usuario:', err),
     });

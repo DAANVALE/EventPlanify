@@ -52,6 +52,26 @@ export class TerraceService {
     );
   }
 
+  getByIdTerraceDB(idTerrace_DB: number): Observable<TerraceModel> {
+       return this.http.get<TerraceModel>(`${this.API}/terrace-db/${idTerrace_DB}`).pipe(
+         catchError(error => {
+           console.error(`Error fetching Service with idService_DB ${idTerrace_DB}:`, error);
+           const fallback = this.fallbackTerrace.find(s => s.idTerrace_DB = idTerrace_DB) || this.fallbackTerrace[0];
+           return of(fallback);
+         })
+       );
+     }
+
+  getByIdAsociateTerraceDB(idTerrace_DB: number): Observable<TerraceModel> {
+    return this.http.get<TerraceModel>(`${this.API}/asociate-terrace-db/${idTerrace_DB}`).pipe(
+      catchError(error => {
+        console.error(`Error fetching Service with idService_DB ${idTerrace_DB}:`, error);
+        const fallback = this.fallbackTerrace.find(s => s.idTerrace_DB = idTerrace_DB) || this.fallbackTerrace[0];
+        return of(fallback);
+      })
+    );
+  }
+
   getByTerraceTypeId(terraceTypeId: number): Observable<TerraceModel[]> {
     return this.http.get<TerraceModel[]>(`${this.API}/TerraceType/${terraceTypeId}`).pipe(
       catchError(error => {

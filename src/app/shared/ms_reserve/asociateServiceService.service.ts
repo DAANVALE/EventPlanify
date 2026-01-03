@@ -58,8 +58,21 @@ export class AsociateServiceService {
   getById(id: number): Observable<AsociateService> {
     return this.http.get<AsociateService>(`${this.API}/${id}`).pipe(
       catchError(error => {
+        this.loadLocalAsociatesWithFallback();
         console.error(`Error fetching asociate with ID ${id}:`, error);
         const fallback = this.fallbackAsociateService.find(t => t.id === id)
+                        || this.fallbackAsociateService[0];
+        return of(fallback);
+      })
+    );
+  }
+
+  getByIdUser(idUser: number): Observable<AsociateService> {
+    return this.http.get<AsociateService>(`${this.API}/user/${idUser}`).pipe(
+      catchError(error => {
+        console.error(`Error fetching asociates for user ID ${idUser}:`, error);
+        this.loadLocalAsociatesWithFallback();
+        const fallback = this.fallbackAsociateService.find(t => t.idUser === idUser)
                         || this.fallbackAsociateService[0];
         return of(fallback);
       })

@@ -31,7 +31,7 @@ export class ImageFinderService {
   }
 
   getFirstOrDefaultTerraceImage(terrace: TerraceModel): Observable<String> {
-    const imageUrl = terrace.URL_IMG.length > 0 ? terrace.URL_IMG[0] : null;
+    const imageUrl = terrace.url_Img.length > 0 ? terrace.url_Img[0] : null;
     if (imageUrl) {
       return this.getTerraceImage(imageUrl.toString());
     } else {
@@ -42,7 +42,7 @@ export class ImageFinderService {
   }
 
   getRandomTerraceImg(terrace: TerraceModel): Observable<String> {
-    const imageUrl = terrace.URL_IMG.length > 0 ? terrace.URL_IMG[ (Number)(Math.random() * terrace.URL_IMG.length)] : null;
+    const imageUrl = terrace.url_Img.length > 0 ? terrace.url_Img[ (Number)(Math.random() * terrace.url_Img.length)] : null;
     if (imageUrl) {
       return this.getTerraceImage(imageUrl.toString());
     } else {

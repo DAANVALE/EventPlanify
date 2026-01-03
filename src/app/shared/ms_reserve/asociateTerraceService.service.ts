@@ -65,9 +65,22 @@ export class AsociateTerraceService {
   getById(id: number): Observable<AsociateTerrace> {
     return this.http.get<AsociateTerrace>(`${this.API}/${id}`).pipe(
       catchError(error => {
+        this.loadLocalTerracesWithFallback();
         console.error(`Error fetching asociate with ID ${id}:`, error);
         const fallback = this.fallbackAsociateTerrace.find(t => t.id === id)
                         || this.fallbackAsociateTerrace[0];
+        return of(fallback);
+      })
+    );
+  }
+
+  getByIdUser(idUser: number): Observable<AsociateTerrace> {
+    return this.http.get<AsociateTerrace>(`${this.API}/user/${idUser}`).pipe(
+      catchError(error => {
+        this.loadLocalTerracesWithFallback();
+        const fallback = this.fallbackAsociateTerrace.find(t => t.idUser === idUser) 
+                        || this.fallbackAsociateTerrace[0];
+        console.error(`Error fetching asociates for user ID ${idUser}:`, error);
         return of(fallback);
       })
     );
@@ -109,12 +122,12 @@ export class AsociateTerraceService {
     return throwError(() => new Error('Service error'));
   }
 
-  loadLocalServices(): Observable<AsociateTerrace[]> {
+  loadLocalTerraces(): Observable<AsociateTerrace[]> {
         return this.http.get<AsociateTerrace[]>('assets/reserve/asociateTerrace.json');
       }
     
     private loadLocalTerracesWithFallback(): Observable<AsociateTerrace[]> {
-      return this.loadLocalServices().pipe(
+      return this.loadLocalTerraces().pipe(
         tap(data => {
           this.fallbackAsociateTerrace = data;
           console.warn('✅ Terraces locales cargados como fallback');
