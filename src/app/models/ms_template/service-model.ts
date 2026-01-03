@@ -6,8 +6,8 @@ export interface ServiceModel {
   serviceType: ServiceTypeModel[];
   cityModel: CityModel[];
 
-  idService_DB: number;
-  idAsociate_DB: number;
+  idServiceDB: number;
+  idAsociateDB: number;
   url_Img: String[];
 
   tags: string[];

@@ -6,8 +6,8 @@ export interface TerraceModel {
   terraceType: TerraceTypeModel[];
   cityModel: CityModel;
 
-  idTerrace_DB: number;
-  idAsociate_DB: number;
+  idTerraceDB: number;
+  idAsociateDB: number;
   url_Img: String[];
 
   tags: string[];

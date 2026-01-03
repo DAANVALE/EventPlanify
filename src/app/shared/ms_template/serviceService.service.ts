@@ -60,21 +60,21 @@ export class ServiceService{
       );
     }
 
-  getByIdServiceDB(idService_DB: number): Observable<ServiceModel> {
-      return this.http.get<ServiceModel>(`${this.API}/service-db/${idService_DB}`).pipe(
+  getByIdServiceDB(idServiceDB: number): Observable<ServiceModel> {
+      return this.http.get<ServiceModel>(`${this.API}/service-db/${idServiceDB}`).pipe(
         catchError(error => {
-          console.error(`Error fetching Service with idService_DB ${idService_DB}:`, error);
-          const fallback = this.fallbackServices.find(s => s.idService_DB === idService_DB) || this.fallbackServices[0];
+          console.error(`Error fetching Service with idService_DB ${idServiceDB}:`, error);
+          const fallback = this.fallbackServices.find(s => s.idServiceDB === idServiceDB) || this.fallbackServices[0];
           return of(fallback);
         })
       );
     }
 
-  getByIdAsociateServiceDB(idService_DB: number): Observable<ServiceModel> {
-    return this.http.get<ServiceModel>(`${this.API}/asociate-service-db/${idService_DB}`).pipe(
+  getByIdAsociateServiceDB(idServiceDB: number): Observable<ServiceModel> {
+    return this.http.get<ServiceModel>(`${this.API}/asociate-service-db/${idServiceDB}`).pipe(
       catchError(error => {
-        console.error(`Error fetching Service with idService_DB ${idService_DB}:`, error);
-        const fallback = this.fallbackServices.find(s => s.idService_DB === idService_DB) || this.fallbackServices[0];
+        console.error(`Error fetching Service with idService_DB ${idServiceDB}:`, error);
+        const fallback = this.fallbackServices.find(s => s.idServiceDB === idServiceDB) || this.fallbackServices[0];
         return of(fallback);
       })
     );

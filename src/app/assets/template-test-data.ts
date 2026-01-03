@@ -62,8 +62,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 1,
     serviceType: [serviceTypeTs[0]], // Meseros
     cityModel: [cityModelTs[0]],     // Guadalajara
-    idService_DB: 101,
-    idAsociate_DB: 201,
+    idServiceDB: 101,
+    idAsociateDB: 201,
     url_Img: ['https://example.com/images/meseros-elegantes.jpg'],
     name: 'Servicio de Meseros Elegantes',
     description: 'Meseros capacitados para eventos de alto nivel con uniforme formal.',
@@ -74,8 +74,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 2,
     serviceType: [serviceTypeTs[2]], // Comida
     cityModel: [cityModelTs[1]],     // Zapopan
-    idService_DB: 102,
-    idAsociate_DB: 202,
+    idServiceDB: 102,
+    idAsociateDB: 202,
     url_Img: ['https://example.com/images/banquete-mexicano.jpg'],
     name: 'Banquete Tradicional Mexicano',
     description: 'Comida mexicana gourmet para todo tipo de eventos con sabores auténticos.',
@@ -86,8 +86,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 3,
     serviceType: [serviceTypeTs[4]], // Música
     cityModel: [cityModelTs[2]],     // Tlaquepaque
-    idService_DB: 103,
-    idAsociate_DB: 203,
+    idServiceDB: 103,
+    idAsociateDB: 203,
     url_Img: ['https://example.com/images/dj-profesional.jpg'],
     name: 'DJ Profesional con Equipo Premium',
     description: 'DJ con equipo profesional, playlist personalizada y efectos de luz.',
@@ -98,8 +98,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 4,
     serviceType: [serviceTypeTs[1]], // Fotógrafos
     cityModel: [cityModelTs[3]],     // Tonalá
-    idService_DB: 104,
-    idAsociate_DB: 204,
+    idServiceDB: 104,
+    idAsociateDB: 204,
     url_Img: ['https://example.com/images/fotografia-premium.jpg'],
     name: 'Cobertura Fotográfica Premium',
     description: 'Fotografía profesional con entrega en digital, álbum físico y sesión de retratos.',
@@ -110,8 +110,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 5,
     serviceType: [serviceTypeTs[3]], // Bartender
     cityModel: [cityModelTs[4]],     // Zapotlanejo
-    idService_DB: 105,
-    idAsociate_DB: 205,
+    idServiceDB: 105,
+    idAsociateDB: 205,
     url_Img: ['https://example.com/images/barra-premium.jpg'],
     name: 'Barra Libre Premium con Mixólogo',
     description: 'Cocteles ilimitados con barra temática, mixólogo profesional y ingredientes premium.',
@@ -122,8 +122,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 6,
     serviceType: [serviceTypeTs[5]], // Entretenimiento
     cityModel: [cityModelTs[5]],     // Tlajomulco
-    idService_DB: 106,
-    idAsociate_DB: 206,
+    idServiceDB: 106,
+    idAsociateDB: 206,
     url_Img: ['https://example.com/images/show-standup.jpg'],
     name: 'Show de Stand-Up y Magia Interactiva',
     description: 'Entretenimiento divertido para todas las edades con participación del público.',
@@ -134,8 +134,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 7,
     serviceType: [serviceTypeTs[6]], // Decoración
     cityModel: [cityModelTs[0]],     // Guadalajara
-    idService_DB: 107,
-    idAsociate_DB: 207,
+    idServiceDB: 107,
+    idAsociateDB: 207,
     url_Img: ['https://example.com/images/decoracion-tematica.jpg'],
     name: 'Decoración Temática Personalizada',
     description: 'Decoración completa según tema del evento con diseño exclusivo.',
@@ -146,8 +146,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 8,
     serviceType: [serviceTypeTs[7]], // Transporte
     cityModel: [cityModelTs[1]],     // Zapopan
-    idService_DB: 108,
-    idAsociate_DB: 208,
+    idServiceDB: 108,
+    idAsociateDB: 208,
     url_Img: ['https://example.com/images/transporte-ejecutivo.jpg'],
     name: 'Transporte Ejecutivo para Invitados',
     description: 'Flotilla de vehículos ejecutivos con chofer profesional para traslado de invitados.',
@@ -158,8 +158,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 9,
     serviceType: [serviceTypeTs[8]], // Seguridad
     cityModel: [cityModelTs[2]],     // Tlaquepaque
-    idService_DB: 109,
-    idAsociate_DB: 209,
+    idServiceDB: 109,
+    idAsociateDB: 209,
     url_Img: ['https://example.com/images/seguridad-privada.jpg'],
     name: 'Servicio de Seguridad Privada',
     description: 'Personal de seguridad uniformado con equipo de comunicación y protocolos de seguridad.',
@@ -170,8 +170,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 10,
     serviceType: [serviceTypeTs[9]], // Coordinación
     cityModel: [cityModelTs[3]],     // Tonalá
-    idService_DB: 110,
-    idAsociate_DB: 210,
+    idServiceDB: 110,
+    idAsociateDB: 210,
     url_Img: ['https://example.com/images/coordinacion-bodas.jpg'],
     name: 'Coordinación Integral de Bodas',
     description: 'Coordinación completa de ceremonia y recepción con planificación detallada.',
@@ -182,8 +182,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 11,
     serviceType: [serviceTypeTs[10]], // Logística
     cityModel: [cityModelTs[4]],     // Zapotlanejo
-    idService_DB: 111,
-    idAsociate_DB: 211,
+    idServiceDB: 111,
+    idAsociateDB: 211,
     url_Img: ['https://example.com/images/logistica-eventos.jpg'],
     name: 'Logística Completa de Eventos',
     description: 'Planificación y ejecución logística para eventos de cualquier magnitud.',
@@ -194,8 +194,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 12,
     serviceType: [serviceTypeTs[11]], // Digital
     cityModel: [cityModelTs[5]],     // Tlajomulco
-    idService_DB: 112,
-    idAsociate_DB: 212,
+    idServiceDB: 112,
+    idAsociateDB: 212,
     url_Img: ['https://example.com/images/streaming-profesional.jpg'],
     name: 'Transmisión en Vivo y Streaming',
     description: 'Transmisión profesional en HD con múltiples cámaras y equipo de audio.',
@@ -206,8 +206,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 13,
     serviceType: [serviceTypeTs[2], serviceTypeTs[3]], // Comida y Bartender
     cityModel: [cityModelTs[0]],     // Guadalajara
-    idService_DB: 113,
-    idAsociate_DB: 213,
+    idServiceDB: 113,
+    idAsociateDB: 213,
     url_Img: ['https://example.com/images/paquete-completo.jpg'],
     name: 'Paquete Completo Banquete + Barra',
     description: 'Servicio integral de alimentación y bebidas con menú personalizado.',
@@ -218,8 +218,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 14,
     serviceType: [serviceTypeTs[4], serviceTypeTs[5]], // Música y Entretenimiento
     cityModel: [cityModelTs[1]],     // Zapopan
-    idService_DB: 114,
-    idAsociate_DB: 214,
+    idServiceDB: 114,
+    idAsociateDB: 214,
     url_Img: ['../assets/testImg/terrace.jpeg'],
     name: 'Combo Música y Espectáculo',
     description: 'DJ profesional con show de entretenimiento incluido para toda la noche.',
@@ -230,8 +230,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 15,
     serviceType: [serviceTypeTs[1], serviceTypeTs[6]], // Fotografía y Decoración
     cityModel: [cityModelTs[2]],     // Tlaquepaque
-    idService_DB: 115,
-    idAsociate_DB: 215,
+    idServiceDB: 115,
+    idAsociateDB: 215,
     url_Img: ['https://example.com/images/foto-decoracion.jpg'],
     name: 'Fotografía con Escenarios Decorados',
     description: 'Sesión fotográfica en escenarios especialmente decorados para el evento.',
@@ -242,8 +242,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 16,
     serviceType: [serviceTypeTs[7], serviceTypeTs[8]], // Transporte y Seguridad
     cityModel: [cityModelTs[3]],     // Tonalá
-    idService_DB: 116,
-    idAsociate_DB: 216,
+    idServiceDB: 116,
+    idAsociateDB: 216,
     url_Img: ['https://example.com/images/transporte-seguridad.jpg'],
     name: 'Transporte con Seguridad Incluida',
     description: 'Servicio de transporte con medidas de seguridad y escolta profesional.',
@@ -254,8 +254,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 17,
     serviceType: [serviceTypeTs[9], serviceTypeTs[10]], // Coordinación y Logística
     cityModel: [cityModelTs[4]],     // Zapotlanejo
-    idService_DB: 117,
-    idAsociate_DB: 217,
+    idServiceDB: 117,
+    idAsociateDB: 217,
     url_Img: ['https://example.com/images/coordinacion-logistica.jpg'],
     name: 'Coordinación con Soporte Logístico',
     description: 'Coordinación de evento con gestión logística completa y personal dedicado.',
@@ -266,8 +266,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 18,
     serviceType: [serviceTypeTs[0], serviceTypeTs[3]], // Meseros y Bartender
     cityModel: [cityModelTs[5]],     // Tlajomulco
-    idService_DB: 118,
-    idAsociate_DB: 218,
+    idServiceDB: 118,
+    idAsociateDB: 218,
     url_Img: ['https://example.com/images/meseros-bartender.jpg'],
     name: 'Servicio de Meseros con Barra',
     description: 'Personal de servicio completo incluyendo meseros y personal de barra.',
@@ -278,8 +278,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 19,
     serviceType: [serviceTypeTs[4], serviceTypeTs[11]], // Música y Digital
     cityModel: [cityModelTs[0]],     // Guadalajara
-    idService_DB: 119,
-    idAsociate_DB: 219,
+    idServiceDB: 119,
+    idAsociateDB: 219,
     url_Img: ['../assets/testImg/terrace.jpeg', '../assets/testImg/terrace.jpeg'],
     name: 'DJ con Transmisión en Vivo',
     description: 'Servicio de DJ profesional con transmisión en vivo incluida para invitados remotos.',
@@ -290,8 +290,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 20,
     serviceType: [serviceTypeTs[1], serviceTypeTs[4], serviceTypeTs[5]], // Fotografía, Música, Entretenimiento
     cityModel: [cityModelTs[1]],     // Zapopan
-    idService_DB: 120,
-    idAsociate_DB: 220,
+    idServiceDB: 120,
+    idAsociateDB: 220,
     url_Img: ['https://example.com/images/paquete-premium.jpg'],
     name: 'Paquete Premium Fotos + Música + Show',
     description: 'Combo completo de entretenimiento con fotografía profesional, música y espectáculo.',
@@ -302,8 +302,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 21,
     serviceType: [serviceTypeTs[6], serviceTypeTs[7]], // Decoración y Transporte
     cityModel: [cityModelTs[2]],     // Tlaquepaque
-    idService_DB: 121,
-    idAsociate_DB: 221,
+    idServiceDB: 121,
+    idAsociateDB: 221,
     url_Img: ['https://example.com/images/decoracion-transporte.jpg'],
     name: 'Decoración con Transporte Temático',
     description: 'Decoración completa incluyendo transporte decorado según tema del evento.',
@@ -314,8 +314,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 22,
     serviceType: [serviceTypeTs[8], serviceTypeTs[9]], // Seguridad y Coordinación
     cityModel: [cityModelTs[3]],     // Tonalá
-    idService_DB: 122,
-    idAsociate_DB: 222,
+    idServiceDB: 122,
+    idAsociateDB: 222,
     url_Img: ['https://example.com/images/seguridad-coordinacion.jpg'],
     name: 'Seguridad con Coordinación de Accesos',
     description: 'Servicio de seguridad con coordinación de accesos y control de invitados.',
@@ -326,8 +326,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 23,
     serviceType: [serviceTypeTs[10], serviceTypeTs[11]], // Logística y Digital
     cityModel: [cityModelTs[4]],     // Zapotlanejo
-    idService_DB: 123,
-    idAsociate_DB: 223,
+    idServiceDB: 123,
+    idAsociateDB: 223,
     url_Img: ['https://example.com/images/logistica-digital.jpg'],
     name: 'Logística con Soporte Digital',
     description: 'Gestión logística completa con plataforma digital para seguimiento del evento.',
@@ -338,8 +338,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 24,
     serviceType: [serviceTypeTs[0], serviceTypeTs[2], serviceTypeTs[3]], // Meseros, Comida, Bartender
     cityModel: [cityModelTs[5]],     // Tlajomulco
-    idService_DB: 124,
-    idAsociate_DB: 224,
+    idServiceDB: 124,
+    idAsociateDB: 224,
     url_Img: ['https://example.com/images/servicio-alimentos.jpg'],
     name: 'Servicio Integral de Alimentos y Bebidas',
     description: 'Servicio completo de alimentación incluyendo personal, comida y bebidas.',
@@ -350,8 +350,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 25,
     serviceType: [serviceTypeTs[4], serviceTypeTs[6], serviceTypeTs[7]], // Música, Decoración, Transporte
     cityModel: [cityModelTs[0]],     // Guadalajara
-    idService_DB: 125,
-    idAsociate_DB: 225,
+    idServiceDB: 125,
+    idAsociateDB: 225,
     url_Img: ['https://example.com/images/ambiente-completo.jpg'],
     name: 'Creación de Ambiente Completo',
     description: 'Servicio para crear ambiente perfecto con música, decoración y transporte temático.',
@@ -362,8 +362,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 26,
     serviceType: [serviceTypeTs[1], serviceTypeTs[8], serviceTypeTs[9]], // Fotografía, Seguridad, Coordinación
     cityModel: [cityModelTs[1]],     // Zapopan
-    idService_DB: 126,
-    idAsociate_DB: 226,
+    idServiceDB: 126,
+    idAsociateDB: 226,
     url_Img: ['https://example.com/images/evento-seguro.jpg'],
     name: 'Evento Seguro con Memoria Fotográfica',
     description: 'Coordinación segura del evento con cobertura fotográfica profesional.',
@@ -374,8 +374,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 27,
     serviceType: [serviceTypeTs[3], serviceTypeTs[5], serviceTypeTs[10]], // Bartender, Entretenimiento, Logística
     cityModel: [cityModelTs[2]],     // Tlaquepaque
-    idService_DB: 127,
-    idAsociate_DB: 227,
+    idServiceDB: 127,
+    idAsociateDB: 227,
     url_Img: ['https://example.com/images/fiesta-completa.jpg'],
     name: 'Fiesta Completa con Logística',
     description: 'Organización completa de fiesta con barra, entretenimiento y gestión logística.',
@@ -386,8 +386,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 28,
     serviceType: [serviceTypeTs[2], serviceTypeTs[4], serviceTypeTs[11]], // Comida, Música, Digital
     cityModel: [cityModelTs[3]],     // Tonalá
-    idService_DB: 128,
-    idAsociate_DB: 228,
+    idServiceDB: 128,
+    idAsociateDB: 228,
     url_Img: ['https://example.com/images/experiencia-digital.jpg'],
     name: 'Experiencia Gastronómica con Música Digital',
     description: 'Banquete gourmet con experiencia musical digital y transmisión en vivo.',
@@ -398,8 +398,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 29,
     serviceType: [serviceTypeTs[6], serviceTypeTs[8], serviceTypeTs[10]], // Decoración, Seguridad, Logística
     cityModel: [cityModelTs[4]],     // Zapotlanejo
-    idService_DB: 129,
-    idAsociate_DB: 229,
+    idServiceDB: 129,
+    idAsociateDB: 229,
     url_Img: ['https://example.com/images/espacio-seguro.jpg'],
     name: 'Espacio Decorado y Seguro',
     description: 'Decoración temática con medidas de seguridad y gestión logística integrada.',
@@ -410,8 +410,8 @@ export const serviceModelTs: ServiceModel[] = [
     id: 30,
     serviceType: [serviceTypeTs[0], serviceTypeTs[1], serviceTypeTs[3], serviceTypeTs[4], serviceTypeTs[5]], // Todos los servicios principales
     cityModel: [cityModelTs[5]],     // Tlajomulco
-    idService_DB: 130,
-    idAsociate_DB: 230,
+    idServiceDB: 130,
+    idAsociateDB: 230,
     url_Img: ['https://example.com/images/paquete-oro.jpg'],
     name: 'Paquete Oro - Servicio Completo',
     description: 'Servicio integral premium incluyendo todos los servicios principales para evento de lujo.',
@@ -425,8 +425,8 @@ export const terraceModelTs: TerraceModel[] = [
     id: 1,
     terraceType: [terraceTypeTs[0]], // Alberca
     cityModel: cityModelTs[0],       // Guadalajara
-    idTerrace_DB: 301,
-    idAsociate_DB: 401,
+    idTerraceDB: 301,
+    idAsociateDB: 401,
     url_Img: ['../assets/testImg/terrace.jpeg'],
     name: 'Terraza con Alberca Azul',
     description: 'Espacio moderno con alberca, ideal para bodas y graduaciones.',
@@ -438,8 +438,8 @@ export const terraceModelTs: TerraceModel[] = [
     id: 2,
     terraceType: [terraceTypeTs[1]], // Tradicional
     cityModel: cityModelTs[1],       // Zapopan
-    idTerrace_DB: 302,
-    idAsociate_DB: 402,
+    idTerraceDB: 302,
+    idAsociateDB: 402,
     url_Img: ['https://example.com/images/terraza-tradicional.jpg'],
     name: 'Terraza El Encino',
     description: 'Ambiente rústico y cálido, perfecto para eventos familiares.',
@@ -451,8 +451,8 @@ export const terraceModelTs: TerraceModel[] = [
     id: 3,
     terraceType: [terraceTypeTs[2]], // Salón
     cityModel: cityModelTs[2],       // Tlaquepaque
-    idTerrace_DB: 303,
-    idAsociate_DB: 403,
+    idTerraceDB: 303,
+    idAsociateDB: 403,
     url_Img: ['https://example.com/images/terraza-salon.jpg'],
     name: 'Salón Los Arcos',
     description: 'Salón cerrado con aire acondicionado y pista de baile.',
@@ -464,8 +464,8 @@ export const terraceModelTs: TerraceModel[] = [
     id: 4,
     terraceType: [terraceTypeTs[3]], // Exposición
     cityModel: cityModelTs[3],       // Tonalá
-    idTerrace_DB: 304,
-    idAsociate_DB: 404,
+    idTerraceDB: 304,
+    idAsociateDB: 404,
     url_Img: ['https://example.com/images/terraza-expo.jpg'],
     name: 'Terraza ExpoTonala',
     description: 'Espacio amplio para exposiciones, ferias y conferencias.',
@@ -477,8 +477,8 @@ export const terraceModelTs: TerraceModel[] = [
     id: 5,
     terraceType: [terraceTypeTs[4]], // Natural
     cityModel: cityModelTs[4],       // Zapotlanejo
-    idTerrace_DB: 305,
-    idAsociate_DB: 405,
+    idTerraceDB: 305,
+    idAsociateDB: 405,
     url_Img: ['https://example.com/images/terraza-natural.jpg'],
     name: 'Jardín Natural El Roble',
     description: 'Ubicación rodeada de naturaleza, ideal para eventos al aire libre.',
@@ -490,8 +490,8 @@ export const terraceModelTs: TerraceModel[] = [
     id: 6,
     terraceType: [terraceTypeTs[5]], // Experiencia
     cityModel: cityModelTs[5],       // Tlajomulco
-    idTerrace_DB: 306,
-    idAsociate_DB: 406,
+    idTerraceDB: 306,
+    idAsociateDB: 406,
     url_Img: ['https://example.com/images/terraza-experiencia.jpg'],
     name: 'Terraza Experiencia 360',
     description: 'Terraza inmersiva con experiencias interactivas y decoración temática.',

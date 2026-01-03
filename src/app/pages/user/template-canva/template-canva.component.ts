@@ -200,7 +200,7 @@ export class TemplateCanvaComponent implements OnInit {
   openServiceDialog(service: T_ServiceModel): void {
     this.selectedService_T = { ...service };
 
-    this.r_serviceService.getById(service.idService_DB).subscribe({
+    this.r_serviceService.getById(service.idServiceDB).subscribe({
       next: (data: R_ServiceModel) => {
         this.selectedService_R = data;
         this.showServiceDialog = true;
@@ -303,7 +303,7 @@ export class TemplateCanvaComponent implements OnInit {
 
     for (let service of this.selectedServices)
     {
-      this.r_serviceService.getById(service.idService_DB).subscribe({
+      this.r_serviceService.getById(service.idServiceDB).subscribe({
         next: (data) => {
           reserveServices.push(data);
         }, 

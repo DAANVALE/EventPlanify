@@ -16,8 +16,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 1,
-        "idAsociate_DB": 1,
+        "idServiceDB": 1,
+        "idAsociateDB": 1,
         "URL_Img": [],
         "name": "Servicio de Meseros Elegantes",
         "description": "Servicio profesional de meseros para eventos elegantes",
@@ -41,8 +41,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 2,
-        "idAsociate_DB": 2,
+        "idServiceDB": 2,
+        "idAsociateDB": 2,
         "URL_Img": [],
         "name": "Banquete Tradicional Mexicano",
         "description": "Banquete con comida tradicional mexicana para eventos",
@@ -66,8 +66,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 3,
-        "idAsociate_DB": 3,
+        "idServiceDB": 3,
+        "idAsociateDB": 3,
         "URL_Img": [],
         "name": "DJ Profesional con Equipo Premium",
         "description": "Servicio de DJ profesional con equipo de sonido premium",
@@ -91,8 +91,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 4,
-        "idAsociate_DB": 4,
+        "idServiceDB": 4,
+        "idAsociateDB": 4,
         "URL_Img": [],
         "name": "Cobertura Fotográfica Premium",
         "description": "Servicio de fotografía profesional para eventos",
@@ -116,8 +116,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 5,
-        "idAsociate_DB": 5,
+        "idServiceDB": 5,
+        "idAsociateDB": 5,
         "URL_Img": [],
         "name": "Barra Libre Premium con Mixólogo",
         "description": "Servicio de barra libre con mixólogo profesional",
@@ -141,8 +141,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 6,
-        "idAsociate_DB": 6,
+        "idServiceDB": 6,
+        "idAsociateDB": 6,
         "URL_Img": [],
         "name": "Show de Stand-Up y Magia Interactiva",
         "description": "Espectáculo de comedia y magia para eventos",
@@ -166,8 +166,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 7,
-        "idAsociate_DB": 7,
+        "idServiceDB": 7,
+        "idAsociateDB": 7,
         "URL_Img": [],
         "name": "Decoración Temática Personalizada",
         "description": "Servicio de decoración temática personalizada para eventos",
@@ -191,8 +191,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 8,
-        "idAsociate_DB": 8,
+        "idServiceDB": 8,
+        "idAsociateDB": 8,
         "URL_Img": [],
         "name": "Transporte Ejecutivo para Invitados",
         "description": "Servicio de transporte ejecutivo para invitados del evento",
@@ -216,8 +216,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 9,
-        "idAsociate_DB": 9,
+        "idServiceDB": 9,
+        "idAsociateDB": 9,
         "URL_Img": [],
         "name": "Servicio de Seguridad Privada",
         "description": "Servicio de seguridad privada para eventos",
@@ -241,8 +241,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 10,
-        "idAsociate_DB": 10,
+        "idServiceDB": 10,
+        "idAsociateDB": 10,
         "URL_Img": [],
         "name": "Coordinación Integral de Bodas",
         "description": "Servicio de coordinación integral para bodas",
@@ -266,8 +266,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 11,
-        "idAsociate_DB": 11,
+        "idServiceDB": 11,
+        "idAsociateDB": 11,
         "URL_Img": [],
         "name": "Logística Completa de Eventos",
         "description": "Servicio de logística completa para eventos",
@@ -291,8 +291,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 12,
-        "idAsociate_DB": 12,
+        "idServiceDB": 12,
+        "idAsociateDB": 12,
         "URL_Img": [],
         "name": "Transmisión en Vivo y Streaming",
         "description": "Servicio de transmisión en vivo y streaming para eventos",
@@ -316,8 +316,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 13,
-        "idAsociate_DB": 2,
+        "idServiceDB": 13,
+        "idAsociateDB": 2,
         "URL_Img": [],
         "name": "Paquete Completo Banquete + Barra",
         "description": "Paquete completo que incluye banquete y barra libre",
@@ -346,8 +346,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 14,
-        "idAsociate_DB": 3,
+        "idServiceDB": 14,
+        "idAsociateDB": 3,
         "URL_Img": [],
         "name": "Combo Música y Espectáculo",
         "description": "Combo que incluye música y espectáculo",
@@ -371,8 +371,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 15,
-        "idAsociate_DB": 4,
+        "idServiceDB": 15,
+        "idAsociateDB": 4,
         "URL_Img": [],
         "name": "Fotografía con Escenarios Decorados",
         "description": "Servicio de fotografía con escenarios decorados",
@@ -401,8 +401,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 16,
-        "idAsociate_DB": 8,
+        "idServiceDB": 16,
+        "idAsociateDB": 8,
         "URL_Img": [],
         "name": "Transporte con Seguridad Incluida",
         "description": "Servicio de transporte que incluye seguridad",
@@ -431,8 +431,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 17,
-        "idAsociate_DB": 10,
+        "idServiceDB": 17,
+        "idAsociateDB": 10,
         "URL_Img": [],
         "name": "Coordinación con Soporte Logístico",
         "description": "Servicio de coordinación con soporte logístico",
@@ -461,8 +461,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 18,
-        "idAsociate_DB": 1,
+        "idServiceDB": 18,
+        "idAsociateDB": 1,
         "URL_Img": [],
         "name": "Servicio de Meseros con Barra",
         "description": "Servicio de meseros que incluye barra",
@@ -491,8 +491,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 19,
-        "idAsociate_DB": 3,
+        "idServiceDB": 19,
+        "idAsociateDB": 3,
         "URL_Img": [],
         "name": "DJ con Transmisión en Vivo",
         "description": "Servicio de DJ que incluye transmisión en vivo",
@@ -526,8 +526,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 20,
-        "idAsociate_DB": 4,
+        "idServiceDB": 20,
+        "idAsociateDB": 4,
         "URL_Img": [],
         "name": "Paquete Premium Fotos + Música + Show",
         "description": "Paquete premium que incluye fotos, música y show",
@@ -556,8 +556,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 21,
-        "idAsociate_DB": 7,
+        "idServiceDB": 21,
+        "idAsociateDB": 7,
         "URL_Img": [],
         "name": "Decoración con Transporte Temático",
         "description": "Servicio de decoración con transporte temático",
@@ -586,8 +586,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 22,
-        "idAsociate_DB": 9,
+        "idServiceDB": 22,
+        "idAsociateDB": 9,
         "URL_Img": [],
         "name": "Seguridad con Coordinación de Accesos",
         "description": "Servicio de seguridad con coordinación de accesos",
@@ -616,8 +616,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 23,
-        "idAsociate_DB": 11,
+        "idServiceDB": 23,
+        "idAsociateDB": 11,
         "URL_Img": [],
         "name": "Logística con Soporte Digital",
         "description": "Servicio de logística con soporte digital",
@@ -641,8 +641,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 24,
-        "idAsociate_DB": 2,
+        "idServiceDB": 24,
+        "idAsociateDB": 2,
         "URL_Img": [],
         "name": "Servicio Integral de Alimentos y Bebidas",
         "description": "Servicio integral de alimentos y bebidas",
@@ -671,8 +671,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 25,
-        "idAsociate_DB": 3,
+        "idServiceDB": 25,
+        "idAsociateDB": 3,
         "URL_Img": [],
         "name": "Creación de Ambiente Completo",
         "description": "Servicio de creación de ambiente completo para eventos",
@@ -701,8 +701,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 26,
-        "idAsociate_DB": 4,
+        "idServiceDB": 26,
+        "idAsociateDB": 4,
         "URL_Img": [],
         "name": "Evento Seguro con Memoria Fotográfica",
         "description": "Servicio que garantiza evento seguro con memoria fotográfica",
@@ -731,8 +731,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 27,
-        "idAsociate_DB": 5,
+        "idServiceDB": 27,
+        "idAsociateDB": 5,
         "URL_Img": [],
         "name": "Fiesta Completa con Logística",
         "description": "Servicio de fiesta completa con logística incluida",
@@ -761,8 +761,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 28,
-        "idAsociate_DB": 2,
+        "idServiceDB": 28,
+        "idAsociateDB": 2,
         "URL_Img": [],
         "name": "Experiencia Gastronómica con Música Digital",
         "description": "Experiencia gastronómica con música digital",
@@ -791,8 +791,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 29,
-        "idAsociate_DB": 7,
+        "idServiceDB": 29,
+        "idAsociateDB": 7,
         "URL_Img": [],
         "name": "Espacio Decorado y Seguro",
         "description": "Servicio de espacio decorado y seguro",
@@ -826,8 +826,8 @@
                 "killed": 0
             }
         ],
-        "idService_DB": 30,
-        "idAsociate_DB": 1,
+        "idServiceDB": 30,
+        "idAsociateDB": 1,
         "URL_Img": [],
         "name": "Paquete Oro - Servicio Completo",
         "description": "Paquete oro con servicio completo para eventos",
