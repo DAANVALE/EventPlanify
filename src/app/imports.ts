@@ -27,6 +27,7 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
 
 import { BadgeModule } from 'primeng/badge';
+
 // PrimeNG Modules
 
 import { CalendarModule } from 'primeng/calendar';

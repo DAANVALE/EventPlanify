@@ -1,4 +1,4 @@
-<div class="mi-host-container">
+<div class="mi-host-container" [class.modal-open]="mostrarModal">
   <div class="header">
     <h1>Mi Host</h1>
     <p class="subtitle">Gestiona tus servicios y terrazas registradas</p>
@@ -11,8 +11,8 @@
     </button>
   </div>
 
-  <div class="registros-grid" *ngIf="serviciosYTerrazas.length > 0">
-    <div class="registro-card" *ngFor="let item of serviciosYTerrazas">
+  <div class="registros-grid" *ngIf="cards.length > 0">
+    <p-card class="registro-card" *ngFor="let item of cards">
       <div class="card-badge" [class.badge-terraza]="item.tipo === 'terraza'" 
            [class.badge-servicio]="item.tipo === 'servicio'">
         {{ item.tipo === 'terraza' ? '🏛️ Terraza' : '🎉 Servicio' }}
@@ -40,9 +40,13 @@
           </div>
           <div class="info-item">
             <span class="info-label">🏷️ Tipo:</span>
-            <span class="info-value">{{ item.tipoTerraza }}</span>
+            <span class="info-value">{{ item.tipoEtiqueta || 'Terraza' }}</span>
           </div>
         </div>
+
+        <!-- <div class="tag-row" *ngIf="item.tags?.length">
+          <p-tag *ngFor="let tag of item.tags" [value]="tag" severity="info" class="tag-chip"></p-tag>
+        </div> -->
 
         <div class="precio-container">
           <span class="precio-label">Precio Base:</span>
@@ -50,20 +54,14 @@
         </div>
 
         <div class="card-acciones">
-          <button class="btn-editar" (click)="editarRegistro(item)">
-            <span class="btn-icon-small">✏️</span>
-            Editar
-          </button>
-          <button class="btn-eliminar" (click)="eliminarRegistro(item.id)">
-            <span class="btn-icon-small">🗑️</span>
-            Eliminar
-          </button>
+          <button pButton class="btn-editar p-button-sm" icon="pi pi-pencil" [label]="'Editar'" (click)="editarRegistro(item)"></button>
+          <button pButton class="btn-eliminar p-button-sm" icon="pi pi-trash" [label]="'Eliminar'" (click)="eliminarRegistro(item.id)"></button>
         </div>
       </div>
-    </div>
+    </p-card>
   </div>
 
-  <div class="empty-state" *ngIf="serviciosYTerrazas.length === 0">
+  <div class="empty-state" *ngIf="cards.length === 0">
     <div class="empty-icon">📋</div>
     <h2>No tienes servicios o terrazas registradas</h2>
     <p>Comienza agregando tu primer servicio o terraza</p>
@@ -71,7 +69,7 @@
 </div>
 
 <!-- Modal de Registro -->
-<div class="modal-overlay" *ngIf="mostrarModal" (click)="cerrarModal()">
+<div class="modal-overlay" *ngIf="mostrarModal">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <button class="btn-cerrar" (click)="cerrarModal()">
       <span>&times;</span>
@@ -126,9 +124,29 @@
           <input type="text" 
                  class="form-control" 
                  [(ngModel)]="formulario.nombre" 
-                 name="nombre"
+               name="nombre"
+               (ngModelChange)="onFormChange()"
                  placeholder="Ingresa el nombre"
                  required>
+        </div>
+
+        <!-- Tipo de Servicio -->
+        <div class="form-group" *ngIf="tipoSeleccionado === 'servicio'">
+          <label class="form-label">Tipo de Servicio *</label>
+          <p-dropdown 
+            [options]="serviceTypeOptions"
+            placeholder="Selecciona un tipo"
+            [(ngModel)]="formulario.tipoServicio"
+            name="tipoServicio"
+            (ngModelChange)="onFormChange()"
+            optionLabel="label"
+            optionValue="value"
+            [showClear]="true"
+            appendTo="body"
+            scrollHeight="260px"
+            [autoZIndex]="true"
+            [baseZIndex]="1300"
+            styleClass="modal-dropdown-panel"></p-dropdown>
         </div>
 
         <!-- Descripción -->
@@ -137,6 +155,7 @@
           <textarea class="form-control" 
                     [(ngModel)]="formulario.descripcion" 
                     name="descripcion"
+                    (ngModelChange)="onFormChange()"
                     rows="3"
                     placeholder="Describe las características principales"
                     required></textarea>
@@ -146,31 +165,41 @@
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Capacidad Base</label>
-            <input type="number" 
-                   class="form-control" 
-                   [(ngModel)]="formulario.capacidadBase" 
-                   name="capacidadBase"
-                   placeholder="Ej: 50">
+            <p-inputNumber 
+              inputId="capacidadBase"
+              [(ngModel)]="formulario.capacidadBase" 
+              name="capacidadBase"
+              (ngModelChange)="onFormChange()"
+              mode="decimal"
+              [useGrouping]="false"
+              placeholder="Ej: 50"></p-inputNumber>
           </div>
           <div class="form-group">
             <label class="form-label">Capacidad Máxima</label>
-            <input type="number" 
-                   class="form-control" 
-                   [(ngModel)]="formulario.capacidadMaxima" 
-                   name="capacidadMaxima"
-                   placeholder="Ej: 100">
+            <p-inputNumber 
+              inputId="capacidadMaxima"
+              [(ngModel)]="formulario.capacidadMaxima" 
+              name="capacidadMaxima"
+              (ngModelChange)="onFormChange()"
+              mode="decimal"
+              [useGrouping]="false"
+              placeholder="Ej: 100"></p-inputNumber>
           </div>
         </div>
 
         <!-- Precio Base -->
         <div class="form-group">
           <label class="form-label">Precio Base *</label>
-          <input type="number" 
-                 class="form-control" 
-                 [(ngModel)]="formulario.precioBase" 
-                 name="precioBase"
-                 placeholder="Ingresa el precio en MXN"
-                 required>
+          <p-inputNumber 
+            inputId="precioBase"
+            class="w-full"
+            [(ngModel)]="formulario.precioBase" 
+            name="precioBase"
+              (ngModelChange)="onFormChange()"
+            mode="currency"
+            currency="MXN"
+            locale="es-MX"
+            required></p-inputNumber>
         </div>
 
         <!-- Campos específicos para Terraza -->
@@ -181,6 +210,7 @@
                    class="form-control" 
                    [(ngModel)]="formulario.ubicacion" 
                    name="ubicacion"
+                   (ngModelChange)="onFormChange()"
                    placeholder="Ej: Zona Centro"
                    required>
           </div>
@@ -191,6 +221,7 @@
                    class="form-control" 
                    [(ngModel)]="formulario.direccion" 
                    name="direccion"
+                   (ngModelChange)="onFormChange()"
                    placeholder="Ej: Av. Juárez 123"
                    required>
           </div>
@@ -202,45 +233,74 @@
                      class="form-control" 
                      [(ngModel)]="formulario.lugar" 
                      name="lugar"
+                     (ngModelChange)="onFormChange()"
                      placeholder="Ej: Centro Histórico"
                      required>
             </div>
             <div class="form-group">
               <label class="form-label">Ciudad *</label>
-              <input type="text" 
-                     class="form-control" 
-                     [(ngModel)]="formulario.ciudad" 
-                     name="ciudad"
-                     placeholder="Ej: Guadalajara"
-                     required>
+              <p-dropdown 
+                [options]="cityOptions"
+                placeholder="Selecciona una ciudad"
+                [(ngModel)]="formulario.ciudad"
+                name="ciudad"
+                (ngModelChange)="onFormChange()"
+                optionLabel="label"
+                optionValue="value"
+                [showClear]="true"
+                appendTo="body"
+                scrollHeight="260px"
+                [autoZIndex]="true"
+                [baseZIndex]="1300"
+                styleClass="modal-dropdown-panel"
+                required></p-dropdown>
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label">Tipo de Terraza *</label>
-            <select class="form-control" 
-                    [(ngModel)]="formulario.tipoTerraza" 
-                    name="tipoTerraza"
-                    required>
-              <option value="">Selecciona un tipo</option>
-              <option value="Jardín">Jardín</option>
-              <option value="Salón">Salón</option>
-              <option value="Terraza al aire libre">Terraza al aire libre</option>
-              <option value="Hacienda">Hacienda</option>
-              <option value="Salón de eventos">Salón de eventos</option>
-              <option value="Otro">Otro</option>
-            </select>
+            <p-dropdown 
+              [options]="terraceTypeOptions" 
+              placeholder="Selecciona un tipo"
+              [(ngModel)]="formulario.tipoTerraza" 
+              name="tipoTerraza"
+              (ngModelChange)="onFormChange()"
+              optionLabel="label"
+              optionValue="value"
+              [showClear]="true"
+              appendTo="body"
+              scrollHeight="260px"
+              [autoZIndex]="true"
+              [baseZIndex]="1300"
+              styleClass="modal-dropdown-panel"
+              required></p-dropdown>
           </div>
+        </div>
+
+        <!-- Ciudad para servicio -->
+        <div class="form-group" *ngIf="tipoSeleccionado === 'servicio'">
+          <label class="form-label">Ciudad *</label>
+          <p-dropdown 
+            [options]="cityOptions"
+            placeholder="Selecciona una ciudad"
+            [(ngModel)]="formulario.ciudad"
+            name="ciudad"
+            (ngModelChange)="onFormChange()"
+            optionLabel="label"
+            optionValue="value"
+            [showClear]="true"
+            appendTo="body"
+            scrollHeight="260px"
+            [autoZIndex]="true"
+            [baseZIndex]="1300"
+            styleClass="modal-dropdown-panel"
+            required></p-dropdown>
         </div>
 
         <!-- Botones -->
         <div class="form-acciones">
-          <button type="button" class="btn-cancelar" (click)="cerrarModal()">
-            Cancelar
-          </button>
-          <button type="submit" class="btn-guardar">
-            {{ formulario.id ? 'Actualizar' : 'Guardar' }} {{ tipoSeleccionado === 'terraza' ? 'Terraza' : 'Servicio' }}
-          </button>
+          <button pButton type="button" class="btn-cancelar p-button-secondary" (click)="cerrarModal()" [label]="'Cancelar'"></button>
+          <button pButton type="submit" class="btn-guardar" [label]="formulario.id ? 'Actualizar' : 'Guardar'" [icon]="'pi pi-save'"></button>
         </div>
       </form>
     </div>
