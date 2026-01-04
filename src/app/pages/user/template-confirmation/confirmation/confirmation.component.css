@@ -133,3 +133,51 @@
 .confirmation-container .spacing-large {
   margin-bottom: 2rem;
 }
+
+/* PayPal Dialog Styles */
+.paypal-dialog .paypal-content {
+  min-height: 300px;
+}
+
+.paypal-buttons-container {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-summary {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.payment-success {
+  animation: fadeInScale 0.5s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.test-account-info {
+  background: #eff6ff !important;
+  border-color: #3b82f6 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .paypal-dialog {
+    width: 95vw !important;
+  }
+  
+  .payment-summary {
+    padding: 1rem !important;
+  }
+}

@@ -207,8 +207,8 @@
             <div class="flex flex-column gap-2 mt-4">
               <button 
                 pButton 
-                label="Confirmar Evento" 
-                icon="pi pi-check"
+                [label]="eventForm.payment === 'paypal' ? 'Pagar con PayPal' : 'Confirmar Evento'" 
+                [icon]="eventForm.payment === 'paypal' ? 'pi pi-paypal' : 'pi pi-check'"
                 class="p-button-success"
                 (click)="confirmReservation()"
                 [disabled]="!isFormValid()">
@@ -246,4 +246,105 @@
       </div>
     </div>
   </div>
+    <!-- Modal de PayPal -->
+  <p-dialog 
+    [(visible)]="showPayPalDialog"
+    [modal]="true"
+    [closable]="!paypalLoading && !paymentCompleted"
+    [style]="{ width: '500px', maxWidth: '95vw' }"
+    [breakpoints]="{ '960px': '90vw', '640px': '95vw' }"
+    header="Pago con PayPal"
+    styleClass="paypal-dialog">
+    
+    <div class="paypal-content">
+      
+      <!-- Resumen del Pago -->
+      <div class="payment-summary mb-4 p-3 surface-100 border-round">
+        <h4 class="text-900 mb-3">Resumen de tu Reserva</h4>
+        
+        <div class="flex justify-content-between mb-2">
+          <span class="text-600">Terraza:</span>
+          <span class="font-semibold">${{ calculateTerracePrice() }}</span>
+        </div>
+        
+        <div class="flex justify-content-between mb-2">
+          <span class="text-600">Servicios:</span>
+          <span class="font-semibold">${{ calculateServicesTotal() }}</span>
+        </div>
+        
+        <p-divider></p-divider>
+        
+        <div class="flex justify-content-between align-items-center">
+          <span class="text-900 font-bold text-lg">Total a Pagar:</span>
+          <span class="text-green-500 font-bold text-2xl">
+            ${{ calculateEventTotal() }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Estado de Carga -->
+      <div *ngIf="paypalLoading && !paymentCompleted" class="text-center py-4">
+        <i class="pi pi-spin pi-spinner text-4xl text-primary mb-3"></i>
+        <p class="text-600">Cargando opciones de pago...</p>
+      </div>
+
+      <!-- Contenedor de Botones de PayPal -->
+      <div 
+        id="paypal-button-container" 
+        *ngIf="!paymentCompleted"
+        class="paypal-buttons-container">
+      </div>
+
+      <!-- Confirmación de Pago Exitoso -->
+      <div *ngIf="paymentCompleted" class="payment-success text-center py-4">
+        <i class="pi pi-check-circle text-6xl text-green-500 mb-3"></i>
+        <h3 class="text-900 mb-2">¡Pago Exitoso!</h3>
+        <p class="text-600 mb-3">
+          Tu reserva ha sido confirmada correctamente.
+        </p>
+        <p class="text-500 text-sm">
+          ID de transacción: {{ paymentDetails?.id }}
+        </p>
+        <p class="text-600 mt-3">
+          Redirigiendo a tus eventos...
+        </p>
+      </div>
+
+      <!-- Información de Cuenta de Prueba -->
+      <div *ngIf="!paymentCompleted" class="test-account-info mt-4 p-3 surface-50 border-round border-1 border-300">
+        <h5 class="text-900 mb-2 flex align-items-center">
+          <i class="pi pi-info-circle mr-2 text-blue-500"></i>
+          Cuenta de Prueba PayPal
+        </h5>
+        <p class="text-600 text-sm mb-2">
+          Usa estas credenciales para probar el pago:
+        </p>
+        <div class="grid text-sm">
+          <div class="col-12">
+            <strong>Email:</strong> sb-buyer&#64;business.example.com
+          </div>
+          <div class="col-12">
+            <strong>Contraseña:</strong> 83&#64;OWxc0
+          </div>
+        </div>
+        <p class="text-500 text-xs mt-2">
+          * Estas son credenciales de sandbox para pruebas
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Footer del Dialog -->
+    <ng-template pTemplate="footer">
+      <button 
+        *ngIf="!paypalLoading && !paymentCompleted"
+        pButton 
+        label="Cancelar" 
+        icon="pi pi-times"
+        class="p-button-outlined p-button-secondary"
+        (click)="closePayPalDialog()">
+      </button>
+    </ng-template>
+
+  </p-dialog>
 </div>
