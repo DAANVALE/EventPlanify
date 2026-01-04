@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,9 +8,9 @@ import { MessageService } from 'primeng/api';
 import { EventModel as R_EventModel } from '../../../../models/ms_reserve/EventModel';
 import { ReserveModel as R_ReserveModel } from '../../../../models/ms_reserve/ReserveModel';
 import { ServiceModel as R_ServiceModel } from '../../../../models/ms_reserve/ServiceModel';
-import { TerraceModel as R_TerraceModel } from '../../../../models/ms_reserve/TerraceModel';
 
 import { EventService as R_EventService } from '../../../../shared/ms_reserve/eventService.service';
+import { PaypalService } from '../../../../shared/payment/paypal.service';
 
 @Component({
   selector: 'app-confirmation',
@@ -18,38 +18,50 @@ import { EventService as R_EventService } from '../../../../shared/ms_reserve/ev
   imports: [ImportsModule, CommonModule, FormsModule],
   templateUrl: './confirmation.component.html',
   styleUrl: './confirmation.component.css',
-  providers: [MessageService] 
+  providers: [MessageService]
 })
-export class ConfirmationComponent implements OnInit {
+export class ConfirmationComponent implements OnInit, AfterViewInit, OnDestroy {
 
   eventForm = {
     sizePeople: 50,
     dayDate: new Date(),
     eventType: '',
     additionalNotes: '',
-    payment: 'pending' as string
+    payment: 'paypal' as string
   };
 
   eventModel = signal<Partial<R_EventModel>>({});
   reserveModels = signal<Partial<R_ReserveModel>[]>([]);
 
-  // Opciones para dropdowns
+  // PayPal
+  showPayPalDialog = false;
+  paypalLoading = false;
+  paymentCompleted = false;
+  paymentDetails: any = null;
+
   timeOptions = ['2 horas', '4 horas', '6 horas', '8 horas', 'Todo el día'];
   paymentOptions = [
-    { label: 'Pendiente', value: 'pending' },
-    { label: 'Depósito', value: 'deposit' },
-    { label: 'Pagado', value: 'paid' }
+    { label: 'PayPal', value: 'paypal' },
+    { label: 'Pendiente', value: 'pending' }
   ];
 
   constructor(
     private router: Router,
     private messageService: MessageService,
-    private eventService: R_EventService
+    private eventService: R_EventService,
+    private paypalService: PaypalService
   ) {}
 
   ngOnInit(): void {
     this.loadReservationData();
   }
+
+  ngAfterViewInit(): void {
+  }
+
+  ngOnDestroy(): void {
+  }
+
 
   private loadReservationData(): void {
     try {
@@ -90,7 +102,6 @@ export class ConfirmationComponent implements OnInit {
 
     if (parsed.reserveReserves && Array.isArray(parsed.reserveReserves)) {
       reserves = parsed.reserveReserves.map((item: any) => {
-        // Desanidar serviceModel si es necesario
         const serviceModel = item.serviceModel?.serviceModel || item.serviceModel || item;
         const sizePeople = item.sizePeople || serviceModel?.baseSize || 1;
         const finalPrice = item.finalPrice || this.calculateServicePrice(serviceModel, sizePeople);
@@ -107,7 +118,6 @@ export class ConfirmationComponent implements OnInit {
     this.reserveModels.set(reserves);
   }
 
-  // CÁLCULOS DE PRECIOS
   calculateServicePrice(service: R_ServiceModel, peopleCount: number): number {
     if (!service) return 0;
     const basePrice = service.basePrice || 0;
@@ -119,7 +129,7 @@ export class ConfirmationComponent implements OnInit {
   calculateTerracePrice(): number {
     const terrace = this.eventModel().terraceModel;
     if (!terrace) return 0;
-    return terrace.priceAdd10; // Precio base de la terraza
+    return terrace.priceAdd10;
   }
 
   calculateServicesTotal(): number {
@@ -130,7 +140,6 @@ export class ConfirmationComponent implements OnInit {
     return this.calculateTerracePrice() + this.calculateServicesTotal();
   }
 
-  // ACTUALIZAR RESERVAS (SERVICIOS)
   updateReservePeople(reserve: Partial<R_ReserveModel>, peopleCount: string | number | null): void {
     if (!reserve.serviceModel) return;
 
@@ -141,11 +150,9 @@ export class ConfirmationComponent implements OnInit {
     const service = reserve.serviceModel;
     const validPeople = Math.min(Math.max(count, service.baseSize), service.maxSize);
     
-    // Actualizar el objeto reserve directamente
     reserve.sizePeople = validPeople;
     reserve.finalPrice = this.calculateServicePrice(service, validPeople);
     
-    // Forzar actualización de la señal
     this.reserveModels.update(reserves => [...reserves]);
     this.saveReservationData();
   }
@@ -168,7 +175,6 @@ export class ConfirmationComponent implements OnInit {
     });
   }
 
-  // ACTUALIZAR EVENTO
   updateEventPeople(): void {
     const terrace = this.eventModel().terraceModel;
     if (terrace && this.eventForm.sizePeople > terrace.maxSize) {
@@ -191,22 +197,184 @@ export class ConfirmationComponent implements OnInit {
 
       localStorage.setItem('pendingServiceReservations', JSON.stringify(reserveData));
 
-      // Construir evento actualizado
       const updatedEvent = {
         ...this.eventModel(),
         sizePeople: this.eventForm.sizePeople,
         dayDate: this.eventForm.dayDate.toISOString(),
         payment: this.eventForm.payment,
-        sumPrice: this.calculateEventTotal(),
-        
+        sumPrice: this.calculateEventTotal()
       };
+      
+      localStorage.setItem('pendingEventReservation', JSON.stringify(updatedEvent));
     } catch (error) {
       this.handleError('Error guardando datos');
     }
   }
 
-  // CONFIRMAR RESERVA
+  /**
+   *  Abrir modal de PayPal
+   */
+  openPayPalDialog(): void {
+    if (!this.isFormValid()) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Formulario incompleto',
+        detail: 'Completa todos los campos antes de proceder al pago'
+      });
+      return;
+    }
+
+    this.showPayPalDialog = true;
+    this.paypalLoading = true;
+
+    // Renderizar botones de PayPal después de que el dialog se muestre
+    setTimeout(() => {
+      this.renderPayPalButtons();
+    }, 300);
+  }
+
+  /**
+   *  Renderizar botones de PayPal
+   */
+  async renderPayPalButtons(): Promise<void> {
+    try {
+      const totalAmount = this.calculateEventTotal();
+      const eventDescription = `EventPlanify - Reserva de evento`;
+
+      await this.paypalService.renderButtons(
+        'paypal-button-container',
+        totalAmount,
+        eventDescription,
+        async (data, actions) => {
+          // Capturar el pago
+          const order = await actions.order.capture();
+          this.onPayPalSuccess(order);
+        },
+        (err) => {
+          this.onPayPalError(err);
+        }
+      );
+
+      this.paypalLoading = false;
+    } catch (error) {
+      console.error('Error rendering PayPal buttons:', error);
+      this.paypalLoading = false;
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'No se pudieron cargar los botones de PayPal'
+      });
+    }
+  }
+
+  /**
+   *  Manejo de pago exitoso
+   */
+  onPayPalSuccess(order: any): void {
+    console.log('Pago completado:', order);
+    
+    this.paymentCompleted = true;
+    this.paymentDetails = order;
+    this.eventForm.payment = 'paid';
+
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Pago Exitoso',
+      detail: `Pago procesado correctamente. ID: ${order.id}`,
+      life: 5000
+    });
+
+    // Guardar la reserva con el pago confirmado
+    this.confirmReservationAfterPayment(order);
+  }
+
+  /**
+   *  Manejo de error en el pago
+   */
+  onPayPalError(error: any): void {
+    console.error('Error en el pago de PayPal:', error);
+    
+    this.messageService.add({
+      severity: 'error',
+      summary: 'Error en el Pago',
+      detail: 'Hubo un problema al procesar el pago. Intenta nuevamente.',
+      life: 5000
+    });
+  }
+
+  /**
+   * Confirmar reserva después del pago
+   */
+  confirmReservationAfterPayment(paypalOrder: any): void {
+    const confirmedReservation = {
+      event: {
+        ...this.eventModel(),
+        sizePeople: this.eventForm.sizePeople,
+        dayDate: this.eventForm.dayDate.toISOString(),
+        payment: 'paid',
+        sumPrice: this.calculateEventTotal(),
+        paypalOrderId: paypalOrder.id,
+        paypalPayerId: paypalOrder.payer.payer_id
+      },
+      reserves: this.reserveModels(),
+      additionalNotes: this.eventForm.additionalNotes,
+      confirmedAt: new Date().toISOString(),
+      total: this.calculateEventTotal(),
+      paymentDetails: paypalOrder
+    };
+
+    localStorage.setItem('confirmedReservation', JSON.stringify(confirmedReservation));
+
+    const updatedEvent: R_EventModel = {} as R_EventModel;
+    Object.assign(updatedEvent, this.eventModel(), {
+      sizePeople: this.eventForm.sizePeople,
+      dayDate: this.eventForm.dayDate.toISOString(),
+      payment: 'paid',
+      sumPrice: this.calculateEventTotal()
+    });
+
+    this.eventService.create(updatedEvent as R_EventModel).subscribe({
+      next: (savedEvent) => {
+        console.log('Evento guardado en backend:', savedEvent);
+        
+        setTimeout(() => {
+          this.showPayPalDialog = false;
+          this.router.navigate(['/mis-eventos']);
+        }, 2000);
+      },
+      error: (err) => {
+        console.error('Error guardando evento:', err);
+        localStorage.setItem('pendingEventReservation', JSON.stringify(updatedEvent));
+
+        setTimeout(() => {
+          this.showPayPalDialog = false;
+          this.router.navigate(['/mis-eventos']);
+        }, 2000);
+      }
+    });
+  }
+
+  /**
+   * Cerrar modal de PayPal
+   */
+  closePayPalDialog(): void {
+    this.showPayPalDialog = false;
+    this.paypalLoading = false;
+  }
+
   confirmReservation(): void {
+    if (this.eventForm.payment === 'paypal') {
+      this.openPayPalDialog();
+    } else {
+      // Método anterior para pagos pendientes
+      this.confirmReservationWithoutPayment();
+    }
+  }
+
+  /**
+   * Confirmación sin pago (pendiente)
+   */
+  confirmReservationWithoutPayment(): void {
     if (!this.isFormValid()) {
       this.messageService.add({
         severity: 'error',
@@ -216,7 +384,7 @@ export class ConfirmationComponent implements OnInit {
       return;
     }
 
-    this.saveReservationData()
+    this.saveReservationData();
 
     const confirmedReservation = {
       event: {
@@ -241,38 +409,6 @@ export class ConfirmationComponent implements OnInit {
       life: 5000
     });
 
-    const updatedEvent: R_EventModel = {} as R_EventModel;
-    Object.assign(updatedEvent, this.eventModel(), {
-      sizePeople: this.eventForm.sizePeople,
-      dayDate: this.eventForm.dayDate.toISOString(),
-      payment: this.eventForm.payment,
-      sumPrice: this.calculateEventTotal()
-    });
-
-    this.eventService.create(updatedEvent as R_EventModel).subscribe({
-      next: (savedEvent) => {
-        console.log('✅ Evento guardado en backend:', savedEvent);
-        localStorage.setItem('pendingEventReservation', JSON.stringify(savedEvent));
-
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Evento guardado correctamente',
-          detail: `Total: $${this.calculateEventTotal()}`,
-          life: 4000
-        });
-      },
-      error: (err) => {
-        localStorage.setItem('pendingEventReservation', JSON.stringify(updatedEvent));
-
-        this.messageService.add({
-          severity: 'warn',
-          summary: 'Guardado localmente',
-          detail: 'No se pudo conectar con el servidor, pero se guardó en tu navegador.',
-          life: 4000
-        });
-      }
-    });
-
     setTimeout(() => this.router.navigate(['/']), 3000);
   }
 
@@ -282,7 +418,6 @@ export class ConfirmationComponent implements OnInit {
            this.eventForm.payment !== '';
   }
 
-  // HELPERS
   getTerraceCapacity(): string {
     const terrace = this.eventModel().terraceModel;
     return terrace ? `${terrace.baseSize} - ${terrace.maxSize} personas` : 'No disponible';
