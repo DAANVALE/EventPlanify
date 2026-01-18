@@ -142,14 +142,6 @@ export class TemplateCanvaComponent implements OnInit {
       next: (data) => this.terraces.set(data),
       error: (error) => console.error("Error loading terraces by type:", error),
     });
-
-    return;
-
-
-    this.t_terraceService.getAll().subscribe({
-      next: (data) => this.terraces.set(data),
-      error: (error) => console.error("Error loading terraces:", error),
-    });
   }
 
   // ========== SERVICE TYPE METHODS ==========
@@ -193,8 +185,11 @@ export class TemplateCanvaComponent implements OnInit {
 
     // ========== SERVICE SELECTION METHODS ==========
   getServicesByType(serviceType: T_ServiceTypeModel): T_ServiceModel[] {
-    if (!serviceType || !this.services()) return [];
-    return this.grouped[serviceType.id] || [];
+    console.log('Getting services for ServiceType:', serviceType);
+    console.log(this.grouped);
+
+    if (!serviceType) return [];
+    return this.grouped[serviceType.id];
   }
 
   openServiceDialog(service: T_ServiceModel): void {

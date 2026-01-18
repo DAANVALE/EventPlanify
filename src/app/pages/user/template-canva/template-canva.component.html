@@ -76,7 +76,7 @@
       <div class="card-container" (click)="openServiceDialog(service)">
         <p-card class="service-card">
           <img 
-            [src]="service.URL_IMG?.[0] || '../../../assets/calendars.png'" 
+            [src]="service.URL_Img?.[0]" 
             alt="{{service.name}}"
             class="card-image"
             (error)="onImageError($event)">

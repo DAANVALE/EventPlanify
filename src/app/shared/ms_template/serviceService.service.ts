@@ -34,8 +34,11 @@ export class ServiceService{
   }
 
   getByServiceType(serviceTypeId: number): Observable<ServiceModel[]> {
+    console.log('Fetching services for ServiceType ID:', serviceTypeId);
+    console.log('API Endpoint:', `${this.API}/ServiceType/${serviceTypeId}`);
     return this.http.get<ResponsePage<ServiceModel[]>>(`${this.API}/ServiceType/${serviceTypeId}`).pipe(
       map( response => {
+        console.log(response.content)
         return response.content;
       }),
       catchError(error => {

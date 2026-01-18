@@ -1,6 +1,6 @@
 [
     {
-        "url_Img": [],
+        
         "id": 1,
         "terraceType": [
             {
@@ -16,7 +16,7 @@
         },
         "idTerraceDB": 1,
         "idAsociateDB": 1,
-        "URL_Img": [],
+        "URL_Img": ["https://artifacsonline.blob.core.windows.net/artifactcontainer/imagenes eventplanify/terraza con alberca azul.jfif"],
         "name": "Terraza con Alberca Azul",
         "description": "Terraza exterior con alberca y área de lounge",
         "price": 1500.00,
@@ -24,7 +24,7 @@
         "tags": []
     },
     {
-        "url_Img": [],
+        
         "id": 2,
         "terraceType": [
             {
@@ -40,7 +40,7 @@
         },
         "idTerraceDB": 2,
         "idAsociateDB": 2,
-        "URL_Img": [],
+        "URL_Img": ["https://artifacsonline.blob.core.windows.net/artifactcontainer/imagenes eventplanify/terraza el encino.jpeg"],
         "name": "Terraza El Encino",
         "description": "Terraza rústica con jardín y área de fogata",
         "price": 1200.00,
@@ -48,7 +48,7 @@
         "tags": []
     },
     {
-        "url_Img": [],
+        
         "id": 3,
         "terraceType": [
             {
@@ -72,7 +72,7 @@
         "tags": []
     },
     {
-        "url_Img": [],
+        
         "id": 4,
         "terraceType": [
             {
@@ -88,7 +88,7 @@
         },
         "idTerraceDB": 4,
         "idAsociateDB": 4,
-        "URL_Img": [],
+        "URL_Img": ["https://artifacsonline.blob.core.windows.net/artifactcontainer/imagenes eventplanify/terraza expo tonala.avif"],
         "name": "Terraza ExpoTonala",
         "description": "Terraza moderna en zona artesanal con vista panorámica",
         "price": 1300.00,
@@ -96,7 +96,7 @@
         "tags": []
     },
     {
-        "url_Img": [],
+        
         "id": 5,
         "terraceType": [
             {
@@ -120,7 +120,7 @@
         "tags": []
     },
     {
-        "url_Img": [],
+        
         "id": 6,
         "terraceType": [
             {
@@ -136,7 +136,7 @@
         },
         "idTerraceDB": 6,
         "idAsociateDB": 6,
-        "URL_Img": [],
+        "URL_Img": ["https://artifacsonline.blob.core.windows.net/artifactcontainer/imagenes eventplanify/terraza experiencia 360.jfif"],
         "name": "Terraza Experiencia 360",
         "description": "Terraza premium con vista de 360° y tecnología avanzada",
         "price": 2000.00,

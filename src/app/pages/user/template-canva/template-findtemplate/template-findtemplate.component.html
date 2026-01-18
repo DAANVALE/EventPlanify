@@ -26,7 +26,7 @@
       <div class="p-2" (click)="openDialog(terrace)">
       <p-card [header]="terrace.name">
         <img
-          [src]=" terrace.url_Img?.[0] || 'assets/demo/images/placeholder.png'"
+          [src]=" terrace.URL_Img?.[0] || 'assets/demo/images/placeholder.png'"
           alt="Imagen terraza"
           height="100px"
           object-fit="cover"
@@ -53,14 +53,14 @@
     <div class="col-12 md:col-6">
       <p-card header="Galería" styleClass="h-full">
         <p-carousel
-          [value]="selectedTTerrace.url_Img || 'assets/demo/images/placeholder.png'"
+          [value]="selectedTTerrace.URL_Img[0] || 'assets/demo/images/placeholder.png'"
           [numVisible]="1"
           [numScroll]="1"
           [circular]="true"
           [autoplayInterval]="5000"
           [showIndicators]="true"
           [showNavigators]="true"
-          *ngIf="selectedTTerrace.url_Img.length > 0">
+          *ngIf="selectedTTerrace.URL_Img.length > 0">
           <ng-template pTemplate="item" let-imgUrl>
             <div class="image-wrapper flex justify-content-center align-items-center" style="height: 250px;">
               <img 
@@ -74,7 +74,7 @@
         </p-carousel>
         
         <!-- Fallback si no hay imágenes -->
-        <div *ngIf="!selectedTTerrace?.url_Img?.length" 
+        <div *ngIf="!selectedTTerrace?.URL_Img?.length" 
              class="flex flex-column justify-content-center align-items-center py-6">
           <i class="pi pi-image text-6xl text-400 mb-3"></i>
           <span class="text-600">No hay imágenes disponibles</span>
@@ -200,7 +200,7 @@
           
           <div class="flex align-items-center gap-2 text-sm">
             <i class="pi pi-image text-primary"></i>
-            <span>{{ selectedTTerrace.url_Img.length }} imagen(es) disponible(s)</span>
+            <span>{{ selectedTTerrace.URL_Img.length }} imagen(es) disponible(s)</span>
           </div>
 
           <div class="flex align-items-center gap-2 text-sm">
